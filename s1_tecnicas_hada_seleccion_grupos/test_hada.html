@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test HADA - Identificación de Roles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Estilos para la impresión */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #results-section, #results-section * {
+                visibility: visible;
+            }
+            #results-section {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+            #printButton {
+                display: none;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex items-center justify-center min-h-screen p-4">
+
+    <main class="w-full max-w-4xl">
+        <!-- Pantalla de Bienvenida -->
+        <section id="welcome-section" class="bg-white p-8 rounded-xl shadow-lg text-center transition-opacity duration-500">
+            <h1 class="text-3xl font-bold text-blue-600 mb-2">Test HADA - Identificación de Roles</h1>
+            <p class="text-slate-600 mb-6">Introduce tu nombre completo para comenzar el test.</p>
+            <div class="max-w-md mx-auto">
+                <input type="text" id="student-name" placeholder="Ej: Ana García López" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition">
+                <button id="start-test-btn" class="w-full mt-4 bg-blue-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Comenzar Test
+                </button>
+                <p id="name-error" class="text-red-500 text-sm mt-2 h-4"></p>
+            </div>
+        </section>
+
+        <!-- Pantalla del Test -->
+        <section id="test-section" class="hidden transition-opacity duration-500">
+             <div class="bg-white p-8 rounded-xl shadow-lg mb-6 no-print">
+                <h1 class="text-3xl font-bold text-blue-600 mb-2">Test HADA</h1>
+                <p class="text-slate-600">En cada bloque, asigna una puntuación diferente a cada afirmación (4, 3, 2, 1) según cuánto te identifiques con ella, donde <strong>4 es "Me representa mucho"</strong> y <strong>1 es "No me representa"</strong>.</p>
+            </div>
+            <form id="test-form">
+                <!-- Las preguntas se generarán aquí con JS -->
+            </form>
+            <div class="mt-6 text-center">
+                 <p id="test-error" class="text-red-500 text-sm mb-4 h-4"></p>
+                <button id="finish-test-btn" class="bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                    Finalizar y Ver Resultados
+                </button>
+            </div>
+        </section>
+
+        <!-- Pantalla de Resultados -->
+        <section id="results-section" class="hidden bg-white p-8 sm:p-12 rounded-xl shadow-lg transition-opacity duration-500">
+            <h1 class="text-3xl font-bold text-center text-blue-600 mb-4">Resultados del Test HADA</h1>
+            <p class="text-xl text-center text-slate-700 mb-8">
+                <span class="font-semibold">Alumno/a:</span> <span id="result-student-name" class="font-normal"></span>
+            </p>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full min-w-full text-left border-collapse">
+                    <thead class="bg-slate-100">
+                        <tr>
+                            <th class="p-4 border-b-2 border-slate-200 font-semibold text-slate-700">Perfil</th>
+                            <th class="p-4 border-b-2 border-slate-200 font-semibold text-slate-700 text-center">Puntuación Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-table-body">
+                        <!-- Las filas de resultados se generarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-8 text-center">
+                <button id="printButton" class="bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 no-print">
+                    Imprimir Resultados
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // --- DATOS DEL TEST ---
+        const questions = [
+            { block: 1, statements: [
+                "Prefiero asumir tareas y asegurarme de que todo esté organizado.",
+                "Me esfuerzo por que todos se sientan bien y participen.",
+                "Suelo proponer ideas nuevas o distintas a lo habitual.",
+                "Me gusta revisar el trabajo con detalle y asegurarme de que sea correcto."
+            ]},
+            { block: 2, statements: [
+                "Me resulta natural llevar el ritmo del grupo y que no se pierda tiempo.",
+                "Intento que las personas se escuchen y eviten conflictos.",
+                "Me atraen las formas originales de resolver problemas.",
+                "Me fijo en si se siguen las normas o criterios marcados."
+            ]},
+            { block: 3, statements: [
+                "Asumo responsabilidades sin que me lo pidan.",
+                "Valoro que el grupo funcione con armonía.",
+                "Cuando algo se repite demasiado, propongo una forma distinta.",
+                "Me gusta comparar y elegir la mejor opción entre varias."
+            ]},
+            { block: 4, statements: [
+                "A veces actúo como si llevara el control de la situación.",
+                "A veces me callo para no generar mal ambiente.",
+                "A veces salto de una idea a otra rápidamente.",
+                "A veces soy demasiado perfeccionista o exigente."
+            ]},
+            { block: 5, statements: [
+                "Me agobia perder tiempo y no avanzar.",
+                "No me gusta cuando hay tensión entre personas.",
+                "Me aburro si todo es igual siempre.",
+                "Me pone nervioso cuando las cosas se hacen con prisa o sin orden."
+            ]},
+            { block: 6, statements: [
+                "Me importa que el grupo cumpla con sus objetivos.",
+                "Me gusta que todas las personas puedan hablar y participar.",
+                "Creo que pensar diferente aporta riqueza al grupo.",
+                "Me gusta que las cosas se hagan con rigor y precisión."
+            ]},
+            { block: 7, statements: [
+                "Organizo tareas para que el equipo sepa qué hacer y cuándo.",
+                "Detecto cuándo alguien se siente excluido y trato de incluirlo.",
+                "Busco inspiración fuera del grupo para mejorar lo que hacemos.",
+                "Corrijo errores antes de que afecten al resultado."
+            ]},
+            { block: 8, statements: [
+                "Prefiero avanzar paso a paso y con control.",
+                "Soy paciente con los demás y no me gusta imponer.",
+                "Pregunto: ¿y si lo hiciéramos de otra forma?",
+                "Me gusta seguir los criterios marcados sin desviarme."
+            ]},
+            { block: 9, statements: [
+                "Asumo la responsabilidad de que el grupo funcione.",
+                "Aseguro que haya un ambiente donde todos puedan expresarse.",
+                "Me siento cómodo/a improvisando ideas.",
+                "Valoro el orden, la claridad y el cumplimiento."
+            ]},
+            { block: 10, statements: [
+                "Pido tareas claras y me gusta ejecutarlas bien.",
+                "Estoy pendiente de cómo se sienten mis compañeros/as.",
+                "Saco ideas de cualquier cosa, incluso de errores.",
+                "Me gusta planificar con detalle antes de actuar."
+            ]},
+            { block: 11, statements: [
+                "No me gusta cuando el grupo pierde tiempo sin decidir.",
+                "Evito discutir aunque tenga opiniones distintas.",
+                "Proponer ideas nuevas me motiva a participar.",
+                "Reviso documentos y resultados para asegurar su calidad."
+            ]},
+            { block: 12, statements: [
+                "Me gusta que haya avance constante y objetivos claros.",
+                "Me esfuerzo por hacer que todas las voces se escuchen.",
+                "Me gusta pensar en soluciones alternativas.",
+                "Me concentro en que las tareas se ajusten a lo que se ha pedido."
+            ]},
+            { block: 13, statements: [
+                "Soy el/la que toma la iniciativa cuando hay dudas.",
+                "Soy quien intenta suavizar tensiones si algo va mal.",
+                "Aporto energía cuando el grupo se estanca.",
+                "Soy quien revisa si algo está mal o incompleto."
+            ]},
+            { block: 14, statements: [
+                "Hago seguimiento de tareas para que no se acumulen.",
+                "Estoy atento/a a las necesidades sociales del grupo.",
+                "Busco maneras nuevas de presentar o expresar lo trabajado.",
+                "Analizo con lógica antes de dar una opinión."
+            ]},
+            { block: 15, statements: [
+                "Evito la pérdida de tiempo con buena organización.",
+                "Fomento el buen clima con palabras y gestos.",
+                "Rompo la rutina con propuestas originales.",
+                "Observo y detecto fallos en ideas o propuestas."
+            ]}
+        ];
+
+        const profiles = [
+            "Hacedor/a / Gestor/a",
+            "Armonizador/a / Colaborador/a",
+            "Divergente / Desarrollador/a",
+            "Analista"
+        ];
+        
+        // --- ELEMENTOS DEL DOM ---
+        const welcomeSection = document.getElementById('welcome-section');
+        const testSection = document.getElementById('test-section');
+        const resultsSection = document.getElementById('results-section');
+        const startTestBtn = document.getElementById('start-test-btn');
+        const finishTestBtn = document.getElementById('finish-test-btn');
+        const studentNameInput = document.getElementById('student-name');
+        const nameError = document.getElementById('name-error');
+        const testError = document.getElementById('test-error');
+        const testForm = document.getElementById('test-form');
+        const resultStudentName = document.getElementById('result-student-name');
+        const resultsTableBody = document.getElementById('results-table-body');
+        const printButton = document.getElementById('printButton');
+
+        // --- LÓGICA DE LA APLICACIÓN ---
+
+        function generateTest() {
+            questions.forEach((q, blockIndex) => {
+                const blockDiv = document.createElement('div');
+                blockDiv.className = 'bg-white p-6 rounded-xl shadow-lg mb-6 question-block';
+                blockDiv.dataset.blockIndex = blockIndex;
+
+                const blockTitle = document.createElement('h2');
+                blockTitle.className = 'text-xl font-bold mb-4 text-blue-600';
+                blockTitle.textContent = `Bloque ${q.block}`;
+                blockDiv.appendChild(blockTitle);
+                
+                const errorMsg = document.createElement('p');
+                errorMsg.className = 'text-red-500 text-sm mb-2 h-4 error-message';
+                blockDiv.appendChild(errorMsg);
+
+                q.statements.forEach((statement, statementIndex) => {
+                    const statementDiv = document.createElement('div');
+                    statementDiv.className = 'flex items-center justify-between mb-4 flex-wrap sm:flex-nowrap';
+
+                    const label = document.createElement('label');
+                    label.textContent = statement;
+                    label.className = 'flex-grow pr-4 text-slate-700';
+                    label.htmlFor = `q-${blockIndex}-${statementIndex}`;
+                    
+                    const select = document.createElement('select');
+                    select.name = `q-${blockIndex}-${statementIndex}`;
+                    select.id = `q-${blockIndex}-${statementIndex}`;
+                    select.className = 'w-full sm:w-24 mt-2 sm:mt-0 p-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition';
+                    select.dataset.statementIndex = statementIndex;
+
+                    const defaultOption = document.createElement('option');
+                    defaultOption.value = "";
+                    defaultOption.textContent = "Elegir";
+                    defaultOption.selected = true;
+                    select.appendChild(defaultOption);
+
+                    [4, 3, 2, 1].forEach(val => {
+                        const option = document.createElement('option');
+                        option.value = val;
+                        option.textContent = val;
+                        select.appendChild(option);
+                    });
+                    
+                    statementDiv.appendChild(label);
+                    statementDiv.appendChild(select);
+                    blockDiv.appendChild(statementDiv);
+                });
+                
+                testForm.appendChild(blockDiv);
+            });
+            
+            // Añadir event listeners para validación en tiempo real
+            document.querySelectorAll('.question-block').forEach(block => {
+                block.addEventListener('change', (e) => {
+                    if(e.target.tagName === 'SELECT') {
+                        validateBlock(block);
+                    }
+                });
+            });
+        }
+
+        function validateBlock(blockElement) {
+            const selects = blockElement.querySelectorAll('select');
+            const values = new Set();
+            let hasDuplicates = false;
+            let allSelected = true;
+
+            selects.forEach(select => {
+                const value = select.value;
+                if(value) {
+                    if (values.has(value)) {
+                        hasDuplicates = true;
+                    }
+                    values.add(value);
+                } else {
+                    allSelected = false;
+                }
+            });
+
+            const errorMsg = blockElement.querySelector('.error-message');
+            if (hasDuplicates) {
+                errorMsg.textContent = 'No puedes repetir puntuaciones en el mismo bloque.';
+                return false;
+            } else {
+                errorMsg.textContent = '';
+                return true;
+            }
+        }
+        
+        function validateAll() {
+            let isValid = true;
+            let allAnswered = true;
+            document.querySelectorAll('.question-block').forEach(block => {
+                 if (!validateBlock(block)) {
+                     isValid = false;
+                 }
+                 block.querySelectorAll('select').forEach(select => {
+                     if (select.value === "") {
+                         allAnswered = false;
+                     }
+                 });
+            });
+
+            if (!allAnswered) {
+                testError.textContent = 'Por favor, responde todas las preguntas antes de finalizar.';
+                return false;
+            }
+            if(!isValid) {
+                 testError.textContent = 'Revisa los bloques con errores marcados en rojo.';
+                return false;
+            }
+
+            testError.textContent = '';
+            return true;
+        }
+
+        function calculateResults() {
+            const scores = [0, 0, 0, 0]; // Index corresponds to profile index
+            
+            document.querySelectorAll('.question-block').forEach(block => {
+                block.querySelectorAll('select').forEach(select => {
+                    const score = parseInt(select.value, 10);
+                    const statementIndex = parseInt(select.dataset.statementIndex, 10);
+                    if (!isNaN(score)) {
+                        scores[statementIndex] += score;
+                    }
+                });
+            });
+
+            return scores;
+        }
+
+        function displayResults(scores) {
+            resultStudentName.textContent = studentNameInput.value;
+            resultsTableBody.innerHTML = '';
+            
+            profiles.forEach((profile, index) => {
+                const row = document.createElement('tr');
+                row.className = 'border-t border-slate-200';
+                
+                const profileCell = document.createElement('td');
+                profileCell.className = 'p-4';
+                profileCell.textContent = profile;
+
+                const scoreCell = document.createElement('td');
+                scoreCell.className = 'p-4 text-center font-semibold text-lg text-blue-600';
+                scoreCell.textContent = scores[index];
+
+                row.appendChild(profileCell);
+                row.appendChild(scoreCell);
+                resultsTableBody.appendChild(row);
+            });
+
+            welcomeSection.classList.add('hidden');
+            testSection.classList.add('hidden');
+            resultsSection.classList.remove('hidden');
+        }
+
+        startTestBtn.addEventListener('click', () => {
+            if (studentNameInput.value.trim() === '') {
+                nameError.textContent = 'Por favor, introduce tu nombre.';
+                studentNameInput.focus();
+            } else {
+                nameError.textContent = '';
+                welcomeSection.classList.add('hidden');
+                testSection.classList.remove('hidden');
+            }
+        });
+        
+        finishTestBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Evita que el formulario se envíe
+            if(validateAll()) {
+                const finalScores = calculateResults();
+                displayResults(finalScores);
+            }
+        });
+
+        printButton.addEventListener('click', () => {
+            window.print();
+        });
+
+        // Generar el test al cargar la página
+        generateTest();
+
+    </script>
+</body>
+</html>
