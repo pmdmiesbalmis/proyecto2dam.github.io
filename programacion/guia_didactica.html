@@ -1,0 +1,932 @@
+<!DOCTYPE html><html><head>
+      <title>Programación Didáctica del módulo "Proyecto Intermodular"</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css);
+code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+@font-face {
+  font-family: 'Catamaran';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/catamaran/v27/o-0bIpQoyXQa2RxT7-5B6Ryxs2E_6n1iPHjd5a7dvg.ttf) format('truetype');
+}
+@page a4landscape {
+  size: A4 landscape;
+  margin: 1cm;
+}
+@page a4portrait {
+  size: A4 portrait;
+  margin: 1cm 1cm 2.5cm 1cm;
+}
+.markdown-preview.markdown-preview .landscape {
+  page: a4landscape;
+}
+.markdown-preview.markdown-preview .portrait {
+  page: a4portrait;
+}
+.markdown-preview.markdown-preview .box_bg_lightgray {
+  background-color: #f5f5f5;
+  border: 2px solid #969696;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px 0 rgba(78, 120, 158, 0.1);
+}
+.markdown-preview.markdown-preview .box_bg_lightgreen {
+  background-color: #f5faf5;
+  border: 2px solid #969b96;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px 0 rgba(78, 120, 158, 0.1);
+}
+.markdown-preview.markdown-preview .salida_consola {
+  background-color: #000000;
+  color: aquamarine;
+  border: 3px solid slategrey;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px 0 slategrey;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 0.8rem;
+}
+.markdown-preview.markdown-preview .contenedor {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto 30px auto;
+}
+.markdown-preview.markdown-preview .fondo {
+  background: url(https://balmisdigigs.github.io/digitalizacion.github.io/imagenes/fondos/quote.png);
+  background-size: cover;
+  width: 75%;
+  height: 160px;
+  border-radius: 10px;
+  position: relative;
+}
+.markdown-preview.markdown-preview .cita {
+  font-family: Arial;
+  font-style: italic;
+  font-weight: 600;
+  text-align: justify;
+  line-height: 1.5rem;
+  opacity: 0.6;
+  color: white;
+  padding: 5rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  font-size: 1.3rem;
+  transform: translate(-50%, -50%);
+}
+.markdown-preview.markdown-preview .abre_comilla {
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: white;
+  padding-left: 30px;
+  position: absolute;
+  font-size: 6rem;
+  transform: translate(0%, -15%);
+}
+.markdown-preview.markdown-preview .cierra_comilla {
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: white;
+  padding-right: 30px;
+  right: 0%;
+  position: absolute;
+  font-size: 6rem;
+  transform: translate(0%, 55%);
+}
+.markdown-preview.markdown-preview .autor {
+  font-family: Arial;
+  color: white;
+  margin: 0px;
+  padding-left: 30px;
+  position: absolute;
+  top: 83%;
+  font-size: 1rem;
+}
+.markdown-preview.markdown-preview .flotante {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    justify-content: center;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    flex-direction: column;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    flex-direction: row;
+  }
+}
+.markdown-preview.markdown-preview .flotante_izq {
+  margin-right: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_izq {
+    width: 100%;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_izq {
+    width: auto;
+  }
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_der {
+    width: 100%;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_der {
+    width: auto;
+  }
+}
+.markdown-preview.markdown-preview .galeria_imagenes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .galeria_imagenes {
+    flex-direction: column;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .galeria_imagenes {
+    flex-direction: row;
+  }
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+    const configureMermaidIconPacks = () => {
+        window["mermaid"].registerIconPacks([
+            {
+                name: "logos",
+                loader: () =>
+                    fetch("https://unpkg.com/@iconify-json/logos@1/icons.json").then(
+                        (res) => res.json()
+                    ),
+            },
+        ]);
+    };
+
+    if (document.readyState !== 'loading') {
+        configureMermaidIconPacks();
+    } else {
+        document.addEventListener("DOMContentLoaded", () => {
+            configureMermaidIconPacks();
+        });
+    }
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="programación-didáctica-del-módulo-proyecto-intermodular">Programación Didáctica del módulo "Proyecto Intermodular" </h1>
+<h2 id="cfgs-desarrollo-de-aplicaciones-multiplataforma-dam---comunitat-valenciana">CFGS Desarrollo de Aplicaciones Multiplataforma (DAM) - Comunitat Valenciana </h2>
+
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#programación-didáctica-del-módulo-proyecto-intermodular" class="md-toc-link"><p>Programación Didáctica del módulo "Proyecto Intermodular"</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#cfgs-desarrollo-de-aplicaciones-multiplataforma-dam---comunitat-valenciana" class="md-toc-link"><p>CFGS Desarrollo de Aplicaciones Multiplataforma (DAM) - Comunitat Valenciana</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#1-marco-normativo-y-justificación-de-la-programación" class="md-toc-link"><p>1. Marco Normativo y Justificación de la Programación</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#11-justificación-y-alineación-con-la-lfp" class="md-toc-link">
+            <p>1.1. Justificación y Alineación con la LFP</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#12-contextualización" class="md-toc-link">
+            <p>1.2. Contextualización</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#13-alineación-con-los-objetivos-de-desarrollo-sostenible-ods" class="md-toc-link">
+            <p>1.3. Alineación con los Objetivos de Desarrollo Sostenible (ODS)</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#2-objetivos-competencias-y-resultados-de-aprendizaje" class="md-toc-link"><p>2. Objetivos, Competencias y Resultados de Aprendizaje</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#21-objetivos-generales-del-proyecto-metodología-smart" class="md-toc-link">
+            <p>2.1. Objetivos Generales del Proyecto (Metodología S.M.A.R.T.)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#22-competencias-profesionales-personales-y-sociales" class="md-toc-link">
+            <p>2.2. Competencias Profesionales, Personales y Sociales</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#23-resultados-de-aprendizaje-ra-del-módulo-proyecto-intermodular" class="md-toc-link">
+            <p>2.3. Resultados de Aprendizaje (RA) del Módulo "Proyecto Intermodular"</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#3-metodología-organización-y-secuenciación-de-contenidos" class="md-toc-link"><p>3. Metodología, Organización y Secuenciación de Contenidos</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#31-metodología-de-trabajo-ágil-scrum" class="md-toc-link">
+            <p>3.1. Metodología de Trabajo Ágil (SCRUM)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#32-herramientas-y-entorno-de-trabajo-colaborativo" class="md-toc-link">
+            <p>3.2. Herramientas y Entorno de Trabajo Colaborativo</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#33-secuenciación-de-actividades-y-contenidos-tecnológicos" class="md-toc-link">
+            <p>3.3. Secuenciación de Actividades y Contenidos Tecnológicos</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#4-planificación-y-temporalización-detallada-16-quincenas" class="md-toc-link"><p>4. Planificación y Temporalización Detallada (16 Quincenas)</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#41-cronograma-general-por-quincenas-sprints" class="md-toc-link">
+            <p>4.1. Cronograma General por Quincenas (Sprints)</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#5-sistema-de-evaluación-integrada" class="md-toc-link"><p>5. Sistema de Evaluación Integrada</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#51-escala-de-valoración-por-actividad-entregable-rúbricas" class="md-toc-link">
+            <p>5.1. Escala de Valoración por Actividad Entregable (Rúbricas)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#52-escala-de-valoración-final-del-proyecto" class="md-toc-link">
+            <p>5.2. Escala de Valoración Final del Proyecto</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#6-matriz-de-integración-curricular" class="md-toc-link">
+            <p>6. Matriz de Integración Curricular</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#7-medidas-de-atención-a-la-diversidad" class="md-toc-link">
+            <p>7. Medidas de Atención a la Diversidad</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#8-evaluación-de-la-práctica-docente" class="md-toc-link">
+            <p>8. Evaluación de la Práctica Docente</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    
+</div>
+<div style="page-break-after:always;"></div>
+<h3 id="1-marco-normativo-y-justificación-de-la-programación">1. Marco Normativo y Justificación de la Programación </h3>
+<h4 id="11-justificación-y-alineación-con-la-lfp">1.1. Justificación y Alineación con la LFP </h4>
+<p>La presente programación didáctica se ha diseñado para el módulo profesional de "Proyecto Intermodular" del segundo curso del Ciclo Formativo de Grado Superior en Desarrollo de Aplicaciones Multiplataforma (DAM). Su concepción responde y se alinea estrictamente con las directrices de la <strong>Ley Orgánica 3/2022, de 31 de marzo, de ordenación e integración de la Formación Profesional (LFP)</strong>, así como con su desarrollo normativo a través del <strong>Real Decreto 659/2023</strong> y la actualización específica del título mediante el <strong>Real Decreto 405/2023</strong></p>
+<p>Además, se tendrá en cuenta el <strong>Artículo 5</strong> del <strong>Decreto 114/2025, de 29 de julio</strong> por el que se establece el currículo de los ciclos formativos de Formación Profesional en la Comunitat Valenciana, asegurando la coherencia con el contexto educativo autonómico.</p>
+<p>Este módulo representa una evolución pedagógica fundamental respecto al anterior "Proyecto de Fin de Ciclo". Abandona su carácter eminentemente sumativo y finalista para convertirse en una herramienta formativa <strong>continua, transversal y simultánea</strong> al resto de los módulos del curso Actúa como el <strong>eje vertebrador</strong> y el <strong>nexo de unión</strong> que materializa en el aula los principios de la LFP, creando un escenario dinámico donde los conocimientos y destrezas de los distintos módulos se aplican, integran y evalúan en tiempo real. El proyecto deja de ser un escaparate final para transformarse en el laboratorio principal de aprendizaje, donde la evaluación es, por su propia naturaleza, integrada y continua.</p>
+<h4 id="12-contextualización">1.2. Contextualización </h4>
+<p>Esta programación está diseñada para ser implementada en un grupo de segundo curso de DAM en un centro educativo de la Comunitat Valenciana. Se asume un grupo heterogéneo de estudiantes que trabajarán en equipos de <strong>4 o 5 miembros</strong>, fomentando la colaboración, la comunicación y la responsabilidad compartida.</p>
+<p>En este marco, el rol del profesorado evoluciona desde el de un instructor tradicional al de un <strong>"facilitador"</strong> La función principal del docente será guiar a los equipos, proveer de las herramientas metodológicas y técnicas necesarias, practicar la escucha activa y actuar como mentor para ayudar a los alumnos a superar los desafíos y alcanzar sus objetivos de forma autónoma.</p>
+<h4 id="13-alineación-con-los-objetivos-de-desarrollo-sostenible-ods">1.3. Alineación con los Objetivos de Desarrollo Sostenible (ODS) </h4>
+<p>Un pilar fundamental del nuevo enfoque pedagógico, y un requisito explícito de esta programación, es el anclaje de todos los proyectos en un marco ético de impacto global: los <strong>Objetivos de Desarrollo Sostenible (ODS)</strong> de las Naciones Unidas Aunque en esta programación no se define un proyecto concreto, se establece como condición indispensable que cada equipo, en su fase de ideación, identifique un desafío social, medioambiental o económico real y alinee su propuesta de solución con uno o varios de los ODS.</p>
+<p>Este requisito funciona como el principal mecanismo de filtrado y validación de las ideas de proyecto, integrando desde el inicio las competencias del módulo transversal <strong>Sostenibilidad Aplicada al Sistema Productivo (SOP)</strong> y expandiendo el Resultado de Aprendizaje PROY-RA1 ("Identifica necesidades del sector productivo") para abarcar no solo las demandas del mercado, sino también los grandes retos de la sociedad</p>
+<h3 id="2-objetivos-competencias-y-resultados-de-aprendizaje">2. Objetivos, Competencias y Resultados de Aprendizaje </h3>
+<h4 id="21-objetivos-generales-del-proyecto-metodología-smart">2.1. Objetivos Generales del Proyecto (Metodología S.M.A.R.T.) </h4>
+<p>Al inicio del curso, cada equipo deberá definir los objetivos específicos de su proyecto utilizando la metodología S.M.A.R.T. Como guía, los objetivos generales de este módulo son:</p>
+<ul>
+<li><strong>S - Específico (Specific):</strong> Desarrollar una solución software multiplataforma completa que incluya una aplicación de escritorio (WPF con C# y arquitectura MVVM), una aplicación móvil (Android con Kotlin, Jetpack Compose y arquitectura MVI) y un servicio backend (API REST con Java, Spring Boot y Spring Security). El sistema deberá incluir comunicación asíncrona (RabbitMQ) y estar gestionado mediante un flujo de trabajo profesional (Git, GitHub Projects, Markdown).</li>
+<li><strong>M - Medible (Measurable):</strong> Implementar el 100% de los casos de uso mínimos definidos en la fase de diseño. Todos los artefactos del proyecto (código, documentación, diario de trabajo) deben estar actualizados semanalmente en el repositorio de GitHub.</li>
+<li><strong>A - Alcanzable (Achievable):</strong> El alcance tecnológico es ambicioso pero factible en la temporalización asignada de <strong>100 horas lectivas</strong> (3h/semana durante 32-33 semanas) y aproximadamente <strong>64 horas de trabajo autónomo</strong> (2h/semana), utilizando las tecnologías del currículo de 2º de DAM.</li>
+<li><strong>R - Relevante (Relevant):</strong> El proyecto exige la aplicación e integración práctica de las competencias clave de todos los módulos técnicos y transversales de 2º de DAM, simulando un entorno de desarrollo profesional real.</li>
+<li><strong>T - Delimitado en el Tiempo (Time-bound):</strong> El proyecto se desarrollará íntegramente a lo largo de <strong>16 quincenas (32 semanas)</strong>, con una entrega final y presentación en la última quincena.</li>
+</ul>
+<h4 id="22-competencias-profesionales-personales-y-sociales">2.2. Competencias Profesionales, Personales y Sociales </h4>
+<p>A través del desarrollo del proyecto, se trabajarán de forma integrada las competencias definidas en el perfil del título 1:</p>
+<ul>
+<li><strong>Competencia General:</strong> Desarrollar, implantar, documentar y mantener aplicaciones informáticas multiplataforma, utilizando tecnologías y entornos de desarrollo específicos, garantizando el acceso a los datos de forma segura y cumpliendo los criterios de usabilidad y calidad exigidos.</li>
+<li><strong>Competencias Transversales:</strong> Se potenciarán de forma explícita las "4C" (Colaboración, Comunicación, Pensamiento Crítico y Creatividad), así como la competencia emprendedora, la digital y la socioemocional, fundamentales en el entorno laboral actual.</li>
+</ul>
+<h4 id="23-resultados-de-aprendizaje-ra-del-módulo-proyecto-intermodular">2.3. Resultados de Aprendizaje (RA) del Módulo "Proyecto Intermodular" </h4>
+<ul>
+<li><strong>RA1:</strong> Identifica necesidades del sector productivo, relacionándolas con proyectos tipo que puedan satisfacerlas.</li>
+<li><strong>RA2:</strong> Diseña proyectos relacionados con las competencias expresadas en el título, desarrollando explícitamente las fases que lo componen.</li>
+<li><strong>RA3:</strong> Planifica la ejecución del proyecto, determinando el plan de intervención y la documentación asociada.</li>
+<li><strong>RA4:</strong> Define los procedimientos para el seguimiento y control en la ejecución del proyecto, justificando la selección de variables e instrumentos empleados.</li>
+</ul>
+<h3 id="3-metodología-organización-y-secuenciación-de-contenidos">3. Metodología, Organización y Secuenciación de Contenidos </h3>
+<h4 id="31-metodología-de-trabajo-ágil-scrum">3.1. Metodología de Trabajo Ágil (SCRUM) </h4>
+<p>El proyecto se <strong>planteará por retos</strong>, siguiendo el marco de trabajo ágil <strong>SCRUM</strong>, por ser el estándar de facto en la industria del desarrollo de software y por su adecuación a los principios pedagógicos de flexibilidad, entrega iterativa y mejora continua.</p>
+<ul>
+<li><strong>Sprints:</strong> Cada quincena lectiva constituirá un <strong>Sprint</strong> de dos semanas de duración. El proyecto se completará en un total de <strong>16 sprints</strong>.</li>
+<li><strong>Ceremonias SCRUM:</strong> Se llevarán a cabo de <strong>forma flexible</strong> las ceremonias clave:
+<ul>
+<li><strong>Sprint Planning:</strong> Al inicio de cada quincena, para seleccionar las tareas del Product Backlog que se abordarán.</li>
+<li><strong>Daily Stand-up:</strong> Al comienzo de cada sesión de trabajo en el aula, para sincronizar al equipo. Máximo <strong>5 minutos</strong>.</li>
+<li><strong>Sprint Review:</strong> Al final de cada quincena, para demostrar el incremento de producto funcional.</li>
+<li><strong>Sprint Retrospective:</strong> Tras la Review, para reflexionar sobre el proceso y proponer mejoras para el siguiente sprint.</li>
+</ul>
+</li>
+<li><strong>Roles:</strong> El profesor actuará como <strong>Product Owner</strong>, definiendo los requisitos generales y el marco de trabajo. Los equipos de alumnos constituirán el <strong>Development Team</strong>. Para fomentar el liderazgo, el rol de <strong>Scrum Master</strong> podrá ser rotativo entre los miembros del equipo en cada sprint.</li>
+</ul>
+<h4 id="32-herramientas-y-entorno-de-trabajo-colaborativo">3.2. Herramientas y Entorno de Trabajo Colaborativo </h4>
+<ul>
+<li><strong>GitHub:</strong> Será la plataforma central para el control de versiones del código fuente. Se exigirá un uso correcto de un flujo de trabajo de ramas (ej. GitFlow simplificado), la realización de <strong>Pull Requests</strong> para la integración de código y la revisión de código entre compañeros como parte del proceso de calidad.</li>
+<li><strong>GitHub Projects:</strong> Se utilizará para la gestión del <strong>Product Backlog</strong> y los <strong>Sprint Backlogs</strong>. Cada equipo mantendrá un tablero Kanban para visualizar el estado de las tareas (To Do, In Progress, Done), proporcionando transparencia sobre el progreso del proyecto.</li>
+<li><strong>Documentación en Markdown:</strong> Toda la documentación del proyecto (definición, análisis, diseño, manuales, memoria) se generará en formato <strong>Markdown</strong> y se alojará en el propio repositorio de GitHub. Se recomienda el uso de extensiones como <strong>Markdown Preview Enhanced</strong> para la inclusión de diagramas (PlantUML), fórmulas y otros elementos enriquecidos.</li>
+<li><strong>Diario de Trabajo Individual:</strong> Cada equipo deberá mantener un fichero a modo de diario de trabajo denominado <strong><code>DIARIO.md</code></strong> en la raíz del repositorio. En este diario, se registrará semanalmente las tareas realizadas, el tiempo dedicado, los problemas encontrados, las soluciones aplicadas y una reflexión sobre su aprendizaje. Rellenando una tabla en Markdown donde cada fila represente una <strong>memoria semanal</strong> de trabajo por alumno con las siguientes columnas:
+<ul>
+<li>
+<p><strong>Alumno:</strong> Nombre del alumno.</p>
+</li>
+<li>
+<p><strong>Tareas Realizadas:</strong> Descripción breve de las tareas completadas.</p>
+</li>
+<li>
+<p><strong>Problemas Encontrados:</strong> Descripción de los problemas o bloqueos.</p>
+</li>
+<li>
+<p><strong>Soluciones Aplicadas:</strong> Cómo se resolvieron los problemas.</p>
+</li>
+<li>
+<p><strong>Reflexión:</strong> Reflexión personal sobre el aprendizaje y la mejora continua.</p>
+<p><strong>Ejemplo:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Semana</th>
+<th>Alumno</th>
+<th>Tareas<br>Realizadas</th>
+<th>Problemas<br>Encontrados</th>
+<th>Soluciones<br>Aplicadas</th>
+<th>Reflexión</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Juan Pérez</td>
+<td>Definición del proyecto, creación de repos</td>
+<td>Dificultad con GitHub Projects</td>
+<td>Asistencia a un taller de GitHub</td>
+<td>Aprendí a gestionar mejor el flujo de trabajo en equipo.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>María García</td>
+<td>Investigación sobre ODS y definición de caso de uso</td>
+<td>Falta de claridad en los ODS</td>
+<td>Consulta a documentación oficial y foros</td>
+<td>Mejoré mi comprensión de los ODS y su aplicación práctica.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>María García</td>
+<td>Diseño del modelo de dominio en Java</td>
+<td>Confusión con PlantUML</td>
+<td>Consulta a documentación y foros</td>
+<td>Mejoré mi comprensión de UML y su aplicación práctica.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Juan Pérez</td>
+<td>Implementación de clases Java y diagrama de clases</td>
+<td>Problemas con la transpilación a C#</td>
+<td>Asistencia a un taller de IA generativa</td>
+<td>Aprendí a utilizar herramientas de IA para mejorar el código.</td>
+</tr>
+</tbody>
+</table>
+<p>Este documento es un instrumento fundamental para la evaluación individual y <strong>solo se tendrá en cuenta si se ha realizado un commit por semana</strong> y se ha actualizado correctamente.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div style="page-break-after:always;"></div>
+<h4 id="33-secuenciación-de-actividades-y-contenidos-tecnológicos">3.3. Secuenciación de Actividades y Contenidos Tecnológicos </h4>
+<p>La secuencia sigue un <strong>flujo lógico de retos</strong> que abarca desde la formación inicial en herramientas y metodologías, pasando por el diseño e implementación de las distintas capas del sistema, hasta la integración final y la entrega del proyecto.</p>
+<ul>
+<li><strong>Actividad 1: Presentación:</strong> Presentación del módulo y presentación del grupo utilizando dinámicas de grupo para fomentar la cohesión y el trabajo en equipo.</li>
+<li><strong>Actividad 2: Formación de equipos</strong> Formación de equipos con técnica <strong>H.A.D.A.</strong> (Hacedor, Analista, Divergente, Armonizador).</li>
+<li><strong>Actividad 3: Taller de Git y GitHub</strong> Instalación VSCode, Creación de la organización y primer repositorio en GitHub. Definición de flujos de trabajo con ramas y Pull Requests.</li>
+<li><strong>Actividad 4: Definición del proyecto y ODS</strong>. Cada equipo selecciona un desafío social y define su proyecto alineado con uno o varios ODS a partir de una plantilla usando una LLM (Gemini, ChatGPT, Perplexity, DeepSeek. etc.). Se crea un repositorio en la organización y en un fichero <strong><code>PROYECTO.md</code></strong> se documentan los casos de uso y los objetivos S.M.A.R.T. (Specific, Measurable, Achievable, Relevant, Time-bound).</li>
+<li><strong>Actividad 5: Gestión Ágil con SCRUM</strong> Repaso ceremonias SCRUM y configuración de GitHub Projects para la gestión del Product Backlog y los Sprint Backlogs. Definen un Backlog inicial y planifican el primer sprint.</li>
+<li><strong>Actividad 6: Diseño del Modelo de Dominio (Sprint 1)</strong> Sprint Planning 1 y uso de IA generativa para ayudar en el diseño del modelo de dominio. Diseño del modelo de dominio en <strong>C#</strong> y creación del diagrama de clases con <strong>PlantUML</strong>. Documentación en <strong><code>DISEÑO.md</code></strong>.</li>
+<li><strong>Actividad 7: Implementación del Modelo de Dominio (Sprint 2)</strong> Sprint Planning 2 y transpilación de las clases Java a <strong>Java</strong> y <strong>Kotlin</strong> usando IA generativa. Creación de Mocks de datos e imágenes para pruebas con IA.</li>
+<li><strong>Actividad 8: Prototipado UI/UX (Sprint 3)</strong> Sprint Planning 3 y prototipado de UI/UX para Android (Material 3) y Escritorio (XAML) con <strong>Figma/Penpot</strong> y herramientas de IA como Google Stitch AI o Lovable.</li>
+<li><strong>Actividad 9: Frontend Escritorio (Sprint 4)</strong> Sprint Planning 4. Implementación de la UI de la aplicación de admin con <strong>WPF</strong>.</li>
+<li><strong>Actividad 10: Frontend Escritorio (Sprint 5)</strong> Sprint Planning 5. Definición arquitectura <strong>MVVM</strong> vinculando VM a los datos mock.</li>
+<li><strong>Actividad 11: Frontend Móvil (Sprint 6)</strong> Sprint Planning 6. Implementación de la UI de la aplicación de cliente con <strong>Android (Jetpack Compose)</strong>.</li>
+<li><strong>Actividad 12: Frontend Móvil (Sprint 7)</strong> Sprint Planning 7. Definición arquitectura <strong>MVI</strong> vinculando estados a los datos mock.</li>
+<li><strong>Actividad 13: Backend - API REST (Sprint 8)</strong> Sprint Planning 8. Implementación de API REST con <strong>Spring Boot</strong> y Java. Definición de entidades y sus relaciones con a partir del modelo y generación base de datos H2 en fichero siguiendo el esquem Entity-First.</li>
+<li><strong>Actividad 14: Backend - API REST (Sprint 9)</strong> Sprint Planning 9. Implementación de la lógica de negocio en los servicios de la API.</li>
+<li><strong>Actividad 15: Backend - Seguridad (Sprint 10)</strong> Sprint Planning 10. Implementación de autenticación y autorización con <strong>Spring Security</strong> y <strong>JWT</strong>. Gestión de usuarios y claves hasheadas en BD.</li>
+<li><strong>Actividad 16: Backend - Seguridad (Sprint 11)</strong> Sprint Planning 11. Protección de endpoints por roles (JWT).</li>
+<li><strong>Actividad 17: Integración Full-Stack (Sprint 12)</strong> Sprint Planning 12. Sustitución de datos mock por el consumo real de la API REST en las aplicaciones de Escritorio (C#) y Android (Kotlin).</li>
+<li><strong>Actividad 18: Avanzado y Entrega Final (Sprint 13)</strong> Sprint Planning 13. Elaboración de la memoria final, vídeo y preparación de la presentación.</li>
+</ul>
+<div style="page-break-after:always;"></div>
+<h3 id="4-planificación-y-temporalización-detallada-16-quincenas">4. Planificación y Temporalización Detallada (16 Quincenas) </h3>
+<h4 id="41-cronograma-general-por-quincenas-sprints">4.1. Cronograma General por Quincenas (Sprints) </h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Sprint</th>
+<th style="text-align:left">Semanas</th>
+<th style="text-align:left">Fechas</th>
+<th style="text-align:left">Objetivo Principal del Sprint</th>
+<th style="text-align:left">Entregables Clave</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">1-2</td>
+<td style="text-align:left">08 sep<br>19 sep</td>
+<td style="text-align:left">Fundación y Metodología</td>
+<td style="text-align:left">Creación de equipos con técnicas H.A.D.A.</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">3-4</td>
+<td style="text-align:left">22 sep<br>03 oct</td>
+<td style="text-align:left">Git y GitHub y Organización<br>Definición del Proyecto y ODS</td>
+<td style="text-align:left">Documento de casos de uso y objetivos S.M.A.R.T. (MD).</td>
+</tr>
+<tr>
+<td style="text-align:left"></td>
+<td style="text-align:left">5-6</td>
+<td style="text-align:left">06 oct<br>17 oct</td>
+<td style="text-align:left">GitHub Project y Scrum</td>
+<td style="text-align:left">Documentación SCRUM en MD utilizando GitHub Projects.</td>
+</tr>
+<tr>
+<td style="text-align:left">1</td>
+<td style="text-align:left">7-8</td>
+<td style="text-align:left">20 oct<br>31 oct</td>
+<td style="text-align:left">IA y Modelo de Dominio (C#)</td>
+<td style="text-align:left">Diagrama de clases (PlantUML). Clases del modelo en C#.</td>
+</tr>
+<tr>
+<td style="text-align:left">2</td>
+<td style="text-align:left">9-10</td>
+<td style="text-align:left">03 nov<br>14 nov</td>
+<td style="text-align:left">Transpilación y Mocks con IA</td>
+<td style="text-align:left">Refinamientos, Clases en Kotlin y Java, ficheros de mocks de datos.</td>
+</tr>
+<tr>
+<td style="text-align:left">3</td>
+<td style="text-align:left">11-12<br>(<strong>1º Ev</strong>)</td>
+<td style="text-align:left">17 nov<br>05 dic</td>
+<td style="text-align:left">Prototipado UI/UX</td>
+<td style="text-align:left">Prototipos de UI/UX en Figma/Penpot.</td>
+</tr>
+<tr>
+<td style="text-align:left">4</td>
+<td style="text-align:left">13-14</td>
+<td style="text-align:left">08 dic<br>19 dic</td>
+<td style="text-align:left">Frontend Escritorio (WPF+MVVM)</td>
+<td style="text-align:left">Aplicación WPF con vistas y ViewModels, usando datos mock.</td>
+</tr>
+<tr>
+<td style="text-align:left">5</td>
+<td style="text-align:left">15-16</td>
+<td style="text-align:left">07 ene<br>16 ene</td>
+<td style="text-align:left">Frontend Escritorio (Funcional)</td>
+<td style="text-align:left">Lógica de negocio y navegación implementada en la app de escritorio.</td>
+</tr>
+<tr>
+<td style="text-align:left">6</td>
+<td style="text-align:left">17-18</td>
+<td style="text-align:left">19 ene<br>30 ene</td>
+<td style="text-align:left">Frontend Móvil (Android+MVI)</td>
+<td style="text-align:left">App Android con pantallas y estados (Compose), usando datos mock.</td>
+</tr>
+<tr>
+<td style="text-align:left">7</td>
+<td style="text-align:left">19-20</td>
+<td style="text-align:left">02 feb<br>13 feb</td>
+<td style="text-align:left">Frontend Móvil (Funcional)</td>
+<td style="text-align:left">Lógica de negocio y navegación implementada en la app móvil.</td>
+</tr>
+<tr>
+<td style="text-align:left">8</td>
+<td style="text-align:left">(<strong>2º Ev</strong>)<br>21-22</td>
+<td style="text-align:left">23 feb<br>06 mar</td>
+<td style="text-align:left">Backend: API REST (CRUD)</td>
+<td style="text-align:left">Proyecto Spring Boot con endpoints CRUD funcionales y BD H2.</td>
+</tr>
+<tr>
+<td style="text-align:left">9</td>
+<td style="text-align:left">23-24</td>
+<td style="text-align:left">09 mar<br>20 mar</td>
+<td style="text-align:left">Backend: API REST (Lógica)</td>
+<td style="text-align:left">Lógica de negocio implementada en los servicios de la API.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><strong>FE</strong></strong></td>
+<td style="text-align:left"><strong><strong>FE</strong></strong></td>
+<td style="text-align:left"><strong><strong>FE</strong></strong></td>
+<td style="text-align:left"><strong><strong>FE</strong></strong></td>
+<td style="text-align:left"><strong><strong>FE</strong></strong></td>
+</tr>
+<tr>
+<td style="text-align:left">10</td>
+<td style="text-align:left">25-26</td>
+<td style="text-align:left">23 mar<br>24 abr</td>
+<td style="text-align:left">Backend: Seguridad (JWT)</td>
+<td style="text-align:left">API con endpoints de login y registro.</td>
+</tr>
+<tr>
+<td style="text-align:left">11</td>
+<td style="text-align:left">27-28</td>
+<td style="text-align:left">27 abr<br>08 may</td>
+<td style="text-align:left">Backend: Autorización</td>
+<td style="text-align:left">API con endpoints protegidos por roles (JWT).</td>
+</tr>
+<tr>
+<td style="text-align:left">12</td>
+<td style="text-align:left">29-30</td>
+<td style="text-align:left">11 may<br>22 may</td>
+<td style="text-align:left">Integración Full-Stack</td>
+<td style="text-align:left">Apps WPF y Android conectadas a la API REST segura.</td>
+</tr>
+<tr>
+<td style="text-align:left">13</td>
+<td style="text-align:left">31-32</td>
+<td style="text-align:left">25 may<br>05 jun</td>
+<td style="text-align:left">Avanzado y Entrega Final</td>
+<td style="text-align:left">(Opcional) RabbitMQ/CI/CD. Memoria final, vídeo y presentación.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="5-sistema-de-evaluación-integrada">5. Sistema de Evaluación Integrada </h3>
+<p>La evaluación del módulo será <strong>continua, formativa e integradora</strong>, combinando la valoración del producto final con el seguimiento del proceso y las contribuciones individuales.</p>
+<h4 id="51-escala-de-valoración-por-actividad-entregable-rúbricas">5.1. Escala de Valoración por Actividad Entregable (Rúbricas) </h4>
+<p>Se utilizarán rúbricas detalladas con una escala de <strong>1 (Insuficiente) a 5 (Excelente)</strong> para los entregables clave.</p>
+<p><strong>Ejemplo de Rúbrica: Entrega Sprint 10 - Seguridad del Backend</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Criterio de Evaluación</th>
+<th style="text-align:left">1 (Insuficiente)</th>
+<th style="text-align:left">3 (Suficiente)</th>
+<th style="text-align:left">5 (Excelente)</th>
+<th style="text-align:left">Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Funcionalidad de la Seguridad</strong></td>
+<td style="text-align:left">La seguridad no funciona, es inexistente o se puede eludir fácilmente.</td>
+<td style="text-align:left">La autenticación básica con JWT funciona, pero la autorización por roles es incompleta o presenta fallos.</td>
+<td style="text-align:left">Sistema de seguridad robusto con autenticación JWT y autorización por roles granular y correctamente implementada.</td>
+<td style="text-align:left">Grupal</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Calidad del Código Backend</strong></td>
+<td style="text-align:left">Código desorganizado, con malas prácticas, difícil de leer y mantener.</td>
+<td style="text-align:left">El código es funcional pero podría ser más eficiente y seguir mejor los patrones de diseño (capa de servicio, DTOs).</td>
+<td style="text-align:left">Código limpio, bien estructurado (capas bien definidas), eficiente, documentado y que sigue las mejores prácticas.</td>
+<td style="text-align:left">Grupal</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Aportaciones al Repositorio</strong></td>
+<td style="text-align:left">Commits inexistentes, muy esporádicos o con mensajes inútiles. No participa en PRs.</td>
+<td style="text-align:left">Realiza commits funcionales pero con mensajes poco descriptivos. Participa mínimamente en las revisiones.</td>
+<td style="text-align:left">Commits regulares, atómicos y con mensajes claros. Participa activamente en la revisión de código de sus compañeros.</td>
+<td style="text-align:left">Individual</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Registro en Diario de Trabajo</strong></td>
+<td style="text-align:left">El diario está vacío, incompleto o las entradas son superficiales.</td>
+<td style="text-align:left">El diario se actualiza, pero con poca regularidad. Las descripciones son breves y poco reflexivas.</td>
+<td style="text-align:left">El diario se actualiza semanalmente con detalle, explicando tareas, problemas, soluciones y reflexiones profundas.</td>
+<td style="text-align:left">Individual</td>
+</tr>
+</tbody>
+</table>
+<h4 id="52-escala-de-valoración-final-del-proyecto">5.2. Escala de Valoración Final del Proyecto </h4>
+<p>La calificación final del módulo se calculará ponderando diferentes bloques para equilibrar la valoración grupal e individual.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Bloque de Evaluación</th>
+<th style="text-align:left">Ponderación</th>
+<th style="text-align:left">Criterios de Evaluación (Individuales y Grupales)</th>
+<th style="text-align:left">RA del Módulo Relacionados</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Calidad del Producto y Proceso (Grupal)</strong></td>
+<td style="text-align:left"><strong>60%</strong></td>
+<td style="text-align:left"><strong>(40%) Calidad Técnica:</strong> Cumplimiento de requisitos, robustez, correcta implementación de tecnologías, calidad del código. <br> <strong>(20%) Gestión y Documentación:</strong> Correcta aplicación de SCRUM, calidad de la documentación, memoria final.</td>
+<td style="text-align:left">RA2, RA3</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Desempeño y Contribución Individual (Individual)</strong></td>
+<td style="text-align:left"><strong>40%</strong></td>
+<td style="text-align:left"><strong>(15%) Contribución Técnica:</strong> Calidad y cantidad de las aportaciones al repositorio (commits, PRs). <br> <strong>(15%) Diario de Trabajo:</strong> Regularidad, detalle y profundidad de las reflexiones. <br> <strong>(10%) Participación y Defensa:</strong> Colaboración activa, participación en ceremonias y calidad de la defensa individual.</td>
+<td style="text-align:left">RA1, RA4</td>
+</tr>
+</tbody>
+</table>
+<h3 id="6-matriz-de-integración-curricular">6. Matriz de Integración Curricular </h3>
+<p>Esta matriz evidencia cómo cada actividad del proyecto permite trabajar y evaluar Resultados de Aprendizaje (RA) de múltiples módulos de forma simultánea.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Actividad / Criterio de Evaluación</th>
+<th style="text-align:left">PI</th>
+<th style="text-align:left">AD</th>
+<th style="text-align:left">DI</th>
+<th style="text-align:left">PSP</th>
+<th style="text-align:left">PMDM</th>
+<th style="text-align:left">SGE</th>
+<th style="text-align:left">DAS</th>
+<th style="text-align:left">SOP</th>
+<th style="text-align:left">IPE II</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Definición del proyecto, ODS y casos de uso</strong></td>
+<td style="text-align:left">RA1, RA2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA1</td>
+<td style="text-align:left">RA2, RA4</td>
+<td style="text-align:left">RA3, RA4</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Diseño del modelo (Java) y diagrama (PlantUML)</strong></td>
+<td style="text-align:left">RA2</td>
+<td style="text-align:left">RA3</td>
+<td style="text-align:left">RA6</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA4</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Transpilación de clases a C# y Kotlin con IA</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA1</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA4</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Prototipado de UI/UX (Figma, Material 3, XAML)</strong></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA1, RA2, RA4</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA1, RA2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA4</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA3</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Implementación de API REST (Spring Boot, JPA, H2)</strong></td>
+<td style="text-align:left">RA3</td>
+<td style="text-align:left">RA2, RA3, RA6</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA3, RA4</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA3</td>
+<td style="text-align:left">RA3</td>
+<td style="text-align:left">RA5</td>
+<td style="text-align:left">RA2</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Implementación de seguridad (Spring Security, JWT)</strong></td>
+<td style="text-align:left">RA3</td>
+<td style="text-align:left">RA2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA5</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA5</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Desarrollo de frontend de escritorio (WPF, MVVM, C#)</strong></td>
+<td style="text-align:left">RA3</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA1, RA3, RA8</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA4</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA2</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Desarrollo de frontend móvil (Android, Compose, MVI, Kotlin)</strong></td>
+<td style="text-align:left">RA3</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA1, RA4, RA8</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA1, RA2, RA3</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA2</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Integración de frontends con la API REST</strong></td>
+<td style="text-align:left">RA3</td>
+<td style="text-align:left">RA6</td>
+<td style="text-align:left">RA8</td>
+<td style="text-align:left">RA3</td>
+<td style="text-align:left">RA2</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Implementación de comunicación asíncrona (RabbitMQ)</strong></td>
+<td style="text-align:left">RA3</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA1, RA2, RA3</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>(Opcional) Despliegue en la nube con CI/CD</strong></td>
+<td style="text-align:left">RA3</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA7</td>
+<td style="text-align:left">RA4</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA3, RA6</td>
+<td style="text-align:left">RA5</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Gestión ágil del proyecto (SCRUM, GitHub Projects)</strong></td>
+<td style="text-align:left">RA3, RA4</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA2, RA3</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Elaboración de memoria final y presentación</strong></td>
+<td style="text-align:left">RA4</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA6</td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left">RA1, RA5</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after:always;"></div>
+<h3 id="7-medidas-de-atención-a-la-diversidad">7. Medidas de Atención a la Diversidad </h3>
+<ul>
+<li><strong>Medidas de Ampliación:</strong> Para el alumnado con mayor capacidad se propondrán retos adicionales como:
+<ul>
+<li>Profundizar en las tareas opcionales (RabbitMQ, CI/CD).</li>
+<li>Implementar un conjunto más amplio de pruebas (integración, E2E).</li>
+<li>Investigar y proponer arquitecturas o tecnologías alternativas.</li>
+<li>Asumir un rol de mentoría técnica dentro del equipo.</li>
+</ul>
+</li>
+<li><strong>Medidas de Refuerzo:</strong> Para el alumnado que encuentre dificultades se ofrecerán apoyos como:
+<ul>
+<li>Plantillas de código y configuraciones base más detalladas.</li>
+<li>Talleres específicos sobre las tecnologías más complejas.</li>
+<li>Priorización del trabajo en el Producto Mínimo Viable (MVP).</li>
+</ul>
+</li>
+<li><strong>Flexibilidad Metodológica:</strong> La propia naturaleza de SCRUM permite adaptar la carga de trabajo de cada sprint a la capacidad real del equipo. La formación de grupos mediante la técnica H.A.D.A. busca crear equipos equilibrados.</li>
+</ul>
+<div style="page-break-after:always;"></div>
+<h3 id="8-evaluación-de-la-práctica-docente">8. Evaluación de la Práctica Docente </h3>
+<p>La mejora continua es fundamental. Por ello, se establecerá un proceso para evaluar y refinar esta programación y la práctica docente asociada.</p>
+<ul>
+<li><strong>Indicadores de Evaluación:</strong>
+<ul>
+<li>Tasa de éxito del alumnado en la consecución de los RA.</li>
+<li>Calidad y complejidad de los proyectos finales.</li>
+<li>Feedback recogido en las retrospectivas de cada sprint.</li>
+<li>Análisis de las dificultades más comunes a través de los diarios de trabajo.</li>
+</ul>
+</li>
+<li><strong>Instrumentos de Evaluación:</strong>
+<ul>
+<li>Encuestas anónimas al alumnado al finalizar el módulo.</li>
+<li>Diario de sesiones del profesor, registrando incidencias y áreas de mejora.</li>
+<li>Reuniones de coordinación con el resto del profesorado del equipo docente de 2º de DAM.</li>
+</ul>
+</li>
+<li><strong>Proceso de Mejora:</strong> Los datos recogidos se analizarán al final del curso académico para identificar fortalezas y debilidades. Las conclusiones servirán para realizar ajustes en la secuenciación, proponer nuevas herramientas o refinar los instrumentos de evaluación para el siguiente curso, asegurando que la programación se mantenga actualizada y sea lo más efectiva posible.</li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
