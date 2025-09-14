@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diario de Actividad - El Reto del Marshmallow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .question-group h3 {
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 8px;
+            margin-top: 24px;
+            margin-bottom: 16px;
+        }
+        .question-group h4 {
+            margin-top: 20px;
+            margin-bottom: 12px;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto max-w-4xl p-4 sm:p-6 md:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Diario de Reflexión del Equipo</h1>
+            <p class="text-lg text-gray-600 mt-2">El Reto del Marshmallow</p>
+        </header>
+
+        <form id="activity-form" class="bg-white p-6 sm:p-8 rounded-xl shadow-lg space-y-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="team" class="block text-sm font-medium text-gray-700">Equipo:</label>
+                    <input type="text" id="team" name="team" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="date" class="block text-sm font-medium text-gray-700">Fecha:</label>
+                    <input type="date" id="date" name="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                </div>
+            </div>
+
+            <!-- 1. Resultados Obtenidos y Comparación -->
+            <div class="question-group">
+                <h3 class="text-xl font-semibold text-gray-900">1. Resultados Obtenidos y Comparación</h3>
+                <div>
+                    <label for="q1" class="block text-md font-medium text-gray-700">¿Qué esperábamos conseguir (altura o diseño ideal) y qué hemos conseguido realmente?</label>
+                    <textarea id="q1" name="q1" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Describe vuestras expectativas iniciales y comparadlas con el resultado final."></textarea>
+                </div>
+                <div>
+                    <label for="q2" class="block text-md font-medium text-gray-700 mt-4">¿Cuál fue la altura final de vuestra torre? (en cm)</label>
+                    <input type="number" id="q2" name="q2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Altura en cm">
+                </div>
+                <div>
+                    <label for="q3" class="block text-md font-medium text-gray-700 mt-4">¿La torre se mantuvo en pie con el malvavisco en la cima durante el tiempo requerido?</label>
+                    <textarea id="q3" name="q3" rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Sí/No. Explicad brevemente el porqué si no se mantuvo."></textarea>
+                </div>
+            </div>
+
+            <!-- 2. Análisis del Proceso y la Dinámica del Equipo -->
+            <div class="question-group">
+                <h3 class="text-xl font-semibold text-gray-900">2. Análisis del Proceso y la Dinámica del Equipo</h3>
+                
+                <h4 class="text-lg font-semibold">a) Lo que Salió Bien (Fortalezas)</h4>
+                <div>
+                    <label for="q4" class="block text-md font-medium text-gray-700">¿Qué aspectos o momentos de la actividad creéis que salieron especialmente bien?</label>
+                    <textarea id="q4" name="q4" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Pensad en la planificación, comunicación, ejecución, etc."></textarea>
+                </div>
+                <div>
+                    <label for="q5" class="block text-md font-medium text-gray-700 mt-4">¿Hubo algún momento de "Eureka" o alguna idea brillante que funcionó muy bien?</label>
+                    <textarea id="q5" name="q5" rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Describid el momento y quién lo propuso/ejecutó."></textarea>
+                </div>
+
+                <h4 class="text-lg font-semibold">b) Lo que Salió Mal (Debilidades y Desafíos)</h4>
+                 <div>
+                    <label for="q6" class="block text-md font-medium text-gray-700">¿Qué aspectos o momentos resultaron ser un desafío o no salieron como esperabais?</label>
+                    <textarea id="q6" name="q6" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Identificad puntos de fricción, errores, problemas de comunicación, etc."></textarea>
+                </div>
+                <div>
+                    <label for="q7" class="block text-md font-medium text-gray-700 mt-4">¿Hubo algún momento en que la dinámica del equipo se vio afectada negativamente? ¿Por qué?</label>
+                    <textarea id="q7" name="q7" rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Describid la situación y cómo se intentó abordar."></textarea>
+                </div>
+
+                <h4 class="text-lg font-semibold">c) Vuestro Contrato de Equipo</h4>
+                <div>
+                    <label for="q8" class="block text-md font-medium text-gray-700">¿Se cumplió el "Contrato de Equipo" que establecisteis al inicio?</label>
+                    <input type="text" id="q8" name="q8" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Sí/No/Parcialmente.">
+                </div>
+                 <div>
+                    <label for="q9" class="block text-md font-medium text-gray-700 mt-4">Mencionad 2-3 puntos del contrato que funcionaron muy bien y 2-3 que no se cumplieron.</label>
+                    <textarea id="q9" name="q9" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Ej: 'El respeto mutuo funcionó genial.' o 'La gestión del tiempo fue un caos.'"></textarea>
+                </div>
+
+                <h4 class="text-lg font-semibold">d) Reflexión sobre los Roles H.A.D.A.</h4>
+                <div>
+                    <label for="q10" class="block text-md font-medium text-gray-700">¿Cómo ha funcionado vuestro rol asignado a lo largo de la actividad?</label>
+                    <textarea id="q10" name="q10" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Reflexión individual de cada miembro sobre su rol (Hacedor, Analista, Diplomático, Arquitecto)."></textarea>
+                </div>
+                 <div>
+                    <label for="q11" class="block text-md font-medium text-gray-700 mt-4">¿Os habéis sentido cómodos con vuestro rol, o hubierais preferido otro? ¿Por qué?</label>
+                    <textarea id="q11" name="q11" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Explicad vuestras sensaciones."></textarea>
+                </div>
+                 <div>
+                    <label for="q12" class="block text-md font-medium text-gray-700 mt-4">¿Cómo ha afectado la dinámica del equipo tener roles definidos?</label>
+                    <textarea id="q12" name="q12" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Pensad si facilitó la organización, si generó tensiones, etc."></textarea>
+                </div>
+            </div>
+
+             <!-- 3. Aprendizajes y Conclusiones -->
+            <div class="question-group">
+                <h3 class="text-xl font-semibold text-gray-900">3. Aprendizajes y Conclusiones</h3>
+                <div>
+                    <label for="q13" class="block text-md font-medium text-gray-700">¿Qué 3 aprendizajes clave extraéis de esta experiencia sobre el trabajo en equipo y la construcción?</label>
+                    <textarea id="q13" name="q13" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Lecciones sobre comunicación, diseño, liderazgo, etc."></textarea>
+                </div>
+                <div>
+                    <label for="q14" class="block text-md font-medium text-gray-700 mt-4">¿Qué haríamos diferente la próxima vez para mejorar nuestro rendimiento y el resultado final?</label>
+                    <textarea id="q14" name="q14" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Identificad acciones concretas."></textarea>
+                </div>
+                 <div>
+                    <label for="q15" class="block text-md font-medium text-gray-700 mt-4">¿Qué hemos aprendido sobre nosotros mismos trabajando en equipo?</label>
+                    <textarea id="q15" name="q15" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Reflexionad sobre vuestras fortalezas, áreas de mejora, reacción bajo presión, etc."></textarea>
+                </div>
+            </div>
+
+             <!-- 4. Propuestas de Mejora Continua -->
+            <div class="question-group">
+                <h3 class="text-xl font-semibold text-gray-900">4. Propuestas de Mejora Continua</h3>
+                <div>
+                    <label for="q16" class="block text-md font-medium text-gray-700">Si tuvierais que dar un consejo a otro equipo que va a realizar este reto, ¿cuál sería?</label>
+                    <textarea id="q16" name="q16" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Sintetizad vuestra experiencia en una recomendación clave."></textarea>
+                </div>
+                 <div>
+                    <label for="q17" class="block text-md font-medium text-gray-700 mt-4">¿Cómo podemos aplicar lo aprendido en otras actividades o proyectos futuros?</label>
+                    <textarea id="q17" name="q17" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Pensad en la transferencia de conocimientos a otras asignaturas o a la vida diaria."></textarea>
+                </div>
+            </div>
+
+            <div class="pt-6 text-right">
+                <button type="submit" class="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
+                    Generar PDF e Imprimir
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('activity-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({
+                orientation: 'p',
+                unit: 'mm',
+                format: 'a4'
+            });
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            const margin = 15;
+            let y = 20;
+            const pageHeight = doc.internal.pageSize.height;
+            const pageWidth = doc.internal.pageSize.width;
+            const contentWidth = pageWidth - margin * 2;
+            
+            function addText(text, options = {}, isQuestion = false) {
+                if (y > pageHeight - margin) {
+                    doc.addPage();
+                    y = margin;
+                }
+                
+                const defaultOptions = {
+                    maxWidth: contentWidth,
+                    align: 'justify'
+                };
+                
+                const finalOptions = { ...defaultOptions, ...options };
+
+                if(isQuestion) {
+                     doc.setFont('helvetica', 'bold');
+                     doc.setTextColor(0, 0, 0); // Black
+                } else {
+                     doc.setFont('helvetica', 'normal');
+                     doc.setTextColor(75, 85, 99); // Gray
+                }
+                
+                const splitText = doc.splitTextToSize(text, finalOptions.maxWidth);
+                doc.text(splitText, margin, y, finalOptions);
+                
+                // Estimate height of text
+                const textHeight = doc.getTextDimensions(splitText).h;
+                y += textHeight + (isQuestion ? 2 : 6);
+            }
+
+            // --- Document Header ---
+            doc.setFontSize(22);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Diario de Reflexión: El Reto del Marshmallow', pageWidth / 2, y, { align: 'center' });
+            y += 15;
+
+            doc.setFontSize(12);
+            doc.setFont('helvetica', 'normal');
+            doc.text(`Equipo: ${data.team || 'No especificado'}`, margin, y);
+            doc.text(`Fecha: ${data.date || 'No especificada'}`, pageWidth - margin, y, { align: 'right' });
+            y += 15;
+            
+            // --- Questions and Answers ---
+            doc.setFontSize(12);
+
+            const questions = [
+                { title: '1. Resultados Obtenidos y Comparación', isHeader: true },
+                { q: '¿Qué esperábamos conseguir (altura o diseño ideal) y qué hemos conseguido realmente?', a: data.q1 },
+                { q: '¿Cuál fue la altura final de vuestra torre? (en cm)', a: data.q2 },
+                { q: '¿La torre se mantuvo en pie con el malvavisco en la cima durante el tiempo requerido?', a: data.q3 },
+                
+                { title: '2. Análisis del Proceso y la Dinámica del Equipo', isHeader: true },
+                { title: 'a) Lo que Salió Bien (Fortalezas)', isSubHeader: true },
+                { q: '¿Qué aspectos o momentos de la actividad creéis que salieron especialmente bien?', a: data.q4 },
+                { q: '¿Hubo algún momento de "Eureka" o alguna idea brillante que funcionó muy bien?', a: data.q5 },
+
+                { title: 'b) Lo que Salió Mal (Debilidades y Desafíos)', isSubHeader: true },
+                { q: '¿Qué aspectos o momentos resultaron ser un desafío o no salieron como esperabais?', a: data.q6 },
+                { q: '¿Hubo algún momento en que la dinámica del equipo se vio afectada negativamente? ¿Por qué?', a: data.q7 },
+
+                { title: 'c) Vuestro Contrato de Equipo', isSubHeader: true },
+                { q: '¿Se cumplió el "Contrato de Equipo" que establecisteis al inicio?', a: data.q8 },
+                { q: 'Mencionad 2-3 puntos del contrato que funcionaron muy bien y 2-3 que no se cumplieron.', a: data.q9 },
+                
+                { title: 'd) Reflexión sobre los Roles H.A.D.A.', isSubHeader: true },
+                { q: '¿Cómo ha funcionado vuestro rol asignado a lo largo de la actividad?', a: data.q10 },
+                { q: '¿Os habéis sentido cómodos con vuestro rol, o hubierais preferido otro? ¿Por qué?', a: data.q11 },
+                { q: '¿Cómo ha afectado la dinámica del equipo tener roles definidos?', a: data.q12 },
+
+                { title: '3. Aprendizajes y Conclusiones', isHeader: true },
+                { q: '¿Qué 3 aprendizajes clave extraéis de esta experiencia sobre el trabajo en equipo y la construcción?', a: data.q13 },
+                { q: '¿Qué haríamos diferente la próxima vez para mejorar nuestro rendimiento y el resultado final?', a: data.q14 },
+                { q: '¿Qué hemos aprendido sobre nosotros mismos trabajando en equipo?', a: data.q15 },
+
+                { title: '4. Propuestas de Mejora Continua', isHeader: true },
+                { q: 'Si tuvierais que dar un consejo a otro equipo que va a realizar este reto, ¿cuál sería?', a: data.q16 },
+                { q: '¿Cómo podemos aplicar lo aprendido en otras actividades o proyectos futuros?', a: data.q17 }
+            ];
+
+            questions.forEach(item => {
+                if (y > pageHeight - 30) { // Add new page if not enough space for next section
+                    doc.addPage();
+                    y = margin;
+                }
+                if (item.isHeader) {
+                    y += 10;
+                    doc.setFontSize(16);
+                    doc.setFont('helvetica', 'bold');
+                    doc.text(item.title, margin, y);
+                    y += 10;
+                    doc.setFontSize(12);
+                } else if (item.isSubHeader) {
+                    y += 8;
+                    doc.setFontSize(14);
+                    doc.setFont('helvetica', 'bold');
+                    doc.setTextColor(75, 85, 99);
+                    doc.text(item.title, margin, y);
+                    y += 8;
+                    doc.setFontSize(12);
+                }
+                else {
+                    addText(item.q, {}, true);
+                    addText(item.a || 'Sin respuesta.', {}, false);
+                }
+            });
+
+
+            // --- Save and Print ---
+            doc.save('diario_actividad_respuestas.pdf');
+        });
+
+    </script>
+</body>
+</html>
