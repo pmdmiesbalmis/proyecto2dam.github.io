@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipos H.A.D.A.</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #f8f9fa;
+        }
+        .team-card {
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            background-color: white;
+            height: 100%;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card-header {
+            background-color: #0d6efd;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .card-body {
+            padding: 1.5rem;
+        }
+        .member-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .member-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            color: #495057;
+        }
+        .member-list li:last-child {
+            margin-bottom: 0;
+        }
+        .member-list .role-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: #0d6efd;
+            width: 30px;
+            text-align: center;
+        }
+        .role-Gestor .role-icon { color: #28a745; }
+        .role-Analista .role-icon { color: #ffc107; }
+        .role-Divergente .role-icon { color: #dc3545; }
+        .role-Colaborador .role-icon { color: #17a2b8; }
+    </style>
+</head>
+<body>
+
+    <!-- Contenido Principal: Tarjetas de Equipos -->
+    <main class="container py-5">
+        <div class="row g-4">
+            
+            <!-- Equipo: Los del Fondo -->
+            <div class="col-md-6 col-lg-3" id="los-del-fondo">
+                <div class="card team-card">
+                    <div class="card-header rounded-top-2">
+                        <h5 class="card-title text-center mb-0">Los del Fondo</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="member-list">
+                            <li class="role-Gestor">
+                                <i class="fas fa-handshake role-icon"></i>
+                                <span>Joel Vives (Gestor)</span>
+                            </li>
+                            <li class="role-Analista">
+                                <i class="fas fa-chart-line role-icon"></i>
+                                <span>Francisco J. García (Analista)</span>
+                            </li>
+                            <li class="role-Divergente">
+                                <i class="fas fa-brain role-icon"></i>
+                                <span>David R. Gedaniec (Divergente)</span>
+                            </li>
+                            <li class="role-Analista">
+                                <i class="fas fa-chart-line role-icon"></i>
+                                <span>Jesús M. Liñán (Analista)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Equipo: El Gran Combo -->
+            <div class="col-md-6 col-lg-3" id="el-gran-combo">
+                <div class="card team-card">
+                    <div class="card-header rounded-top-2">
+                        <h5 class="card-title text-center mb-0">El Gran Combo</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="member-list">
+                            <li class="role-Analista">
+                                <i class="fas fa-chart-line role-icon"></i>
+                                <span>Ayman el Hattachi (Analista)</span>
+                            </li>
+                            <li class="role-Divergente">
+                                <i class="fas fa-brain role-icon"></i>
+                                <span>Diego Bermejo (Divergente)</span>
+                            </li>
+                            <li class="role-Gestor">
+                                <i class="fas fa-handshake role-icon"></i>
+                                <span>Victor J. Tietje (Gestor)</span>
+                            </li>
+                            <li class="role-Colaborador">
+                                <i class="fas fa-users-cog role-icon"></i>
+                                <span>Cosme J. Rodrríguez (Colaborador)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Equipo: Pingüinitos Pro -->
+            <div class="col-md-6 col-lg-3" id="pinguinitos-pro">
+                <div class="card team-card">
+                    <div class="card-header rounded-top-2">
+                        <h5 class="card-title text-center mb-0">Pingüinitos Pro</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="member-list">
+                            <li class="role-Gestor">
+                                <i class="fas fa-handshake role-icon"></i>
+                                <span>Jaime Sempere (Gestor)</span>
+                            </li>
+                            <li class="role-Analista">
+                                <i class="fas fa-chart-line role-icon"></i>
+                                <span>Eduardo Carcaboso (Analista)</span>
+                            </li>
+                            <li class="role-Divergente">
+                                <i class="fas fa-brain role-icon"></i>
+                                <span>Keiko Gil (Divergente)</span>
+                            </li>
+                            <li class="role-Colaborador">
+                                <i class="fas fa-users-cog role-icon"></i>
+                                <span>Adriana Guerrero (Colaborador)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Equipo: Debuggers -->
+            <div class="col-md-6 col-lg-3" id="debuggers">
+                <div class="card team-card">
+                    <div class="card-header rounded-top-2">
+                        <h5 class="card-title text-center mb-0">Debuggers</h5>
+                    </div>
+                    <div class="card-body">
+                        <ul class="member-list">
+                            <li class="role-Divergente">
+                                <i class="fas fa-brain role-icon"></i>
+                                <span>Deejafer L. Ait (Divergente)</span>
+                            </li>
+                            <li class="role-Colaborador">
+                                <i class="fas fa-users-cog role-icon"></i>
+                                <span>Sergio Nuñez (Colaborador)</span>
+                            </li>
+                            <li class="role-Analista">
+                                <i class="fas fa-chart-line role-icon"></i>
+                                <span>Emmanuel Sanfo (Analista)</span>
+                            </li>
+                            <li class="role-Gestor">
+                                <i class="fas fa-handshake role-icon"></i>
+                                <span>Ricardo Barrientos (Gestor)</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
