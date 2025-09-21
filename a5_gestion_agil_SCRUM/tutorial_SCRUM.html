@@ -1,0 +1,666 @@
+<!DOCTYPE html><html><head>
+      <title>Tutorial de SCRUM para módulo de Proyecto Intermodular de 2º DAM</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css);
+code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}@font-face{font-family:"Material Icons";font-style:normal;font-weight:400;src:local("Material Icons"),local("MaterialIcons-Regular"),url("data:application/x-font-woff;charset=utf-8;base64,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") format("woff")}.admonition{box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12),0 3px 1px -2px rgba(0,0,0,.2);position:relative;margin:1.5625em 0;padding:0 1.2rem;border-left:.4rem solid rgba(68,138,255,.8);border-radius:.2rem;background-color:rgba(255,255,255,.05);overflow:auto}.admonition>p{margin-top:.8rem}.admonition>.admonition-title{margin:0 -1.2rem;padding:.8rem 1.2rem .8rem 3.6rem;border-bottom:1px solid rgba(68,138,255,.2);background-color:rgba(68,138,255,.1);font-weight:700}.admonition>.admonition-title:before{position:absolute;left:1.2rem;font-size:1.5rem;color:rgba(68,138,255,.8);content:"\E3C9"}.admonition>.admonition-title:before{font-family:Material Icons;font-style:normal;font-variant:normal;font-weight:400;line-height:2rem;text-transform:none;white-space:nowrap;speak:none;word-wrap:normal;direction:ltr}.admonition.abstract,.admonition.summary,.admonition.tldr{border-left-color:rgba(0,176,255,.8)}.admonition.abstract>.admonition-title,.admonition.summary>.admonition-title,.admonition.tldr>.admonition-title{background-color:rgba(0,176,255,.1);border-bottom-color:rgba(0,176,255,.2)}.admonition.abstract>.admonition-title:before,.admonition.summary>.admonition-title:before,.admonition.tldr>.admonition-title:before{color:#00b0ff;content:"\E8D2"}.admonition.hint,.admonition.tip{border-left-color:rgba(0,191,165,.8)}.admonition.hint>.admonition-title,.admonition.tip>.admonition-title{background-color:rgba(0,191,165,.1);border-bottom-color:rgba(0,191,165,.2)}.admonition.hint>.admonition-title:before,.admonition.tip>.admonition-title:before{color:#00bfa5;content:"\E80E"}.admonition.info,.admonition.todo{border-left-color:rgba(0,184,212,.8)}.admonition.info>.admonition-title,.admonition.todo>.admonition-title{background-color:rgba(0,184,212,.1);border-bottom-color:rgba(0,184,212,.2)}.admonition.info>.admonition-title:before,.admonition.todo>.admonition-title:before{color:#00b8d4;content:"\E88E"}.admonition.check,.admonition.done,.admonition.success{border-left-color:rgba(0,200,83,.8)}.admonition.check>.admonition-title,.admonition.done>.admonition-title,.admonition.success>.admonition-title{background-color:rgba(0,200,83,.1);border-bottom-color:rgba(0,200,83,.2)}.admonition.check>.admonition-title:before,.admonition.done>.admonition-title:before,.admonition.success>.admonition-title:before{color:#00c853;content:"\E876"}.admonition.faq,.admonition.help,.admonition.question{border-left-color:rgba(100,221,23,.8)}.admonition.faq>.admonition-title,.admonition.help>.admonition-title,.admonition.question>.admonition-title{background-color:rgba(100,221,23,.1);border-bottom-color:rgba(100,221,23,.2)}.admonition.faq>.admonition-title:before,.admonition.help>.admonition-title:before,.admonition.question>.admonition-title:before{color:#64dd17;content:"\E887"}.admonition.attention,.admonition.caution,.admonition.warning{border-left-color:rgba(255,145,0,.8)}.admonition.attention>.admonition-title,.admonition.caution>.admonition-title,.admonition.warning>.admonition-title{background-color:rgba(255,145,0,.1);border-bottom-color:rgba(255,145,0,.2)}.admonition.attention>.admonition-title:before{color:#ff9100;content:"\E417"}.admonition.caution>.admonition-title:before,.admonition.warning>.admonition-title:before{color:#ff9100;content:"\E002"}.admonition.fail,.admonition.failure,.admonition.missing{border-left-color:rgba(255,82,82,.8)}.admonition.fail>.admonition-title,.admonition.failure>.admonition-title,.admonition.missing>.admonition-title{background-color:rgba(255,82,82,.1);border-bottom-color:rgba(255,82,82,.2)}.admonition.fail>.admonition-title:before,.admonition.failure>.admonition-title:before,.admonition.missing>.admonition-title:before{color:#ff5252;content:"\E14C"}.admonition.bug,.admonition.danger,.admonition.error{border-left-color:rgba(255,23,68,.8)}.admonition.bug>.admonition-title,.admonition.danger>.admonition-title,.admonition.error>.admonition-title{background-color:rgba(255,23,68,.1);border-bottom-color:rgba(255,23,68,.2)}.admonition.danger>.admonition-title:before{color:#ff1744;content:"\E3E7"}.admonition.error>.admonition-title:before{color:#ff1744;content:"\E14C"}.admonition.bug>.admonition-title:before{color:#ff1744;content:"\E868"}.admonition.example,.admonition.snippet{border-left-color:rgba(0,184,212,.8)}.admonition.example>.admonition-title,.admonition.snippet>.admonition-title{background-color:rgba(0,184,212,.1);border-bottom-color:rgba(0,184,212,.2)}.admonition.example>.admonition-title:before,.admonition.snippet>.admonition-title:before{color:#00b8d4;content:"\E242"}.admonition.cite,.admonition.quote{border-left-color:rgba(158,158,158,.8)}.admonition.cite>.admonition-title,.admonition.quote>.admonition-title{background-color:rgba(158,158,158,.1);border-bottom-color:rgba(158,158,158,.2)}.admonition.cite>.admonition-title:before,.admonition.quote>.admonition-title:before{color:#9e9e9e;content:"\E244"}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+@font-face {
+  font-family: 'Catamaran';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/catamaran/v28/o-0bIpQoyXQa2RxT7-5B6Ryxs2E_6n1iPHjd5a7dvg.ttf) format('truetype');
+}
+@page a4landscape {
+  size: A4 landscape;
+  margin: 1cm;
+}
+@page a4portrait {
+  size: A4 portrait;
+  margin: 1cm 1cm 2.5cm 1cm;
+}
+.markdown-preview.markdown-preview .landscape {
+  page: a4landscape;
+}
+.markdown-preview.markdown-preview .portrait {
+  page: a4portrait;
+}
+.markdown-preview.markdown-preview .box_bg_lightgray {
+  background-color: #f5f5f5;
+  border: 2px solid #969696;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px 0 rgba(78, 120, 158, 0.1);
+}
+.markdown-preview.markdown-preview .box_bg_lightgreen {
+  background-color: #f5faf5;
+  border: 2px solid #969b96;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px 0 rgba(78, 120, 158, 0.1);
+}
+.markdown-preview.markdown-preview .salida_consola {
+  background-color: #000000;
+  color: aquamarine;
+  border: 3px solid slategrey;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px 0 slategrey;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 0.8rem;
+}
+.markdown-preview.markdown-preview .contenedor {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto 30px auto;
+}
+.markdown-preview.markdown-preview .fondo {
+  background: url(https://balmisdigigs.github.io/digitalizacion.github.io/imagenes/fondos/quote.png);
+  background-size: cover;
+  width: 75%;
+  height: 160px;
+  border-radius: 10px;
+  position: relative;
+}
+.markdown-preview.markdown-preview .cita {
+  font-family: Arial;
+  font-style: italic;
+  font-weight: 600;
+  text-align: justify;
+  line-height: 1.5rem;
+  opacity: 0.6;
+  color: white;
+  padding: 5rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  font-size: 1.3rem;
+  transform: translate(-50%, -50%);
+}
+.markdown-preview.markdown-preview .abre_comilla {
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: white;
+  padding-left: 30px;
+  position: absolute;
+  font-size: 6rem;
+  transform: translate(0%, -15%);
+}
+.markdown-preview.markdown-preview .cierra_comilla {
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: white;
+  padding-right: 30px;
+  right: 0%;
+  position: absolute;
+  font-size: 6rem;
+  transform: translate(0%, 55%);
+}
+.markdown-preview.markdown-preview .autor {
+  font-family: Arial;
+  color: white;
+  margin: 0px;
+  padding-left: 30px;
+  position: absolute;
+  top: 83%;
+  font-size: 1rem;
+}
+.markdown-preview.markdown-preview .flotante {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    justify-content: center;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    flex-direction: column;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    flex-direction: row;
+  }
+}
+.markdown-preview.markdown-preview .flotante_izq {
+  margin-right: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_izq {
+    width: 100%;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_izq {
+    width: auto;
+  }
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_der {
+    width: 100%;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_der {
+    width: auto;
+  }
+}
+.markdown-preview.markdown-preview .galeria_imagenes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .galeria_imagenes {
+    flex-direction: column;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .galeria_imagenes {
+    flex-direction: row;
+  }
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+    const configureMermaidIconPacks = () => {
+        window["mermaid"].registerIconPacks([
+            {
+                name: "logos",
+                loader: () =>
+                    fetch("https://unpkg.com/@iconify-json/logos@1/icons.json").then(
+                        (res) => res.json()
+                    ),
+            },
+        ]);
+    };
+
+    if (document.readyState !== 'loading') {
+        configureMermaidIconPacks();
+    } else {
+        document.addEventListener("DOMContentLoaded", () => {
+            configureMermaidIconPacks();
+        });
+    }
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      <div>
+<h1 id="tutorial-de-scrum-para-módulo-de-proyecto-intermodular-de-2o-dam" true="true">Tutorial de SCRUM para módulo de Proyecto Intermodular de 2º DAM </h1>
+<h2 id="índice" true="true">Índice </h2>
+
+<div class="md-toc">
+<details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#introducción-a-scrum" class="md-toc-link"><p>Introducción a Scrum</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#ventajas-de-usar-scrum" class="md-toc-link">
+            <p>Ventajas de usar SCRUM</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#roles-scrum" class="md-toc-link"><p>Roles Scrum</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#product-owner-o-propietario-del-producto" class="md-toc-link">
+            <p>Product Owner (o Propietario del producto)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#scrum-master-o-facilitador" class="md-toc-link">
+            <p>Scrum Master (o Facilitador)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#equipo-de-desarrolladores-o-scrum-team" class="md-toc-link">
+            <p>Equipo de Desarrolladores o Scrum Team</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#roles-auxiliares" class="md-toc-link">
+            <p>Roles Auxiliares</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#stakeholders-clientes-proveedores-vendedores-etc" class="md-toc-link">
+            <p>Stakeholders (Clientes, Proveedores, Vendedores, etc)</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:0px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#ciclo-de-scrum-y-el-sprint-como-evento-central" class="md-toc-link"><p>Ciclo de Scrum y el Sprint como evento central</p>
+</a>
+          </summary>
+        <div>
+          <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#descripción-cronológica-de-los-artefactos-y-eventos-en-un-sprint" class="md-toc-link"><p>Descripción cronológica de los artefactos y eventos en un Sprint</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#product-backlog-o-registro-del-producto-artefacto" class="md-toc-link">
+            <p>"Product Backlog" o Registro del producto (Artefacto)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#sprint-planning-o-planificación-del-sprint-evento" class="md-toc-link">
+            <p>"Sprint Planning" o Planificación del Sprint (Evento)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#scrum-board-o-tablero-scrum-artefacto" class="md-toc-link">
+            <p>"Scrum Board" o Tablero Scrum (Artefacto)</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#sprint-backlog-o-registro-del-sprint-artefacto" class="md-toc-link"><p>"Sprint Backlog" o Registro del Sprint (Artefacto)</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#definition-of-done-dod-definición-de-hechoterminado-artefacto" class="md-toc-link">
+            <p>"Definition of Done (DoD)" (Definición de Hecho/Terminado) (Artefacto)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#estimación-del-esfuerzo-de-los-pbis" class="md-toc-link">
+            <p>Estimación del esfuerzo de los PBIs</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#burndown-chart-gráfica-de-trabajo-pendiente-artefacto" class="md-toc-link">
+            <p>Burndown Chart (Gráfica de trabajo pendiente) (Artefacto)</p>
+
+          </a></div>
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#daily-standup-meeting-o-reunión-diaria-de-pie-evento" class="md-toc-link">
+            <p>"Daily Standup meeting" o Reunión diaria de pie (Evento)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#increment-o-incremento-artefacto" class="md-toc-link">
+            <p>"Increment" o Incremento (Artefacto)</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#sprint-review-o-revisión-del-sprint-evento" class="md-toc-link">
+            <p>"Sprint Review" o Revisión del Sprint (Evento)</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#sprint-retrospective-o-retrospectiva-del-sprint-evento" class="md-toc-link"><p>"Sprint Retrospective" o Retrospectiva del Sprint (Evento)</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#dinámicas-para-hacer-la-retrospectiva" class="md-toc-link">
+            <p>Dinámicas para hacer la Retrospectiva</p>
+
+          </a></div>
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    
+        </div>
+      </details>
+    <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:18px">
+          <a href="#glosario-de-términos-en-inglés-ordenados-alfabéticamente" class="md-toc-link">
+            <p>Glosario de términos en Inglés ordenados Alfabéticamente</p>
+
+          </a></div>
+</div>
+<div style="page-break-after:always;"></div>
+<h2 id="introducción-a-scrum">Introducción a Scrum </h2>
+<p><strong><a href="./tutorial_SCRUM.pdf">Descargar este tutorial en PDF</a></strong></p>
+<p>Scrum es un marco que <strong>permite el trabajo colaborativo entre equipos</strong>. Al igual que un equipo de rugby (de donde proviene su nombre) cuando entrena para un gran partido, scrum <strong>anima a los equipos a aprender a través de las experiencias</strong>, <strong>a autoorganizarse</strong> mientras aborda un problema y <strong>a reflexionar</strong> sobre sus victorias y derrotas para mejorar continuamente.s</p>
+<p>Normalmente son los equipos de desarrollo de software los que utilizan con mayor frecuencia este tipo de scrum, pero sus principios y lecciones se pueden aplicar a todo tipo de trabajo en equipo. Scrum <strong>incluye un conjunto de reuniones, herramientas y funciones</strong> que, de forma coordinada, ayudan a los equipos a estructurar y gestionar su trabajo. El objetivo es obtener mejores resultados cada vez, dándole agilidad al equipo, que mejora con cada experiencia, y la adaptación al cambio, al ser un proceso iterativo.</p>
+<p>En los últimos años, Scrum se ha convertido en el marco de trabajo ágil más popular para la gestión de proyectos. Aunque <strong>en algunos casos se ha simplificado y flexibilizado adaptándolo a las necesidades de cada equipo</strong>, es importante conocer y entender sus fundamentos para poder aplicarlo correctamente.</p>
+<p><img src="assets/ciclo_scrum2.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:650px;"></p>
+<h3 id="ventajas-de-usar-scrum">Ventajas de usar SCRUM </h3>
+<ol>
+<li><strong>Mejora el trabajo en equipo y la cooperación</strong>. Todos los miembros del equipo pueden ver en qué están trabajando los demás, el objetivo para el que están trabajando y el progreso alcanzado.</li>
+<li><strong>Ayuda a la organización</strong> a gestionar los flujos de trabajo y mejora la productividad.</li>
+<li><strong>Aporta un enfoque democrático</strong> al trabajo. Todos los miembros del equipo tienen la libertad de organizar sus tareas de manera que se desempeñen mejor. Los miembros se sienten empoderados y, como resultado, son más creativos y comprometidos.</li>
+<li><strong>Permite dimensionar mejor los proyectos</strong>: Mediante las <strong>Iteraciones o Sprints</strong> segmentamos el proyecto en pequeños bloques mucho más gestionables que si tratamos de abarcar un proyecto entero de principio a fin.</li>
+<li>La <strong>capacidad de flexibilidad y la reducción de riesgos</strong> permiten cumplir las expectativas del cliente, quien indica el valor que le aporta cada requisito del proyecto.</li>
+<li>El método de trabajo y la revisión continua <strong>produce una mayor calidad del software</strong>.</li>
+</ol>
+<h2 id="roles-scrum">Roles Scrum </h2>
+<h3 id="product-owner-o-propietario-del-producto">Product Owner (o Propietario del producto) </h3>
+<p>El Product Owner o dueño del producto es conocido como "<strong>la voz del cliente</strong>", ya que debe entender las necesidades y prioridades de los <strong>stakeholders</strong>, incluyendo los clientes y los usuarios. Este rol es responsable, entre otras cosas, de garantizar una <strong>comunicación clara sobre el producto</strong>, de <strong>definir los criterios de aceptación y asegurar que se cumplan</strong>. Dicho de otra forma, el Product Owner <strong>es responsable de asegurar que el equipo Scrum ofrezca valor</strong>.</p>
+<p>El Product Owner ayuda al usuario a <strong>escribir las historias de usuario</strong>, las <strong>prioriza</strong>, y las <strong>coloca en el Product Backlog</strong>. Realiza una <strong>Definición de Hecho/Terminado (Definition of Done - DoD)</strong>, junto con el equipo de Desarrolladores y define el <strong>producto mínimo viable (Minimum Viable Product - MVP)</strong>. También es el encargado de explicar las historias de usuario al equipo de desarrolladores, <strong>aceptar/rechazar los entregables</strong> y <strong>puede cancelar el sprint</strong> si ocurre un imprevisto extremo.</p>
+<h3 id="scrum-master-o-facilitador">Scrum Master (o Facilitador) </h3>
+<p>El <strong>Scrum Master</strong> debe tener una actitud de <strong>líder servicial</strong> (Servant Leader) para el equipo Scrum. Es quien modera y <strong>facilita las interacciones del equipo como facilitador y motivador</strong>. Este rol es responsable de asegurar un ambiente de trabajo productivo para el equipo, debe protegerlo de influencias externas, despejar los obstáculos y <strong>garantizar que se cumplan los principios, aspectos y procesos de la metodología</strong> Scrum.</p>
+<p><strong>Ayuda al Product Owner</strong> en la creación de la lista priorizada de tareas y en la definición de criterios de aceptación. También ayuda a <strong>actualizar el tablero Scrum</strong> y el <strong>registro de los impedimentos</strong> que surjan.</p>
+<p>En un equipo con roles HADA, suele ocuparlo un perfil de <strong>Colaborador o Gestor</strong>.</p>
+<h3 id="equipo-de-desarrolladores-o-scrum-team">Equipo de Desarrolladores o Scrum Team </h3>
+<p>El <strong>Scrum Team</strong> es responsable del desarrollo, servicio o de cualquier otro resultado. Consiste en un grupo de personas que trabajan en las historias de usuario para crear los entregables del proyecto. <strong>Es un equipo auto gestionado y multifuncional que cuenta con todas las habilidades necesarias, y nadie, ni siquiera el Scrum Master, le indica cómo cumplir los objetivos del sprint</strong>. El tamaño óptimo es de seis a diez miembros.</p>
+<p>Algunas de sus responsabilidades son:</p>
+<ul>
+<li>Entender y <strong>estimar las historias de usuario</strong>.</li>
+<li><strong>Asignar las historias de usuario que se hacen en un Sprint</strong>.</li>
+<li>Desarrollar la <strong>lista de tareas</strong>.</li>
+<li>Crear <strong>entregables</strong>.</li>
+<li>Actualizar el registro de impedimentos, la tabla del trabajo pendiente y el tablero Scrum.</li>
+<li>Realizar las <strong>reuniones diarias de pie</strong> (Daily Standup Meeting).</li>
+<li><strong>Identificar oportunidades</strong> de mejora <strong>en la reunión de retrospectiva</strong>.</li>
+</ul>
+<h3 id="roles-auxiliares">Roles Auxiliares </h3>
+<p>Son aquellos que no tienen un rol formal y no se involucran frecuentemente en el "proceso Scrum", sin embargo deben ser tomados en cuenta. Es importante involucrar a usuarios, expertos del negocio y otros interesados para que entreguen retroalimentación.</p>
+<h3 id="stakeholders-clientes-proveedores-vendedores-etc">Stakeholders (Clientes, Proveedores, Vendedores, etc) </h3>
+<p>Son las personas que hacen posible el proyecto y para quienes el proyecto producirá el beneficio acordado. Solo participan directamente durante las revisiones del "sprint". El Product Owner es el encargado de canalizar los deseos y necesidades de los Stakeholders a través del Product Backlog.</p>
+<div style="page-break-after:always;"></div>
+<h2 id="ciclo-de-scrum-y-el-sprint-como-evento-central">Ciclo de Scrum y el Sprint como evento central </h2>
+<p>Un Sprint es un período de tiempo fijo (generalmente de 1 a 4 semanas) durante el cual el equipo Scrum trabaja para completar una cantidad de trabajo predefinida. El ciclo de Scrum se compone de varios <strong>eventos</strong> clave y <strong>artefactos</strong> que facilitan la gestión y ejecución del trabajo. A continuación, se describen los principales componentes del ciclo de Scrum:</p>
+<p><img src="assets/ciclo_scrum.png" alt="nombre" style="display:block;margin:0 auto;width:100%;max-width:650px;"></p>
+<h3 id="descripción-cronológica-de-los-artefactos-y-eventos-en-un-sprint">Descripción cronológica de los artefactos y eventos en un Sprint </h3>
+<h4 id="product-backlog-o-registro-del-producto-artefacto">"Product Backlog" o Registro del producto (Artefacto) </h4>
+<p>Es un <strong>inventario</strong> que contiene <strong>todo el trabajo que hay que hacer</strong> en el producto, como requerimientos, casos de uso y tareas. Es la principal fuente de información y es gestionado exclusivamente por el <strong>Product Owner</strong>. Un formato común para los ítems son las <strong>"User Histories"</strong> (Historias de usuario), que son descripciones cortas de un requerimiento desde la perspectiva del usuario. Cada entrada en el Product Backlog se denomina <strong>Product Backlog Item (PBI)</strong>.</p>
+<div class="admonition quote">
+<p class="admonition-title">Ejemplo Product Backlog Item (PBI)</p>
+<p><em><strong>Como <code>&lt;tipo de usuario&gt;</code>, quiero <code>&lt;algún objetivo&gt;</code> para  <code>&lt;alguna razón/propósito&gt;</code></strong></em></p>
+</div>
+<h4 id="sprint-planning-o-planificación-del-sprint-evento">"Sprint Planning" o Planificación del Sprint (Evento) </h4>
+<div class="row">
+<div class="col-sm-6 my-auto">
+<p>Es una <strong>reunión al comienzo de cada Sprint</strong> donde <strong>todo el equipo</strong> Scrum participa. Sirve para <strong>inspeccionar el Product Backlog</strong> y que el equipo de desarrollo seleccione los <strong>ítems (PBIs) en los que trabajará</strong>, los cuales formarán el Sprint Backlog. La reunión se divide en dos partes:</p>
+<ol>
+<li><strong>Qué se va a hacer:</strong> Liderada por el Product Owner.</li>
+<li><strong>Cómo se va a hacer:</strong> Organizada por el Development Team.</li>
+</ol>
+</div>
+<div class="col-sm-6 my-auto">
+<p><img src="assets/mvp.png" alt="alt text"></p>
+</div>
+</div>
+<p>La única labor del Scrum Master es asegurarse de que la<br>
+reunión existe como parte de Scrum y que se mantiene dentro de las duraciones estimadas.</p>
+<p>Este evento generará los artefactos <strong>Spring Backlog</strong> que contendrá el <strong>Sprint Goal</strong> (objetivo del Sprint).</p>
+<h4 id="scrum-board-o-tablero-scrum-artefacto">"Scrum Board" o Tablero Scrum (Artefacto) </h4>
+<div class="row">
+<div class="col-sm-6 my-auto">
+<p>Es una <strong>herramienta visual</strong> que permite al equipo <strong>mantener la comunicación y conocer el estado de las tareas</strong>. Ayuda a que el equipo se comprometa, entienda la metodología y promueve la <strong>interacción</strong>.</p>
+<p>Aunque no hay normas formales, suelen seguir un patrón común con columnas como "<strong>To Do</strong>" (Por hacer), "<strong>In Progress</strong>" (En progreso) y "<strong>Done</strong>" (Hecho). A veces se añaden columnas adicionales como "In Review" (En revisión) o "Testing" (Pruebas) según las necesidades del equipo.</p>
+<p>Puede ser <strong>físico o digital</strong> (usando herramientas como Trello, Jira o GitHub Projects).</p>
+</div>
+<div class="col-sm-6 my-auto">
+<p><img src="assets/tablero1.png" alt="alt text"></p>
+</div>
+</div>
+<p><strong>Ejemplo de tablero Scrum digital en GitHub Projects:</strong></p>
+<p><img src="assets/tablero2.png" alt="alt text"></p>
+<p>Puede haber <strong>varios tableros Scrum en un proyecto</strong>, por ejemplo:</p>
+<ul>
+<li>Uno para el <strong>Product Backlog</strong> donde se tengan todas las <strong>PBIs</strong> o historias de usuario.</li>
+<li>Otro para el <strong>Sprint Backlog</strong> donde se tengan los PBIs seleccionados para el Sprint actual con sus estimaciones. A su vez, cada <strong>PBI puede desglosarse en tareas más pequeñas que se mueven a través del tablero</strong>.</li>
+</ul>
+<h4 id="sprint-backlog-o-registro-del-sprint-artefacto">"Sprint Backlog" o Registro del Sprint (Artefacto) </h4>
+<p>Artefacto producido en el Sprint Planning. Es el <strong>conjunto de PBIs seleccionados para el Sprint</strong>, junto con un plan para entregar el Incremento del producto y alcanzar el <strong>Sprint Goal</strong>. El Sprint Backlog es una <strong>herramienta dinámica que evoluciona durante el Sprint</strong> a medida que el equipo aprende más sobre el trabajo necesario para alcanzar el objetivo del Sprint.</p>
+<p>En el <strong>Sprint Board</strong> del <strong>Sprint Backlog</strong> ponemos todos los PBIs seleccionados para el Sprint y los desglosamos en tareas más pequeñas. Cada tarea debe tener una <strong>estimación del esfuerzo necesario</strong> para completarla.</p>
+<p>En caso de haber planificado de forma incorrecta, es posible que el equipo necesite agregar o quitar tareas, pero es importante saber que sólo el equipo de desarrollo puede cambiar su Sprint Backlog durante un Sprint.</p>
+<div style="page-break-after:always;"></div>
+<p>Por ejemplo la típica entrada de un PBI en el Sprint Backlog podría ser:</p>
+<div class="admonition quote">
+<p class="admonition-title">Diseño patanlla de login</p>
+<p>Prioridad: <em><strong>Alta</strong></em><br>
+Estimación: <em><strong>5 puntos</strong></em></p>
+<p>Criterios de aceptación para <strong>Done</strong>:</p>
+<ul>
+<li>El diseño debe ser responsivo.</li>
+<li>Debe incluir campos para usuario y contraseña.</li>
+<li>Debe tener un botón de "Olvidé mi contraseña".</li>
+</ul>
+<p>Tareas:</p>
+<ol>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox" checked=""> Crear el boceto inicial con Figma o Stitch.</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Revisar el diseño con el Product Owner.</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Implementar el diseño en Jetpack Compose.</li>
+<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Realizar pruebas de usabilidad con Mockups.</li>
+</ol>
+</div>
+<h5 id="definition-of-done-dod-definición-de-hechoterminado-artefacto">"Definition of Done (DoD)" (Definición de Hecho/Terminado) (Artefacto) </h5>
+<p>Es conveniente definir cuando un PBI que se añade a un Sprint está terminado, para lo cual se redacta un documento llamado <strong>Definition of Done (DoD)</strong>.</p>
+<p>Este es <strong>un documento que define qué se considera hecho en un equipo Scrum</strong>. La idea es establecer una serie de criterios comunes para <strong>especificar cuando un PBI está completamente terminado</strong> y puede ser entregado.</p>
+<p>Por ejemplo, en el caso del ejemplo anterior de la historia de usuario "Diseño pantalla de login", los criterios de aceptación para considerar que está "Done" podrían ser:</p>
+<ul>
+<li>El diseño debe ser responsivo.</li>
+<li>Debe incluir campos para usuario y contraseña.</li>
+<li>Debe tener un botón de "Olvidé mi contraseña".</li>
+</ul>
+<div style="page-break-after:always;"></div>
+<h5 id="estimación-del-esfuerzo-de-los-pbis">Estimación del esfuerzo de los PBIs </h5>
+<p>También es recomendable que cada tarea tenga una <strong>estimación del esfuerzo necesario</strong> para completarla. Des esta manera <strong>podremos obtener ciertas métricas</strong> que nos ayudarán a planificar mejor los siguientes Sprints.</p>
+<p>Hay diferentes formas de estimar el esfuerzo de cada tarea:</p>
+<div class="row d-flex justify-content-evenly">
+<div class="col-sm-6 border rounded mb-3 shadow-sm p-4">
+<p><strong>Plannig Poker</strong>, mediante pesos siguiendo la serie de Fibonacci.</p>
+<p><img src="assets/planing_poker.png" alt="alt text"></p>
+</div>
+<div class="col-sm-5 border rounded mb-3 shadow-sm p-4">
+<p><strong>T-Shirt Sizes</strong>, mediante tallas de camiseta.</p>
+<p><img src="assets/t-shirt-sizing.png" alt="alt text"></p>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-6 my-auto">
+<p>Por ejemplo, en la típica dinámica de <strong>Planning Poker</strong>, cada miembro del equipo tiene un conjunto de cartas con valores basados en la serie de Fibonacci (1, 2, 3, 5, 8, 13, 21, etc.). El Product Owner describe una historia de usuario y el equipo discute su complejidad. Luego, cada miembro selecciona una carta que representa su estimación del esfuerzo necesario para completar la tarea pero no la muestra a los demás. Las cartas se revelan simultáneamente y si hay una gran discrepancia en las estimaciones, se discuten las razones y se repite el proceso hasta llegar al máximo consenso posible.</p>
+</div>
+<div class="col-sm-6 my-auto">
+<p><img src="assets/Estimacion.png" alt="alt text"></p>
+</div>
+</div>
+<p>En la siguiente Web <strong><a href="https://planningpokeronline.com/">planningpokeronline</a></strong> disponemos de una herramienta gratuita para hacer Planning Poker online utilizando la app móvil. Aunque si buscas en Google Play Stores o Apple Store hay muchas otras apps gratuitas para hacer Planning Poker.</p>
+<div style="page-break-after:always;"></div>
+<h5 id="burndown-chart-gráfica-de-trabajo-pendiente-artefacto">Burndown Chart (Gráfica de trabajo pendiente) (Artefacto) </h5>
+<p>Es una gráfica que permite ver la <strong>velocidad con la que se está completando el trabajo</strong> y predecir si el proyecto se terminará a tiempo.</p>
+<div class="row">
+<div class="col-sm-6 my-auto">
+<p><img src="assets/simple_burndown1.jpg" alt="alt text"></p>
+</div>
+<div class="col-sm-6 my-auto">
+<p><img src="assets/simple_burndown2.jpg" alt="alt text"></p>
+</div>
+</div>
+<p><img src="./assets/burndown_examples.png" alt="nombre" style="display:block;margin:0 auto;width:100%;max-width:800px;"></p>
+<h4 id="daily-standup-meeting-o-reunión-diaria-de-pie-evento">"Daily Standup meeting" o Reunión diaria de pie (Evento) </h4>
+<div class="row">
+<div class="col-sm-6 my-auto">
+<p>Es un encuentro informal de todo el equipo que <strong>se suele realizar cada mañana</strong> para debatir brevemente o discutir respecto a problemas o cosas que hayan<br>
+surgido del proyecto.</p>
+<p>La duración estimada de este tipo de reuniones suele ser como máximo de <strong>15 minutos</strong> y <strong>otorgando a todo el mundo el tiempo necesario para hablar sin llegar a profundizar</strong>. Cualquier asunto que se deba hablar más detenidamente se hará fuera de dicha reunión.</p>
+</div>
+<div class="col-sm-6 my-auto">
+<p><img src="./assets/DailyMeeting.png" alt="alt text"></p>
+</div>
+</div>
+<ol>
+<li><strong>¿Qué hice ayer?</strong> (¿Cuál fue el logro?)</li>
+<li><strong>¿Qué haré hoy?</strong> (La tarea del día)</li>
+<li><strong>¿Tengo algún impedimento?</strong> (¿A qué desafíos me enfrento?)</li>
+</ol>
+<p>El objetivo de todo esto es lograr una mejor coordinación y retroalimentación en todo el equipo para mejorar en un futuro dicho trabajo o tarea además del trabajo en equipo.</p>
+<h4 id="increment-o-incremento-artefacto">"Increment" o Incremento (Artefacto) </h4>
+<p>Es la <strong>suma de todos los PBIs completados</strong> durante un Sprint, más los incrementos de todos los Sprints anteriores. Al final de un Sprint, el nuevo Incremento debe estar "Hecho" (<strong>Done</strong>), lo que significa que debe estar en condiciones utilizables y cumplir con la <strong>Definition of Done</strong> (DoD) del equipo.</p>
+<h4 id="sprint-review-o-revisión-del-sprint-evento">"Sprint Review" o Revisión del Sprint (Evento) </h4>
+<p>Al final del Sprint, el equipo muestra los avances realizados a los stakeholders. En esta reunión participan el Product Owner, el Scrum Master, el Scrum Team y otras personas involucradas en el proyecto.</p>
+<p>El objetivo principal es <strong>inspeccionar el Incremento del producto</strong> y adaptar el Product Backlog si es necesario. El equipo presenta lo que se ha completado durante el Sprint y recibe retroalimentación de los stakeholders, lo que puede influir en las prioridades del Product Backlog para futuros Sprints.</p>
+<h4 id="sprint-retrospective-o-retrospectiva-del-sprint-evento">"Sprint Retrospective" o Retrospectiva del Sprint (Evento) </h4>
+<p>Al finalizar un Sprint Backlog y el Sprint Review, se inicia el Sprint Retrospective. El Product Owner revisará con el equipo los objetivos marcados inicialmente en el Sprint Backlog concluido, se aplicarán los cambios y ajustes si son necesarios, y <strong>se marcarán los aspectos positivos (para repetirlos) y los aspectos negativos (para evitar que se repitan) del Sprint</strong>. Participa todo el equipo de SCRUM completo: desarrolladores, SCRUM Master, Product<br>
+Owner.</p>
+<p>El propósito de la retrospectiva es planificar formas de aumentar la calidad y la efectividad. El equipo Scrum inspecciona cómo fue el último Sprint con respecto a las personas, las interacciones, los procesos, las herramientas y su <strong>Definición de Terminado</strong>.<br>
+El equipo Scrum identifica los cambios más útiles para mejorar su efectividad. Las mejoras más importantes se abordan lo antes posible. Incluso se pueden agregar al Sprint Backlog para el próximo Sprint.</p>
+<h5 id="dinámicas-para-hacer-la-retrospectiva">Dinámicas para hacer la Retrospectiva </h5>
+<p>Se puede hacer de muchas formas diferentes. Por ejemplo, lo más común es crear un tablero con <strong>3 columnas</strong>: <strong>"Start" (Empezar ha hacer)</strong>, <strong>"Stop (Parar de hacer)"</strong> y <strong>"Continue" (Continuar haciendo)</strong>. Cada participante escribe sus ideas en notas adhesivas y las coloca en la columna correspondiente. Luego, se discuten las notas y se priorizan las acciones a mejorar. Hay herramientas online "gratuitas" como <strong><a href="https://easyretro.io/">EasyRetro</a></strong> o <strong><a href="https://app.goretro.ai/">GRetro</a></strong> que permiten hacer retrospectivas de forma colaborativa y visual medsante tableros virtuales.</p>
+<p>Por ejemplo, en el siguiente diagrama de EasyRetro, se pueden ver posts en las columnas de <strong>Start</strong>, <strong>Stop</strong> y <strong>Continue</strong>. El equipo puede discutir cada post y votar las ides descrita en él con las que esté más de acuerdo para priorizar las acciones a tomar según la opinión del equipo.</p>
+<p><img src="assets/retrospective.png" alt="alt text"></p>
+<p>En ocasiones algunos equipos usan dinámicas más creativas para fomentar la participación y el pensamiento fuera de lo común. como por ejemplo:</p>
+<p><strong>El viaje del Héroe</strong>: Donde cada participante crea un héroe de fantasía y narra su "viaje" durante el sprint: qué mazmorras superó (objetivos), quién le ayudó (guías) y qué tesoros obtuvo (cosas buenas). Toda la historia se va escribiendo en un mural o pizarra y al final se extraen las lecciones aprendidas.</p>
+<h2 id="glosario-de-términos-en-inglés-ordenados-alfabéticamente">Glosario de términos en Inglés ordenados Alfabéticamente </h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Artifact</strong></td>
+<td>Elemento tangible producido durante el proceso Scrum, como el Product Backlog, Sprint Backlog o Incremento.</td>
+</tr>
+<tr>
+<td><strong>Backlog</strong></td>
+<td>Lista priorizada de tareas o requisitos que deben completarse en un proyecto.</td>
+</tr>
+<tr>
+<td><strong>Burndown Chart</strong></td>
+<td>Gráfica que muestra el trabajo pendiente en un Sprint, ayudando a visualizar el progreso.</td>
+</tr>
+<tr>
+<td><strong>Daily Standup</strong></td>
+<td>Reunión diaria breve donde el equipo comparte avances, planes y obstáculos.</td>
+</tr>
+<tr>
+<td><strong>Definition of Done (DoD)</strong></td>
+<td>Conjunto de criterios que definen cuándo una tarea o historia de usuario está completamente terminada.</td>
+</tr>
+<tr>
+<td><strong>Estimation</strong></td>
+<td>Proceso de asignar un valor de esfuerzo o complejidad a las tareas o historias de usuario.</td>
+</tr>
+<tr>
+<td><strong>Event</strong></td>
+<td>Reunión o actividad específica dentro del marco de Scrum, como Sprint Planning o Sprint Review.</td>
+</tr>
+<tr>
+<td><strong>Minimum Viable Product (MVP)</strong></td>
+<td>Versión del producto con las características mínimas necesarias para ser funcional y usable.</td>
+</tr>
+<tr>
+<td><strong>Poker Planning</strong></td>
+<td>Técnica de estimación colaborativa donde los miembros del equipo asignan valores a las tareas.</td>
+</tr>
+<tr>
+<td><strong>Product Backlog</strong></td>
+<td>Lista priorizada de todas las tareas, historias de usuario y requisitos del proyecto.</td>
+</tr>
+<tr>
+<td><strong>Product Backlog Item (PBI)</strong></td>
+<td>Elemento individual en el Product Backlog, como una historia de usuario o tarea.</td>
+</tr>
+<tr>
+<td><strong>Product Goal</strong></td>
+<td>Objetivo a largo plazo del producto que guía el desarrollo y las prioridades del Product Backlog.</td>
+</tr>
+<tr>
+<td><strong>Product Owner</strong></td>
+<td>Persona responsable de definir y priorizar los requisitos del producto.</td>
+</tr>
+<tr>
+<td><strong>Scrum Board</strong></td>
+<td>Herramienta visual que muestra el estado de las tareas en un Sprint.</td>
+</tr>
+<tr>
+<td><strong>Scrum Master</strong></td>
+<td>Facilitador que asegura que el equipo siga los principios y prácticas de Scrum.</td>
+</tr>
+<tr>
+<td><strong>Scrum Team</strong></td>
+<td>Equipo multifuncional que desarrolla el producto.</td>
+</tr>
+<tr>
+<td><strong>Sprint</strong></td>
+<td>Período de tiempo fijo durante el cual se completa un conjunto específico de trabajo</td>
+</tr>
+<tr>
+<td><strong>Sprint Backlog</strong></td>
+<td>Conjunto de tareas seleccionadas para un Sprint específico.</td>
+</tr>
+<tr>
+<td><strong>Sprint Increment</strong></td>
+<td>Suma de todos los elementos del Product Backlog completados durante un Sprint, más los incrementos anteriores.</td>
+</tr>
+<tr>
+<td><strong>Sprint Planning</strong></td>
+<td>Reunión al inicio de un Sprint para planificar el trabajo a Realizar.</td>
+</tr>
+<tr>
+<td><strong>Sprint Review</strong></td>
+<td>Reunión al final de un Sprint para revisar el trabajo completado y obtener retroalimentación.</td>
+</tr>
+<tr>
+<td><strong>Sprint Retrospective</strong></td>
+<td>Reunión al final de un Sprint para reflexionar sobre el proceso y mejorar continuamente.</td>
+</tr>
+<tr>
+<td><strong>Stakeholders</strong></td>
+<td>Personas o grupos interesados en el proyecto, como clientes, usuarios y patrocinadores.</td>
+</tr>
+<tr>
+<td><strong>Task</strong></td>
+<td>Unidad de trabajo específica que forma parte de una historia de usuario o PBI.</td>
+</tr>
+<tr>
+<td><strong>Story Points</strong></td>
+<td>Unidad de medida utilizada para estimar el esfuerzo relativo de las historias de usuario por ejemplo Fibonacci.</td>
+</tr>
+<tr>
+<td><strong>User Stories</strong></td>
+<td>Descripciones cortas de funcionalidades desde la perspectiva del usuario.</td>
+</tr>
+<tr>
+<td><strong>Velocity</strong></td>
+<td>Medida de la cantidad de trabajo que un equipo puede completar en un Sprint, utilizada para planificación futura.</td>
+</tr>
+</tbody>
+</table>
+</div>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagramas de Burndown</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-gray-900">Análisis de Diagramas de Burndown</h1>
+            <p class="mt-2 text-lg text-gray-600">Visualización de patrones comunes en equipos de desarrollo.</p>
+        </header>
+
+        <!-- Sección de Gráficos Positivos -->
+        <section class="mb-16">
+            <div class="mb-8 p-4 bg-green-100 border-l-4 border-green-500 rounded-r-lg">
+                <h2 class="text-3xl font-bold text-green-800">Buenos Ejemplos</h2>
+                <p class="text-green-700 mt-1">Estos gráficos muestran equipos que gestionan su trabajo de manera efectiva y constante.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gráfico Ideal Team -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Equipo Ideal</h3>
+                    <canvas id="idealTeamChart"></canvas>
+                </div>
+                <!-- Gráfico Nice Team -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Buen Equipo</h3>
+                    <canvas id="niceTeamChart"></canvas>
+                </div>
+                <!-- Gráfico Great Team -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Gran Equipo</h3>
+                    <canvas id="greatTeamChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Gráficos de Advertencia -->
+        <section>
+            <div class="mb-8 p-4 bg-red-100 border-l-4 border-red-500 rounded-r-lg">
+                <h2 class="text-3xl font-bold text-red-800">Señales de Alerta</h2>
+                 <p class="text-red-700 mt-1">Estos patrones pueden indicar problemas subyacentes en la planificación o ejecución del sprint.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gráfico Boom. Too Early. -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-center">"Boom. Demasiado pronto."</h3>
+                    <canvas id="tooEarlyChart"></canvas>
+                </div>
+                <!-- Gráfico Oh, Management Is Coming! -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-center">"¡Oh, viene la gerencia!"</h3>
+                    <canvas id="managementChart"></canvas>
+                </div>
+                <!-- Gráfico Boom. It Is Too Late. -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-center">"Boom. Es demasiado tarde."</h3>
+                    <canvas id="tooLateChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        // --- Configuración Común para Gráficos ---
+        const labels = Array.from({ length: 11 }, (_, i) => `Día ${i}`);
+        const idealData = Array.from({ length: 11 }, (_, i) => 100 - (10 * i));
+        
+        const commonOptions = {
+            responsive: true,
+            maintainAspectRatio: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 110,
+                    title: {
+                        display: true,
+                        text: 'Esfuerzo Restante'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Días del Sprint'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                },
+                tooltip: {
+                    enabled: false
+                }
+            },
+            elements: {
+                point: {
+                    radius: 2,
+                }
+            }
+        };
+
+        const createChart = (ctx, actualData, color) => {
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Ideal',
+                        data: idealData,
+                        borderColor: 'rgba(128, 128, 128, 0.5)',
+                        borderDash: [5, 5],
+                        fill: false,
+                        tension: 0.1
+                    }, {
+                        label: 'Actual',
+                        data: actualData,
+                        borderColor: color,
+                        backgroundColor: `${color}33`, // Color con opacidad
+                        fill: false,
+                        tension: 0.4,
+                        borderWidth: 3,
+                    }]
+                },
+                options: commonOptions
+            });
+        };
+
+        // --- Datos específicos para cada gráfico ---
+
+        // Buenos Ejemplos (Verde)
+        const idealTeamData = [100, 92, 85, 78, 70, 61, 50, 42, 28, 15, 0];
+        const niceTeamData = [100, 98, 96, 92, 85, 75, 60, 40, 25, 10, 0];
+        const greatTeamData = [100, 80, 65, 50, 40, 30, 20, 15, 8, 2, 0];
+        
+        // Señales de Alerta (Rojo)
+        const tooEarlyData = [100, 75, 50, 25, 10, 0, 0, 0, 0, 0, 0];
+        const managementData = [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 0];
+        const tooLateData = [100, 99, 98, 96, 94, 90, 85, 78, 65, 50, 35];
+
+        // --- Creación de Gráficos ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const greenColor = 'rgb(22, 163, 74)';
+            const redColor = 'rgb(220, 38, 38)';
+
+            // Gráficos positivos
+            if(document.getElementById('idealTeamChart')) createChart(document.getElementById('idealTeamChart').getContext('2d'), idealTeamData, greenColor);
+            if(document.getElementById('niceTeamChart')) createChart(document.getElementById('niceTeamChart').getContext('2d'), niceTeamData, greenColor);
+            if(document.getElementById('greatTeamChart')) createChart(document.getElementById('greatTeamChart').getContext('2d'), greatTeamData, greenColor);
+
+            // Gráficos de advertencia
+            if(document.getElementById('tooEarlyChart')) createChart(document.getElementById('tooEarlyChart').getContext('2d'), tooEarlyData, redColor);
+            if(document.getElementById('managementChart')) createChart(document.getElementById('managementChart').getContext('2d'), managementData, redColor);
+            if(document.getElementById('tooLateChart')) createChart(document.getElementById('tooLateChart').getContext('2d'), tooLateData, redColor);
+        });
+    </script>
+</body>
+</html>
