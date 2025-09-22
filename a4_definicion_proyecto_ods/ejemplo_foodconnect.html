@@ -1,0 +1,559 @@
+<!DOCTYPE html><html><head>
+      <title>Ejemplo propuesta de proyecto ODS - FoodConnect</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css);
+code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+@font-face {
+  font-family: 'Catamaran';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/catamaran/v28/o-0bIpQoyXQa2RxT7-5B6Ryxs2E_6n1iPHjd5a7dvg.ttf) format('truetype');
+}
+@page a4landscape {
+  size: A4 landscape;
+  margin: 1cm;
+}
+@page a4portrait {
+  size: A4 portrait;
+  margin: 1cm 1cm 2.5cm 1cm;
+}
+.markdown-preview.markdown-preview .landscape {
+  page: a4landscape;
+}
+.markdown-preview.markdown-preview .portrait {
+  page: a4portrait;
+}
+.markdown-preview.markdown-preview .box_bg_lightgray {
+  background-color: #f5f5f5;
+  border: 2px solid #969696;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px 0 rgba(78, 120, 158, 0.1);
+}
+.markdown-preview.markdown-preview .box_bg_lightgreen {
+  background-color: #f5faf5;
+  border: 2px solid #969b96;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px 0 rgba(78, 120, 158, 0.1);
+}
+.markdown-preview.markdown-preview .salida_consola {
+  background-color: #000000;
+  color: aquamarine;
+  border: 3px solid slategrey;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px 0 slategrey;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 0.8rem;
+}
+.markdown-preview.markdown-preview .contenedor {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto 30px auto;
+}
+.markdown-preview.markdown-preview .fondo {
+  background: url(https://balmisdigigs.github.io/digitalizacion.github.io/imagenes/fondos/quote.png);
+  background-size: cover;
+  width: 75%;
+  height: 160px;
+  border-radius: 10px;
+  position: relative;
+}
+.markdown-preview.markdown-preview .cita {
+  font-family: Arial;
+  font-style: italic;
+  font-weight: 600;
+  text-align: justify;
+  line-height: 1.5rem;
+  opacity: 0.6;
+  color: white;
+  padding: 5rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  font-size: 1.3rem;
+  transform: translate(-50%, -50%);
+}
+.markdown-preview.markdown-preview .abre_comilla {
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: white;
+  padding-left: 30px;
+  position: absolute;
+  font-size: 6rem;
+  transform: translate(0%, -15%);
+}
+.markdown-preview.markdown-preview .cierra_comilla {
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: white;
+  padding-right: 30px;
+  right: 0%;
+  position: absolute;
+  font-size: 6rem;
+  transform: translate(0%, 55%);
+}
+.markdown-preview.markdown-preview .autor {
+  font-family: Arial;
+  color: white;
+  margin: 0px;
+  padding-left: 30px;
+  position: absolute;
+  top: 83%;
+  font-size: 1rem;
+}
+.markdown-preview.markdown-preview .flotante {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    justify-content: center;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    flex-direction: column;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    flex-direction: row;
+  }
+}
+.markdown-preview.markdown-preview .flotante_izq {
+  margin-right: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_izq {
+    width: 100%;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_izq {
+    width: auto;
+  }
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_der {
+    width: 100%;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_der {
+    width: auto;
+  }
+}
+.markdown-preview.markdown-preview .galeria_imagenes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .galeria_imagenes {
+    flex-direction: column;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .galeria_imagenes {
+    flex-direction: row;
+  }
+}
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+    const configureMermaidIconPacks = () => {
+        window["mermaid"].registerIconPacks([
+            {
+                name: "logos",
+                loader: () =>
+                    fetch("https://unpkg.com/@iconify-json/logos@1/icons.json").then(
+                        (res) => res.json()
+                    ),
+            },
+        ]);
+    };
+
+    if (document.readyState !== 'loading') {
+        configureMermaidIconPacks();
+    } else {
+        document.addEventListener("DOMContentLoaded", () => {
+            configureMermaidIconPacks();
+        });
+    }
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="propuesta-de-proyecto-foodconnect">Propuesta de Proyecto: FoodConnect </h1>
+<h2 id="título-del-proyecto">Título del Proyecto </h2>
+<p><strong>FoodConnect</strong>: Conectando a la comunidad para reducir el desperdicio de alimentos.</p>
+<p><img src="./assets/food_connect.png" alt="nombre" style="display:block;margin:0 auto;width:100%;max-width:500px;"></p>
+<h2 id="datos-del-equipo">Datos del Equipo </h2>
+<ul>
+<li><strong>Nombre del Proyecto:</strong> FoodConnect</li>
+<li><strong>Equipo:</strong> BalmisTech</li>
+<li><strong>Miembros del Equipo:</strong>
+<ul>
+<li>María García López (Hacedora)</li>
+<li>Juan Pérez Martínez (Analista)</li>
+<li>Laura Sánchez Torres (Divergente)</li>
+<li>Carlos Ruiz Navarro (Armonizador)</li>
+</ul>
+</li>
+<li><strong>Curso:</strong> 2º DAM - IES Doctor Balmis</li>
+<li><strong>Fecha de inicio:</strong> Octubre 2025</li>
+</ul>
+<h2 id="alineación-con-los-objetivos-de-desarrollo-sostenible-ods">Alineación con los Objetivos de Desarrollo Sostenible (ODS) </h2>
+<p>Este proyecto se alinea directa y explícitamente con los siguientes Objetivos de Desarrollo Sostenible de las Naciones Unidas, tal como se requiere en la programación didáctica:</p>
+<ul>
+<li><strong>ODS 2: Hambre Cero:</strong> Facilita la redistribución de excedentes de alimentos de comercios y particulares a personas que los necesitan, combatiendo el hambre a nivel local.</li>
+<li><strong>ODS 12: Producción y Consumo Responsables:</strong> Ataca directamente la meta 12.3, que busca reducir a la mitad el desperdicio de alimentos per cápita. La aplicación proporciona una plataforma para dar una segunda vida a los alimentos que de otro modo serían desechados.</li>
+<li><strong>ODS 11: Ciudades y Comunidades Sostenibles:</strong> Fomenta la creación de redes de apoyo locales y fortalece los lazos comunitarios al conectar a vecinos, ONGs y pequeños comercios con un objetivo común.</li>
+</ul>
+<h2 id="descripción-del-problema">Descripción del Problema </h2>
+<p>En nuestra comunidad, una gran cantidad de alimentos en perfecto estado es desechada diariamente por pequeños comercios (fruterías, panaderías, restaurantes) al final de su jornada, así como por particulares. Al mismo tiempo, existen familias y personas con dificultades para acceder a alimentos frescos y nutritivos. La desconexión entre quienes tienen un excedente y quienes lo necesitan es el principal obstáculo.</p>
+<h2 id="descripción-de-la-solución-propuesta">Descripción de la Solución Propuesta </h2>
+<p><strong>FoodConnect</strong> es una solución software multiplataforma diseñada para servir de puente entre donantes de alimentos y beneficiarios. El sistema constará de tres componentes principales, siguiendo la arquitectura definida en la programación:</p>
+<ol>
+<li><strong>Aplicación Móvil para Clientes (Android con Kotlin y Jetpack Compose):</strong> Será la herramienta principal para los usuarios (donantes y beneficiarios). Permitirá a los donantes publicar "cestas" de alimentos excedentes y a los beneficiarios buscarlas, reservarlas y coordinar su recogida.</li>
+<li><strong>Aplicación de Escritorio para Administradores (WPF con C# y MVVM):</strong> Una herramienta de back-office para que los administradores del sistema puedan gestionar usuarios (validar ONGs, bloquear usuarios con mal comportamiento), supervisar las publicaciones y obtener estadísticas básicas sobre el impacto de la plataforma.</li>
+<li><strong>Servicio Backend (API REST con Java, Spring Boot y Spring Security):</strong> El cerebro del sistema. Gestionará toda la lógica de negocio, la persistencia de datos en una base de datos H2, la autenticación de usuarios mediante JWT y la comunicación segura entre las aplicaciones cliente y de escritorio.</li>
+</ol>
+<h2 id="actores-y-roles">Actores y Roles </h2>
+<ul>
+<li><strong>Donante:</strong> Cualquier particular, comercio u organización que desea ofrecer un excedente de alimentos.</li>
+<li><strong>Beneficiario:</strong> Cualquier persona u organización (ONG, comedor social) que necesita alimentos.</li>
+<li><strong>Administrador:</strong> Un superusuario que gestiona y modera la plataforma a través de la aplicación de escritorio.</li>
+</ul>
+<h2 id="arquitectura-general">Arquitectura general </h2>
+<p align="center" korki="true" class="puml"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentstyletype="text/css" data-diagram-type="DESCRIPTION" height="508px" preserveAspectRatio="none" style="width:544px;height:508px;" version="1.1" viewBox="0 0 544 508" width="544px" zoomAndPan="magnify"><defs></defs><g><!--cluster proyecto--><g id="cluster_proyecto"><rect fill="transparent" height="495" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:1;stroke-dasharray:7.0,7.0;" width="531" x="7" y="7"></rect><text fill="#000000" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="103.0938" x="220.9531" y="25.6094">FoodConnect</text></g><!--cluster azure--><g id="cluster_azure"><rect fill="#438DD5" height="191" style="stroke:#3C7FC0;stroke-width:1;" width="277" x="237" y="135"></rect><image height="48" width="48" x="351.5" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABmUlEQVR4Xu2YsUpDQRBF82/a+wN+gD/gB9jZaGUldhYWlumsxE5IYyGiIAQkIAiKWoggPDnCLJM3+7JCXNgbvHDhZV4mmZPM7mwyWtu7Hik7BNQcAmoOATWHgJrTxfjquZtM3yW8fTrtAsDs5bNT0c74QQPg7eOrs87wKgIcXjz+PKmW989mrpy8qGfj4Gbd6qMmE6+xEGDr+H5i8RqmsPRmA6Lgfp7dkwA4uXyaA/A5RQB6jt6r5fPb1/Rei+Q/SJ9TBGhJubqkAHLKArBo6DsF+9ZKAKoOATWnCxswCt48utsNAPKLeKUAGGQMjlruH86GZIUyhX1OEaCFowQTeyhHAmCpwxzJ/OqpZQooiXp88ew+piJAK6ImJi/rxksGYEhZAFY5EAqmDQOAqkNAzXMP2N4UnAWgt1SUXcT/ABXE/s+OwxDjTy5TEaCFowTbus8BxCQBsNRZqAUA2sfnUJPdKwLQb/3p99f+jTgH8fOR9vE5RYDWtZoAfFX0mYL9NE4Aqg4BNYeAmkNAzSGg5hBQcwioOQTU/A3EH/v4cmw/vAAAAABJRU5ErkJggg==" y="137"></image><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="64.9141" x="343.043" y="201.6094">Servidor</text></g><!--entity android_d--><g id="elem_android_d"><rect fill="#08427B" height="123.3438" style="stroke:#073B6F;stroke-width:0.5;" width="116.8672" x="23" y="46.5"></rect><image height="48" width="48" x="57.4336" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABXElEQVR4Xu2YsUpDQRBFU/oJfkJ+wVZs0vgB8QMEa7tUIY2gKe3EUhshRWohaUNSpZJAqlgmRYq0T65LZNmLy8zbIm9gBk5z3r5l7rJsMa2zy17LMiSsQcIaJKxBwhokrEHCGiSsQUJLt/9evYxn1cdkqQL/dO5fq3Q/LSQ0oInSuhuOikKQkNK+eXpIm6lb6d4aSEjB1fmvFl+b35ON2e0P6bK/wmGk+0shISUXAIUQMblqZABNnTwAXpXHt6mKz/mqOQHSbxLiR8AD1MEDeIAACSkewAMESEjxAB4gQEKKB/AAARJSPIAHCJCQEgeo00Dp/0dISIkbKK1GBsAkApM3rMuNVFCNDHB+PbiSrj1JAJxurjRr47BaSGjIXQ2MWrAGzeUGWxivpPtqIKHh4vZ5vv7epj2JC8FKTh+QqAPuMMJoKG38CAlrkLAGCWuQsAYJa5CwBglrkLDGD/mg1ULL/Id3AAAAAElFTkSuQmCC" y="56.5"></image><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="31.1016" x="33" y="121.1094">App</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="4.4453" x="64.1016" y="121.1094">&nbsp;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="61.3203" x="68.5469" y="121.1094">Android</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="3.8896" x="79.4888" y="139.1582">&nbsp;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="52.9307" x="54.9683" y="156.7676">Donante</text></g><!--entity android_b--><g id="elem_android_b"><rect fill="#08427B" height="123.3438" style="stroke:#073B6F;stroke-width:0.5;" width="116.8672" x="23" y="204.5"></rect><image height="48" width="48" x="57.4336" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABXElEQVR4Xu2YsUpDQRBFU/oJfkJ+wVZs0vgB8QMEa7tUIY2gKe3EUhshRWohaUNSpZJAqlgmRYq0T65LZNmLy8zbIm9gBk5z3r5l7rJsMa2zy17LMiSsQcIaJKxBwhokrEHCGiSsQUJLt/9evYxn1cdkqQL/dO5fq3Q/LSQ0oInSuhuOikKQkNK+eXpIm6lb6d4aSEjB1fmvFl+b35ON2e0P6bK/wmGk+0shISUXAIUQMblqZABNnTwAXpXHt6mKz/mqOQHSbxLiR8AD1MEDeIAACSkewAMESEjxAB4gQEKKB/AAARJSPIAHCJCQEgeo00Dp/0dISIkbKK1GBsAkApM3rMuNVFCNDHB+PbiSrj1JAJxurjRr47BaSGjIXQ2MWrAGzeUGWxivpPtqIKHh4vZ5vv7epj2JC8FKTh+QqAPuMMJoKG38CAlrkLAGCWuQsAYJa5CwBglrkLDGD/mg1ULL/Id3AAAAAElFTkSuQmCC" y="214.5"></image><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="31.1016" x="33" y="279.1094">App</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="4.4453" x="64.1016" y="279.1094">&nbsp;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="61.3203" x="68.5469" y="279.1094">Android</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="3.8896" x="79.4888" y="297.1582">&nbsp;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.1514" x="44.8579" y="314.7676">Beneficiario</text></g><!--entity desktop--><g id="elem_desktop"><rect fill="#08427B" height="123.3438" style="stroke:#073B6F;stroke-width:0.5;" width="106.3652" x="28.5" y="362.5"></rect><image height="48" width="48" x="57.6826" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABX0lEQVR4Xu2ZsUoDQRCGU/oIeYS8gq2kSZMH0AcQrO1ShTRCYplGxFIbwSJNmkBs5aysJJBKSy1S2J78xS3rzHm5XZGZgfnhg+Rnb5k/O8kdk87B0ahjGWZYgxnWYEZ3OOkfj+/Ks8sHVRyezgtaKwswvX0sNWv7/lH2TmYXtQHwqVsQQtQGWBWbsOh+/VKOrpaq+Nx9hfridgoBkKxSnFALcXujWyo/LPAA/4wHkMYDSOMBpPEA0ngAaTyANB5AGg8gTVIALMYiTcT14X1jAO3yANLyANKqDYBpnBXVTuYG5zd0nUo9v779uE+FFwBjbM1C8Rj//xqgAkeEE0khRWhXev0+6Fi9MUAqCEyLbBIm4XSPXJiRw/Xiida4V7QVcmFGKiiEFtdGeN6ie+XAjFTwm5wj3HfoXjkwIxV8ueJ/T9pKzQlUoJXaQq/9C8ywBjOswQxrMMMazLAGM6zxDdLP5KUX4a7vAAAAAElFTkSuQmCC" y="372.5"></image><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="31.1016" x="46.1357" y="437.1094">App</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="4.4453" x="77.2373" y="437.1094">&nbsp;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="35.5469" x="81.6826" y="437.1094">WPF</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="3.8896" x="79.7378" y="455.1582">&nbsp;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="86.3652" x="38.5" y="472.7676">Administrador</text></g><!--entity api--><g id="elem_api"><rect fill="#1168BD" height="88.125" style="stroke:#3C7FC0;stroke-width:0.5;" width="85.7969" x="253" y="222"></rect><image height="48" width="48" x="271.8984" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADRklEQVR4XtWXvYoUURCF9xV8Ax/BRzDwAXyEDQ3F2MBIzNzYxMRYUxMRBRNZ3EDQwMANTBREBDEwafkGznA81dvTt6eX8Racme5z/6rqVtW9fXTl1oujnlGI3lCI3lCI3lCI3lCI3lCI3lCIfXHt7psHt598HB6//jI8O/26+b/39NMAn33XQCGWAgVffvg+TMnZ+c/h5sm7gf5X77y6sYZRhViC40fvU9dJefj8fGCXGJdztaIQrWhVHvnx688mpDAi52tFIVqAEqncLvn87fc2HwgnQinnbUEhWkCSzhUUT4+jvHJiKQoxFyyeSiIo6jGOglPJmka1ohBzkbFPXM/1pofNvolciLmgtrtMeTnhSv8XBnBYZftFyEPtYAYQu5K5oYPyGfMHM8BL6C4DiHlOaZI7+YMZAKg4CJ7NNoCRKE2Cp+dBGrQEhWiBV6Lr99+eyqPkhIzjrBhLcPpdZHgLCtEKFERZLmoSnlFu7JTFUAykT7YtQSGWAKXIA0TGAOIe8AxPKKnPmHFLUIilIJ7nSEvJnYNC7AO8iiEeTggeR/GxXNgXhVgbSu7k10Ih1gTKswPkQbathUKsDUJq10G3DwrRGzY/eIjEo8zxj9cUt/7uNd8PIZJTpy28vgkYo2f66KOG9QgrrZc7xCGntehHO+HIO206MME2TplMgxCdoGpTDdc/otjWxc7bqDo6G1BSp7b3cUEP5vJy7OuqskmvrQEa4JcqVQ6/sDHQ2zUx4/xmykJSZswARGuxhhTDYDnT+2hHJNKDvuj3j/fy+HcDfIuBvgeY0A3w8WMGsMM+j8YqVBF3lqDv72zb/GC9C6HhO8DkOaErJyWyXI4ZMNVHSo5d8txhzm8fUFYJqIU8B3JCV1rPeU1oNUCOzHmA2ooBTJBHPB1R2kPI7/OqLoi+spBcuNUAj3XXyXOjGKBk1BeTx5oboD4oqTGK57UM4F1JjaAD/V1yjU3ouFIIAz0HUJSF5HXv4x7K2NV4rzD5FeZ9eNd548K7uBy/fdDgscm9cmSftYEh7Chrq5x7lVOJFsoEjqkqdBnIkE3JHQZlkgRb5ofKZUMeV/wrN9PzQiF6QyF6QyF6QyF6QyF6QyF6QyF6w1+EN4xtLOd3DQAAAABJRU5ErkJggg==" y="232"></image><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="26.6719" x="263" y="296.6094">API</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="4.4453" x="289.6719" y="296.6094">&nbsp;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="34.6797" x="294.1172" y="296.6094">Rest</text></g><!--entity db--><g id="elem_db"><path d="M455,234 C455,224 476.5547,224 476.5547,224 C476.5547,224 498.1094,224 498.1094,234 L498.1094,298.3438 C498.1094,308.3438 476.5547,308.3438 476.5547,308.3438 C476.5547,308.3438 455,308.3438 455,298.3438 L455,234 " fill="#1168BD" style="stroke:#3C7FC0;stroke-width:0.5;"></path><path d="M455,234 C455,244 476.5547,244 476.5547,244 C476.5547,244 498.1094,244 498.1094,234 " fill="transparent" style="stroke:#3C7FC0;stroke-width:0.5;"></path><text fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" lengthAdjust="spacing" textLength="23.1094" x="465" y="264.6094">BD</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="3.8896" x="474.6099" y="282.6582">&nbsp;</text><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="17.8965" x="467.6064" y="300.2676">H2</text></g><!--link android_d to api--><g id="link_android_d_api"><path d="M140.01,150.76 C175.65,177.26 214.22,205.9367 246.54,229.9667 " fill="transparent" id="android_d-to-api" style="stroke:#666666;stroke-width:1;"></path><polygon fill="#666666" points="252.96,234.74,248.33,227.5593,244.7501,232.3742,252.96,234.74" style="stroke:#666666;stroke-width:1;"></polygon><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="20.0039" x="171" y="159.457">API</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="3.334" x="191.0039" y="159.457">&nbsp;</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="26.0098" x="194.3379" y="159.457">Rest</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="37.998" x="176.6748" y="174.5508">[HTTP]</text></g><!--link android_b to api--><g id="link_android_b_api"><path d="M140.01,266 C175.65,266 212.64,266 244.96,266 " fill="transparent" id="android_b-to-api" style="stroke:#666666;stroke-width:1;"></path><polygon fill="#666666" points="252.96,266,244.96,263,244.96,269,252.96,266" style="stroke:#666666;stroke-width:1;"></polygon><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="20.0039" x="171" y="247.457">API</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="3.334" x="191.0039" y="247.457">&nbsp;</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="26.0098" x="194.3379" y="247.457">Rest</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="37.998" x="176.6748" y="262.5508">[HTTP]</text></g><!--link desktop to api--><g id="link_desktop_api"><path d="M134.76,385.15 C171.13,358.1 212.5901,327.2733 246.5101,302.0533 " fill="transparent" id="desktop-to-api" style="stroke:#666666;stroke-width:1;"></path><polygon fill="#666666" points="252.93,297.28,244.7201,299.6458,248.3001,304.4608,252.93,297.28" style="stroke:#666666;stroke-width:1;"></polygon><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="20.0039" x="171" y="303.457">API</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="3.334" x="191.0039" y="303.457">&nbsp;</text><text fill="#666666" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="26.0098" x="194.3379" y="303.457">Rest</text><text fill="#666666" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="37.998" x="176.6748" y="318.5508">[HTTP]</text></g><!--link api to db--><g id="link_api_db"><path d="M339.3,266 C375.59,266 418.36,266 446.54,266 " fill="transparent" id="api-to-db" style="stroke:#FFFFFF;stroke-width:1;"></path><polygon fill="#FFFFFF" points="454.54,266,446.54,263,446.54,269,454.54,266" style="stroke:#FFFFFF;stroke-width:1;"></polygon><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="54.668" x="370" y="247.457">Conexión</text><text fill="#FFFFFF" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacing" textLength="28.6758" x="382.9961" y="262.5508">[JPA]</text></g><!--SRC=[ZLJRJjmm47ttLxXH9OB44fNoX0hIihjqgQY8TaCHJv4JcworYSSQErnQyJ7zXdu2FzPnDi1Ig21ljiyvC-VCACa6Pvo-7zffBt2lEooyjsulIMmjZ6-RUk2yh7MnNMc_Q8jj3SbeTv26nxFl9yapIWyfeKbyQuN4pqygkWGpk0JZ1ywYzignZfeA5Bov_-suDfU0ZIZr_H_37HIeU0sEIoqg58rmVBJBIOFRlZJRI1Zxe4rPjr8zzO3Ykc-rTGg9u9NnNKl_67fcW_IzGhhAHyGGsYZSjeHTg_3bmP9KLy6Csqc24rFbWBhIHjJvDQ1i12uFNc5rriMrSj2ef852rogt2p3gJR1KRkd1leaZkrSA3nXpIsqivThmGfJB2g4rSWGr8CzG64TF50cRbw9M_1FZR7eydkJpR3ARd6ONwIJUP2V3YzEpB3-P76NvxFZhDACxDfHofkfCL75KK6ubH5lyerStljFUZyuNDDPmLrDyp-w8V1YQ47WRMuHRLNhOuj4H0FLb31sZJVvhjOkfGWSc5aOYQ9bBmWsjvSFLcUIZCHYQMbTfjKhxqNgULEqLdUAbpg4owbANMg26zudra-YbpjEZ83EKZJRQUHGIS5sdHmVtGUDniMBniqL5p3aDJAz8qJfnDSWGIKSCt_oMzhE9XTMXOdhCPyhv5xp_h6DluabdNCGo178u3XBJdHvmjsgKXhmU_ykQqonBUyewjdW7zZ71jrK3eEkIWbCtuQyGKD_IORTsedBx3skuoUx-0W00]--></g></svg></p><h2 id="casos-de-uso-principales">Casos de Uso Principales </h2>
+<h3 id="para-donantes-app-móvil">Para Donantes (App Móvil) </h3>
+<table>
+<thead>
+<tr>
+<th>Caso de Uso</th>
+<th>Descripción</th>
+<th>Prioridad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Registro de Usuario</strong></td>
+<td>Permitir a donantes y beneficiarios registrarse en la aplicación móvil.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Publicar Cesta</strong></td>
+<td>Publicar una nueva "cesta de alimentos", especificando contenido, cantidad aproximada, ubicación y horario de recogida.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Subir Foto</strong></td>
+<td>Subir una foto de la cesta para mayor transparencia.</td>
+<td>Media</td>
+</tr>
+<tr>
+<td><strong>Ver Estado de Cestas</strong></td>
+<td>Ver el estado de sus cestas publicadas (disponible, reservada, recogida).</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Notificaciones</strong></td>
+<td>Recibir una notificación cuando su cesta sea reservada.</td>
+<td>Baja</td>
+</tr>
+<tr>
+<td><strong>Confirmar Recogida</strong></td>
+<td>Confirmar que la cesta ha sido recogida por el beneficiario.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Historial de Donaciones</strong></td>
+<td>Consultar su historial de donaciones.</td>
+<td>Media</td>
+</tr>
+</tbody>
+</table>
+<h3 id="para-beneficiarios-app-móvil">Para Beneficiarios (App Móvil) </h3>
+<table>
+<thead>
+<tr>
+<th>Caso de Uso</th>
+<th>Descripción</th>
+<th>Prioridad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Registro de Usuario</strong></td>
+<td>Permitir a donantes y beneficiarios registrarse en la aplicación móvil.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Buscar Cestas</strong></td>
+<td>Buscar cestas de alimentos disponibles cerca de su ubicación usando un mapa o una lista.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Filtrar Búsquedas</strong></td>
+<td>Filtrar búsquedas por tipo de alimento o distancia.</td>
+<td>Media</td>
+</tr>
+<tr>
+<td><strong>Ver Detalles de Cesta</strong></td>
+<td>Ver los detalles de una cesta y la información del donante.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Reservar Cesta</strong></td>
+<td>Reservar una cesta disponible.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Chat con Donante</strong></td>
+<td>Comunicarse con el donante a través de un chat simple para coordinar la recogida.</td>
+<td>Baja</td>
+</tr>
+<tr>
+<td><strong>Historial de Recogidas</strong></td>
+<td>Consultar su historial de recogidas.</td>
+<td>Media</td>
+</tr>
+</tbody>
+</table>
+<h3 id="para-administradores-app-escritorio">Para Administradores (App Escritorio) </h3>
+<table>
+<thead>
+<tr>
+<th>Caso de Uso</th>
+<th>Descripción</th>
+<th>Prioridad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Inicio de Sesión Seguro</strong></td>
+<td>Permitir a los administradores iniciar sesión de forma segura.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Gestión de Usuarios</strong></td>
+<td>Ver un listado de todos los usuarios (donantes y beneficiarios).</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Validar ONGs</strong></td>
+<td>Validar el registro de nuevas ONGs o comedores sociales.</td>
+<td>Media</td>
+</tr>
+<tr>
+<td><strong>Bloquear/Eliminar Usuarios</strong></td>
+<td>Bloquear o eliminar usuarios que incumplan las normas de la comunidad.</td>
+<td>Alta</td>
+</tr>
+<tr>
+<td><strong>Gestión de Publicaciones</strong></td>
+<td>Visualizar y eliminar publicaciones que sean inapropiadas.</td>
+<td>Media</td>
+</tr>
+<tr>
+<td><strong>Ver Estadísticas</strong></td>
+<td>Ver estadísticas básicas (ej: nº dse cestas donadas en la última semana, nº de usuarios activos).</td>
+<td>Baja</td>
+</tr>
+</tbody>
+</table>
+<h2 id="riesgos-y-mitigación">Riesgos y mitigación </h2>
+<table>
+<thead>
+<tr>
+<th>Riesgo</th>
+<th>Mitigación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Chat en tiempo real</td>
+<td>Requiere del uso de FLows y corrutina en Kotlin + Firebase</td>
+</tr>
+<tr>
+<td>Mapas y geolocalización</td>
+<td>Uso de Google Maps SDK (API Key) y componentes específico de Maps en compose</td>
+</tr>
+<tr>
+<td>Notificaciones push</td>
+<td>Uso de Firebase Cloud Messaging (FCM)</td>
+</tr>
+<tr>
+<td>Complejidad JWT</td>
+<td>Taller extra + plantilla base o usar sesiones</td>
+</tr>
+<tr>
+<td>Retraso en integración</td>
+<td>Feature-flags para desactivar parte no crítica</td>
+</tr>
+<tr>
+<td>Scope creep</td>
+<td>Definición clara del <strong>Producto Mínimo Viable</strong> (MVP) priorizando el backlog</td>
+</tr>
+<tr>
+<td>Falta de experiencia</td>
+<td>Uso de IA para generación de código y resolución de dudas</td>
+</tr>
+<tr>
+<td>Falta de compromiso</td>
+<td>Reuniones semanales de seguimiento y revisión del progreso</td>
+</tr>
+<tr>
+<td>Conflictos en equipo</td>
+<td>Roles claros y comunicación abierta</td>
+</tr>
+</tbody>
+</table>
+<h2 id="planificación-aproximada-sprints-por-quincena">Planificación aproximada Sprints por quincena </h2>
+<table>
+<thead>
+<tr>
+<th>Sprint</th>
+<th>Semanas</th>
+<th>Fecha fin</th>
+<th>Entregable clave</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>7-8</td>
+<td>31 oct</td>
+<td>Modelo de dominio Java + diagramas</td>
+</tr>
+<tr>
+<td>2</td>
+<td>9-10</td>
+<td>14 nov</td>
+<td>Clases transpiladas a C#/Kotlin + mocks con IA</td>
+</tr>
+<tr>
+<td>3</td>
+<td>11-12</td>
+<td>28 nov</td>
+<td>Prototipos UI/UX Stitch/Figma (Material 3 &amp; XAML)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>13-14</td>
+<td>12 dic</td>
+<td>App WPF navegable con datos mock (1.ª evaluación)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>15-16</td>
+<td>16 ene</td>
+<td>App Android navegable con estados mock</td>
+</tr>
+<tr>
+<td>6</td>
+<td>17-18</td>
+<td>30 ene</td>
+<td>Lógica de negocio en WPF (MVVM)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>19-20</td>
+<td>13 feb</td>
+<td>Lógica de negocio en Android (MVI)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>21-22</td>
+<td>27 feb</td>
+<td>API REST CRUD + BBDD H2 (2.ª evaluación)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>23-24</td>
+<td>13 mar</td>
+<td>Servicios de negocio + DTOs + excepciones</td>
+</tr>
+<tr>
+<td>10</td>
+<td>25-26</td>
+<td>27 mar</td>
+<td>Seguridad: registro/login JWT + roles</td>
+</tr>
+<tr>
+<td>11</td>
+<td>27-28</td>
+<td>08 may</td>
+<td>Autorización por roles + endpoints protegidos</td>
+</tr>
+<tr>
+<td>12</td>
+<td>29-30</td>
+<td>22 may</td>
+<td>Integración full-stack (sustitución mocks ↔ API)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>31-32</td>
+<td>05 jun</td>
+<td>Memoria final, vídeo 2 min, presentación oral</td>
+</tr>
+</tbody>
+</table>
+<h2 id="organización-repositorio">Organización repositorio </h2>
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>https://github.com/BalmisTech/FoodConnect
+├── docs/
+│   ├── PROYECTO.md      ← visión, ODS, casos de uso
+│   ├── DISENO.md        ← modelo, decisiones arquitectónicas
+│   └── DIARIO.md        ← seguimiento semanal individual
+├── backend/
+├── frontend-wpf/
+└── frontend-android/
+</code></pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
