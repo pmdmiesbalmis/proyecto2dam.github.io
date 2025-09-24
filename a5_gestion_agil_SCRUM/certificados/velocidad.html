@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado a la Mejor Velocidad</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #cccccc;
+            font-family: 'Times New Roman', serif;
+        }
+        .certificate-container {
+            border: 10px double #003366;
+            padding: 40px;
+            text-align: center;
+            background-color: #f0f8ff;
+            width: 297mm;
+            height: 210mm;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #003366;
+        }
+        h1 {
+            color: #003366;
+            font-size: 40px;
+            margin: 20px 0;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+            margin: 5px 0;
+        }
+        h2 {
+            color: #0055a4;
+            font-size: 28px;
+            margin: 10px 0;
+        }
+        .team-name-placeholder {
+            border-bottom: 2px solid #003366;
+            width: 70%;
+            margin: 30px auto;
+            height: 30px;
+        }
+        .quote {
+            font-style: italic;
+            font-size: 18px;
+            color: #555;
+            max-width: 80%;
+            margin: 20px auto;
+        }
+        .signatures {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 50px;
+        }
+        .signature p {
+            border-top: 1px solid #003366;
+            padding-top: 10px;
+            font-size: 16px;
+        }
+        .date {
+            font-size: 14px;
+            color: #999;
+            margin-top: 20px;
+        }
+
+        @media print {
+            @page {
+                size: A4 landscape;
+                margin: 0;
+            }
+            body, html {
+                background-color: #ffffff;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            .certificate-container {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="certificate-container">
+        <div>
+            <div class="logo">✈️ FastFly Airlines</div>
+            <h1>CERTIFICADO A LA MEJOR VELOCIDAD</h1>
+            <p>Otorgado a:</p>
+            <h2>AeroDAM Solutions</h2>
+            <p>Por su excepcional rendimiento en el Proyecto Intermodular de 2º DAM</p>
+            <p>Se concede este reconocimiento al equipo:</p>
+            <div class="team-name-placeholder"></div>
+            <p class="quote">
+                "Por demostrar una eficiencia y rapidez extraordinarias en la finalización de las tareas asignadas, superando todas las expectativas."
+            </p>
+        </div>
+        <div>
+            <div class="signatures">
+                <div class="signature">
+                    <p>Jefe de Operaciones<br><strong>FastFly Airlines</strong></p>
+                </div>
+                <div class="signature">
+                    <p>Director de Proyecto<br><strong>AeroDAM Solutions</strong></p>
+                </div>
+            </div>
+            <p class="date">Emitido el ___ de ______________ de _____</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Métricas y Cierre - Actividad Scrum</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .printable-area, .printable-area * {
+                visibility: visible;
+            }
+            .printable-area {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 printable-area">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Actividad Scrum: Métricas y Cierre</h1>
+            <p class="text-md text-gray-600 mt-2">Rellena los siguientes apartados para completar la reflexión final de la actividad.</p>
+        </header>
+
+        <!-- Sección de Métricas y Gráfico de Velocidad -->
+        <section class="mb-8 bg-white p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-bold mb-4 border-b pb-2">Velocity Chart</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Inputs para los Sprints -->
+                <div id="sprint-inputs" class="space-y-4">
+                    <!-- Sprint 1 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">Sprint 1</h3>
+                        <div class="grid grid-cols-2 gap-4 mt-2">
+                            <input type="number" id="s1-committed" placeholder="SP Comprometidos" class="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" min="0">
+                            <input type="number" id="s1-completed" placeholder="SP Finalizados" class="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" min="0">
+                        </div>
+                    </div>
+                    <!-- Sprint 2 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">Sprint 2</h3>
+                        <div class="grid grid-cols-2 gap-4 mt-2">
+                            <input type="number" id="s2-committed" placeholder="SP Comprometidos" class="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" min="0">
+                            <input type="number" id="s2-completed" placeholder="SP Finalizados" class="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" min="0">
+                        </div>
+                    </div>
+                    <!-- Sprint 3 -->
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-700">Sprint 3</h3>
+                        <div class="grid grid-cols-2 gap-4 mt-2">
+                            <input type="number" id="s3-committed" placeholder="SP Comprometidos" class="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" min="0">
+                            <input type="number" id="s3-completed" placeholder="SP Finalizados" class="p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" min="0">
+                        </div>
+                    </div>
+                </div>
+                <!-- Gráfico -->
+                <div class="bg-gray-50 p-4 rounded-lg flex items-center justify-center">
+                    <canvas id="velocityChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Reflexión Final -->
+        <section class="mb-8 bg-white p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-bold mb-4 border-b pb-2">Reflexión Final</h2>
+            <div class="space-y-6">
+                <div>
+                    <label for="reflection-artefactos" class="block text-md font-semibold text-gray-700">1. Artefactos: ¿Cómo evolucionó vuestro Product Backlog? ¿Fue útil el Sprint Backlog mental?</label>
+                    <textarea id="reflection-artefactos" rows="4" class="mt-2 w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                </div>
+                <div>
+                    <label for="reflection-eventos" class="block text-md font-semibold text-gray-700">2. Eventos: ¿Qué evento de Scrum fue más valioso? ¿Cuál más desafiante?</label>
+                    <textarea id="reflection-eventos" rows="4" class="mt-2 w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                </div>
+                <div>
+                    <label for="reflection-roles" class="block text-md font-semibold text-gray-700">3. Roles: ¿Cómo fue la experiencia en cada rol?</label>
+                    <textarea id="reflection-roles" rows="4" class="mt-2 w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                </div>
+                <div>
+                    <label for="reflection-empirismo" class="block text-md font-semibold text-gray-700">4. Empirismo: ¿Cómo aplicasteis inspección, adaptación y transparencia?</label>
+                    <textarea id="reflection-empirismo" rows="4" class="mt-2 w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                </div>
+                 <div>
+                    <label for="reflection-user-stories" class="block text-md font-semibold text-gray-700">5. User Stories: ¿Ayudaron los criterios de aceptación a entender el valor de negocio?</label>
+                    <textarea id="reflection-user-stories" rows="4" class="mt-2 w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de Conceptos Clave -->
+        <section class="mb-8 bg-white p-6 rounded-xl shadow-md">
+            <h2 class="text-2xl font-bold mb-4 border-b pb-2">Conceptos Clave Aprendidos</h2>
+            <div class="space-y-3">
+                <div class="flex items-center">
+                    <input id="concept-1" type="checkbox" class="h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <label for="concept-1" class="ml-3 text-md text-gray-700">La importancia del time-boxing</label>
+                </div>
+                <div class="flex items-center">
+                    <input id="concept-2" type="checkbox" class="h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <label for="concept-2" class="ml-3 text-md text-gray-700">El valor de los incrementos funcionales</label>
+                </div>
+                <div class="flex items-center">
+                    <input id="concept-3" type="checkbox" class="h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <label for="concept-3" class="ml-3 text-md text-gray-700">La adaptación al cambio vs seguir un plan</label>
+                </div>
+                <div class="flex items-center">
+                    <input id="concept-4" type="checkbox" class="h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <label for="concept-4" class="ml-3 text-md text-gray-700">La auto-organización del equipo</label>
+                </div>
+                <div class="flex items-center">
+                    <input id="concept-5" type="checkbox" class="h-5 w-5 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    <label for="concept-5" class="ml-3 text-md text-gray-700">El valor de la retrospectiva para la mejora continua</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- Botón de Imprimir -->
+        <div class="text-center mt-8 no-print">
+            <button onclick="window.print()" class="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300">
+                Imprimir a PDF
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('velocityChart').getContext('2d');
+        const velocityChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Sprint 1', 'Sprint 2', 'Sprint 3'],
+                datasets: [{
+                    label: 'SP Comprometidos',
+                    data: [0, 0, 0],
+                    backgroundColor: 'rgba(129, 140, 248, 0.5)', // indigo-300
+                    borderColor: 'rgba(101, 116, 205, 1)', // indigo-400
+                    borderWidth: 1
+                }, {
+                    label: 'SP Finalizados',
+                    data: [0, 0, 0],
+                    backgroundColor: 'rgba(79, 70, 229, 0.6)', // indigo-600
+                    borderColor: 'rgba(67, 56, 202, 1)', // indigo-700
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                animation: false,
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Story Points'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Velocidad del Equipo por Sprint',
+                        font: {
+                            size: 16
+                        }
+                    },
+                    legend: {
+                        position: 'top',
+                    }
+                }
+            }
+        });
+
+        // Función para actualizar el gráfico
+        function updateChart() {
+            const s1Committed = document.getElementById('s1-committed').value || 0;
+            const s1Completed = document.getElementById('s1-completed').value || 0;
+            const s2Committed = document.getElementById('s2-committed').value || 0;
+            const s2Completed = document.getElementById('s2-completed').value || 0;
+            const s3Committed = document.getElementById('s3-committed').value || 0;
+            const s3Completed = document.getElementById('s3-completed').value || 0;
+
+            velocityChart.data.datasets[0].data = [s1Committed, s2Committed, s3Committed];
+            velocityChart.data.datasets[1].data = [s1Completed, s2Completed, s3Completed];
+            velocityChart.update();
+        }
+
+        // Añadir listeners a los inputs
+        document.getElementById('sprint-inputs').addEventListener('input', updateChart);
+    </script>
+</body>
+</html>
+
