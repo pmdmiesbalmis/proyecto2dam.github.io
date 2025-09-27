@@ -11,7 +11,7 @@
       
       <style>
       @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css);
-code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}@font-face{font-family:"Material Icons";font-style:normal;font-weight:400;src:local("Material Icons"),local("MaterialIcons-Regular"),url("data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAfIAAsAAAAADDAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7kosY21hcAAAAYAAAADTAAACjtP6ytBnbHlmAAACVAAAAxgAAAQ4zRtvlGhlYWQAAAVsAAAALwAAADYRwZsnaGhlYQAABZwAAAAcAAAAJAeKAzxobXR4AAAFuAAAABIAAAA8OGQAAGxvY2EAAAXMAAAAIAAAACAG5AfwbWF4cAAABewAAAAfAAAAIAEfAERuYW1lAAAGDAAAAVcAAAKFkAhoC3Bvc3QAAAdkAAAAYgAAAK2vz7wkeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkPsQ4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVLy4xKzzX4chhrmK4QpQmBEkBwAZygyweJzFkr0NwjAQhZ+TEP6CRUfHBEwRUWaQTICyQbpMwRCskA5RUIONxG0RnnNpKAIV4qzPku/8c353ACYAYrIjCWCuMAh2ptf0/hiL3p/gyPUWa3osqlt0L1zu9r71z8dGrJRykFoauXQd932Lj5vhG+MjxGeYI8MKETObMpslf5EyP8tg+vHun5r539PvlvXzaVhRFVQDTPEWKVQR90KhnnC5Ek67vUKN4VuFasM/ldARj43CCkCsEjpJSoVVgRyU0GVSK6wUpFFCx8lFgX0BiXpRPQB4nE2TTWjcRhTH3xttpDhxN7uxPlp3u/FK7moRPixafRijNosxSw/LUsIwNcaEHPZggo/FmEKMCKWU4kNOOftQSlhE8alnH0Ix9BqWnHooPRrTQ0+mnu2bXTu2pPdGM9LM/6c3fwECTM4gBBMYQNqxzLrZAjqYSlqu2TAHZQA0/DQJH6FtzqGDnvbt4Ggwvzw/nL8EfH8kW0fsuRqhgWXZnY7M1picaUL7Du5BHeDzMIl83dAt016wH1qmvtSMo5R6YRJHTR//FXsff/nj/tc/5K9P5d+nP22+fFK5u7v3K39SW3y+OtDKO3L85vD09PD9z5X17a2N1g4tqk01RlqX7gyoEmnsWQtVr4rtZMmukEaFBZxzefkCn11cyKMLZgshRwgTYNoLNXCBz2ja7HvZG7hDpPSNfoo5vs0knK/9hb+rNpu+8kHPgk/Ao4kK3tWtTpSEtvkA9c+wE6UaUdwieNkaHg55tBEtRiEPw1s0+FtrtTcc9two2lhMknV7PZF/cs6+uUFTmpTGbEx7sQCPSLOttHS3GRltqp7SNzVSKzl6aWnZT/CX5k6/v9N3Hh8fHBwffJVjhrC6OgH5dkIt/tPsq+d/PD5Qz7G7efzq1THFjdZVPe/N6ulQ3JnDWSE5junsFsVIiFwL/htf1S5gJ3BfOcUxfHKLnzqpFpyfZ9cX+/5WB6a+Y0pHpzkNrYNVDwMsikK+y7WuLCRg/oFHkA8VT3rDg5ZnU6ktzzINymV0m74Xd5pfIGXyFeVEQSShkzqG7TBBa2OxVRKitLXv7h3uuftXnXq7lz2tZ/WnWa9dx9dCjDhHzmuVQATlmljr9dZErUydSo2Hbi/b1vXtrOeGCk2/8s3ZlO8+ueJT8BVlw5pGw2oYccdSiHHqx0RlabHqdNR9jAETl6PreJcPBnnfpTLnOQ8C3OV8AmQGzouV1iZdeb5SSIoVc8W8/kcDtksUH5FrU6/aqBqNWcMEzxG4DAQ14qRQhi9mWU0rzepKezbjfgCwQKxVYq5ajRgpRqy45CqwkJydcEkbTkvRz8P5/2ZpDTN4nGNgZGBgAOKb6v+/xvPbfGXgZmEAgeuB2kkI+v8bFgbmKiCXg4EJJAoAPyAKhQB4nGNgZGBg1vmvwxDDwgACQJKRARXwAwAzZQHQeJxjYQCCFAYGFgbSMQAcWACdAAAAAAAAAAwALgBgAIQAmADSAQgBIgE8AVABoAHeAfwCHHicY2BkYGDgZ7BgYGMAASYg5gJCBob/YD4DAA/hAWQAeJxlkbtuwkAURMc88gApQomUJoq0TdIQzEOpUDokKCNR0BuzBiO/tF6QSJcPyHflE9Klyyekz2CuG8cr7547M3d9JQO4xjccnJ57vid2cMHqxDWc40G4Tv1JuEF+Fm6ijRfhM+oz4Ra6eBVu4wZvvMFpXLIa40PYQQefwjVc4Uu4Tv1HuEH+FW7i1mkKn6Hj3Am3sHC6wm08Ou8tpSZGe1av1PKggjSxPd8zJtSGTuinyVGa6/Uu8kxZludCmzxMEzV0B6U004k25W35fj2yNlCBSWM1paujKFWZSbfat+7G2mzc7weiu34aczzFNYGBhgfLfcV6iQP3ACkSaj349AxXSN9IT0j16JepOb01doiKbNWt1ovippz6sVYYwsXgX2rGVFIkq7Pl2PNrI6qW6eOshj0xaSq9mpNEZIWs8LZUfOouNkVXxp/d5woqebeYIf4D2J1ywQB4nG3LOw6AIBAE0B384B+PAkgEa+QwNnYmHt+EpXSal5lkSBBnoP8oCFSo0aCFRIceA0ZMmLFAYSW88rmvtMUjG3RiQ9HvpfusM6zWNmtc5H/iPewha50tOt5PS/QBx2IeSwAA") format("woff")}.admonition{box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12),0 3px 1px -2px rgba(0,0,0,.2);position:relative;margin:1.5625em 0;padding:0 1.2rem;border-left:.4rem solid rgba(68,138,255,.8);border-radius:.2rem;background-color:rgba(255,255,255,.05);overflow:auto}.admonition>p{margin-top:.8rem}.admonition>.admonition-title{margin:0 -1.2rem;padding:.8rem 1.2rem .8rem 3.6rem;border-bottom:1px solid rgba(68,138,255,.2);background-color:rgba(68,138,255,.1);font-weight:700}.admonition>.admonition-title:before{position:absolute;left:1.2rem;font-size:1.5rem;color:rgba(68,138,255,.8);content:"\E3C9"}.admonition>.admonition-title:before{font-family:Material Icons;font-style:normal;font-variant:normal;font-weight:400;line-height:2rem;text-transform:none;white-space:nowrap;speak:none;word-wrap:normal;direction:ltr}.admonition.abstract,.admonition.summary,.admonition.tldr{border-left-color:rgba(0,176,255,.8)}.admonition.abstract>.admonition-title,.admonition.summary>.admonition-title,.admonition.tldr>.admonition-title{background-color:rgba(0,176,255,.1);border-bottom-color:rgba(0,176,255,.2)}.admonition.abstract>.admonition-title:before,.admonition.summary>.admonition-title:before,.admonition.tldr>.admonition-title:before{color:#00b0ff;content:"\E8D2"}.admonition.hint,.admonition.tip{border-left-color:rgba(0,191,165,.8)}.admonition.hint>.admonition-title,.admonition.tip>.admonition-title{background-color:rgba(0,191,165,.1);border-bottom-color:rgba(0,191,165,.2)}.admonition.hint>.admonition-title:before,.admonition.tip>.admonition-title:before{color:#00bfa5;content:"\E80E"}.admonition.info,.admonition.todo{border-left-color:rgba(0,184,212,.8)}.admonition.info>.admonition-title,.admonition.todo>.admonition-title{background-color:rgba(0,184,212,.1);border-bottom-color:rgba(0,184,212,.2)}.admonition.info>.admonition-title:before,.admonition.todo>.admonition-title:before{color:#00b8d4;content:"\E88E"}.admonition.check,.admonition.done,.admonition.success{border-left-color:rgba(0,200,83,.8)}.admonition.check>.admonition-title,.admonition.done>.admonition-title,.admonition.success>.admonition-title{background-color:rgba(0,200,83,.1);border-bottom-color:rgba(0,200,83,.2)}.admonition.check>.admonition-title:before,.admonition.done>.admonition-title:before,.admonition.success>.admonition-title:before{color:#00c853;content:"\E876"}.admonition.faq,.admonition.help,.admonition.question{border-left-color:rgba(100,221,23,.8)}.admonition.faq>.admonition-title,.admonition.help>.admonition-title,.admonition.question>.admonition-title{background-color:rgba(100,221,23,.1);border-bottom-color:rgba(100,221,23,.2)}.admonition.faq>.admonition-title:before,.admonition.help>.admonition-title:before,.admonition.question>.admonition-title:before{color:#64dd17;content:"\E887"}.admonition.attention,.admonition.caution,.admonition.warning{border-left-color:rgba(255,145,0,.8)}.admonition.attention>.admonition-title,.admonition.caution>.admonition-title,.admonition.warning>.admonition-title{background-color:rgba(255,145,0,.1);border-bottom-color:rgba(255,145,0,.2)}.admonition.attention>.admonition-title:before{color:#ff9100;content:"\E417"}.admonition.caution>.admonition-title:before,.admonition.warning>.admonition-title:before{color:#ff9100;content:"\E002"}.admonition.fail,.admonition.failure,.admonition.missing{border-left-color:rgba(255,82,82,.8)}.admonition.fail>.admonition-title,.admonition.failure>.admonition-title,.admonition.missing>.admonition-title{background-color:rgba(255,82,82,.1);border-bottom-color:rgba(255,82,82,.2)}.admonition.fail>.admonition-title:before,.admonition.failure>.admonition-title:before,.admonition.missing>.admonition-title:before{color:#ff5252;content:"\E14C"}.admonition.bug,.admonition.danger,.admonition.error{border-left-color:rgba(255,23,68,.8)}.admonition.bug>.admonition-title,.admonition.danger>.admonition-title,.admonition.error>.admonition-title{background-color:rgba(255,23,68,.1);border-bottom-color:rgba(255,23,68,.2)}.admonition.danger>.admonition-title:before{color:#ff1744;content:"\E3E7"}.admonition.error>.admonition-title:before{color:#ff1744;content:"\E14C"}.admonition.bug>.admonition-title:before{color:#ff1744;content:"\E868"}.admonition.example,.admonition.snippet{border-left-color:rgba(0,184,212,.8)}.admonition.example>.admonition-title,.admonition.snippet>.admonition-title{background-color:rgba(0,184,212,.1);border-bottom-color:rgba(0,184,212,.2)}.admonition.example>.admonition-title:before,.admonition.snippet>.admonition-title:before{color:#00b8d4;content:"\E242"}.admonition.cite,.admonition.quote{border-left-color:rgba(158,158,158,.8)}.admonition.cite>.admonition-title,.admonition.quote>.admonition-title{background-color:rgba(158,158,158,.1);border-bottom-color:rgba(158,158,158,.2)}.admonition.cite>.admonition-title:before,.admonition.quote>.admonition-title:before{color:#9e9e9e;content:"\E244"}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 /* Please visit the URL below for more information: */
@@ -248,11 +248,72 @@ code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-fami
         <div>
           <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
           <a href="#1-creación-del-proyecto" class="md-toc-link">
-            <ol>
-<li>Creación del Proyecto</li>
-</ol>
+            <p>1. Creación del Proyecto</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#2-definiendo-la-user-stories-o-product-backlog-items" class="md-toc-link">
+            <p>2. Definiendo la User Stories o Product Backlog Items</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#3-definiendo-los-criterios-de-aceptación-y-los-story-points" class="md-toc-link">
+            <p>3. Definiendo los criterios de aceptación y los Story Points</p>
+
+          </a></div><details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#4-convirtiendo-draft-issues-en-issues" class="md-toc-link"><p>4. Convirtiendo Draft Issues en Issues</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#draft-issues-vs-issues" class="md-toc-link">
+            <p>Draft Issues vs Issues</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#convertir-en-issues-asignadas-a-un-repositorio" class="md-toc-link">
+            <p>Convertir en Issues asignadas a un repositorio</p>
 
           </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#5-planificando-un-sprint" class="md-toc-link"><p>5. Planificando un Sprint</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#definiendo-un-sprint-y-su-duración" class="md-toc-link">
+            <p>Definiendo un Sprint y su duración</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#pasando-user-stories-al-sprint-actual" class="md-toc-link">
+            <p>Pasando User Stories al Sprint actual</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#estableciendo-las-tareas-de-cada-user-story" class="md-toc-link">
+            <p>Estableciendo las tareas de cada User Story</p>
+
+          </a></div><div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#reorganizando-el-sprint-backlog-tras-asignarle-tareas" class="md-toc-link">
+            <p>Reorganizando el Sprint Backlog tras asignarle tareas</p>
+
+          </a></div>
+        </div>
+      </details>
+    <details style="padding:0;;padding-left:24px;" open="">
+        <summary class="md-toc-link-wrapper">
+          <a href="#6-primer-daily-scrum-y-asignación-de-tareas" class="md-toc-link"><p>6. Primer Daily Scrum y asignación de tareas</p>
+</a>
+          </summary>
+        <div>
+          <div class="md-toc-link-wrapper" style="padding:0;;display:list-item;list-style:square;margin-left:42px">
+          <a href="#seguimiento-de-tareas-y-user-stories" class="md-toc-link">
+            <p>Seguimiento de tareas y User Stories</p>
+
+          </a></div>
+        </div>
+      </details>
+    
         </div>
       </details>
     
@@ -274,9 +335,254 @@ code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-fami
 <li><strong>Adaptación</strong>: Sprint Retrospectives facilitadas por GitHub Discussions si fuera necesario.</li>
 </ul>
 <h2 id="flujo-de-trabajo-propuesto-workflow">Flujo de Trabajo Propuesto (Workflow) </h2>
+<div class="admonition info">
+<p class="admonition-title">Información</p>
+<ul>
+<li>El siguiente flujo p <em>"workflow"</em> de trabajo está basado en la lista de reproducción <strong><a href="https://www.youtube.com/watch?v=06AWiNvjlQU&amp;list=PLGxFXI4dC2siB2ENZ6OhagfwSId5FcWmY">Scrum with GitHub Projects</a></strong> de Benjamin Day. Es muy recomendable ver los vídeos para entender mejor cada paso.</li>
+<li>Además dispones del siguiente enlace a la documentación oficial de GitHub Projects: <strong><a href="https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects">Quickstart for Projects</a></strong></li>
+<li>Por último, aquí tienes un tutorial en castellano de <strong><a href="https://youtu.be/AaauKq9lDCs">Github Projects + Copilot</a></strong> que te puede ofrecer otro punto de vista de cómo afrontar las tareas.</li>
+</ul>
+</div>
+<div style="page-break-after:always;"></div>
 <h3 id="1-creación-del-proyecto">1. Creación del Proyecto </h3>
-<p>La creación de un proyecto se puede realizar a nivel de Organización o de Repositorio.12 La elección depende del alcance del trabajo. Un proyecto a nivel de Organización es ideal para iniciativas que abarcan múltiples repositorios, ya que puede agrupar<br>
-Issues de todos ellos, pero requiere permisos de administrador de la organización.8 Para proyectos contenidos en un solo repositorio, un proyecto a nivel de repositorio es suficiente y más sencillo de gestionar. Se recomienda comenzar creando un nuevo proyecto desde la pestaña "Projects" de la organización o repositorio correspondiente.</p>
+<p>La <strong>creación de un proyecto</strong> la realizaremos a <strong>nivel de Organización</strong>. Esto permite <strong>gestionar múltiples repositorios</strong> dentro la organización, facilitando la coordinación en equipos que trabajan en varios repositorios. También es posible crear proyectos a nivel de Repositorio.</p>
+<ol>
+<li>Vamos a la pestaña "Projects" de la organización en GitHub.</li>
+<li>Hacemos clic en "<em><strong>New Project</strong></em>".</li>
+<li>Seleccionamos la plantilla "<em><strong>Team Planing</strong></em>".</li>
+<li>Le damos un nombre al proyecto por ejemplo "<em><strong>FastFly Airlines</strong></em>" siguiendo el ejemplo de la actividad práctica de aviones de papel. Vosotros podéis darle el nombre de vuestro proyecto.</li>
+<li>Se creará un <strong>proyecto con varias vistas correspondientes a la plantilla seleccionada</strong>.</li>
+</ol>
+<h3 id="2-definiendo-la-user-stories-o-product-backlog-items">2. Definiendo la User Stories o Product Backlog Items </h3>
+<p><img src="assets/github_scrum/definir_user_stories.png" alt="Imagen"></p>
+<p>Como se muestra en la imagen, en la vista de <strong>"Backlog"</strong> del proyecto, desplegamos las opciones 1️⃣ y seleccionamos la vista de <em><strong>"Table"</strong></em> 2️⃣.</p>
+<div class="row">
+<div class="col-sm-4">
+<p>En esta vista crearemos la <strong>User Stories</strong> de nuestro proyecto <strong>como Draft (Borrador)</strong> 3️⃣. Para este ejemplo hemos introducido las user stories de la actividad práctica de aviones de papel que nos reportó el Stakeholder (cliente) a través del Product Owner.</p>
+<p>En este punto, <strong>aún no rellenaremos el valor del resto de columnas</strong>.</p>
+</div>
+<div class="col-sm-8">
+<p><img src="assets/github_scrum/introducir_user_stories.png" alt="Image"></p>
+</div>
+</div>
+<div style="page-break-after:always;"></div>
+<h3 id="3-definiendo-los-criterios-de-aceptación-y-los-story-points">3. Definiendo los criterios de aceptación y los Story Points </h3>
+<p>Siguiendo la filosofía del libro <strong>"Start with Why"</strong> de Simon Sinek, comenzaremos por definir los <strong>criterios de aceptación</strong> que nos ayudarán a entender el <strong>propósito</strong> de cada User Story. Posteriormente, asignaremos los <strong>story points</strong> para estimar el esfuerzo necesario para completar cada historia.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<div class="row">
+<div class="col-sm-7 pt-3">
+<p>Para puntuar las User Stories, <strong>usaremos la columna <code>Estimate</code></strong> por lo que <strong>vamos a borrar la el campo <code>Size</code> que nos creó la plantilla en la vista de <code>Backlog</code></strong> y que no la vamos a utilizar.</p>
+<p>Para ello, pulsamos seleccionamos en la columna <strong><code>Size</code></strong> la opción <strong><code>Field settings</code></strong> como se muestra en la imagen de ejemplo y posteriormente pulsaremos el botón <strong><code>Delete field</code></strong>.</p>
+</div>
+<div class="col-sm-5 py-1">
+<p><img src="assets/github_scrum/borrar_size.png" alt="imagen"></p>
+</div>
+</div>
+</div>
+<p>Recuerda que en la actividad práctica de aviones de papel, cada User Story tiene un valor de esfuerzo en Story Points (SP) y unos criterios de aceptación específicos que definimos en una tabla.</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>User Story</th>
+<th>Story Points</th>
+<th>Criterios de Aceptación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>#1</code></strong></td>
+<td>Como piloto de pruebas, quiero un avión básico para vuelos cortos</td>
+<td>3 SP</td>
+<td>• Vuela mínimo 2 metros<br>• Tiene el logo de AeroDAM</td>
+</tr>
+</tbody>
+</table>
+<p>Recuerda que podemos evaluar el esfuerzo de cada User Story utilizando la <strong>técnica de Planning Poker</strong> para llegar a un consenso en el equipo.</p>
+<p>Para introducir estos datos, debemos <strong>hacer clic en el título de una User Story</strong>, se abrirá un panel lateral donde podremos añadir los <strong>detalles necesarios en markdown</strong> y si pulsamos sobre el texto <strong><code>Edit</code></strong> podremos editar el contenido. Escribiendo en markdown 1️⃣ y luego pulsaremos <strong><code>Update Comment</code></strong> 2️⃣. Por último, introduciremos el valor de los <strong>Story Points</strong> en la columna <strong><code>Estimate</code></strong> 3️⃣ como se muestra en la imagen de ejemplo.</p>
+<p><img src="assets/github_scrum/edit_story.png" alt="Imagen"></p>
+<p><strong>Este proceso lo repetiremos para todas las User Stories que hemos creado en el paso anterior.</strong></p>
+<p>Por último, <strong>otro campo que podemos rellenar es el de <code>Priority</code></strong> y así establecer la prioridad de cada User Story. De momento, <strong>podemos ponerles a todas la prioridad</strong> <strong><code>P1</code></strong> (Medium). Si por ejemplo, más adelante, llega una urgente o el Product Owner nos indica que una User Story es más importante que las demás, podemos cambiar su prioridad a <strong><code>P0</code></strong> (High).</p>
+<h3 id="4-convirtiendo-draft-issues-en-issues">4. Convirtiendo Draft Issues en Issues </h3>
+<h4 id="draft-issues-vs-issues">Draft Issues vs Issues </h4>
+<p>Si te fijas cada User Story que hemos creado en el Backlog en el paso 2 la hemos creado como <strong>Draft Issue</strong> (Borrador). Esto es porque <strong>aún no hemos empezado a trabajar en ellas</strong>.Cuando vayamos a empezar a trabajar en una User Story, <strong>la convertiremos en un Issue normal</strong>.</p>
+<p>Por tanto, la diferencia entre un <strong>Draft Issue</strong> y un <strong>Issue</strong> es que el primero está en estado de borrador y no se puede asignar a nadie ni etiquetar, mientras que un Issue normal sí se puede asignar y etiquetar. Además y más importante, <strong>una Issue tiene que estar asignada a un repositorio de nuestra organización, mientras que un Draft Issue no.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Resumen</p>
+<p>Podemos resumir que una <strong>Issue</strong> es una <strong>tarea o historia de usuario</strong> asignada a un repositorio específico y que permite discursiones, seguimiento y otras funcionalidades que una <strong>Draft Issue</strong> no permite.</p>
+</div>
+<h4 id="convertir-en-issues-asignadas-a-un-repositorio">Convertir en Issues asignadas a un repositorio </h4>
+<div class="row">
+<div class="col-sm-7 my-auto">
+<p>Para convertir una Draft Issue en un Issue normal, <strong>hacemos clic en el título de la User Story</strong> que queremos convertir como hicimos para describir los criterios de aceptación. Se abrirá un panel lateral donde podremos ver los detalles de la User Story. En la parte superior derecha del panel, veremos un botón que dice <strong><code>Convert to issue</code></strong>. Hacemos clic en ese botón 1️⃣.<br>
+A continuación, buscamos el repositorio 2️⃣ y una vez encontrado los seleccionamos 3️⃣. Finalmente, pulsamos el botón <strong><code>Convert</code></strong> 4️⃣ para completar la conversión.</p>
+</div>
+<div class="col-sm-5">
+<p><img src="assets/github_scrum/convert_to_issue.png" alt="Imagen"></p>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-7">
+<p>Nos aparecerá un nuevo panel ampliado, que nos permitirá asignar la Issue a un miembro del equipo, añadir etiquetas, asignar un tipo, etc.</p>
+<p>Nosotros vamos a asignar el <strong>tipo (Type)</strong> como <strong><code>User Story</code></strong> para indicar que la Issue se trata de una de las historias de usuario que hemos definido en el Backlog.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Posiblemente no aparezca este tipo, pero uno de los propietarios de la organización puede crear este tipo de Issue personalizado. Aquí tienes <strong>un enlace a la documentación oficial</strong> para saber como hacerlo: <strong><a href="https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/managing-issue-types-in-an-organization#adding-an-issue-type">Creating a custom issue type</a></strong>.</p>
+</div>
+</div>
+<div class="col-sm-5">
+<p><img src="assets/github_scrum/issue_type.png" alt="Imagen"></p>
+</div>
+</div>
+<p>Si volvemos a la vista de Backlog, podemos hacerlo de forma rápida pulsando en el icono <strong><code>[+]</code></strong> para añadir un nuevo campo a la vista y seleccionando la opción <strong><code>Type</code></strong>. Movemos la columna al principio y podemos hacer la asignación de forma rápida. <strong>No debemos olvidar pulsar el botón <code>Save</code> para guardar los cambios en la vista</strong>.</p>
+<p>En la siguiente imagen podemos ver que hemos convertido todas la entradas del Backlog en Issues normales y les hemos asignado el tipo <strong><code>User Story</code></strong>.</p>
+<p><img src="assets/github_scrum/issues_typed.png" alt="Imagen"></p>
+<h3 id="5-planificando-un-sprint">5. Planificando un Sprint </h3>
+<p>Al realizar la reunión del <strong>Sprint Planning</strong>, seleccionaremos las <strong>User Stories</strong> que vamos a trabajar en el próximo Sprint. Para ello, en primer lugar definiremos la duración del Sprint y crearemos las <strong>Iteraciones (Sprints)</strong> en el proyecto. Ten en cuenta que en GitHub Projects, las <em><strong>'Iterations'</strong></em> son equivalentes a los <strong>Sprints en Scrum</strong>.</p>
+<h4 id="definiendo-un-sprint-y-su-duración">Definiendo un Sprint y su duración </h4>
+<p>Para ello, como se muestra en las imágenes a continuación, en la vista de <strong><code>Backlog</code></strong> del proyecto, desplegamos las opciones del overflow menú <strong><code>...</code></strong> arriba a la derecha y seleccionamos <strong><code>Settings</code></strong>. A continuación, seleccionamos la pestaña <strong><code>Iterations</code></strong> y nos aparecerán alguna por defecto como se muestra en la imagen.</p>
+<div class="row">
+<div class="col-sm-3 my-auto">
+<p><img src="assets/github_scrum/setup_iterations1.png" alt="Imagen"></p>
+</div>
+<div class="col-sm-9 my-auto">
+<p><img src="assets/github_scrum/setup_iterations2.png" alt="Imagen"></p>
+</div>
+</div>
+<p>Podemos cambiar el nombre por ejemplo a <strong><code>Sprint 1</code></strong> y definir la quincena duración del Sprint.</p>
+<p>En este punto, <strong>podremos planificar de forma aproximada todo los Sprints de nuestro proyecto</strong>.</p>
+<div style="page-break-after:always;"></div>
+<h4 id="pasando-user-stories-al-sprint-actual">Pasando User Stories al Sprint actual </h4>
+<p><img src="assets/github_scrum/definir_PBIs_en_sprintbacklog.png" alt="Imagen"></p>
+<p>Como se muestra en la imagen, una vez definido el Sprint, y las User Stories a implementar según su estimación en Story Points y prioridad. En el campo <strong><code>Iteration</code></strong>, que hemos movido junto a Type, seleccionamos el Sprint actual <strong><code>Sprint 1</code></strong> y automáticamente se asignarán a dicho Sprint.</p>
+<p>Si ahora vamos a la vista 1️⃣ <strong><code>Current Iteration</code></strong>, que viene definida en la plantilla, veremos las User Stories que hemos asignado la iteración actual 2️⃣ (<code>iteration:@curret</code>) <strong><code>Sprint 1</code></strong>.</p>
+<p>Podremos ver la estimación total en Story Points de las User Stories que hemos asignado al Sprint 3️⃣ y las PBIs del Backlog principal que hemos asignado a la iteración (<strong><code>Sprint 1</code></strong>) 4️⃣.</p>
+<p><img src="assets/github_scrum/sprint_backlog1.png" alt="Imagen"></p>
+<p>Vamos a renombrar la pestaña de la vista a <strong>Sprint Actual</strong> para que nos quede más claro su contenido.</p>
+<div style="page-break-after:always;"></div>
+<h4 id="estableciendo-las-tareas-de-cada-user-story">Estableciendo las tareas de cada User Story </h4>
+<p>Este paso es muy importante, ya que <strong>las tareas son las que nos permitirán hacer el seguimiento de cada User Story dentro del Sprint</strong>. Supongamos que definimos las siguientes tareas paras las User Stories de la actividad práctica de aviones de papel que hemos añadido al Sprint Backlog.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ID</th>
+<th style="text-align:left">Tareas Detalladas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>#1</code></strong></td>
+<td style="text-align:left">1. <strong>Diseñar y doblar</strong> un modelo simple de avión de papel.<br>2. <strong>Dibujar o pegar</strong> el logo de "AeroDAM" en una de las alas o el fuselaje.<br>3. <strong>Realizar pruebas</strong> de lanzamiento para asegurar que el avión vuela al menos 2 metros de distancia.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>#2</code></strong></td>
+<td style="text-align:left">1. <strong>Diseñar y doblar</strong> un avión de papel con una estructura estable.<br>2. <strong>Asignar y escribir</strong> un número de serie único y visible en el avión (p. ej., "AERO-001").<br>3. <strong>Colorear</strong> el avión usando al menos dos colores distintos para facilitar su identificación.<br>4. <strong>Probar el vuelo</strong> para verificar que supera los 3 metros de distancia.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>#5</code></strong></td>
+<td style="text-align:left">1. <strong>Seleccionar un diseño</strong> de avión de papel específico para acrobacias (p. ej., con alerones ajustables).<br>2. <strong>Escribir el nombre</strong> del modelo en un lugar visible (p. ej., "Acrobat-X").<br>3. <strong>Añadir decoración</strong> con líneas y formas que sugieran velocidad y aerodinamismo.<br>4. <strong>Realizar lanzamientos de prueba</strong> ajustando los pliegues para que el avión complete un giro o un <em>loop</em>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>#6</code></strong></td>
+<td style="text-align:left">1. <strong>Doblar el fuselaje</strong> principal del avión.<br>2. <strong>Doblar las alas</strong> como piezas separadas.<br>3. <strong>Unir las alas</strong> al fuselaje utilizando trozos de cinta adhesiva para que puedan quitarse y ponerse.<br>4. <strong>Dibujar un código QR</strong> en el fuselaje.<br>5. <strong>Probar el ensamblaje</strong> final para asegurar un vuelo mínimo de 2 metros.</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after:always;"></div>
+<p>Por ejemplo, <strong>vamos a definir las tareas de la User Story <code>#1</code></strong>. Para ello, hacemos clic en el título de la User Story y se abrirá un panel lateral de detalles. Pulsaremos sobre la opción <strong><code>[Create sub-issue]</code></strong>.</p>
+<p>Nos aparecerá el dialogo de creación de una nueva Issue donde:</p>
+<p>1️⃣ Definiremos el título de la tarea y escribiremos su descripción.<br>
+2️⃣ Seleccionaremos el <strong>tipo (Type)</strong> como <strong><code>Task</code></strong> para indicar que se trata de una tarea.<br>
+3️⃣ Nos aseguraremos de que está al proyecto correcto.<br>
+4️⃣ Podemos ir a la pestaña <strong><code>Preview</code></strong> para ver como queda la descripción en markdown.<br>
+5️⃣ Si queremos crear más tareas del mismo tipo, podemos marcar el checkbox <strong><code>Create more sub-issues</code></strong>.<br>
+6️⃣ Finalmente, pulsamos el botón <strong><code>Create</code></strong> para crear la tarea.</p>
+<div class="row">
+<div class="col-sm-6 my-auto">
+<p><img src="assets/github_scrum/creando_subissue1.png" alt="Imagen"></p>
+</div>
+<div class="col-sm-6 my-auto">
+<p><img src="assets/github_scrum/creando_subissue2.png" alt="Imagen"></p>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-4">
+<p>Una vez creadas todas las tareas (sub-issues), al volver al panel de detalle de la User Story, veremos un resumen de las tareas creadas y cuantas están completadas <strong>(0 / 3)</strong>.</p>
+</div>
+<div class="col-sm-8 my-auto">
+<p><img src="assets/github_scrum/lista_de_tareas_en_user_story.png" alt="nombre"></p>
+</div>
+</div>
+<div style="page-break-after:always;"></div>
+<div class="admonition danger">
+<p class="admonition-title">Importante</p>
+<p>Ya hemos definido las tareas como sub-issues, pero estos no heredan ningún valor de la User Story padre, por lo que <strong>debemos asignarles la iteración (Sprint 1)</strong>, una <strong>estimación en Story Points</strong> y una <strong>prioridad</strong>.</p>
+</div>
+<p>Para hacer este proceso tenemos <strong>diferentes opciones</strong>:</p>
+<ol>
+<li><strong>Agrupar las tareas por parent issue</strong> en la vista de Backlog principal.</li>
+<li>Puesto que estos issues me aparecen en la vista de <strong>Backlog principal</strong>, modificarlas para <strong>gestionarlas desde ahí</strong>.</li>
+</ol>
+<p>Nosotros vamos a optar por la <strong>opción 2</strong>, para ello, como se muestra en la imagen...</p>
+<p>1️⃣ En la vista de <strong><code>Backlog</code></strong> añadiremos el campo <strong><code>Parent issue</code></strong> y lo moveremos junto al título.<br>
+2️⃣ Moveremos cada tarea justo debajo de su User Story padre para tener una mejor visualización organizativa.<br>
+3️⃣ Expandiremos, <strong>como si se tratase de una hoja de cálculo</strong>, los valores de las celdas <strong><code>Iteration</code></strong> y <strong><code>Priority</code></strong> para que tengan los mismos valores que su User Story padre.</p>
+<p><img src="assets/github_scrum/organizando_tareas_en_backlog1.png" alt="alt text"></p>
+<p><strong>La estimación en Story Points la haremos de forma individual para cada tarea</strong>. Asignado un valor de la sucesión de Fibonacci (1, 2, 3, 5, 8, 13, 21) usando Poker Planning o decidiendo un tiempo en horas o días para completar la tarea de acuerdo a un valor de la sucesión.</p>
+<p><img src="assets/github_scrum/organizando_tareas_en_backlog2.png" alt="alt text"></p>
+<div style="page-break-after:always;"></div>
+<h4 id="reorganizando-el-sprint-backlog-tras-asignarle-tareas">Reorganizando el Sprint Backlog tras asignarle tareas </h4>
+<p>Si volvemos a las vistas que renombramos como <strong><code>Sprint Actual</code></strong>, veremos que tenemos un montón de tarjetas correspondientes a las issues de tipo <strong><code>User Story</code></strong> y las sub-issues <strong><code>Task</code></strong> mezcladas y además, la información que aparece no me permite distinguir entre unas y otras.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Realmente la vista del <strong>Sprint Actual</strong> como <strong>User Stories</strong> sería para el <strong>Product Owner</strong> y así tener una idea global de cómo va el trabajo y la vista de <strong>Tasks</strong> sería usada por el <strong>Scrum Master</strong> y el <strong>Equipo de Desarrollo</strong>.</p>
+</div>
+<p><strong>Para añadir más información a las tarjetas:</strong></p>
+<div class="row">
+<div class="col-sm-4">
+<p>Desplegamos las 🔽 opciones de la vista y configuramos seleccionando la opción <strong><code>Fields</code></strong> los campos que se van a visualizar en las tarjetas. Cómo se muestra en la imagen vamos a añadir los campos <strong><code>Type</code></strong>, <strong><code>Estimate</code></strong>, <strong><code>Parent issue</code></strong> y <strong><code>Sub-issues progress</code></strong>. Este último, mostrará una barra de progreso con el número de tareas completadas de cada User Story que permitirá al Scrum Master y al Product Owner tener una idea rápida del progreso de cada historia. (Haz click en <strong><code>Save</code></strong> para guardar los cambios).</p>
+</div>
+<div class="col-sm-8">
+<p><img src="assets/github_scrum/info_tarjetas_sprint_backlog.png" alt="alt text"></p>
+</div>
+</div>
+<p>Si volvemos a desplegar las opciones de la vista, seleccionamos <strong><code>Slice by;</code></strong> y seleccionamos la opción <strong><code>Type</code></strong> (Recuerda hacer clock en <strong><code>Save</code></strong> para guardar los cambios). Podremos rápidamente discriminar entre los PBIs de tipo <strong><code>User Story</code></strong> y las tareas de tipo <strong><code>Task</code></strong> como se muestra en las siguientes imágenes:</p>
+<div style="page-break-after:always;"></div>
+<div class="row">
+<div class="col-sm-6 my-auto">
+<p><img src="assets/github_scrum/sprint_bl_sliced1.png" alt="alt text"></p>
+</div>
+<div class="col-sm-6 my-auto">
+<p><img src="assets/github_scrum/sprint_bl_sliced2.png" alt="alt text"></p>
+</div>
+</div>
+<h3 id="6-primer-daily-scrum-y-asignación-de-tareas">6. Primer Daily Scrum y asignación de tareas </h3>
+<p>Revisaremos los <em><strong>'status'</strong></em> de los <strong>User Stories</strong> y las tareas asignadas en el <strong>Sprint Actual</strong> y lo cambiaremos de estado según el progreso del trabajo y los criterios de aceptación definidos. Recuerda que el Scrum Master facilitará la reunión y se asegurará de que el equipo se mantenga enfocado en los objetivos del Sprint y en la resolución de impedimentos.</p>
+<p>Pasaremos todas las <strong>User Stories</strong> y tareas a la columna <strong><code>To Do</code></strong> para indicar que ya están listas para ser trabajadas en el <strong><code>Sprint Actual</code></strong> (iteracción <code>@current</code>).</p>
+<p>Por ejemplo, supongamos que el equipo empieza a trabajar en las tareas de la <strong>User Story <code>#1</code></strong>.</p>
+<ol>
+<li>
+<p>Cambiaremos el <em><strong>'status'</strong></em> de la  <strong>User Story <code>#1</code></strong> <strong><code>In Progress</code></strong>.</p>
+<p><img src="assets/github_scrum/primer_daily_1.png" alt="alt text"></p>
+ <div style="page-break-after:always;"></div>
+</li>
+<li>
+<p>Las <strong>tareas asociadas</strong> a dicha User Story las moveremos a la columna <strong><code>To Do</code></strong> y <strong>conforme se asignen a los miembros del equipo de desarrollo</strong>, las moveremos a la columna <strong><code>In Progress</code></strong>.</p>
+<p><img src="assets/github_scrum/primer_daily_2.png" alt="alt text"></p>
+</li>
+</ol>
+<h4 id="seguimiento-de-tareas-y-user-stories">Seguimiento de tareas y User Stories </h4>
+<p>Conforme se vayan completando las tareas, el progreso en las <strong>User Stories</strong> se irá actualizando automáticamente, mostrando el número de tareas completadas y una barra de progreso visual. <strong>Sin embargo, la consistencia entre user stories y tasks dependerá de que el equipo mantenga actualizados los estados de las tareas</strong>.</p>
+<div class="row">
+<div class="col-sm-6 my-auto">
+<p><img src="assets/github_scrum/seguimiento1.png" alt="alt text"></p>
+</div>
+<div class="col-sm-6 my-auto">
+<p><img src="assets/github_scrum/seguimiento2.png" alt="alt text"></p>
+</div>
+</div>
+<p>Además, no deberá haber ninguna tarea sin asignar en los estados <strong><code>In Progress</code></strong> o <strong><code>Done</code></strong>.</p>
 
       </div>
       
