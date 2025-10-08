@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCRUM Quiz Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .game-header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .game-title {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            border: 3px solid #667eea;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            color: #667eea;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .level-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #ffd700 0%, #ff6b6b 100%);
+            color: white;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .question-number {
+            font-size: 1.2rem;
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #667eea;
+            color: white;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        .timer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .timer-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffc107 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .options-container {
+            display: grid;
+            gap: 15px;
+        }
+
+        .option-btn {
+            background: white;
+            border: 3px solid #e9ecef;
+            border-radius: 15px;
+            padding: 20px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .option-btn:hover {
+            border-color: #667eea;
+            background: #f8f9fa;
+            transform: translateX(5px);
+        }
+
+        .option-letter {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .option-btn.correct {
+            border-color: #28a745;
+            background: #d4edda;
+            animation: correctAnswer 0.5s;
+        }
+
+        .option-btn.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+            animation: shake 0.5s;
+        }
+
+        .option-btn.disabled {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        @keyframes correctAnswer {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.1rem;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+            animation: slideDown 0.5s;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feedback.correct {
+            background: #d4edda;
+            border: 3px solid #28a745;
+            color: #155724;
+        }
+
+        .feedback.incorrect {
+            background: #f8d7da;
+            border: 3px solid #dc3545;
+            color: #721c24;
+        }
+
+        .points-earned {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #28a745;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .next-btn.show {
+            display: block;
+        }
+
+        .start-screen {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .start-screen h1 {
+            font-size: 3rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+
+        .start-screen p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .difficulty-selector {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .difficulty-btn {
+            padding: 20px 40px;
+            border: 3px solid #e9ecef;
+            background: white;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .difficulty-btn:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+        }
+
+        .difficulty-btn.selected {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            padding: 20px 60px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 20px;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.4);
+        }
+
+        .results-screen {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            display: none;
+        }
+
+        .results-screen.show {
+            display: block;
+        }
+
+        .final-score {
+            font-size: 5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+        }
+
+        .achievement {
+            background: linear-gradient(135deg, #ffd700 0%, #ff6b6b 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #e9ecef;
+        }
+
+        .stat-item-label {
+            font-size: 0.9rem;
+            color: #6c757d;
+            text-transform: uppercase;
+        }
+
+        .stat-item-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-top: 5px;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .share-btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .restart-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .restart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .progress-bar-container {
+            background: #e9ecef;
+            height: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.5s;
+        }
+
+        .combo-counter {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffc107 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: none;
+            animation: bounce 0.5s;
+        }
+
+        .combo-counter.show {
+            display: block;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        @media (max-width: 768px) {
+            .game-title {
+                font-size: 2rem;
+            }
+
+            .question-text {
+                font-size: 1.2rem;
+            }
+
+            .difficulty-selector {
+                flex-direction: column;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Start Screen -->
+        <div class="start-screen" id="startScreen">
+            <h1>🎮 SCRUM Quiz Game</h1>
+            <p>Pon a prueba tus conocimientos sobre SCRUM y conviértete en un maestro ágil</p>
+            
+            <div style="margin: 30px 0;">
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">📚 Categorías del juego:</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                    <span class="category-badge">🎯 Roles</span>
+                    <span class="category-badge">📋 Artefactos</span>
+                    <span class="category-badge">🔄 Eventos</span>
+                    <span class="category-badge">📊 Métricas</span>
+                    <span class="category-badge">🛠️ Herramientas</span>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="color: #2c3e50; margin-bottom: 15px;">Selecciona la dificultad:</h3>
+                <div class="difficulty-selector">
+                    <div class="difficulty-btn selected" onclick="selectDifficulty('easy')">
+                        <div>😊 Fácil</div>
+                        <div style="font-size: 0.9rem; color: #6c757d; margin-top: 5px;">30 segundos/pregunta</div>
+                    </div>
+                    <div class="difficulty-btn" onclick="selectDifficulty('medium')">
+                        <div>🤔 Medio</div>
+                        <div style="font-size: 0.9rem; color: #6c757d; margin-top: 5px;">20 segundos/pregunta</div>
+                    </div>
+                    <div class="difficulty-btn" onclick="selectDifficulty('hard')">
+                        <div>🔥 Difícil</div>
+                        <div style="font-size: 0.9rem; color: #6c757d; margin-top: 5px;">15 segundos/pregunta</div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="start-btn" onclick="startGame()">¡Comenzar Juego! 🚀</button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" style="display: none;">
+            <!-- Header -->
+            <div class="game-header">
+                <div class="game-title">🎮 SCRUM Quiz</div>
+                <div class="level-badge" id="levelBadge">Nivel 1 - Principiante</div>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-label">Puntos</div>
+                        <div class="stat-value" id="scoreDisplay">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Racha</div>
+                        <div class="stat-value" id="streakDisplay">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Correctas</div>
+                        <div class="stat-value" id="correctDisplay">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Pregunta</div>
+                        <div class="stat-value" id="questionProgress">1/30</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
+
+            <!-- Question Card -->
+            <div class="question-card">
+                <div class="question-number" id="questionNumber">Pregunta 1</div>
+                <span class="category-badge" id="categoryBadge">Categoría</span>
+                
+                <div class="timer">
+                    <div class="timer-circle" id="timerDisplay">30</div>
+                </div>
+
+                <div class="question-text" id="questionText">
+                    Cargando pregunta...
+                </div>
+
+                <div class="options-container" id="optionsContainer">
+                    <!-- Options will be generated here -->
+                </div>
+
+                <div class="feedback" id="feedback">
+                    <!-- Feedback will appear here -->
+                </div>
+
+                <button class="next-btn" id="nextBtn" onclick="nextQuestion()">
+                    Siguiente Pregunta →
+                </button>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div class="results-screen" id="resultsScreen">
+            <h1>🎉 ¡Juego Completado!</h1>
+            <div class="final-score" id="finalScore">0</div>
+            <div class="achievement" id="achievement">🏆 Título Desbloqueado</div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-item-label">Respuestas Correctas</div>
+                    <div class="stat-item-value" id="finalCorrect">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-label">Respuestas Incorrectas</div>
+                    <div class="stat-item-value" id="finalIncorrect" style="color: #dc3545;">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-label">Precisión</div>
+                    <div class="stat-item-value" id="finalAccuracy">0%</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-label">Racha Máxima</div>
+                    <div class="stat-item-value" id="finalStreak">0</div>
+                </div>
+            </div>
+
+            <div class="share-buttons">
+                <button class="share-btn restart-btn" onclick="restartGame()">
+                    🔄 Jugar de Nuevo
+                </button>
+            </div>
+        </div>
+
+        <!-- Combo Counter -->
+        <div class="combo-counter" id="comboCounter">
+            🔥 ¡Combo x3!
+        </div>
+    </div>
+
+    <script>
+        // Game questions database
+        const questions = [
+            // Roles
+            {
+                category: "🎯 Roles",
+                question: "¿Quién es conocido como 'la voz del cliente' en SCRUM?",
+                options: ["Scrum Master", "Product Owner", "Desarrollador", "Stakeholder"],
+                correct: 1,
+                explanation: "El Product Owner representa al cliente y gestiona el Product Backlog según las necesidades de los stakeholders.",
+                difficulty: "easy"
+            },
+            {
+                category: "🎯 Roles",
+                question: "¿Cuál es el rol principal del Scrum Master?",
+                options: [
+                    "Programar código",
+                    "Facilitar el proceso y eliminar impedimentos",
+                    "Tomar todas las decisiones del equipo",
+                    "Gestionar el Product Backlog"
+                ],
+                correct: 1,
+                explanation: "El Scrum Master es un facilitador que ayuda al equipo a seguir SCRUM y elimina obstáculos.",
+                difficulty: "easy"
+            },
+            {
+                category: "🎯 Roles",
+                question: "¿Quién puede cancelar un Sprint?",
+                options: ["Scrum Master", "Product Owner", "Equipo de Desarrolladores", "Stakeholders"],
+                correct: 1,
+                explanation: "Solo el Product Owner tiene la autoridad para cancelar un Sprint si las circunstancias lo requieren.",
+                difficulty: "medium"
+            },
+            {
+                category: "🎯 Roles",
+                question: "¿Cuál es el tamaño óptimo del equipo de desarrolladores?",
+                options: ["2-4 miembros", "6-10 miembros", "15-20 miembros", "No hay límite"],
+                correct: 1,
+                explanation: "El tamaño óptimo es de 6 a 10 miembros para mantener una comunicación efectiva.",
+                difficulty: "easy"
+            },
+            {
+                category: "🎯 Roles",
+                question: "¿Quién es responsable de crear el Definition of Done?",
+                options: [
+                    "Solo el Product Owner",
+                    "Solo el Scrum Master",
+                    "El Product Owner y el Equipo de Desarrolladores",
+                    "Solo los Stakeholders"
+                ],
+                correct: 2,
+                explanation: "El DoD es creado en conjunto por el Product Owner y el Equipo de Desarrolladores.",
+                difficulty: "medium"
+            },
+
+            // Artefactos
+            {
+                category: "📋 Artefactos",
+                question: "¿Qué contiene el Product Backlog?",
+                options: [
+                    "Solo bugs del sistema",
+                    "Todo el trabajo que hay que hacer en el producto",
+                    "Solo las tareas del Sprint actual",
+                    "La documentación técnica"
+                ],
+                correct: 1,
+                explanation: "El Product Backlog es un inventario de todo el trabajo pendiente del producto.",
+                difficulty: "easy"
+            },
+            {
+                category: "📋 Artefactos",
+                question: "¿Quién gestiona el Product Backlog?",
+                options: ["Scrum Master", "Product Owner", "Todo el equipo", "Stakeholders"],
+                correct: 1,
+                explanation: "El Product Owner es el único responsable de gestionar y priorizar el Product Backlog.",
+                difficulty: "easy"
+            },
+            {
+                category: "📋 Artefactos",
+                question: "¿Qué es un Product Backlog Item (PBI)?",
+                options: [
+                    "Un error en el código",
+                    "Una entrada individual en el Product Backlog",
+                    "Un miembro del equipo",
+                    "Una herramienta de desarrollo"
+                ],
+                correct: 1,
+                explanation: "Un PBI es cada elemento o tarea individual dentro del Product Backlog.",
+                difficulty: "easy"
+            },
+            {
+                category: "📋 Artefactos",
+                question: "¿Qué artefacto muestra el trabajo seleccionado para el Sprint actual?",
+                options: ["Product Backlog", "Sprint Backlog", "Definition of Done", "Burndown Chart"],
+                correct: 1,
+                explanation: "El Sprint Backlog contiene los PBIs seleccionados para completarse en el Sprint.",
+                difficulty: "easy"
+            },
+            {
+                category: "📋 Artefactos",
+                question: "¿Qué es el Incremento en SCRUM?",
+                options: [
+                    "El aumento de velocidad del equipo",
+                    "La suma de todos los PBIs completados",
+                    "El número de Sprints realizados",
+                    "El presupuesto adicional"
+                ],
+                correct: 1,
+                explanation: "El Incremento es la suma de todos los PBIs completados durante y antes del Sprint.",
+                difficulty: "medium"
+            },
+
+            // Eventos
+            {
+                category: "🔄 Eventos",
+                question: "¿Cuál es la duración típica de un Sprint?",
+                options: ["1 día", "1 a 4 semanas", "3 meses", "6 meses"],
+                correct: 1,
+                explanation: "Un Sprint generalmente dura entre 1 y 4 semanas, siendo 2 semanas lo más común.",
+                difficulty: "easy"
+            },
+            {
+                category: "🔄 Eventos",
+                question: "¿Cuánto debe durar como máximo la Daily Standup?",
+                options: ["5 minutos", "15 minutos", "30 minutos", "1 hora"],
+                correct: 1,
+                explanation: "La Daily Standup debe ser breve, con un máximo de 15 minutos.",
+                difficulty: "easy"
+            },
+            {
+                category: "🔄 Eventos",
+                question: "¿Qué evento ocurre al inicio de cada Sprint?",
+                options: ["Sprint Review", "Sprint Retrospective", "Sprint Planning", "Daily Standup"],
+                correct: 2,
+                explanation: "El Sprint Planning es la reunión que inicia cada Sprint para planificar el trabajo.",
+                difficulty: "easy"
+            },
+            {
+                category: "🔄 Eventos",
+                question: "¿Cuál es el objetivo del Sprint Review?",
+                options: [
+                    "Planificar el siguiente Sprint",
+                    "Mostrar el incremento a los stakeholders",
+                    "Mejorar el proceso del equipo",
+                    "Estimar historias de usuario"
+                ],
+                correct: 1,
+                explanation: "El Sprint Review sirve para inspeccionar el Incremento y obtener feedback de los stakeholders.",
+                difficulty: "medium"
+            },
+            {
+                category: "🔄 Eventos",
+                question: "¿Qué se hace en la Sprint Retrospective?",
+                options: [
+                    "Se muestra el trabajo a los clientes",
+                    "Se reflexiona sobre el proceso y se buscan mejoras",
+                    "Se planifica el siguiente Sprint",
+                    "Se estiman las User Stories"
+                ],
+                correct: 1,
+                explanation: "La Retrospectiva sirve para que el equipo reflexione y busque mejoras continuas.",
+                difficulty: "medium"
+            },
+            {
+                category: "🔄 Eventos",
+                question: "En la Daily Standup, ¿cuántas preguntas clave suele responder cada miembro?",
+                options: ["2", "3", "4", "5"],
+                correct: 1,
+                explanation: "Típicamente se responden 3 preguntas: ¿Qué hice ayer? ¿Qué haré hoy? ¿Tengo impedimentos?",
+                difficulty: "medium"
+            },
+
+            // Métricas
+            {
+                category: "📊 Métricas",
+                question: "¿Qué mide la Velocity en SCRUM?",
+                options: [
+                    "La velocidad al escribir código",
+                    "La cantidad de trabajo completado en un Sprint",
+                    "El tiempo del Sprint",
+                    "La velocidad de las reuniones"
+                ],
+                correct: 1,
+                explanation: "La Velocity mide cuántos Story Points completa el equipo por Sprint.",
+                difficulty: "easy"
+            },
+            {
+                category: "📊 Métricas",
+                question: "¿Qué son los Story Points?",
+                options: [
+                    "Puntos que ganan los desarrolladores",
+                    "Una medida relativa del esfuerzo",
+                    "El número de líneas de código",
+                    "La cantidad de errores"
+                ],
+                correct: 1,
+                explanation: "Los Story Points miden el esfuerzo relativo necesario para completar una historia.",
+                difficulty: "easy"
+            },
+            {
+                category: "📊 Métricas",
+                question: "¿Qué gráfica muestra el trabajo pendiente en un Sprint?",
+                options: ["Gantt Chart", "Burndown Chart", "Pie Chart", "Flow Chart"],
+                correct: 1,
+                explanation: "El Burndown Chart visualiza el trabajo pendiente versus el tiempo en un Sprint.",
+                difficulty: "medium"
+            },
+            {
+                category: "📊 Métricas",
+                question: "¿Qué significa MVP?",
+                options: [
+                    "Most Valuable Player",
+                    "Minimum Viable Product",
+                    "Maximum Value Production",
+                    "Master Vision Project"
+                ],
+                correct: 1,
+                explanation: "MVP significa Producto Mínimo Viable, la versión con características básicas funcionales.",
+                difficulty: "easy"
+            },
+            {
+                category: "📊 Métricas",
+                question: "¿Cuándo se calcula la Velocity?",
+                options: [
+                    "Al inicio del Sprint",
+                    "Durante el Daily Standup",
+                    "Al final del Sprint",
+                    "En el Sprint Planning"
+                ],
+                correct: 2,
+                explanation: "La Velocity se calcula al final del Sprint sumando los Story Points completados.",
+                difficulty: "medium"
+            },
+
+            // Herramientas
+            {
+                category: "🛠️ Herramientas",
+                question: "¿Qué columnas básicas tiene un Scrum Board?",
+                options: [
+                    "Start, Continue, Stop",
+                    "To Do, In Progress, Done",
+                    "High, Medium, Low",
+                    "Planning, Doing, Testing"
+                ],
+                correct: 1,
+                explanation: "Las columnas típicas son 'To Do', 'In Progress' y 'Done'.",
+                difficulty: "easy"
+            },
+            {
+                category: "🛠️ Herramientas",
+                question: "¿Qué técnica de estimación usa la serie de Fibonacci?",
+                options: ["T-Shirt Sizing", "Planning Poker", "Dot Voting", "Time Boxing"],
+                correct: 1,
+                explanation: "Planning Poker utiliza valores de Fibonacci (1, 2, 3, 5, 8, 13...) para estimar.",
+                difficulty: "medium"
+            },
+            {
+                category: "🛠️ Herramientas",
+                question: "¿Qué es un Scrum Board?",
+                options: [
+                    "Una reunión del equipo",
+                    "Una herramienta visual para el estado de tareas",
+                    "Un documento de requisitos",
+                    "Un tipo de Sprint"
+                ],
+                correct: 1,
+                explanation: "El Scrum Board es una herramienta visual que muestra el estado de las tareas.",
+                difficulty: "easy"
+            },
+            {
+                category: "🛠️ Herramientas",
+                question: "En Planning Poker, ¿cuándo se revelan las cartas?",
+                options: [
+                    "Una por una",
+                    "Simultáneamente",
+                    "Solo el Scrum Master las ve",
+                    "No se revelan"
+                ],
+                correct: 1,
+                explanation: "Las cartas se revelan simultáneamente para evitar influencias entre miembros.",
+                difficulty: "medium"
+            },
+            {
+                category: "🛠️ Herramientas",
+                question: "¿Qué herramienta NO es típica para retrospectivas?",
+                options: ["EasyRetro", "GoRetro", "Burndown Chart", "Tableros Start/Stop/Continue"],
+                correct: 2,
+                explanation: "El Burndown Chart es para seguimiento de Sprint, no para retrospectivas.",
+                difficulty: "hard"
+            },
+
+            // Conceptos Avanzados
+            {
+                category: "📋 Artefactos",
+                question: "¿Qué diferencia hay entre Criterios de Aceptación y DoD?",
+                options: [
+                    "Son lo mismo",
+                    "Los criterios son específicos por PBI, el DoD es universal",
+                    "El DoD es solo para el Product Owner",
+                    "Los criterios son opcionales"
+                ],
+                correct: 1,
+                explanation: "Los Criterios de Aceptación son específicos de cada PBI, el DoD aplica a todos.",
+                difficulty: "hard"
+            },
+            {
+                category: "🔄 Eventos",
+                question: "¿Quién participa en el Sprint Retrospective?",
+                options: [
+                    "Solo desarrolladores",
+                    "Solo Scrum Master",
+                    "Todo el Scrum Team",
+                    "Solo stakeholders"
+                ],
+                correct: 2,
+                explanation: "Participa todo el Scrum Team: Product Owner, Scrum Master y Desarrolladores.",
+                difficulty: "medium"
+            },
+            {
+                category: "🎯 Roles",
+                question: "¿Quién decide cuántas historias se incluyen en el Sprint?",
+                options: [
+                    "Product Owner decide solo",
+                    "Scrum Master decide solo",
+                    "Equipo de Desarrolladores decide",
+                    "Stakeholders deciden"
+                ],
+                correct: 2,
+                explanation: "El Equipo de Desarrolladores decide cuánto trabajo puede asumir en el Sprint.",
+                difficulty: "medium"
+            },
+            {
+                category: "📋 Artefactos",
+                question: "¿Quién puede modificar el Sprint Backlog durante el Sprint?",
+                options: [
+                    "Product Owner",
+                    "Scrum Master",
+                    "Equipo de Desarrolladores",
+                    "Nadie puede modificarlo"
+                ],
+                correct: 2,
+                explanation: "Solo el Equipo de Desarrolladores puede modificar el Sprint Backlog durante el Sprint.",
+                difficulty: "medium"
+            },
+            {
+                category: "🔄 Eventos",
+                question: "¿En qué momento se define el Sprint Goal?",
+                options: [
+                    "En el Sprint Review",
+                    "En el Sprint Planning",
+                    "En el Daily Standup",
+                    "En la Retrospective"
+                ],
+                correct: 1,
+                explanation: "El Sprint Goal se define durante el Sprint Planning.",
+                difficulty: "easy"
+            }
+        ];
+
+        // Game state
+        let gameState = {
+            difficulty: 'easy',
+            timePerQuestion: 30,
+            currentQuestion: 0,
+            score: 0,
+            streak: 0,
+            maxStreak: 0,
+            correctAnswers: 0,
+            incorrectAnswers: 0,
+            timer: null,
+            timeLeft: 30,
+            selectedQuestions: []
+        };
+
+        // Difficulty settings
+        const difficultySettings = {
+            easy: { time: 30, points: 100 },
+            medium: { time: 20, points: 150 },
+            hard: { time: 15, points: 200 }
+        };
+
+        function selectDifficulty(difficulty) {
+            gameState.difficulty = difficulty;
+            gameState.timePerQuestion = difficultySettings[difficulty].time;
+            
+            document.querySelectorAll('.difficulty-btn').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            event.target.closest('.difficulty-btn').classList.add('selected');
+        }
+
+        function startGame() {
+            // Select 30 random questions
+            gameState.selectedQuestions = [...questions]
+                .sort(() => Math.random() - 0.5)
+                .slice(0, 30);
+            
+            gameState.currentQuestion = 0;
+            gameState.score = 0;
+            gameState.streak = 0;
+            gameState.maxStreak = 0;
+            gameState.correctAnswers = 0;
+            gameState.incorrectAnswers = 0;
+            
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('gameScreen').style.display = 'block';
+            
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (gameState.currentQuestion >= gameState.selectedQuestions.length) {
+                showResults();
+                return;
+            }
+
+            const question = gameState.selectedQuestions[gameState.currentQuestion];
+            
+            // Reset timer
+            gameState.timeLeft = gameState.timePerQuestion;
+            clearInterval(gameState.timer);
+            startTimer();
+            
+            // Update UI
+            document.getElementById('questionNumber').textContent = `Pregunta ${gameState.currentQuestion + 1}`;
+            document.getElementById('categoryBadge').textContent = question.category;
+            document.getElementById('questionText').textContent = question.question;
+            document.getElementById('questionProgress').textContent = 
+                `${gameState.currentQuestion + 1}/30`;
+            
+            // Update progress bar
+            const progress = ((gameState.currentQuestion + 1) / 30) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            
+            // Load options
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionBtn = document.createElement('button');
+                optionBtn.className = 'option-btn';
+                optionBtn.onclick = () => selectAnswer(index);
+                
+                const letters = ['A', 'B', 'C', 'D'];
+                optionBtn.innerHTML = `
+                    <div class="option-letter">${letters[index]}</div>
+                    <div>${option}</div>
+                `;
+                
+                optionsContainer.appendChild(optionBtn);
+            });
+            
+            // Hide feedback and next button
+            document.getElementById('feedback').classList.remove('show');
+            document.getElementById('nextBtn').classList.remove('show');
+        }
+
+        function startTimer() {
+            document.getElementById('timerDisplay').textContent = gameState.timeLeft;
+            
+            gameState.timer = setInterval(() => {
+                gameState.timeLeft--;
+                document.getElementById('timerDisplay').textContent = gameState.timeLeft;
+                
+                if (gameState.timeLeft <= 0) {
+                    clearInterval(gameState.timer);
+                    selectAnswer(-1); // Time's up, wrong answer
+                }
+            }, 1000);
+        }
+
+        function selectAnswer(selectedIndex) {
+            clearInterval(gameState.timer);
+            
+            const question = gameState.selectedQuestions[gameState.currentQuestion];
+            const optionBtns = document.querySelectorAll('.option-btn');
+            const feedbackDiv = document.getElementById('feedback');
+            
+            // Disable all buttons
+            optionBtns.forEach(btn => btn.classList.add('disabled'));
+            
+            // Calculate time bonus
+            const timeBonus = Math.floor((gameState.timeLeft / gameState.timePerQuestion) * 50);
+            const basePoints = difficultySettings[gameState.difficulty].points;
+            
+            if (selectedIndex === question.correct) {
+                // Correct answer
+                gameState.correctAnswers++;
+                gameState.streak++;
+                
+                if (gameState.streak > gameState.maxStreak) {
+                    gameState.maxStreak = gameState.streak;
+                }
+                
+                // Calculate points with streak multiplier
+                const streakMultiplier = Math.min(gameState.streak, 5);
+                const earnedPoints = (basePoints + timeBonus) * streakMultiplier;
+                gameState.score += earnedPoints;
+                
+                // Show correct answer
+                optionBtns[selectedIndex].classList.add('correct');
+                
+                // Show feedback
+                feedbackDiv.className = 'feedback correct show';
+                feedbackDiv.innerHTML = `
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">✅ ¡Correcto!</div>
+                    <div class="points-earned">+${earnedPoints} puntos</div>
+                    <div style="margin-top: 10px;">
+                        <strong>Base:</strong> ${basePoints} pts | 
+                        <strong>Tiempo:</strong> +${timeBonus} pts | 
+                        <strong>Racha x${streakMultiplier}:</strong> ×${streakMultiplier}
+                    </div>
+                    <div style="margin-top: 10px; color: #155724;">
+                        📚 ${question.explanation}
+                    </div>
+                `;
+                
+                // Show combo if streak >= 3
+                if (gameState.streak >= 3 && gameState.streak % 3 === 0) {
+                    showCombo();
+                }
+            } else {
+                // Wrong answer
+                gameState.incorrectAnswers++;
+                gameState.streak = 0;
+                
+                // Show wrong and correct answers
+                if (selectedIndex >= 0) {
+                    optionBtns[selectedIndex].classList.add('incorrect');
+                }
+                optionBtns[question.correct].classList.add('correct');
+                
+                // Show feedback
+                feedbackDiv.className = 'feedback incorrect show';
+                feedbackDiv.innerHTML = `
+                    <div style="font-size: 1.5rem; margin-bottom: 10px;">❌ Incorrecto</div>
+                    <div style="margin-top: 10px;">
+                        <strong>Respuesta correcta:</strong> ${question.options[question.correct]}
+                    </div>
+                    <div style="margin-top: 10px; color: #721c24;">
+                        📚 ${question.explanation}
+                    </div>
+                `;
+            }
+            
+            // Update stats
+            updateStats();
+            
+            // Show next button
+            document.getElementById('nextBtn').classList.add('show');
+        }
+
+        function showCombo() {
+            const comboCounter = document.getElementById('comboCounter');
+            comboCounter.textContent = `🔥 ¡Combo x${gameState.streak}!`;
+            comboCounter.classList.add('show');
+            
+            setTimeout(() => {
+                comboCounter.classList.remove('show');
+            }, 2000);
+        }
+
+        function updateStats() {
+            document.getElementById('scoreDisplay').textContent = gameState.score;
+            document.getElementById('streakDisplay').textContent = gameState.streak;
+            document.getElementById('correctDisplay').textContent = gameState.correctAnswers;
+            
+            // Update level
+            const level = Math.floor(gameState.score / 1000) + 1;
+            const levelNames = [
+                'Principiante', 'Aprendiz', 'Competente', 'Profesional', 
+                'Experto', 'Maestro', 'Leyenda', 'Gran Maestro'
+            ];
+            const levelName = levelNames[Math.min(level - 1, levelNames.length - 1)];
+            document.getElementById('levelBadge').textContent = `Nivel ${level} - ${levelName}`;
+        }
+
+        function nextQuestion() {
+            gameState.currentQuestion++;
+            loadQuestion();
+        }
+
+        function showResults() {
+            document.getElementById('gameScreen').style.display = 'none';
+            document.getElementById('resultsScreen').classList.add('show');
+            
+            // Calculate stats
+            const totalQuestions = gameState.selectedQuestions.length;
+            const accuracy = Math.round((gameState.correctAnswers / totalQuestions) * 100);
+            
+            // Determine achievement
+            let achievementText = '';
+            let achievementEmoji = '';
+            
+            if (accuracy >= 90) {
+                achievementEmoji = '🏆';
+                achievementText = 'Maestro SCRUM';
+            } else if (accuracy >= 75) {
+                achievementEmoji = '🥇';
+                achievementText = 'Experto Ágil';
+            } else if (accuracy >= 60) {
+                achievementEmoji = '🥈';
+                achievementText = 'Scrum Competente';
+            } else if (accuracy >= 50) {
+                achievementEmoji = '🥉';
+                achievementText = 'Aprendiz SCRUM';
+            } else {
+                achievementEmoji = '📚';
+                achievementText = 'Estudiante SCRUM';
+            }
+            
+            // Update results UI
+            document.getElementById('finalScore').textContent = gameState.score;
+            document.getElementById('achievement').textContent = `${achievementEmoji} ${achievementText}`;
+            document.getElementById('finalCorrect').textContent = gameState.correctAnswers;
+            document.getElementById('finalIncorrect').textContent = gameState.incorrectAnswers;
+            document.getElementById('finalAccuracy').textContent = `${accuracy}%`;
+            document.getElementById('finalStreak').textContent = gameState.maxStreak;
+        }
+
+        function restartGame() {
+            document.getElementById('resultsScreen').classList.remove('show');
+            document.getElementById('startScreen').style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+        }
+
+        // Initialize game
+        window.onload = function() {
+            console.log('SCRUM Quiz Game cargado correctamente');
+        };
+    </script>
+</body>
+</html>
