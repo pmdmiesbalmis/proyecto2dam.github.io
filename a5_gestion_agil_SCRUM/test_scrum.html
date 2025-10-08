@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de SCRUM - Autoevaluación</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .student-info {
+            padding: 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .student-info h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #34495e;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #e9ecef;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .test-content {
+            padding: 30px;
+        }
+
+        .question {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .question.correct {
+            background: #d4edda;
+            border-left-color: #28a745;
+        }
+
+        .question.incorrect {
+            background: #f8d7da;
+            border-left-color: #dc3545;
+        }
+
+        .question-number {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option:hover {
+            background: #f1f3f5;
+            border-color: #667eea;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .option label {
+            cursor: pointer;
+            flex: 1;
+        }
+
+        .option.selected {
+            background: #e7f3ff;
+            border-color: #667eea;
+        }
+
+        .option.correct-answer {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+
+        .option.wrong-answer {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .feedback.incorrect {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .buttons {
+            padding: 30px;
+            text-align: center;
+            background: #f8f9fa;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            color: white;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+        }
+
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .results {
+            display: none;
+            padding: 30px;
+            background: #f8f9fa;
+            border-top: 3px solid #667eea;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .results h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .score-display {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .score-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .score-text {
+            font-size: 1.3rem;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+
+        .score-message {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            margin-top: 15px;
+            padding: 15px;
+            background: #e7f3ff;
+            border-radius: 8px;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .buttons {
+                display: none;
+            }
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            color: #667eea;
+        }
+
+        .loading.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📝 Test de SCRUM</h1>
+            <p>Evaluación de conocimientos sobre metodología ágil</p>
+        </div>
+
+        <div class="student-info">
+            <h2>Información del Estudiante</h2>
+            <div class="form-group">
+                <label for="studentName">Nombre completo:</label>
+                <input type="text" id="studentName" placeholder="Ingresa tu nombre completo" required>
+            </div>
+            <div class="form-group">
+                <label for="studentEmail">Correo electrónico:</label>
+                <input type="email" id="studentEmail" placeholder="tu@email.com">
+            </div>
+        </div>
+
+        <div class="test-content" id="testContent">
+            <!-- Las preguntas se generarán aquí -->
+        </div>
+
+        <div class="results" id="results">
+            <h2>📊 Resultados del Test</h2>
+            <div class="score-display">
+                <div class="score-number" id="scoreNumber">0/20</div>
+                <div class="score-text">Respuestas Correctas</div>
+                <div class="score-message" id="scoreMessage"></div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <p>Generando PDF... Por favor espera.</p>
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-primary" id="submitBtn" onclick="submitTest()">Corregir Test</button>
+            <button class="btn btn-success" id="pdfBtn" onclick="generatePDF()" style="display: none;">📄 Descargar PDF</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "¿Qué es SCRUM?",
+                options: [
+                    "Un lenguaje de programación",
+                    "Un marco de trabajo ágil para gestión de proyectos",
+                    "Una herramienta de diseño",
+                    "Un tipo de base de datos"
+                ],
+                correct: 1,
+                explanation: "SCRUM es un marco que permite el trabajo colaborativo entre equipos, principalmente en desarrollo de software."
+            },
+            {
+                question: "¿Cuál es el rol que actúa como 'la voz del cliente' en SCRUM?",
+                options: [
+                    "Scrum Master",
+                    "Desarrollador",
+                    "Product Owner",
+                    "Stakeholder"
+                ],
+                correct: 2,
+                explanation: "El Product Owner es conocido como 'la voz del cliente' y es responsable de gestionar el Product Backlog."
+            },
+            {
+                question: "¿Cuál es la duración típica de un Sprint?",
+                options: [
+                    "1 día",
+                    "1 a 4 semanas",
+                    "3 meses",
+                    "6 meses"
+                ],
+                correct: 1,
+                explanation: "Un Sprint es un período de tiempo fijo que generalmente dura de 1 a 4 semanas."
+            },
+            {
+                question: "¿Qué artefacto contiene todas las tareas que hay que hacer en el proyecto?",
+                options: [
+                    "Sprint Backlog",
+                    "Product Backlog",
+                    "Burndown Chart",
+                    "Definition of Done"
+                ],
+                correct: 1,
+                explanation: "El Product Backlog es un inventario que contiene todo el trabajo que hay que hacer en el producto."
+            },
+            {
+                question: "¿Cuánto tiempo debe durar como máximo una Daily Standup Meeting?",
+                options: [
+                    "5 minutos",
+                    "15 minutos",
+                    "30 minutos",
+                    "1 hora"
+                ],
+                correct: 1,
+                explanation: "La Daily Standup Meeting debe durar como máximo 15 minutos para mantenerla breve y enfocada."
+            },
+            {
+                question: "¿Qué significa 'PBI' en SCRUM?",
+                options: [
+                    "Product Business Item",
+                    "Product Backlog Item",
+                    "Project Base Information",
+                    "Process Building Interface"
+                ],
+                correct: 1,
+                explanation: "PBI significa Product Backlog Item y representa cada entrada en el Product Backlog."
+            },
+            {
+                question: "¿Quién es responsable de eliminar los impedimentos que el equipo no puede resolver por sí mismo?",
+                options: [
+                    "Product Owner",
+                    "Desarrolladores",
+                    "Scrum Master",
+                    "Stakeholders"
+                ],
+                correct: 2,
+                explanation: "El Scrum Master es responsable de eliminar impedimentos y facilitar el trabajo del equipo."
+            },
+            {
+                question: "¿Qué es el 'Definition of Done' (DoD)?",
+                options: [
+                    "Una lista de tareas pendientes",
+                    "Criterios que definen cuándo una tarea está completa",
+                    "El objetivo del Sprint",
+                    "Una herramienta de estimación"
+                ],
+                correct: 1,
+                explanation: "La Definition of Done es una lista de criterios que define cuándo una tarea se considera completamente terminada."
+            },
+            {
+                question: "¿Cuál es el tamaño óptimo del equipo de desarrolladores en SCRUM?",
+                options: [
+                    "2 a 4 miembros",
+                    "6 a 10 miembros",
+                    "15 a 20 miembros",
+                    "No hay límite"
+                ],
+                correct: 1,
+                explanation: "El tamaño óptimo del equipo de desarrolladores es de 6 a 10 miembros."
+            },
+            {
+                question: "¿Qué evento se realiza al final del Sprint para mostrar los avances a los stakeholders?",
+                options: [
+                    "Sprint Planning",
+                    "Daily Standup",
+                    "Sprint Review",
+                    "Sprint Retrospective"
+                ],
+                correct: 2,
+                explanation: "El Sprint Review es la reunión al final del Sprint donde se muestra el trabajo completado a los stakeholders."
+            },
+            {
+                question: "¿Qué herramienta visual permite ver el estado de las tareas durante el Sprint?",
+                options: [
+                    "Burndown Chart",
+                    "Scrum Board",
+                    "Product Backlog",
+                    "Gantt Chart"
+                ],
+                correct: 1,
+                explanation: "El Scrum Board es una herramienta visual que muestra el estado de las tareas (To Do, In Progress, Done)."
+            },
+            {
+                question: "¿Qué significa MVP?",
+                options: [
+                    "Most Valuable Player",
+                    "Minimum Viable Product",
+                    "Maximum Value Production",
+                    "Master Vision Project"
+                ],
+                correct: 1,
+                explanation: "MVP significa Minimum Viable Product (Producto Mínimo Viable), la versión con características mínimas funcionales."
+            },
+            {
+                question: "¿Cuál es el propósito del Sprint Retrospective?",
+                options: [
+                    "Planificar el siguiente Sprint",
+                    "Mostrar el trabajo a los stakeholders",
+                    "Reflexionar sobre el proceso y buscar mejoras",
+                    "Estimar las User Stories"
+                ],
+                correct: 2,
+                explanation: "El Sprint Retrospective sirve para reflexionar sobre el proceso e identificar mejoras para futuros Sprints."
+            },
+            {
+                question: "¿Qué técnica de estimación utiliza la serie de Fibonacci?",
+                options: [
+                    "T-Shirt Sizing",
+                    "Planning Poker",
+                    "Dot Voting",
+                    "Time Boxing"
+                ],
+                correct: 1,
+                explanation: "Planning Poker utiliza valores basados en la serie de Fibonacci (1, 2, 3, 5, 8, 13, etc.) para estimar esfuerzo."
+            },
+            {
+                question: "¿Qué mide la 'Velocity' en SCRUM?",
+                options: [
+                    "La velocidad de los desarrolladores al escribir código",
+                    "La cantidad de trabajo que un equipo puede completar en un Sprint",
+                    "El tiempo que tarda un Sprint",
+                    "La rapidez de las reuniones"
+                ],
+                correct: 1,
+                explanation: "La Velocity mide la cantidad de Story Points que un equipo completa en un Sprint."
+            },
+            {
+                question: "¿Quién puede modificar el Sprint Backlog durante un Sprint?",
+                options: [
+                    "Product Owner",
+                    "Scrum Master",
+                    "Equipo de Desarrolladores",
+                    "Stakeholders"
+                ],
+                correct: 2,
+                explanation: "Solo el equipo de desarrolladores puede modificar el Sprint Backlog durante un Sprint."
+            },
+            {
+                question: "¿Qué gráfica muestra la velocidad con la que se completa el trabajo en un Sprint?",
+                options: [
+                    "Gantt Chart",
+                    "Burndown Chart",
+                    "Pie Chart",
+                    "Flow Chart"
+                ],
+                correct: 1,
+                explanation: "El Burndown Chart muestra gráficamente el trabajo pendiente versus el tiempo en un Sprint."
+            },
+            {
+                question: "¿Cuál NO es un evento oficial de SCRUM?",
+                options: [
+                    "Sprint Planning",
+                    "Daily Standup",
+                    "Monthly Review",
+                    "Sprint Retrospective"
+                ],
+                correct: 2,
+                explanation: "Monthly Review no es un evento oficial de SCRUM. Los eventos oficiales son Sprint Planning, Daily Standup, Sprint Review y Sprint Retrospective."
+            },
+            {
+                question: "¿Qué columnas básicas tiene típicamente un Scrum Board?",
+                options: [
+                    "Start, Continue, Stop",
+                    "To Do, In Progress, Done",
+                    "High, Medium, Low",
+                    "Planning, Doing, Testing"
+                ],
+                correct: 1,
+                explanation: "Las columnas típicas de un Scrum Board son 'To Do', 'In Progress' y 'Done'."
+            },
+            {
+                question: "¿Qué son los Story Points?",
+                options: [
+                    "Puntos que ganan los desarrolladores",
+                    "Una medida relativa del esfuerzo necesario para completar una historia",
+                    "El número de líneas de código",
+                    "La cantidad de errores encontrados"
+                ],
+                correct: 1,
+                explanation: "Los Story Points son una medida relativa del esfuerzo necesario para implementar una historia de usuario."
+            }
+        ];
+
+        function initTest() {
+            const testContent = document.getElementById('testContent');
+            testContent.innerHTML = '';
+
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.id = `question-${index}`;
+
+                let optionsHTML = '';
+                q.options.forEach((option, optIndex) => {
+                    optionsHTML += `
+                        <div class="option" onclick="selectOption(${index}, ${optIndex})">
+                            <input type="radio" name="q${index}" id="q${index}_${optIndex}" value="${optIndex}">
+                            <label for="q${index}_${optIndex}">${option}</label>
+                        </div>
+                    `;
+                });
+
+                questionDiv.innerHTML = `
+                    <div class="question-number">Pregunta ${index + 1}</div>
+                    <div class="question-text">${q.question}</div>
+                    <div class="options">
+                        ${optionsHTML}
+                    </div>
+                    <div class="feedback" id="feedback-${index}"></div>
+                `;
+
+                testContent.appendChild(questionDiv);
+            });
+        }
+
+        function selectOption(questionIndex, optionIndex) {
+            const options = document.querySelectorAll(`#question-${questionIndex} .option`);
+            options.forEach(opt => opt.classList.remove('selected'));
+            options[optionIndex].classList.add('selected');
+            
+            const radio = document.getElementById(`q${questionIndex}_${optionIndex}`);
+            radio.checked = true;
+        }
+
+        function submitTest() {
+            const studentName = document.getElementById('studentName').value.trim();
+            
+            if (!studentName) {
+                alert('Por favor, ingresa tu nombre antes de corregir el test.');
+                return;
+            }
+
+            let correctAnswers = 0;
+            
+            questions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                const questionDiv = document.getElementById(`question-${index}`);
+                const feedbackDiv = document.getElementById(`feedback-${index}`);
+                const options = questionDiv.querySelectorAll('.option');
+
+                if (selectedOption) {
+                    const selectedIndex = parseInt(selectedOption.value);
+                    
+                    if (selectedIndex === q.correct) {
+                        correctAnswers++;
+                        questionDiv.classList.add('correct');
+                        feedbackDiv.className = 'feedback correct show';
+                        feedbackDiv.innerHTML = `✅ <strong>¡Correcto!</strong> ${q.explanation}`;
+                        options[selectedIndex].classList.add('correct-answer');
+                    } else {
+                        questionDiv.classList.add('incorrect');
+                        feedbackDiv.className = 'feedback incorrect show';
+                        feedbackDiv.innerHTML = `❌ <strong>Incorrecto.</strong> La respuesta correcta es: <strong>${q.options[q.correct]}</strong><br>${q.explanation}`;
+                        options[selectedIndex].classList.add('wrong-answer');
+                        options[q.correct].classList.add('correct-answer');
+                    }
+                } else {
+                    questionDiv.classList.add('incorrect');
+                    feedbackDiv.className = 'feedback incorrect show';
+                    feedbackDiv.innerHTML = `❌ <strong>No respondida.</strong> La respuesta correcta es: <strong>${q.options[q.correct]}</strong><br>${q.explanation}`;
+                    options[q.correct].classList.add('correct-answer');
+                }
+            });
+
+            showResults(correctAnswers);
+            
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('pdfBtn').style.display = 'inline-block';
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showResults(correctAnswers) {
+            const totalQuestions = questions.length;
+            const percentage = (correctAnswers / totalQuestions) * 100;
+            
+            document.getElementById('results').classList.add('show');
+            document.getElementById('scoreNumber').textContent = `${correctAnswers}/${totalQuestions}`;
+            
+            let message = '';
+            if (percentage >= 90) {
+                message = '🎉 ¡Excelente! Dominas SCRUM perfectamente.';
+            } else if (percentage >= 70) {
+                message = '👍 ¡Muy bien! Tienes un buen conocimiento de SCRUM.';
+            } else if (percentage >= 50) {
+                message = '📚 Aprobado, pero deberías repasar algunos conceptos.';
+            } else {
+                message = '📖 Necesitas estudiar más sobre SCRUM. ¡No te rindas!';
+            }
+            
+            document.getElementById('scoreMessage').textContent = message;
+        }
+
+        function generatePDF() {
+            document.getElementById('loading').classList.add('show');
+            
+            setTimeout(() => {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                const studentName = document.getElementById('studentName').value || 'Estudiante';
+                const studentEmail = document.getElementById('studentEmail').value || 'No proporcionado';
+                const date = new Date().toLocaleDateString('es-ES');
+                
+                let correctAnswers = 0;
+                questions.forEach((q, index) => {
+                    const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                    if (selectedOption && parseInt(selectedOption.value) === q.correct) {
+                        correctAnswers++;
+                    }
+                });
+                
+                const percentage = ((correctAnswers / questions.length) * 100).toFixed(1);
+                
+                // Título
+                doc.setFontSize(20);
+                doc.setTextColor(102, 126, 234);
+                doc.text('Test de SCRUM - Resultados', 105, 20, { align: 'center' });
+                
+                // Información del estudiante
+                doc.setFontSize(12);
+                doc.setTextColor(0, 0, 0);
+                doc.text(`Nombre: ${studentName}`, 20, 35);
+                doc.text(`Email: ${studentEmail}`, 20, 42);
+                doc.text(`Fecha: ${date}`, 20, 49);
+                
+                // Línea separadora
+                doc.setLineWidth(0.5);
+                doc.line(20, 55, 190, 55);
+                
+                // Resultados generales
+                doc.setFontSize(14);
+                doc.setTextColor(102, 126, 234);
+                doc.text('Calificación:', 20, 65);
+                doc.setFontSize(12);
+                doc.setTextColor(0, 0, 0);
+                doc.text(`Respuestas correctas: ${correctAnswers}/${questions.length} (${percentage}%)`, 20, 73);
+                
+                let yPosition = 85;
+                
+                // Detalles de las respuestas
+                doc.setFontSize(14);
+                doc.setTextColor(102, 126, 234);
+                doc.text('Detalle de respuestas:', 20, yPosition);
+                yPosition += 10;
+                
+                doc.setFontSize(10);
+                
+                questions.forEach((q, index) => {
+                    if (yPosition > 270) {
+                        doc.addPage();
+                        yPosition = 20;
+                    }
+                    
+                    const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                    const isCorrect = selectedOption && parseInt(selectedOption.value) === q.correct;
+                    
+                    doc.setTextColor(0, 0, 0);
+                    const questionText = `${index + 1}. ${q.question}`;
+                    const splitQuestion = doc.splitTextToSize(questionText, 170);
+                    doc.text(splitQuestion, 20, yPosition);
+                    yPosition += splitQuestion.length * 5;
+                    
+                    if (isCorrect) {
+                        doc.setTextColor(40, 167, 69);
+                        doc.text('✓ Correcta', 25, yPosition);
+                    } else {
+                        doc.setTextColor(220, 53, 69);
+                        const userAnswer = selectedOption ? q.options[parseInt(selectedOption.value)] : 'No respondida';
+                        doc.text(`✗ Tu respuesta: ${userAnswer}`, 25, yPosition);
+                        yPosition += 5;
+                        doc.setTextColor(40, 167, 69);
+                        doc.text(`✓ Correcta: ${q.options[q.correct]}`, 25, yPosition);
+                    }
+                    
+                    yPosition += 8;
+                });
+                
+                // Guardar PDF
+                doc.save(`Test_SCRUM_${studentName.replace(/\s+/g, '_')}_${date.replace(/\//g, '-')}.pdf`);
+                
+                document.getElementById('loading').classList.remove('show');
+            }, 500);
+        }
+
+        // Inicializar el test al cargar la página
+        window.onload = initTest;
+    </script>
+</body>
+</html>
