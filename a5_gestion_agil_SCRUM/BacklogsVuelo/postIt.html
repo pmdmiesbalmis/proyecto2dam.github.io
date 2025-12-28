@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-it - Recordatorio</title>
+    <style>
+        @page {
+            size: 7.6cm 7.6cm;
+            margin: 0;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', 'Segoe Print', cursive;
+            background: white;
+        }
+
+        .postit {
+            width: 7.6cm;
+            height: 7.6cm;
+            background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+            padding: 1cm;
+            box-sizing: border-box;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .postit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 0.8cm;
+            background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 14pt;
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+
+        p {
+            font-size: 11pt;
+            margin: 5px 0;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .emoji {
+            font-size: 24pt;
+            margin: 10px 0;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            
+            .postit {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="postit">
+        <div class="content">
+            <h1>Como CEO, quiero un avión presidencial para la presentación a inversores</h1>
+              <p style="margin-top: 0px; font-size: 11pt; color: #000; font-weight: bold;">
+                  ______ 5sp ______
+            </p>
+
+			<p>• Vuela mínimo 5 metros</br>
+• Diseño premium (3+colores)</br>
+• Logo corporativo en las alas</br>
+• Incluye "business plan"</br>
+• Aterriza en zona (±50cm)</p>
+            
+        </div>
+    </div>
+</body>
+</html>
