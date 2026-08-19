@@ -13,7 +13,7 @@
       
       <style>
       @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css);
-code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-details{margin:0;padding:0;border:none}.markdown-preview .md-toc summary.md-toc-link-wrapper{cursor:pointer;list-style-position:outside}.markdown-preview .md-toc summary.md-toc-link-wrapper::marker{font-size:.85em}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='0']{margin-left:12px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='1']{margin-left:28px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='2']{margin-left:44px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='3']{margin-left:60px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='4']{margin-left:76px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='5']{margin-left:80px}.markdown-preview a.tag,.markdown-preview a.tag:active,.markdown-preview a.tag:link,.markdown-preview a.tag:visited,.markdown-preview span.tag:not(.token){display:inline-block;background-color:var(--vscode-badge-background,rgba(127,127,127,.18));color:var(--vscode-badge-foreground,currentColor);border-radius:2em;font-size:.85em;font-weight:500;padding:.05em .55em;line-height:1.5;white-space:nowrap;text-decoration:none;text-shadow:none;box-shadow:none;transition:background-color .12s ease,opacity .12s ease}.markdown-preview a.tag{cursor:pointer}.markdown-preview a.tag:focus,.markdown-preview a.tag:hover{background-color:var(--vscode-badge-background,rgba(127,127,127,.32));color:var(--vscode-badge-foreground,currentColor);opacity:.85;text-decoration:none;outline:0}.markdown-preview .wikilink-embed-content{border-left:3px solid var(--vscode-textBlockQuote-border,rgba(128,128,128,.3));background:var(--vscode-textBlockQuote-background,rgba(128,128,128,.05));margin:.5em 0;padding:.5em .75em;border-radius:0 3px 3px 0}.markdown-preview .wikilink-embed-content.wikilink-embed-error{border-left-color:var(--vscode-errorForeground,#cf222e);color:var(--vscode-errorForeground,#cf222e);font-style:italic;opacity:.8}.markdown-preview .wikilink-embed-content h1:first-child,.markdown-preview .wikilink-embed-content h2:first-child,.markdown-preview .wikilink-embed-content h3:first-child,.markdown-preview .wikilink-embed-content h4:first-child,.markdown-preview .wikilink-embed-content h5:first-child,.markdown-preview .wikilink-embed-content h6:first-child{margin-top:.25em}.markdown-preview .wikilink-embed-content .wikilink-embed-content{margin:.25em 0;padding:.25em .5em}.markdown-preview .block-id{display:none}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-details{margin:0;padding:0;border:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='0']{padding-left:0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='1']{padding-left:16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='2']{padding-left:32px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='3']{padding-left:48px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='4']{padding-left:64px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='5']{padding-left:80px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-details{margin:0;padding:0;border:none}.markdown-preview .md-toc summary.md-toc-link-wrapper{cursor:pointer;list-style-position:outside}.markdown-preview .md-toc summary.md-toc-link-wrapper::marker{font-size:.85em}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='0']{margin-left:12px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='1']{margin-left:28px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='2']{margin-left:44px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='3']{margin-left:60px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='4']{margin-left:76px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='5']{margin-left:80px}.markdown-preview a.tag,.markdown-preview a.tag:active,.markdown-preview a.tag:link,.markdown-preview a.tag:visited,.markdown-preview span.tag:not(.token){display:inline-block;background-color:var(--vscode-badge-background,rgba(127,127,127,.18));color:var(--vscode-badge-foreground,currentColor);border-radius:2em;font-size:.85em;font-weight:500;padding:.05em .55em;line-height:1.5;white-space:nowrap;text-decoration:none;text-shadow:none;box-shadow:none;transition:background-color .12s ease,opacity .12s ease}.markdown-preview a.tag{cursor:pointer}.markdown-preview a.tag:focus,.markdown-preview a.tag:hover{background-color:var(--vscode-badge-background,rgba(127,127,127,.32));color:var(--vscode-badge-foreground,currentColor);opacity:.85;text-decoration:none;outline:0}.markdown-preview .wikilink-embed-content{border-left:3px solid var(--vscode-textBlockQuote-border,rgba(128,128,128,.3));background:var(--vscode-textBlockQuote-background,rgba(128,128,128,.05));margin:.5em 0;padding:.5em .75em;border-radius:0 3px 3px 0}.markdown-preview .wikilink-embed-content.wikilink-embed-error{border-left-color:var(--vscode-errorForeground,#cf222e);color:var(--vscode-errorForeground,#cf222e);font-style:italic;opacity:.8}.markdown-preview .wikilink-embed-content h1:first-child,.markdown-preview .wikilink-embed-content h2:first-child,.markdown-preview .wikilink-embed-content h3:first-child,.markdown-preview .wikilink-embed-content h4:first-child,.markdown-preview .wikilink-embed-content h5:first-child,.markdown-preview .wikilink-embed-content h6:first-child{margin-top:.25em}.markdown-preview .wikilink-embed-content .wikilink-embed-content{margin:.25em 0;padding:.25em .5em}.markdown-preview .block-id{display:none}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-details{margin:0;padding:0;border:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='0']{padding-left:0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='1']{padding-left:16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='2']{padding-left:32px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='3']{padding-left:48px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='4']{padding-left:64px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='5']{padding-left:80px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}@font-face{font-family:"Material Icons";font-style:normal;font-weight:400;src:local("Material Icons"),local("MaterialIcons-Regular"),url("data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAfIAAsAAAAADDAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7kosY21hcAAAAYAAAADTAAACjtP6ytBnbHlmAAACVAAAAxgAAAQ4zRtvlGhlYWQAAAVsAAAALwAAADYRwZsnaGhlYQAABZwAAAAcAAAAJAeKAzxobXR4AAAFuAAAABIAAAA8OGQAAGxvY2EAAAXMAAAAIAAAACAG5AfwbWF4cAAABewAAAAfAAAAIAEfAERuYW1lAAAGDAAAAVcAAAKFkAhoC3Bvc3QAAAdkAAAAYgAAAK2vz7wkeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkPsQ4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVLy4xKzzX4chhrmK4QpQmBEkBwAZygyweJzFkr0NwjAQhZ+TEP6CRUfHBEwRUWaQTICyQbpMwRCskA5RUIONxG0RnnNpKAIV4qzPku/8c353ACYAYrIjCWCuMAh2ptf0/hiL3p/gyPUWa3osqlt0L1zu9r71z8dGrJRykFoauXQd932Lj5vhG+MjxGeYI8MKETObMpslf5EyP8tg+vHun5r539PvlvXzaVhRFVQDTPEWKVQR90KhnnC5Ek67vUKN4VuFasM/ldARj43CCkCsEjpJSoVVgRyU0GVSK6wUpFFCx8lFgX0BiXpRPQB4nE2TTWjcRhTH3xttpDhxN7uxPlp3u/FK7moRPixafRijNosxSw/LUsIwNcaEHPZggo/FmEKMCKWU4kNOOftQSlhE8alnH0Ix9BqWnHooPRrTQ0+mnu2bXTu2pPdGM9LM/6c3fwECTM4gBBMYQNqxzLrZAjqYSlqu2TAHZQA0/DQJH6FtzqGDnvbt4Ggwvzw/nL8EfH8kW0fsuRqhgWXZnY7M1picaUL7Du5BHeDzMIl83dAt016wH1qmvtSMo5R6YRJHTR//FXsff/nj/tc/5K9P5d+nP22+fFK5u7v3K39SW3y+OtDKO3L85vD09PD9z5X17a2N1g4tqk01RlqX7gyoEmnsWQtVr4rtZMmukEaFBZxzefkCn11cyKMLZgshRwgTYNoLNXCBz2ja7HvZG7hDpPSNfoo5vs0knK/9hb+rNpu+8kHPgk/Ao4kK3tWtTpSEtvkA9c+wE6UaUdwieNkaHg55tBEtRiEPw1s0+FtrtTcc9two2lhMknV7PZF/cs6+uUFTmpTGbEx7sQCPSLOttHS3GRltqp7SNzVSKzl6aWnZT/CX5k6/v9N3Hh8fHBwffJVjhrC6OgH5dkIt/tPsq+d/PD5Qz7G7efzq1THFjdZVPe/N6ulQ3JnDWSE5junsFsVIiFwL/htf1S5gJ3BfOcUxfHKLnzqpFpyfZ9cX+/5WB6a+Y0pHpzkNrYNVDwMsikK+y7WuLCRg/oFHkA8VT3rDg5ZnU6ktzzINymV0m74Xd5pfIGXyFeVEQSShkzqG7TBBa2OxVRKitLXv7h3uuftXnXq7lz2tZ/WnWa9dx9dCjDhHzmuVQATlmljr9dZErUydSo2Hbi/b1vXtrOeGCk2/8s3ZlO8+ueJT8BVlw5pGw2oYccdSiHHqx0RlabHqdNR9jAETl6PreJcPBnnfpTLnOQ8C3OV8AmQGzouV1iZdeb5SSIoVc8W8/kcDtksUH5FrU6/aqBqNWcMEzxG4DAQ14qRQhi9mWU0rzepKezbjfgCwQKxVYq5ajRgpRqy45CqwkJydcEkbTkvRz8P5/2ZpDTN4nGNgZGBgAOKb6v+/xvPbfGXgZmEAgeuB2kkI+v8bFgbmKiCXg4EJJAoAPyAKhQB4nGNgZGBg1vmvwxDDwgACQJKRARXwAwAzZQHQeJxjYQCCFAYGFgbSMQAcWACdAAAAAAAAAAwALgBgAIQAmADSAQgBIgE8AVABoAHeAfwCHHicY2BkYGDgZ7BgYGMAASYg5gJCBob/YD4DAA/hAWQAeJxlkbtuwkAURMc88gApQomUJoq0TdIQzEOpUDokKCNR0BuzBiO/tF6QSJcPyHflE9Klyyekz2CuG8cr7547M3d9JQO4xjccnJ57vid2cMHqxDWc40G4Tv1JuEF+Fm6ijRfhM+oz4Ra6eBVu4wZvvMFpXLIa40PYQQefwjVc4Uu4Tv1HuEH+FW7i1mkKn6Hj3Am3sHC6wm08Ou8tpSZGe1av1PKggjSxPd8zJtSGTuinyVGa6/Uu8kxZludCmzxMEzV0B6U004k25W35fj2yNlCBSWM1paujKFWZSbfat+7G2mzc7weiu34aczzFNYGBhgfLfcV6iQP3ACkSaj349AxXSN9IT0j16JepOb01doiKbNWt1ovippz6sVYYwsXgX2rGVFIkq7Pl2PNrI6qW6eOshj0xaSq9mpNEZIWs8LZUfOouNkVXxp/d5woqebeYIf4D2J1ywQB4nG3LOw6AIBAE0B384B+PAkgEa+QwNnYmHt+EpXSal5lkSBBnoP8oCFSo0aCFRIceA0ZMmLFAYSW88rmvtMUjG3RiQ9HvpfusM6zWNmtc5H/iPewha50tOt5PS/QBx2IeSwAA") format("woff")}.admonition{box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12),0 3px 1px -2px rgba(0,0,0,.2);position:relative;margin:1.5625em 0;padding:0 1.2rem;border-left:.4rem solid rgba(68,138,255,.8);border-radius:.2rem;background-color:rgba(255,255,255,.05);overflow:auto}.admonition>p{margin-top:.8rem}.admonition>.admonition-title{margin:0 -1.2rem;padding:.8rem 1.2rem .8rem 3.6rem;border-bottom:1px solid rgba(68,138,255,.2);background-color:rgba(68,138,255,.1);font-weight:700}.admonition>.admonition-title:before{position:absolute;left:1.2rem;font-size:1.5rem;color:rgba(68,138,255,.8);content:"\E3C9"}.admonition>.admonition-title:before{font-family:Material Icons;font-style:normal;font-variant:normal;font-weight:400;line-height:2rem;text-transform:none;white-space:nowrap;speak:none;word-wrap:normal;direction:ltr}.admonition.abstract,.admonition.summary,.admonition.tldr{border-left-color:rgba(0,176,255,.8)}.admonition.abstract>.admonition-title,.admonition.summary>.admonition-title,.admonition.tldr>.admonition-title{background-color:rgba(0,176,255,.1);border-bottom-color:rgba(0,176,255,.2)}.admonition.abstract>.admonition-title:before,.admonition.summary>.admonition-title:before,.admonition.tldr>.admonition-title:before{color:#00b0ff;content:"\E8D2"}.admonition.hint,.admonition.tip{border-left-color:rgba(0,191,165,.8)}.admonition.hint>.admonition-title,.admonition.tip>.admonition-title{background-color:rgba(0,191,165,.1);border-bottom-color:rgba(0,191,165,.2)}.admonition.hint>.admonition-title:before,.admonition.tip>.admonition-title:before{color:#00bfa5;content:"\E80E"}.admonition.info,.admonition.todo{border-left-color:rgba(0,184,212,.8)}.admonition.info>.admonition-title,.admonition.todo>.admonition-title{background-color:rgba(0,184,212,.1);border-bottom-color:rgba(0,184,212,.2)}.admonition.info>.admonition-title:before,.admonition.todo>.admonition-title:before{color:#00b8d4;content:"\E88E"}.admonition.check,.admonition.done,.admonition.success{border-left-color:rgba(0,200,83,.8)}.admonition.check>.admonition-title,.admonition.done>.admonition-title,.admonition.success>.admonition-title{background-color:rgba(0,200,83,.1);border-bottom-color:rgba(0,200,83,.2)}.admonition.check>.admonition-title:before,.admonition.done>.admonition-title:before,.admonition.success>.admonition-title:before{color:#00c853;content:"\E876"}.admonition.faq,.admonition.help,.admonition.question{border-left-color:rgba(100,221,23,.8)}.admonition.faq>.admonition-title,.admonition.help>.admonition-title,.admonition.question>.admonition-title{background-color:rgba(100,221,23,.1);border-bottom-color:rgba(100,221,23,.2)}.admonition.faq>.admonition-title:before,.admonition.help>.admonition-title:before,.admonition.question>.admonition-title:before{color:#64dd17;content:"\E887"}.admonition.attention,.admonition.caution,.admonition.warning{border-left-color:rgba(255,145,0,.8)}.admonition.attention>.admonition-title,.admonition.caution>.admonition-title,.admonition.warning>.admonition-title{background-color:rgba(255,145,0,.1);border-bottom-color:rgba(255,145,0,.2)}.admonition.attention>.admonition-title:before{color:#ff9100;content:"\E417"}.admonition.caution>.admonition-title:before,.admonition.warning>.admonition-title:before{color:#ff9100;content:"\E002"}.admonition.fail,.admonition.failure,.admonition.missing{border-left-color:rgba(255,82,82,.8)}.admonition.fail>.admonition-title,.admonition.failure>.admonition-title,.admonition.missing>.admonition-title{background-color:rgba(255,82,82,.1);border-bottom-color:rgba(255,82,82,.2)}.admonition.fail>.admonition-title:before,.admonition.failure>.admonition-title:before,.admonition.missing>.admonition-title:before{color:#ff5252;content:"\E14C"}.admonition.bug,.admonition.danger,.admonition.error{border-left-color:rgba(255,23,68,.8)}.admonition.bug>.admonition-title,.admonition.danger>.admonition-title,.admonition.error>.admonition-title{background-color:rgba(255,23,68,.1);border-bottom-color:rgba(255,23,68,.2)}.admonition.danger>.admonition-title:before{color:#ff1744;content:"\E3E7"}.admonition.error>.admonition-title:before{color:#ff1744;content:"\E14C"}.admonition.bug>.admonition-title:before{color:#ff1744;content:"\E868"}.admonition.example,.admonition.snippet{border-left-color:rgba(0,184,212,.8)}.admonition.example>.admonition-title,.admonition.snippet>.admonition-title{background-color:rgba(0,184,212,.1);border-bottom-color:rgba(0,184,212,.2)}.admonition.example>.admonition-title:before,.admonition.snippet>.admonition-title:before{color:#00b8d4;content:"\E242"}.admonition.cite,.admonition.quote{border-left-color:rgba(158,158,158,.8)}.admonition.cite>.admonition-title,.admonition.quote>.admonition-title{background-color:rgba(158,158,158,.1);border-bottom-color:rgba(158,158,158,.2)}.admonition.cite>.admonition-title:before,.admonition.quote>.admonition-title:before{color:#9e9e9e;content:"\E244"}
 /* Please visit the URL below for more information: */
 /*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
 /* Please visit the URL below for more information: */
@@ -222,27 +222,1010 @@ code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-fami
       <div class="crossnote markdown-preview  ">
       
 <h1 id="estructurando-proyectos-con-ia" true="true">Estructurando proyectos con IA </h1>
+<p><strong><a href="./conceptos_desarrollo_con_IA.pdf">Descargar este tutorial en PDF</a></strong></p>
 <h2 id="índice" true="true">Índice </h2>
 <div class="md-toc">
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="0">
+  <a href="#introducción-al-desarrollo-asistido-por-ia" class="md-toc-link">Introducción al Desarrollo Asistido por IA</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="1">
+  <a href="#el-panorama-actual" class="md-toc-link">El panorama actual</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="1">
+  <a href="#cómo-abordar-esta-disciplina" class="md-toc-link">¿Cómo abordar esta disciplina?</a>
+</div>
+</details>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="0">
+  <a href="#definiciones-y-conceptos-del-desarrollo-asistido-por-ia" class="md-toc-link">Definiciones y conceptos del Desarrollo Asistido por IA</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="1">
+  <a href="#llm-large-language-model" class="md-toc-link">LLM (Large Language Model)</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="1">
+  <a href="#token" class="md-toc-link">Token</a>
+</div>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="1">
+  <a href="#prompt" class="md-toc-link">Prompt</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#definiendo-prompts-repetitivos" class="md-toc-link">Definiendo prompts repetitivos</a>
+</div>
+</details>
+<div class="md-toc-link-wrapper" data-level="1">
+  <a href="#context-contexto" class="md-toc-link">Context (Contexto)</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="1">
+  <a href="#ventana-de-contexto-context-window" class="md-toc-link">Ventana de Contexto (Context Window)</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="1">
+  <a href="#iterando-en-una-conversación" class="md-toc-link">Iterando en una conversación</a>
+</div>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="1">
+  <a href="#agent-agente" class="md-toc-link">Agent (Agente)</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#el-bucle-de-acción" class="md-toc-link">El bucle de acción</a>
+</div>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="2">
+  <a href="#herramientas-usadas-por-los-agentes" class="md-toc-link">Herramientas usadas por los agentes</a>
+</summary>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="3">
+  <a href="#entornos-de-ejecución-más-comunes" class="md-toc-link">Entornos de ejecución más comunes</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="4">
+  <a href="#python" class="md-toc-link">Python</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="4">
+  <a href="#nodejs-javascript" class="md-toc-link">Node.js (JavaScript)</a>
+</div>
+</details>
+<div class="md-toc-link-wrapper" data-level="3">
+  <a href="#mcp-model-context-protocol" class="md-toc-link">MCP (Model Context Protocol)</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="3">
+  <a href="#aplicación-cli-command-line-interface" class="md-toc-link">Aplicación CLI (Command Line Interface)</a>
+</div>
+</details>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="2">
+  <a href="#roles" class="md-toc-link">Roles</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="3">
+  <a href="#ejemplo-de-definición-de-roles-y-reglas-de-agentes" class="md-toc-link">Ejemplo de definición de roles y reglas de agentes</a>
+</div>
+</details>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="2">
+  <a href="#skills" class="md-toc-link">Skills</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="3">
+  <a href="#rol-vs-skill" class="md-toc-link">Rol vs Skill</a>
+</div>
+</details>
+</details>
+<div class="md-toc-link-wrapper" data-level="1">
+  <a href="#bronwfiled-vs-greenfield" class="md-toc-link">Bronwfiled vs Greenfield</a>
+</div>
+</details>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="0">
+  <a href="#estrategias-o-recetas-de-desarrollo-asistido-por-ia" class="md-toc-link">Estrategias o '<em>recetas</em>' de desarrollo asistido por IA</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="1">
+  <a href="#vibe-coding-programar-por-vibras" class="md-toc-link">Vibe Coding (Programar por "Vibras")</a>
+</div>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="1">
+  <a href="#marco-de-trabajo-rpi-research-plan-implement" class="md-toc-link">Marco de trabajo RPI (Research, Plan, Implement)</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#la-idea-central-de-rpi" class="md-toc-link">La idea central de RPI</a>
+</div>
+</details>
+<div class="md-toc-link-wrapper" data-level="1">
+  <a href="#harness-engineering-ingeniería-de-arnés" class="md-toc-link">Harness Engineering (Ingeniería de Arnés)</a>
+</div>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="1">
+  <a href="#spec-driven-development-o-sdd-desarrollo-dirigido-por-especificaciones" class="md-toc-link">Spec-Driven Development o SDD (Desarrollo Dirigido por Especificaciones)</a>
+</summary>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="2">
+  <a href="#marcos-de-trabajo-dentro-del-sdd" class="md-toc-link">Marcos de trabajo dentro del SDD</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="3">
+  <a href="#spec-first-especificación-inicial-o-desechable" class="md-toc-link">Spec-First (Especificación Inicial o Desechable)</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="3">
+  <a href="#constitucional-spec-csdd" class="md-toc-link">Constitucional Spec (CSDD)</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="3">
+  <a href="#spec-anchored-especificación-anclada-o-viva" class="md-toc-link">Spec-Anchored (Especificación Anclada o Viva)</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="3">
+  <a href="#frameworks-para-sdd" class="md-toc-link">Frameworks para SDD</a>
+</div>
+</details>
+</details>
+</details>
 <div class="md-toc-link-wrapper" data-level="0">
-  <a href="#introducción" class="md-toc-link">Introducción</a>
+  <a href="#anexo-i---mejorando-rpi-con-qrspi-crispy" class="md-toc-link">Anexo I - Mejorando RPI con QRSPI (<em>'Crispy'</em>)</a>
 </div>
 </div>
 <div style="page-break-after:always;"></div>
-<h2 id="introducción">Introducción </h2>
-<p><strong><a href="./conceptos_desarrollo_con_IA.pdf">Descargar este tutorial en PDF</a></strong></p>
-<p>Guía del Futuro: Conceptos Básicos de Desarrollo Asistido por IA¡Te damos la bienvenida al emocionante mundo de la programación asistida por Inteligencia Artificial (IA)! Si estás empezando, es muy probable que escuches palabras raras como vibe coding, harness, loops o SDD. No te preocupes: aunque suenan muy técnicas, en realidad representan ideas lógicas y sencillas.En este tutorial vamos a desmitificar estos términos usando metáforas de la vida real, explicaciones paso a paso y diagramas visuales para que entiendas perfectamente cómo los desarrolladores modernos programan codo con codo con la IA.</p>
-<p>Vibe Coding (Programar por "Vibras")¿Qué es?Imagina que te subes a un taxi y le dices al conductor: "Quiero ir a un lugar bonito que tenga buena comida, tú sabrás dónde" sin darle una dirección exacta. Eso es Vibe Coding.En el desarrollo de software, vibe coding consiste en pedirle cosas a la IA a través de instrucciones sueltas o conversacionales (prompts) sin una planificación previa. Tú solo describes lo que quieres en lenguaje natural, y la IA genera bloques enteros de código. Tú lo pruebas, si falla le dices "no funciona, arréglalo", y repites el proceso confiando en el instinto o la "vibra" del momento.Lo bueno: Es increíblemente rápido para crear prototipos iniciales, experimentar o validar ideas de la noche a la mañana.Lo malo: Al no tener un plan estructurado, es muy fácil acabar con un código desorganizado (código espagueti) que ni tú ni la IA lográis entender tras varias iteraciones.Diagrama de Vibe Coding</p>
-<p><img src="./imagenes/vibe.png" alt="alt text"></p>
-<p>Spec-Driven Development - SDD (Desarrollo Dirigido por Especificaciones)¿Qué es?Si el Vibe Coding es viajar sin rumbo, el SDD es construir una casa utilizando un plano arquitectónico detallado.En SDD, nunca se escribe código de buenas a primeras. Primero, el desarrollador y la IA colaboran para crear un documento de especificaciones detallado (la Spec). Este documento describe de manera ultraprecisa:Qué tiene que hacer la aplicación (Requisitos).Qué aspecto visual tendrá.Qué datos va a recibir y qué devolverá.Qué pruebas (tests) debe pasar para considerarse un éxito.Este documento se convierte en la fuente de verdad única. La IA lee este plano antes de escribir cada línea de código, evitando malentendidos y garantizando que el software funcione exactamente como se planeó.Diagrama de SDD</p>
-<p><img src="./imagenes/sdd.png" alt="alt text"></p>
-<p>Harness (El Arnés)¿Qué es?Un modelo de IA (como GPT, Gemini o Claude) es solo un "cerebro" conversacional que sabe mucho de texto, pero no tiene manos ni pies. Si le pides que cree un archivo en tu ordenador, por sí solo no puede hacerlo. Necesita un Arnés (Harness).El Harness es el entorno estructurado y seguro que rodea a la IA y le da superpoderes prácticos. Consiste en una serie de herramientas que le permiten a la IA:Leer y escribir archivos en carpetas autorizadas.Ejecutar comandos de terminal controlados.Realizar pruebas para verificar que el código funciona.Comunicarse con servicios de seguridad (como un sandbox) para que no borre nada importante de tu ordenador.En resumen: la IA es el cerebro pensante, y el Harness es el cuerpo mecánico que le permite interactuar de forma segura con el mundo real (tu proyecto).Diagrama del Arnés (Harness)</p>
-<p><img src="imagenes/arn%C3%A9s.png" alt="alt text"></p>
-<p>Skill (Habilidades de Agente)¿Qué es?Imagina que tienes una receta de cocina de 47 pasos para hacer una tarta de chocolate perfecta. En lugar de tener que explicarle los 47 pasos al robot de cocina cada vez que quieres tarta, creas un botón que dice "Hacer tarta de chocolate". Ese botón es una Skill.En el desarrollo asistido por IA, una Skill es un bloque de conocimiento procedimental. Se suele guardar en archivos de texto sencillos (como un archivo Markdown llamado <a href="http://skill.md">skill.md</a>) que le enseñan a la IA cómo realizar una tarea repetitiva específica en tu proyecto paso a paso, como por ejemplo:Cómo formatear el código antes de guardarlo.Cómo desplegar el programa en internet de forma segura.Cómo redactar un message para enviar los cambios a GitHub.Las skills permiten que la IA aprenda flujos de trabajo personalizados sin que tengas que explicárselo todo en cada prompt.Diagrama de una Skill</p>
-<p><img src="imagenes/skill.png" alt="alt text"></p>
-<p>Loop (Loop Engineering / Ingeniería de Bucles)¿Qué es?Cuando los humanos programamos, rara vez acertamos a la primera: escribimos código, vemos si da error, corregimos, volvemos a probar y repetimos hasta que funciona. El Loop Engineering consiste en automatizar este ciclo exacto para que la IA lo haga sola.Un Loop es un bucle cerrado y autónomo diseñado por ti. En lugar de darle instrucciones y esperar sentados, estructuramos un sistema en el que la IA realiza un bucle autocorrectivo compuesto por:Generar: La IA escribe un trozo de código.Ejecutar: El Arnés ejecuta el código en el terminal.Evaluar: Un sistema automático (como un linter o un test unitario) revisa si el código tiene errores.Condición de parada:¿Hay errores? El ciclo vuelve a empezar, pasándole los errores a la IA para que se autocorriga.¿Todo es perfecto? El bucle se detiene y te entrega el resultado final ya <a href="http://verificado.La">verificado.La</a> ingeniería de bucles evita que tengas que intervenir manualmente a cada momento para corregir errores simples de sintaxis.Diagrama de Loop Engineering</p>
-<p><img src="imagenes/loop.png" alt="alt text"></p>
-<p>Resumen: ¿Cómo encaja todo en tu día a día?Imagina que quieres crear tu primera aplicación web:Utilizas SDD para diseñar y definir los planos precisos de tu aplicación junto a la IA.Tu IA opera dentro de un Harness (un entorno seguro en tu terminal) que le da las herramientas para tocar tus <a href="http://archivos.La">archivos.La</a> IA utiliza una Skill ya creada para saber cómo estructurar tu proyecto siguiendo las mejores prácticas de la industria.Para escribir la página web sin cometer errores, la IA entra en un Loop donde escribe código, lo prueba en tiempo real, corrige los fallos de diseño automáticamente y se detiene solo cuando todo es perfecto.¡Listo! Has evitado la frustración y el caos de depender únicamente del Vibe Coding.¡Felicidades! Ahora conoces los pilares fundamentales que están transformando la ingeniería de software en todo el mundo.</p>
+<h2 id="introducción-al-desarrollo-asistido-por-ia">Introducción al Desarrollo Asistido por IA </h2>
+<p>En este tema abordaremos las definiciones, especificaciones y estrategias clave del <strong>Desarrollo Asistido por IA</strong>. Definiremos conceptos fundamentales que seguro te resultarán familiares si estás empezando —como <em>LLM</em>, <em>contexto</em>, <em>agente</em>, entre otros— utilizando metáforas de la vida cotidiana y diagramas visuales para asimilar la base teórica sin abrumarnos con detalles técnicos de implementación.</p>
+<h3 id="el-panorama-actual">El panorama actual </h3>
+<p>Actualmente, el ecosistema de herramientas de IA evoluciona a gran velocidad. Entre las soluciones más destacadas encontramos:</p>
+<ul>
+<li><strong>Editores e IDEs con IA:</strong> Cursor, VSCode/Copilot, Codex, Antigravity, Muse Code, Windsurf AI, Kiro, etc.</li>
+<li><strong>Herramientas CLI (Línea de comandos):</strong> Claude Code, OpenCode, Hermes Agent, Antigravity CLI, Codex CLI, etc.</li>
+<li><strong>Metodologías de desarrollo asistido:</strong> Vibe Coding, Harness Engineering, Spec-Driven Development (SDD), Loop Engineering, etc.</li>
+<li><strong>Frameworks y orquestadores:</strong> OpenSpec, Spec Kit, AutoGen, etc.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Este listado es solo una foto del momento actual. A lo largo del curso aparecerán nuevas herramientas, otras desaparecerán o cambiarán de nombre.</p>
+</div>
+<h3 id="cómo-abordar-esta-disciplina">¿Cómo abordar esta disciplina? </h3>
+<ul>
+<li>
+<p><strong>¿Debo agobiarme con tanta variedad?</strong><br>
+Para nada. Cada empresa busca posicionar su propio producto en el mercado. Es completamente natural que exista esta diversidad en una tecnología emergente.</p>
+</li>
+<li>
+<p><strong>¿Tengo que aprender a usar todas las herramientas y estar a la última?</strong><br>
+No obviamente. Lo verdaderamente importante es entender los <strong>conceptos y principios subyacentes</strong>. Una vez domines la base teórica y las estrategias generales, podrás adaptarte rápidamente a cualquier entorno nuevo.</p>
+</li>
+<li>
+<p><strong>¿Existe algún estándar oficial?</strong><br>
+No existen estándares oficiales (<em>de iure</em>), pero sí se se consolidan <strong>estándares de facto</strong> nacidos de <strong>casos de éxito</strong> que la industria está adoptando progresivamente. Muchas herramientas adoptan características de aquellas que han demostrado ser más eficientes.</p>
+</li>
+<li>
+<p><strong>¿Qué criterio debo seguir para elegir una herramienta o estrategia?</strong><br>
+No siempre lo más complejo o novedoso es lo mejor. La elección dependerá de las necesidades del proyecto, el equipo, el lenguaje de programación y el marco de trabajo. A menudo, la solución más simple y directa resulta la más efectiva.</p>
+</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">"<em>Que los árboles no te impidan ver el bosque</em>"</p>
+<p>No te obsesiones con memorizar cada arquitectura o acrónimo desde el primer día. Piensa que muchas soluciones son solo marcos de trabajo genéricos que combinan conceptos básicos. Prioriza entender la <strong>relación entre conceptos y el flujo global de trabajo</strong> por encima de la herramienta concreta.</p>
+</div>
+<h2 id="definiciones-y-conceptos-del-desarrollo-asistido-por-ia">Definiciones y conceptos del Desarrollo Asistido por IA </h2>
+<h3 id="llm-large-language-model">LLM (Large Language Model) </h3>
+<p>El <strong>cerebro de la IA actual</strong> es un modelo de lenguaje grande (LLM) que ha sido entrenado con una enorme cantidad de texto. Este modelo puede <strong>entender y generar lenguaje natural</strong>, lo que le permite responder preguntas, escribir código, redactar documentos y mucho más. Los LLMs son la base sobre la cual se construyen los agentes de IA y las herramientas de desarrollo asistido.</p>
+<p>Conforma aumenta el número de parámetros y la cantidad de datos de entrenamiento, aparecen capacidades emergentes que permiten a la IA <strong>razonar, planificar y tomar decisiones</strong> de manera más efectiva. Esto significa que los LLMs no solo pueden generar texto coherente, sino también comprender el contexto, seguir instrucciones complejas y adaptarse a diferentes estilos de comunicación. Además, la <strong>multimodalidad</strong> permite que los LLMs procesen y generen no solo texto, sino también imágenes, audio y otros tipos de datos, ampliando aún más sus capacidades y aplicaciones en el desarrollo asistido por IA.</p>
+<h3 id="token">Token </h3>
+<p>Un <strong>token</strong> es la unidad mínima de información que un modelo de lenguaje puede procesar. En términos simples, un token puede ser una palabra, un fragmento de palabra o incluso un carácter, dependiendo del idioma y del modelo específico. Por ejemplo, la frase "<em>Hola, ¿cómo estás?</em>" podría dividirse en tokens como ["Hola", ",", "¿", "cómo", "estás", "?"].</p>
+<h3 id="prompt">Prompt </h3>
+<p>Un <strong>prompt</strong> es la instrucción o conjunto de instrucciones que le das a la IA para que genere una respuesta. Es el mensaje inicial que define lo que quieres que la IA haga. Por ejemplo, si quieres que la IA escriba un ensayo sobre un tema específico, tu prompt podría ser: "<em>Escribe un ensayo de 1000 palabras sobre la historia de España, centrándote en la Guerra Civil y utilizando fuentes académicas</em>". La calidad y precisión de la respuesta de la IA dependen en gran medida de cómo formules tu prompt.</p>
+<p>Es muy importante ser lo más claro y específico posible en tus prompts. Cuanto más detallada sea la instrucción, mejor podrá la IA entender lo que necesitas y generar una respuesta útil y relevante. Además, los prompts pueden incluir ejemplos, restricciones de formato, estilo de escritura y cualquier otra información que ayude a la IA a cumplir con tus expectativas.</p>
+<p>De este último se deriva el concepto de <strong>Ingenieria de Prompts</strong> (<em><strong>Prompt Engineering</strong></em>), que es el arte y la ciencia de diseñar prompts efectivos para obtener los mejores resultados posibles de un modelo de lenguaje. Esto implica comprender cómo los modelos procesan la información, qué tipo de instrucciones funcionan mejor y cómo estructurar tus prompts para maximizar la calidad de las respuestas generadas por la IA.</p>
+<p>Muchos sistemas transforman los prompts usando un agente de IA que actúa como un "traductor" entre el lenguaje humano y el modelo de lenguaje. Este agente puede reformular, expandir o simplificar los prompts para que sean más comprensibles para la IA, mejorando así la calidad de las respuestas generadas.</p>
+<h4 id="definiendo-prompts-repetitivos">Definiendo prompts repetitivos </h4>
+<p>En ocasiones los miembros de un equipo de desarrollo necesitan realizar tareas similares de manera repetitiva. Para optimizar este proceso, se pueden definir <strong>prompts repetitivos</strong> que estandarizan las instrucciones dadas a la IA. Esto no solo ahorra tiempo, sino que también asegura consistencia en las respuestas generadas.</p>
+<p>Dependiendo del agente de IA y del entorno de desarrollo, estas plantillas pueden almacenarse en archivos de configuración en formato Markdown, JSON o YAML, normalmente dentro de una carpeta denominada <strong><code>commands</code></strong> o <strong><code>prompts</code></strong>.</p>
+<p>Algunos entornos detectan automáticamente estos archivos y los cargan al iniciar la sesión y al poner el carácter <em>slash '<strong><code>/</code></strong>'</em> en el chat, mostrando un menú desplegable con los prompts disponibles. Esto permite a los desarrolladores seleccionar rápidamente la plantilla adecuada para su tarea sin tener que escribirla desde cero cada vez.</p>
+<h3 id="context-contexto">Context (Contexto) </h3>
+<p><img src="imagenes/context.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<p>El contexto es la información que le das a la IA para que pueda entender tu proyecto y generar código útil. Imagina que quieres que la IA te ayude a escribir un ensayo sobre un tema específico. Si solo le dices "<em>Escribe un ensayo sobre la historia de España</em>", la IA puede generar algo muy genérico. Pero si le das más contexto, como "<em>Escribe un ensayo de 1000 palabras sobre la historia de España, centrándote en la Guerra Civil y utilizando fuentes académicas</em>", entonces el resultado será mucho más preciso y útil.</p>
+<p>Un ejemplo de contexto en desarrollo asistido por IA podría incluir una estructura de carpetas del proyecto, archivos de configuración, ejemplos de cómo debe ser cierto código concreto, documentación técnica, y cualquier otra información relevante que ayude a la IA a comprender el entorno en el que está trabajando. Cuanto más completo y detallado sea el contexto, mejores serán los resultados que obtendrás de la IA.</p>
+<p>El contexto se transforma en Tokens que la IA puede procesar. Por ejemplo, si le das un archivo de 10.000 palabras, la IA lo convertirá en aproximadamente 15.000 tokens (dependiendo del idioma y la complejidad del texto). La cantidad de tokens que un modelo puede manejar está limitada por su <strong>ventana de contexto</strong>, que varía según el modelo específico.</p>
+<p>A más tokens más coste computacional y mayor tiempo de respuesta. Por eso es importante <strong>optimizar el contexto</strong>: incluir solo la información relevante y estructurarla de manera que la IA pueda procesarla eficientemente.</p>
+<h3 id="ventana-de-contexto-context-window">Ventana de Contexto (Context Window) </h3>
+<p>La <strong>ventana de contexto</strong> es la <strong>memoria a corto plazo de un modelo de inteligencia artificial</strong>. Representa la cantidad máxima de texto (medida en <em>tokens</em>, que equivalen aproximadamente a palabras o fragmentos de palabras) que la IA puede leer, procesar y mantener en su "cabeza" al mismo tiempo para generar una respuesta.</p>
+<h3 id="iterando-en-una-conversación">Iterando en una conversación </h3>
+<p>Los modelos de lenguaje no tienen una memoria continua ni un "cerebro" que se quede pensando entre mensaje y mensaje a esto se le denomina como <strong>stateless</strong> (sin estado). Una vez que generan una respuesta, el modelo se "apaga".</p>
+<p>Para simular una conversación fluida, la interfaz (el chat) reenvía <strong>todo el historial acumulado</strong> en cada nuevo turno:</p>
+<ol>
+<li><strong>Mensaje 1:</strong> Envías la pregunta A → La IA lee A y responde A1.</li>
+<li><strong>Mensaje 2:</strong> Envías la pregunta B → La interfaz envía un paquete único con: <code>[Pregunta A + Respuesta A1 + Pregunta B]</code>. La IA lee todo junto y responde B1.</li>
+<li><strong>Mensaje 3:</strong> Envías la pregunta C → Se envía: <code>[Pregunta A + Respuesta A1 + Pregunta B + Respuesta B1 + Pregunta C]</code>.</li>
+</ol>
+<p>Para la IA, cada <strong>interacción</strong> es una tarea completamente nueva creada desde cero, pero recibe el guion completo de la conversación hasta ese momento.</p>
+<p><img src="imagenes/context_window.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<ul>
+<li>
+<p><strong>VENTAJAS</strong>:</p>
+<ul>
+<li><strong>Coherencia y seguimiento:</strong> Permite corregir errores sobre la marcha, hacer referencias cruzadas ("recuerda lo que dijimos al principio") y mantener un hilo lógico sin perder el hilo.</li>
+<li><strong>Aprendizaje en el contexto (<em>In-context learning</em>):</strong> Puedes pegar un documento, un estilo de redacción o unas reglas específicas al inicio del chat y la IA las aplicará durante toda la sesión sin necesidad de modificar el modelo base.</li>
+<li><strong>Simplicidad de diseño:</strong> Al no mantener un estado activo y permanente en los servidores, la infraestructura es más estable frente a caídas o desconexiones del usuario.</li>
+</ul>
+</li>
+<li>
+<p><strong>INCONVENIENTES</strong>:</p>
+<ul>
+<li><strong>Límite de memoria (Olvido):</strong> Si la conversación es tan larga que supera el tamaño de la ventana de contexto, el sistema se ve obligado a recortar o borrar los mensajes más antiguos. Esto hace que la IA "olvide" cómo empezó la charla o las instrucciones iniciales.</li>
+<li><strong>Costo computacional creciente:</strong> Si tu conversación lleva 10,000 palabras, en el mensaje 11 la IA procesará esas 10,000 palabras de nuevo más tu nueva frase. Esto multiplica el gasto energético y el coste económico de procesamiento con cada turno.</li>
+<li><strong>Mayor tiempo de respuesta (Latencia):</strong> A medida que el paquete de historial se vuelve más pesado, la IA tarda más milisegundos en leer todo el texto antes de empezar a escribir la primera palabra.</li>
+<li><strong>Pérdida de atención (<em>Lost in the Middle</em>):</strong> En historiales extremadamente largos, los modelos a veces sufren "amnesia central", ignorando detalles importantes que quedaron atrapados en la mitad del texto reenviado.</li>
+</ul>
+</li>
+</ul>
+<h3 id="agent-agente">Agent (Agente) </h3>
+<p><img src="imagenes/agent.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<p>Un agente de IA que tiene la capacidad de <strong>tomar decisiones autónomas</strong> dentro de un proyecto. A diferencia de un modelo de IA que solo responde a tus preguntas o instrucciones, un agente puede <strong>actúa de forma autónoma</strong> siguiendo unas reglas y <strong>objetivos</strong> que le hayas definido. Además, puede <strong>interactuar con el entorno</strong> mediante herramientas y APIs, ejecutar comandos, leer y escribir archivos, y mantener un historial de la conversación para tomar decisiones más informadas.</p>
+<p>Por ejemplo, si le das a un agente la tarea de "Optimizar el rendimiento del código", este puede analizar el código existente, ejecutar herramientas de test y perfilado para identificar cuellos de botella, sugerir mejoras y aplicar cambios automáticamente, todo sin que tengas que intervenir en cada paso del proceso.</p>
+<p><img src="imagenes/agent_parts.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<p>Podemos definir sus siguiente componentes principales:</p>
+<ul>
+<li><strong>Rol y conjunto de reglas (Rules)</strong>: que definen cómo debe comportarse el agente, qué acciones puede realizar y qué restricciones tiene. Por ejemplo, un agente con el rol de "Desarrollador" podría tener permisos para escribir código y ejecutar pruebas, mientras que un agente con el rol de "Revisor" solo podría leer el código y sugerir cambios.</li>
+<li><strong>Entrada (Input)</strong>: que recibe información del entorno, como archivos de código, documentación o datos de usuario.</li>
+<li><strong>Un objetivo (Goal)</strong>: que define lo que el agente debe lograr, como completar una funcionalidad específica, optimizar el rendimiento del código o generar documentación.</li>
+<li><strong>Cerebro (LLM)</strong>: que procesa el lenguaje natural y genera respuestas o acciones basadas en el contexto y las instrucciones que recibe.</li>
+<li><strong>Ventana de Contexto</strong>: que le permite mantener un historial de la conversación y el estado del proyecto, ayudándole a tomar decisiones más informadas.</li>
+<li><strong>Planificador (Planner)</strong>: que organiza las tareas y define el orden en que deben ejecutarse, asegurando que el agente siga un flujo de trabajo coherente.</li>
+<li><strong>Herramientas y accionadores (Tools &amp; Actuators)</strong>: que le permiten interactuar con el entorno, como ejecutar comandos de terminal, leer y escribir archivos, o comunicarse con APIs externas.</li>
+<li><strong>Un bucle de acción (Loop)</strong>: que permite al agente iterar sobre sus acciones, evaluando los resultados y ajustando su comportamiento en función de la retroalimentación recibida.</li>
+</ul>
+<h4 id="el-bucle-de-acción">El bucle de acción </h4>
+<p><strong>¿Cómo funciona un agente de IA en la práctica?</strong> ...</p>
+<p>Cuando le pides a un agente "Busca el vuelo más barato a Madrid y reserva una habitación de hotel", el agente sigue este ciclo:</p>
+<ol>
+<li><strong>Planifica</strong>: Divide la petición en tareas y las prioriza. Por ejemplo:
+<ul>
+<li><em>'Buscar vuelos'</em></li>
+<li><em>'Comparar precios'</em></li>
+<li><em>'Buscar hotel en esas fechas'</em></li>
+</ul>
+</li>
+<li><strong>Ejecuta</strong>: Llama a una herramienta (API de la aerolínea) para obtener los vuelos.</li>
+<li><strong>Evalúa y Ajusta</strong>: Analiza la respuesta. Si un vuelo está agotado, cambia el plan y busca una alternativa.</li>
+<li><strong>Acciona el resultado</strong>: Utiliza sus credenciales/herramientas para confirmar la reserva y reportar la solución al usuario.</li>
+</ol>
+<div style="page-break-after:always;"></div>
+<h4 id="herramientas-usadas-por-los-agentes">Herramientas usadas por los agentes </h4>
+<h5 id="entornos-de-ejecución-más-comunes">Entornos de ejecución más comunes </h5>
+<p>Aunque los agentes de IA pueden interactuar con una amplia variedad de entornos de ejecución los más comunes son <strong>Python</strong> y <strong>Node.js (JavaScript)</strong>. Estos entornos proporcionan a los agentes la capacidad de ejecutar scripts, automatizar tareas y procesar datos de manera eficiente.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Aunque hemos puesto como se instalan en Windows, no es necesario saberlo pues, <strong>un agente puede realizar la instalación de estos entornos en cualquier sistema operativo</strong>, siempre que tenga los permisos necesarios y acceso a internet para descargar los paquetes requeridos.</p>
+</div>
+<h6 id="python">Python </h6>
+<p>Es muy común que los agentes creen scripts en Python para ejecutar tareas específicas. Python es un lenguaje de programación versátil y ampliamente utilizado en el desarrollo de software y la ciencia de datos, lo que lo convierte en una opción ideal para los agentes de IA. Los agentes pueden generar scripts en Python para automatizar tareas, procesar datos, interactuar con APIs y realizar análisis complejos.</p>
+<p><strong>Intalación en Windows</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>winget list --id Python.Python</code></td>
+<td>Ver si Python ya está instalado</td>
+</tr>
+<tr>
+<td><code>winget uninstall --id Python.Python3.9</code></td>
+<td>Desinstalar Python 3.9</td>
+</tr>
+<tr>
+<td><code>winget search Python.Python</code></td>
+<td>Listar versiones disponibles de Python</td>
+</tr>
+<tr>
+<td><code>winget install --id Python.Python.3.14</code></td>
+<td>Instalar Python 3.14</td>
+</tr>
+<tr>
+<td><code>python --version</code></td>
+<td>Comprobar versión instalada</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Crear un entorno virtual</strong>:</p>
+<p>Si queremos crear un entorno virtual para aislar las dependencias de nuestro proyecto, podemos hacerlo con los siguientes comandos:</p>
+<pre data-role="codeBlock" data-info="cmd" class="language-cmd cmd"><code>rem Creamos un espacio de trabajo para nuestro proyecto
+V:\&gt; mkdir proyecto_ia
+V:\&gt; cd proyecto_ia
+
+rem Creamos un entorno virtual para aislar
+rem las dependencias del proyecto y lo activamos
+V:\proyecto_ia&gt; python -m venv .venv
+V:\proyecto_ia&gt; .venv\Scripts\activate
+
+rem Comprobamos que el entorno virtual está activo 
+rem actualizamos e instalamos paquetes que queramos usar
+rem y generamos un archivo de requerimientos
+(.venv) V:\proyecto_ia&gt; python --version
+(.venv) V:\proyecto_ia&gt; pip install --upgrade pip
+(.venv) V:\proyecto_ia&gt; pip install &lt;paquete1&gt; &lt;paquete2&gt; ...
+(.venv) V:\proyecto_ia&gt; pip freeze &gt; requirements.txt
+
+rem Para salir del entorno virtual, ejecutamos:
+(.venv) V:\proyecto_ia&gt; deactivate
+</code></pre><h6 id="nodejs-javascript">Node.js (JavaScript) </h6>
+<p>Es otro entorno de ejecución muy popular, especialmente para el desarrollo web y aplicaciones en tiempo real. Node.js permite a los agentes ejecutar scripts en JavaScript para realizar tareas como automatización, procesamiento de datos y desarrollo de aplicaciones web. Su ecosistema de paquetes (npm) facilita la integración con diversas bibliotecas y herramientas, lo que lo convierte en una opción atractiva para los agentes de IA.</p>
+<p><strong>Intalación en Windows</strong>:</p>
+<p>Lo más sencillo es descargar un zip con la versión de Node.js que queramos instalar desde la web oficial en <a href="https://nodejs.org/dist">https://nodejs.org/dist</a>. Seleccionamos la versión por ejemplo <strong>v26.7.0</strong> y descargamos el zip para Windows de 64 bits: <a href="https://nodejs.org/dist/v26.7.0/node-v26.7.0-win-x64.zip">https://nodejs.org/dist/v26.7.0/node-v26.7.0-win-x64.zip</a></p>
+<p>Una vez descomprimido, añadimos la ruta de la carpeta <code>node-v26.7.0-win-x64</code> a la variable de entorno <code>PATH</code> y abrimos una nueva terminal para comprobar que funciona:</p>
+<pre data-role="codeBlock" data-info="cmd" class="language-cmd cmd"><code>C:\&gt; node --version
+v26.7.0
+C:\&gt; npm --version
+9.8.1
+</code></pre><p>Comandos disponibles para los Agentes de IA quieran usar Node.js:</p>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>node &lt;archivo.js&gt;</code></td>
+<td>Ejecuta un script de Node.js</td>
+</tr>
+<tr>
+<td><code>npm install &lt;paquete&gt;</code></td>
+<td>Instalará aplicaciones y librerías de Node.js desde el registro oficial</td>
+</tr>
+<tr>
+<td><code>npx &lt;paquete&gt;</code></td>
+<td>Ejecuta un paquete de Node.js sin necesidad de instalarlo globalmente</td>
+</tr>
+</tbody>
+</table>
+<h5 id="mcp-model-context-protocol">MCP (Model Context Protocol) </h5>
+<p><img src="imagenes/mcp.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<p>El MCP <strong>es un protocolo</strong> que define cómo se debe estructurar y presentar el contexto a la IA para que pueda entenderlo correctamente. Es como un manual de instrucciones que le dice a la IA qué información es relevante, cómo debe interpretarla y cómo debe usarla para generar código o tomar decisiones dentro del proyecto. El MCP <strong>ayuda a estandarizar la forma en que se comunica el contexto</strong>, asegurando que la IA tenga una comprensión clara y consistente de lo que se espera de ella.</p>
+<p>Podemos decir que es como una API sobre protocolos conocidos como HTTP o JSON RPC2 que permite a los agentes de IA <strong>interactuar con servicios externos</strong> de manera segura y eficiente.</p>
+<p>Este protocolo en el desarrollo asistido por IA se puede utilizar de diferentes formas:</p>
+<ol>
+<li>Para que los agentes ejecuten herramientas remotas de manera segura, como por ejemplo: ejecutar scripts de prueba, acceder a bases de datos, o interactuar con APIs externas. Al seguir el MCP, los desarrolladores pueden garantizar que la IA actúe de manera coherente y eficiente, evitando malentendidos y errores que podrían surgir de una comunicación ambigua o desestructurada.</li>
+<li>Obtener contexto de manera automática desde repositorios de código, documentación técnica o cualquier otra fuente relevante.</li>
+</ol>
+<p><img src="imagenes/mcp_uso.png" alt="alt text"></p>
+<p>Existen infinidad de servidores MCP de terceros que permiten a los agentes conectarse a servicios externos de manera segura y eficiente. Algunos ejemplos incluyen servidores que proporcionan acceso a bases de datos, servicios de almacenamiento en la nube, APIs de terceros, o incluso herramientas de análisis de código. Al utilizar estos servidores MCP, los desarrolladores pueden ampliar las capacidades de sus agentes, permitiéndoles interactuar con una amplia variedad de recursos y servicios sin comprometer la seguridad o la integridad del proyecto. Ejemplos de estos servidores de terceros podrían ser GitHub, GitLab, Bitbucket, AWS, Google Cloud, entre otros.</p>
+<p><img src="./imagenes/mcp_servers.png" alt="alt text"></p>
+<p>Estos servidores permiten a los agentes acceder a repositorios de código, ejecutar pruebas automatizadas, desplegar aplicaciones y realizar análisis de seguridad, todo dentro de un marco seguro y controlado.</p>
+<p>En la siguiente URL <strong><a href="https://mcpservers.org/es/remote-mcp-servers">https://mcpservers.org/es/remote-mcp-servers</a></strong> puedes encontrar un listado de servidores MCP de terceros que ofrecen servicios para agentes de IA, incluyendo información sobre sus características, documentación y cómo integrarlos en tus proyectos.</p>
+<h5 id="aplicación-cli-command-line-interface">Aplicación CLI (Command Line Interface) </h5>
+<p><img src="imagenes/cli_definicion.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<p>Una aplicación CLI (Command Line Interface) es un programa que se ejecuta en la terminal de tu ordenador y que permite interactuar con la IA de manera más directa y controlada. A diferencia de las interfaces gráficas, las aplicaciones CLI suelen ser más ligeras y rápidas, y permiten automatizar tareas mediante scripts. En el contexto del desarrollo asistido por IA, una aplicación CLI puede servir como un puente entre el desarrollador y el agente de IA, facilitando la ejecución de comandos, la gestión de archivos y la integración con otras herramientas de desarrollo.</p>
+<p>Por ejemplo, <strong>un agente de IA que quiere hacer una Pull Request en GitHub</strong> tras un commit podría hacerlo de dos formas:</p>
+<ol>
+<li>
+<p>Podría utilizar <strong>Github CLI (<code>gh</code>)</strong> para crear la Pull Request mediante el comando <strong><code>gh pr create</code></strong>. Previamente deberemos haber configurado las credenciales de acceso o el token de acceso personal (PAT) en la CLI para que el agente pueda autenticarse y realizar la acción de manera segura.</p>
+<div class="admonition warning">
+<p class="admonition-title">Aviso</p>
+<p>En este caso el LLM que usa el agente debe saber cómo ejecutar comandos de terminal y cómo interactuar con la CLI de GitHub para crear la Pull Request. Pero como es una herramienta muy común y conocida, la mayoría de los LLMs ya tienen conocimiento de cómo funciona y cómo se utiliza. Si no fuera el caso, deberíamos proporcionarle al agente un contexto adicional que explique cómo usar la CLI que deseemos usar.</p>
+</div>
+</li>
+<li>
+<p>Podría también utilizar el <strong>Servidor MCP de GitHub</strong> y llamar a la tool <strong><code>create_pull_request</code></strong> para crear la Pull Request que cree el PR por nosotros.</p>
+<p>El agente de IA descubre esa <em><strong>tool</strong></em> expuesta por el servidor MCP de GitHub y lanza una petición JSON-RPC2 al servidor MCP para crear la Pull Request de forma transparente y segura.</p>
+<p>Obviamente, también necesitaremos haber configurado las credenciales de acceso o el token de acceso personal (PAT) en el servidor MCP para que el agente pueda autenticarse y realizar la acción de manera segura.</p>
+</li>
+</ol>
+<p><img src="imagenes/cli_vs_mcp.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<p>El primer enfoque es más directo y rápido, pero requiere que la CLI esté instalada en el equipo o que el agente sepa como instalarla y que además tenga conocimientos específicos sobre la CLI y cómo interactuar con ella. Cualquiera de los dos enfoques es válido, y la elección dependerá de las necesidades del proyecto, el entorno de desarrollo y las preferencias del equipo.</p>
+<div style="page-break-after:always;"></div>
+<h4 id="roles">Roles </h4>
+<p><img src="imagenes/rol.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<p>Al hablar de las partes de un agente de IA, vimos que una de sus características era de la definición de un <strong>rol</strong> y una serie de <strong>reglas</strong> que definen cómo debe comportarse el agente, qué acciones puede realizar y qué restricciones tiene. Esto es lo que llamamos <strong>Roles</strong>.</p>
+<p>Por ejemplo, un agente con el rol de "<em><strong>Desarrollador</strong></em>" podría tener permisos para escribir código y ejecutar pruebas, mientras que un agente con el rol de "<em><strong>Revisor</strong></em>" solo podría leer el código y sugerir cambios.</p>
+<p><strong>Puedo definir varios Agentes con diferentes roles dentro de un mismo proyecto</strong>, permitiendo una colaboración más eficiente y organizada. Esto es <strong>especialmente útil en proyectos grandes</strong> donde se requiere que diferentes agentes se especialicen en distintas áreas, como desarrollo, pruebas, documentación o despliegue.</p>
+<p>Al asignar roles a los agentes, los desarrolladores pueden garantizar que cada agente actúe de manera coherente y dentro de los <strong>guardar raíles</strong> (<em>Guardrails</em>) establecidos, evitando conflictos y asegurando una colaboración efectiva.</p>
+<div class="admonition summary">
+<p class="admonition-title">En Resumen</p>
+<p>Los <strong>entornos de desarrollo asistido por IA tienen ya roles de agentes predefinidos</strong>, pero nosotros podemos concretar los roles y las reglas de los agentes según las necesidades de mi proyecto e incluso definir nuevos.</p>
+<p><strong>El entorno sabrá que agentes ejecutar en cada proceso según la tarea a realizar</strong> e incluso <strong>puedo definir un agente con un rol planificador y 'orquestador'</strong> que se encargue de coordinar a los demás agentes, decidir el orden de ejecución y supervisar el progreso del proyecto.</p>
+</div>
+<h5 id="ejemplo-de-definición-de-roles-y-reglas-de-agentes">Ejemplo de definición de roles y reglas de agentes </h5>
+<p>Imaginemos que queremos implementar el ejemplo propuesto, existen diferentes formas de organizar los roles y las reglas de los agentes dentro de un proyecto. Una forma común es crear una estructura de carpetas que refleje la jerarquía de roles y responsabilidades, como se muestra en el siguiente diagrama:</p>
+<p align="center" class="puml"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentstyletype="text/css" data-diagram-type="SALT" height="121.8px" preserveAspectRatio="none" style="width:509px;height:121px;background:#FFFFFF;" version="1.1" viewBox="0 0 509 121" width="509.6px" zoomAndPan="magnify"><defs></defs><g><path d="M23.8,14.1312 L23.8,16.9312 L35,16.9312 L35,15.5312 L28,15.5312 L28,14.1312 L23.8,14.1312 M23.8,18.3312 L23.8,24.6312 C23.8,25.0232 24.108,25.3312 24.5,25.3312 L34.3,25.3312 C34.692,25.3312 35,25.0232 35,24.6312 L35,18.3312 L23.8,18.3312" fill="#000000"></path><text fill="#808080" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="100.841" x="36.4" y="25.8398">[mi_proyecto]</text><path d="M37.8,35.2625 L37.8,38.0625 L49,38.0625 L49,36.6625 L42,36.6625 L42,35.2625 L37.8,35.2625 M37.8,39.4625 L37.8,45.7625 C37.8,46.1545 38.108,46.4625 38.5,46.4625 L48.3,46.4625 C48.692,46.4625 49,46.1545 49,45.7625 L49,39.4625 L37.8,39.4625" fill="#00008B"></path><text fill="#00008B" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="64.4437" x="50.4" y="46.9711">[.agents]</text><text fill="#4169E1" font-family="sans-serif" font-size="16.8" font-weight="bold" lengthAdjust="spacing" textLength="99.873" x="50.4" y="68.1023">AGENTS.md</text><text fill="#4169E1" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="4.6676" x="150.273" y="68.1023">&nbsp;</text><text fill="#808080" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="218.5066" x="154.9406" y="68.1023">(Configuración global y roles)</text><text fill="#1E90FF" font-family="sans-serif" font-size="16.8" font-weight="bold" lengthAdjust="spacing" textLength="137.2383" x="50.4" y="89.2336">desarrollador.md</text><text fill="#1E90FF" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="4.6676" x="187.6383" y="89.2336">&nbsp;</text><text fill="#808080" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="308.1586" x="192.3059" y="89.2336">(Prompt/Reglas del agente desarrollador)</text><text fill="#1E90FF" font-family="sans-serif" font-size="16.8" font-weight="bold" lengthAdjust="spacing" textLength="85.9031" x="50.4" y="110.3648">revisor.md</text><text fill="#1E90FF" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="4.6676" x="136.3031" y="110.3648">&nbsp;</text><text fill="#808080" font-family="sans-serif" font-size="16.8" lengthAdjust="spacing" textLength="260.5148" x="140.9707" y="110.3648">(Prompt/Reglas del agente revisor)</text><rect fill="none" height="2.8" style="stroke:#888888;stroke-width:1.4;" width="2.8" x="12.6" y="17.5656"></rect><rect fill="none" height="2.8" style="stroke:#888888;stroke-width:1.4;" width="2.8" x="26.6" y="38.6969"></rect><line style="stroke:#888888;stroke-width:1.4;" x1="14" x2="14" y1="21.7656" y2="40.0969"></line><line style="stroke:#888888;stroke-width:1.4;" x1="14" x2="25.2" y1="40.0969" y2="40.0969"></line><line style="stroke:#888888;stroke-width:1.4;" x1="28" x2="28" y1="42.8969" y2="61.2281"></line><line style="stroke:#888888;stroke-width:1.4;" x1="28" x2="39.2" y1="61.2281" y2="61.2281"></line><line style="stroke:#888888;stroke-width:1.4;" x1="28" x2="28" y1="42.8969" y2="82.3594"></line><line style="stroke:#888888;stroke-width:1.4;" x1="28" x2="39.2" y1="82.3594" y2="82.3594"></line><line style="stroke:#888888;stroke-width:1.4;" x1="28" x2="28" y1="42.8969" y2="103.4906"></line><line style="stroke:#888888;stroke-width:1.4;" x1="28" x2="39.2" y1="103.4906" y2="103.4906"></line><!--SRC=[bP5lIq8n58VVxrESLw56bgPHbn1BJJ0jyQfl8k9uTxoCTZSvsnL4-bHzXBvOIyl-445xCzYUttD-OqtdaRr3xKMSe2Qeb6jYBI2izNYpxSFvtjngITmuJwos7AMCgyPTfXuMR5UKU7k_1GEv1IJouqpdrDWbxygOal7kWzoXmO1wmvPA5ztEpJWkPx9KWg-Z2YrhvYhD6HFrycmWrNQ66bR0LfCh_bHAArFYTwSaXnmuZTBoB-eXsspX3qUKQdGWISEcAC6tuDypc9RA_S_-7jbwdyIJQ9AHcryGGut6JmPzM18xPKtuaUfHjLwk5MBqqCiDL4-XSXmTdKNLEhGwyHZUxekYq1tsmTcSaz1UESzgbliWA8eUBX56kV4gemXk5sHwxUkF0-YOfM9hib1CzAQ3J-2aTd2fFCJ4eGfC1w9DSyor3ud4IcNI22RZguDJqKUJvk5b4P0JBHkyl8gW4xy2]--></g></svg></p><div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El contenido del los ejemplos es meramente ilustrativo para que nos hagamos una idea del contenido de este tipo de archivos y no debe usarse como base o plantilla de nada. En la práctica, el contenido de cada archivo dependerá de las necesidades específicas del proyecto y <strong>deberán trabajarse de forma colaborativa entre los miembros del equipo de desarrollo y los agentes de IA</strong>.</p>
+</div>
+<div style="page-break-after:always;"></div>
+<p><strong>Contenido ejemplo de <code>AGENTS.md</code></strong>:</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> 🤖 Sistema de Agentes y Orquestación</span>
+
+Este proyecto utiliza un flujo de trabajo modular basado en agentes especificados en Markdown.
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 🎯 Contexto Global del Proyecto</span>
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Tecnologías clave:</span><span class="token punctuation">**</span></span> .NET 8 / C#, Jetpack Compose (Kotlin), Clean Architecture.
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Idioma de respuesta:</span><span class="token punctuation">**</span></span> Español (código y comentarios en Inglés).
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Estilo de código:</span><span class="token punctuation">**</span></span> Idiomático, fuertemente tipado, sin dependencias innecesarias.
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 👥 Agentes Disponibles</span>
+
+<span class="token table"><span class="token table-header-row"><span class="token punctuation">|</span><span class="token table-header important"> Agente            </span><span class="token punctuation">|</span><span class="token table-header important"> Archivo de Reglas          </span><span class="token punctuation">|</span><span class="token table-header important"> Responsabilidad Principal                                 </span><span class="token punctuation">|</span>
+</span><span class="token table-line"><span class="token punctuation">|</span> <span class="token punctuation">:----------------</span> <span class="token punctuation">|</span> <span class="token punctuation">:-------------------------</span> <span class="token punctuation">|</span> <span class="token punctuation">:--------------------------------------------------------</span> <span class="token punctuation">|</span>
+</span><span class="token table-data-rows"><span class="token punctuation">|</span><span class="token table-data"> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Desarrollador</span><span class="token punctuation">**</span></span> </span><span class="token punctuation">|</span><span class="token table-data"> <span class="token code-snippet code keyword">`.agents/desarrollador.md`</span> </span><span class="token punctuation">|</span><span class="token table-data"> Generación de código, refactorización y solución de bugs. </span><span class="token punctuation">|</span>
+<span class="token punctuation">|</span><span class="token table-data"> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Revisor</span><span class="token punctuation">**</span></span>       </span><span class="token punctuation">|</span><span class="token table-data"> <span class="token code-snippet code keyword">`.agents/revisor.md`</span>       </span><span class="token punctuation">|</span><span class="token table-data"> Auditoría de código, seguridad, cobertura de tests y QA.  </span><span class="token punctuation">|</span>
+</span></span>
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 📜 Reglas Generales de Ejecución</span>
+
+<span class="token list punctuation">1.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Soberanía del Código Existente:</span><span class="token punctuation">**</span></span> Nunca reescribas archivos completos si solo se requiere un cambio puntual; usa diferencias/patches localizados.
+<span class="token list punctuation">2.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Cero Suposiciones:</span><span class="token punctuation">**</span></span> Si faltan requisitos en una tarea, el agente debe detenerse y solicitar aclaración.
+<span class="token list punctuation">3.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Flujo Obligatorio:</span><span class="token punctuation">**</span></span> Todo código generado por el agente <span class="token bold"><span class="token punctuation">**</span><span class="token content">Desarrollador</span><span class="token punctuation">**</span></span> debe pasar la validación del agente <span class="token bold"><span class="token punctuation">**</span><span class="token content">Revisor</span><span class="token punctuation">**</span></span> antes de considerarse completado.
+<span class="token list punctuation">4.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Verificación Automática:</span><span class="token punctuation">**</span></span> Tras cada modificación, ejecuta la suite de pruebas locales (<span class="token code-snippet code keyword">`dotnet test`</span> o <span class="token code-snippet code keyword">`./gradlew test`</span>) antes de dar por finalizado el ciclo.
+</code></pre><div style="page-break-after:always;"></div>
+<p><strong>Contenido ejemplo de <code>desarrollador.md</code></strong>:</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> 👨‍💻 Agente: Desarrollador (Developer Agent)</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 📌 Rol y Objetivo</span>
+Eres el <span class="token bold"><span class="token punctuation">**</span><span class="token content">Agente Desarrollador</span><span class="token punctuation">**</span></span>. Tu única responsabilidad es diseñar, implementar y refactorizar código de producción y pruebas unitarias. Te enfocas en producir código limpio, robusto, seguro y alineado con los patrones de arquitectura definidos en el proyecto.
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 🛠️ Stack Tecnológico y Principios</span>
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Frameworks &amp; Lenguajes:</span><span class="token punctuation">**</span></span> .NET / C#, Kotlin (Jetpack Compose), según el módulo del proyecto.
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Arquitectura:</span><span class="token punctuation">**</span></span> Clean Architecture, SOLID, principios DRY y KISS.
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Formato:</span><span class="token punctuation">**</span></span> Respeta estrictamente las convenciones de formateo locales y nombres idiomáticos en inglés.
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 📋 Flujo de Trabajo</span>
+<span class="token list punctuation">1.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Análisis:</span><span class="token punctuation">**</span></span> Lee los requisitos o la tarea asignada. Identifica los archivos afectados antes de modificar nada.
+<span class="token list punctuation">2.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Estrategia:</span><span class="token punctuation">**</span></span> Planifica los cambios mínimos necesarios para cumplir el objetivo.
+<span class="token list punctuation">3.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Implementación:</span><span class="token punctuation">**</span></span>
+   <span class="token list punctuation">-</span> Modifica o crea el código aplicando los patrones del proyecto.
+   <span class="token list punctuation">-</span> Añade o actualiza las pruebas unitarias correspondientes.
+<span class="token list punctuation">4.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Verificación:</span><span class="token punctuation">**</span></span> Executa la suite de pruebas locales (<span class="token code-snippet code keyword">`dotnet test`</span> / <span class="token code-snippet code keyword">`./gradlew test`</span>) para asegurar que no hay regresiones.
+<span class="token list punctuation">5.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Entrega:</span><span class="token punctuation">**</span></span> Notifica la finalización solicitando la revisión al <span class="token bold"><span class="token punctuation">**</span><span class="token content">Agente Revisor</span><span class="token punctuation">**</span></span>.
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> ⛔ Reglas Estrictas y Limitaciones</span>
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">No reescribir todo el archivo:</span><span class="token punctuation">**</span></span> Haz cambios incrementales y localizados. Preserva la estructura previa siempre que sea posible.
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">No hardcodear valores:</span><span class="token punctuation">**</span></span> Utiliza archivos de configuración, constantes o variables de entorno.
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Sin dependencias innecesarias:</span><span class="token punctuation">**</span></span> No agregues paquetes o librerías externas (NuGet/Gradle) sin justificación explícita.
+<span class="token list punctuation">*</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Manejo de errores:</span><span class="token punctuation">**</span></span> Trata siempre los casos límite y excepciones potenciales de forma explícita.
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 💬 Formato de Salida Esperado</span>
+Al completar una tarea, responde con:
+<span class="token list punctuation">1.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Resumen de Cambios:</span><span class="token punctuation">**</span></span> Breve explicación de lo implementado o corregido.
+<span class="token list punctuation">2.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Archivos Modificados:</span><span class="token punctuation">**</span></span> Lista explicita de ficheros creados o alterados.
+<span class="token list punctuation">3.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Petición de Revisión:</span><span class="token punctuation">**</span></span> Un aviso explícito para ceder el control al agente <span class="token code-snippet code keyword">`.agents/revisor.md`</span>.
+</code></pre><div style="page-break-after:always;"></div>
+<p><strong>Contenido ejemplo de <code>revisor.md</code></strong>:</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> 🔍 Agente: Revisor de Código (Code Reviewer Agent)</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 📌 Rol y Objetivo</span>
+Eres el <span class="token bold"><span class="token punctuation">**</span><span class="token content">Agente Revisor</span><span class="token punctuation">**</span></span>. Tu función es auditar las modificaciones propuestas por el Agente Desarrollador para garantizar la calidad del código, el cumplimiento de estándares, la cobertura de pruebas y la ausencia de vulnerabilidades antes de dar por cerrada una tarea.
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 🎯 Criterios de Evaluación</span>
+
+<span class="token title important"><span class="token punctuation">###</span> 1. Funcionalidad y Corrección</span>
+<span class="token list punctuation">-</span> ¿El cambio resuelve completamente el requerimiento sin introducir efectos secundarios o regresiones?
+<span class="token list punctuation">-</span> ¿Se manejan adecuadamente las excepciones, casos límite (nulls, colecciones vacías, timeouts) y errores de ejecución?
+
+<span class="token title important"><span class="token punctuation">###</span> 2. Calidad de Código y Arquitectura</span>
+<span class="token list punctuation">-</span> ¿Sigue los principios <span class="token bold"><span class="token punctuation">**</span><span class="token content">SOLID</span><span class="token punctuation">**</span></span>, <span class="token bold"><span class="token punctuation">**</span><span class="token content">DRY</span><span class="token punctuation">**</span></span> y la estructura de <span class="token bold"><span class="token punctuation">**</span><span class="token content">Clean Architecture</span><span class="token punctuation">**</span></span> del proyecto?
+<span class="token list punctuation">-</span> ¿El código es legible, explícito e idiomático (nombres claros en inglés, ausencia de "código muerto" o comentarios innecesarios)?
+
+<span class="token title important"><span class="token punctuation">###</span> 3. Cobertura de Pruebas (QA)</span>
+<span class="token list punctuation">-</span> ¿Existen pruebas unitarias o de integración para las nuevas funcionalidades o correcciones de bugs?
+<span class="token list punctuation">-</span> ¿Pasan con éxito todas las pruebas (<span class="token code-snippet code keyword">`dotnet test`</span> / <span class="token code-snippet code keyword">`./gradlew test`</span>)?
+
+<span class="token title important"><span class="token punctuation">###</span> 4. Seguridad y Rendimiento</span>
+<span class="token list punctuation">-</span> ¿Hay valores críticos o credenciales expuestas ("hardcoded")?
+<span class="token list punctuation">-</span> ¿Existen cuellos de botella de rendimiento obvios (consultas N+1, fugas de memoria, operaciones bloqueantes en hilos de UI)?
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 📋 Flujo de Trabajo</span>
+
+<span class="token list punctuation">1.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Inspección del Diff:</span><span class="token punctuation">**</span></span> Examina únicamente las líneas de código añadidas, modificadas o eliminadas.
+<span class="token list punctuation">2.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Ejecución de Pruebas:</span><span class="token punctuation">**</span></span> Verifica que la suite de tests locales se ejecute correctamente.
+<span class="token list punctuation">3.</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Emisión de Dictamen:</span><span class="token punctuation">**</span></span> 
+   <span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">APROBADO:</span><span class="token punctuation">**</span></span> Si cumple con todos los criterios.
+   <span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">RECHAZADO:</span><span class="token punctuation">**</span></span> Si existen fallos bloqueantes o mejoras necesarias.
+
+<span class="token hr punctuation">---</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 💬 Formato de Respuesta Esperado</span>
+
+Debes estructurar tu veredicto usando exactamente una de estas dos plantillas:
+
+<span class="token title important"><span class="token punctuation">###</span> Opción A: Si el código es APROBADO</span>
+
+<span class="token title important"><span class="token punctuation">###</span> ✅ ESTADO: APROBADO</span>
+
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Resumen:</span><span class="token punctuation">**</span></span> [Breve evaluación del trabajo realizado]
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Puntos Fuertes:</span><span class="token punctuation">**</span></span> [Lista de aspectos bien implementados]
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Siguiente paso:</span><span class="token punctuation">**</span></span> El cambio está listo para integrarse/guardarse.
+
+<span class="token title important"><span class="token punctuation">###</span> ❌ ESTADO: REQUIERE CAMBIOS</span>
+
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Resumen:</span><span class="token punctuation">**</span></span> [Explicación general de por qué no se aprueba]
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Observaciones Bloqueantes:</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">1.</span> <span class="token code-snippet code keyword">`[Archivo:Línea]`</span>: [Problema detectado] -&gt; <span class="token bold"><span class="token punctuation">**</span><span class="token content">Sugerencia:</span><span class="token punctuation">**</span></span> [Cómo corregirlo]
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Siguiente paso:</span><span class="token punctuation">**</span></span> Devolver al agente <span class="token code-snippet code keyword">`.agents/desarrollador.md`</span> para corrección.
+</code></pre><div style="page-break-after:always;"></div>
+<h4 id="skills">Skills </h4>
+<p>Para entenderlo vamos a poner un símil sencillo. Imagina que tienes una receta de cocina de 47 pasos para hacer la tarta de chocolate de tu abuela. En lugar de tener que explicarle los 47 pasos al robot de cocina cada vez que quieres tarta, creas un botón que dice "<em><strong>Hacer tarta de chocolate</strong></em>".<br>
+Cuando vayamos a hacer una tarta de ese tipo, buscaremos el botón y el robot de cocina seguirá automáticamente los 47 pasos de la receta sin que tengamos que repetirlos.</p>
+<div class="admonition summary">
+<p class="admonition-title">Definición</p>
+<p><strong>Una Skill</strong>, por tanto, es un bloque de conocimiento procedimental que le <strong>enseña a la IA cómo realizar una tarea repetitiva específica</strong> en tu proyecto paso a paso.</p>
+</div>
+<h5 id="rol-vs-skill">Rol vs Skill </h5>
+<p>Como ves es similar a un rol, pero en lugar de definir <strong>qué puede hacer un agente</strong>, las Skills definen <strong>cómo debe hacerlo</strong>.</p>
+<p>Esta <strong>diferencia es sutil pero importante</strong>, pues un agente puede tener un rol de "Desarrollador" y dentro de ese rol puede tener varias Skills que le enseñen a hacer cosas concretas como: "Hacer un test de integración", "Crear un endpoint REST", "Generar documentación técnica", etc.</p>
+<p>De hecho, en la práctica, se suele dar más peso a las Skills que a los Roles, pues las Skills son más concretas y permiten al agente ejecutar tareas específicas de manera más eficiente y consistente <strong>incluso fuera de su rol principal</strong>. Por ejemplo, un agente con el rol de "Desarrollador" puede tener una Skill específica para "Optimizar consultas SQL", que le permite realizar esa tarea de manera más efectiva que si solo tuviera un conocimiento general de desarrollo.</p>
+<p><img src="imagenes/skill.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<p>Una Skill puede incluir:</p>
+<ol>
+<li>
+<p><strong>Prompts</strong>: Instrucciones detalladas que guían a la IA en la ejecución de una tarea.</p>
+</li>
+<li>
+<p><strong>Tools</strong>: Herramientas o APIs que la IA puede utilizar para interactuar con el entorno.</p>
+</li>
+<li>
+<p><strong>Otras Skills</strong>: Habilidades adicionales que pueden ser necesarias para completar la tarea.</p>
+</li>
+<li>
+<p><strong>Scripts</strong>: Fragmentos de código que automatizan procesos o cálculos específicos. Los scripts pueden estar escritos en lenguajes como Python, JavaScript, Bash, entre otros, dependiendo de la tarea y del entorno de ejecución. El uso de scripts es especialmente útil pues:</p>
+<ul>
+<li>Es más <strong>rápido y eficiente</strong> porque muchas veces el agente crea Scripts temporales para solucionar problemas simples y repetitivos, evitando tener que generar código desde cero cada vez.</li>
+<li>De lo anterior se deriva que <strong>reduce la carga cognitiva</strong> del agente, permitiéndole concentrarse en tareas más complejas y creativas y <strong>reduciendo por tanto el consumo de tokens y el coste computacional</strong>.</li>
+<li>Permite estandarizar la forma en que se ejecutan las tareas, asegurando que se sigan los mismos pasos y se obtengan resultados consistentes, esto es, el <strong>resultado sea más determinista y predecible</strong>.</li>
+</ul>
+</li>
+</ol>
+<p>Los agentes de desarrollo entienden lo que es una <strong>Skill</strong> y podemos pedirle que nos liste las que tiene definidas y como en el ejemplo de la tarta, si por ejemplo le pedimos que "Pase un test de integración", el agente buscará si hay alguna Skill que defina ese proceso y si lo encuentra nos avisará de que la va a usar para ejecutar el test de integración. Si no encuentra ninguna Skill definida, nos pedirá que le expliquemos paso a paso cómo hacerlo y nos preguntará si queremos que cree una nueva Skill para futuras ocasiones.</p>
+<p><img src="imagenes/skill_choice.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<p><strong>¿Cómo se crean las Skills?</strong></p>
+<p>Existen ya muchas creadas por la comunidad de desarrolladores y podemos descargarlas y adaptarlas a nuestro proyecto. Podemos definirla a través de una agente general e incluso podemos descargarle una Skill que le enseñe a crear Skills y que la use para crear nuevas Skills.</p>
+<p>En la página <strong><a href="https://www.skills.sh/">https://www.skills.sh/</a></strong> podemos encontrar un repositorio de Skills ya creadas por la comunidad de desarrolladores.</p>
+<div class="admonition warning">
+<p class="admonition-title">Aviso</p>
+<p>Hay que llevar cuidado con las Skills que descargamos de internet, pues pueden contener código malicioso o no estar actualizadas. Es recomendable descargarlas siempre de fuentes confiables y revisarlas antes de integrarlas en nuestro proyecto.<br>
+Ten en cuenta que esa Skill es la '<em><strong>receta</strong></em>' de un tercero para hacer algo y no siempre de adecua la la forma de trabajar de nuestro proyecto. Por eso es recomendable revisarlas y adaptarlas a nuestro proyecto antes de usarlas.</p>
+</div>
+<p>Tenemos que descargarlas de repositorios confiables y <a href="http://Skills.sh">Skills.sh</a> nos ofrece unas Auditorias de Seguridad (Security Audits) que deberían estar todas en verde <strong><code>PASS</code></strong>.</p>
+<div class="box_bg_lightgray">
+<p><strong>Ejemplo 1:</strong></p>
+<p><strong><a href="https://www.skills.sh/anthropics/skills/xlsx">https://www.skills.sh/anthropics/skills/xlsx</a></strong> es una Skill que le <strong>enseña al Agente de IA a leer y escribir archivos Excel</strong> y se encuentra en el repositorio de Skills de Anthropics. Pero al descargarla nos advierte que contiene scripts de Python que pueden ser peligrosos. Además, nos obligaría a tener instalado Python en nuestro entorno y que usará las librerías <code>openpyxl</code>, <code>pandas</code> y <code>markitdown</code> para leer y escribir archivos Excel.</p>
+</div> <!-- fin ejemplo -->
+<div class="box_bg_lightgray">
+<p><strong>Ejemplo 2:</strong></p>
+<p><strong><a href="https://www.skills.sh/openai/skills/skill-creator">https://www.skills.sh/openai/skills/skill-creator</a></strong> que le <strong>enseña al Agente de IA a crear nuevas Skills</strong> y se encuentra en el repositorio de Skills de OpenAI. Esta Skill no contiene scripts peligrosos y no requiere instalar nada en nuestro entorno. Anthropics también tiene su propio Skill Creator etc.</p>
+</div> <!-- fin ejemplo -->
+<div class="box_bg_lightgray">
+<p><strong>Ejemplo 3:</strong></p>
+<p><strong><a href="https://www.skills.sh/wshaddix/dotnet-skills/">https://www.skills.sh/wshaddix/dotnet-skills/</a> dotnet-wpf-modern</strong> es una Skill que le <strong>explica al Agente de IA cómo crear aplicaciones WPF modernas con .NET</strong> y se encuentra en el repositorio de Skills de Wshaddix un usuario de la comunidad de GitHub <a href="https://github.com/wshaddix">https://github.com/wshaddix</a>. Esta sería la típica Skill de deberíamos revisar las <strong>librerías que propone usar</strong> y leer su documentación para ver si se ajusta a nuestro proyecto y si no, adaptarla a nuestras necesidades.</p>
+</div> <!-- fin ejemplo -->
+<p>Tenemos pues infinidad de Skills ya creadas para desarrollo con Android, Spring Boot, React, JakartaEE, Bases de Datos, Creación de aplicaciones CLI, Arquieturas, etc.</p>
+<p><strong>¿Dónde se guardan las Skills en nuestro proyecto?</strong></p>
+<p>No hay un estándar definido y dependerá del gestor de agentes que usemos. Pero básicamente hay dos formas de organizarlas:</p>
+<div class="row">
+<div class="col-sm-5 my-auto">
+<ol>
+<li>Creando una carpeta llamada <strong><code>.skills</code></strong> en la raíz del proyecto y dentro de ella una subcarpeta por cada Skill que queramos usar.</li>
+</ol>
+</div>
+<div class="col-sm-7 my-auto">
+<p align="center" class="puml"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentstyletype="text/css" data-diagram-type="SALT" height="177px" preserveAspectRatio="none" style="width:344px;height:177px;background:#FFFFFF;" version="1.1" viewBox="0 0 344 177" width="344px" zoomAndPan="magnify"><defs></defs><g><path d="M17,10.0938 L17,12.0938 L25,12.0938 L25,11.0938 L20,11.0938 L20,10.0938 L17,10.0938 M17,13.0938 L17,17.5938 C17,17.8738 17.22,18.0938 17.5,18.0938 L24.5,18.0938 C24.78,18.0938 25,17.8738 25,17.5938 L25,13.0938 L17,13.0938" fill="#000000"></path><text fill="#808080" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="72.0293" x="26" y="18.457">[mi_proyecto]</text><path d="M27,25.1875 L27,27.1875 L35,27.1875 L35,26.1875 L30,26.1875 L30,25.1875 L27,25.1875 M27,28.1875 L27,32.6875 C27,32.9675 27.22,33.1875 27.5,33.1875 L34.5,33.1875 C34.78,33.1875 35,32.9675 35,32.6875 L35,28.1875 L27,28.1875" fill="#00008B"></path><text fill="#00008B" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="46.0313" x="36" y="33.5508">[.agents]</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69.3457" x="36" y="48.6445">AGENTS.md</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="90.041" x="36" y="63.7383">desarrollador.md</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="56.0098" x="36" y="78.832">revisor.md</text><path d="M27,85.5625 L27,87.5625 L35,87.5625 L35,86.5625 L30,86.5625 L30,85.5625 L27,85.5625 M27,88.5625 L27,93.0625 C27,93.3425 27.22,93.5625 27.5,93.5625 L34.5,93.5625 C34.78,93.5625 35,93.3425 35,93.0625 L35,88.5625 L27,88.5625" fill="#00008B"></path><text fill="#00008B" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="41.3496" x="36" y="93.9258">[.skills]</text><path d="M37,100.6563 L37,102.6563 L45,102.6563 L45,101.6563 L40,101.6563 L40,100.6563 L37,100.6563 M37,103.6563 L37,108.1563 C37,108.4363 37.22,108.6563 37.5,108.6563 L44.5,108.6563 C44.78,108.6563 45,108.4363 45,108.1563 L45,103.6563 L37,103.6563" fill="#4169E1"></path><text fill="#4169E1" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="27.334" x="46" y="109.0195">[xlsx]</text><path d="M47,115.75 L47,117.75 L55,117.75 L55,116.75 L50,116.75 L50,115.75 L47,115.75 M47,118.75 L47,123.25 C47,123.53 47.22,123.75 47.5,123.75 L54.5,123.75 C54.78,123.75 55,123.53 55,123.25 L55,118.75 L47,118.75" fill="#1E90FF"></path><text fill="#1E90FF" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="41.3379" x="56" y="124.1133">[scripts]</text><text fill="#808080" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="236.7539" x="100.6719" y="124.1133">(Scripts de Python para leer y escribir Excel)</text><text fill="#1E90FF" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="52.6934" x="46" y="139.207">SKILL.md</text><text fill="#808080" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="142.0488" x="102.0273" y="139.207">(Prompt/Reglas de la Skill)</text><path d="M37,145.9375 L37,147.9375 L45,147.9375 L45,146.9375 L40,146.9375 L40,145.9375 L37,145.9375 M37,148.9375 L37,153.4375 C37,153.7175 37.22,153.9375 37.5,153.9375 L44.5,153.9375 C44.78,153.9375 45,153.7175 45,153.4375 L45,148.9375 L37,148.9375" fill="#4169E1"></path><text fill="#4169E1" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="107.3848" x="46" y="154.3008">[dotnet-wpf-modern]</text><text fill="#1E90FF" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="52.6934" x="46" y="169.3945">SKILL.md</text><text fill="#808080" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="142.0488" x="102.0273" y="169.3945">(Prompt/Reglas de la Skill)</text><rect fill="none" height="2" style="stroke:#888888;stroke-width:1;" width="2" x="9" y="12.5469"></rect><rect fill="none" height="2" style="stroke:#888888;stroke-width:1;" width="2" x="19" y="27.6406"></rect><line style="stroke:#888888;stroke-width:1;" x1="10" x2="10" y1="15.5469" y2="28.6406"></line><line style="stroke:#888888;stroke-width:1;" x1="10" x2="18" y1="28.6406" y2="28.6406"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="20" y1="30.6406" y2="43.7344"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="28" y1="43.7344" y2="43.7344"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="20" y1="30.6406" y2="58.8281"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="28" y1="58.8281" y2="58.8281"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="20" y1="30.6406" y2="73.9219"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="28" y1="73.9219" y2="73.9219"></line><rect fill="none" height="2" style="stroke:#888888;stroke-width:1;" width="2" x="19" y="88.0156"></rect><line style="stroke:#888888;stroke-width:1;" x1="10" x2="10" y1="15.5469" y2="89.0156"></line><line style="stroke:#888888;stroke-width:1;" x1="10" x2="18" y1="89.0156" y2="89.0156"></line><rect fill="none" height="2" style="stroke:#888888;stroke-width:1;" width="2" x="29" y="103.1094"></rect><line style="stroke:#888888;stroke-width:1;" x1="20" x2="20" y1="91.0156" y2="104.1094"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="28" y1="104.1094" y2="104.1094"></line><line style="stroke:#888888;stroke-width:1;" x1="30" x2="30" y1="106.1094" y2="119.2031"></line><line style="stroke:#888888;stroke-width:1;" x1="30" x2="38" y1="119.2031" y2="119.2031"></line><line style="stroke:#888888;stroke-width:1;" x1="30" x2="30" y1="106.1094" y2="134.2969"></line><line style="stroke:#888888;stroke-width:1;" x1="30" x2="38" y1="134.2969" y2="134.2969"></line><rect fill="none" height="2" style="stroke:#888888;stroke-width:1;" width="2" x="29" y="148.3906"></rect><line style="stroke:#888888;stroke-width:1;" x1="20" x2="20" y1="91.0156" y2="149.3906"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="28" y1="149.3906" y2="149.3906"></line><line style="stroke:#888888;stroke-width:1;" x1="30" x2="30" y1="151.3906" y2="164.4844"></line><line style="stroke:#888888;stroke-width:1;" x1="30" x2="38" y1="164.4844" y2="164.4844"></line><!--SRC=[hLB1JXin4BtxA-PK9K59IGeLNQ685hQeOGCH3bnGL0thoTR2Qw_6tf0Luj_h92MaLAfwg2-Mdj-yzsOy9puW1uyc29cZ8UYB9m7nF4tNrnuSlvixeuY7nxapZfE2iHdUbVfxnQwXFBZPXXYP6u92VhWtDGstbNSzBCW6_yBSWy_dwULKzagrHHHvP7R6e7Ay-y2qq7uN-iEdqzbnyW_Q63_hTBO2l-WnBPetkPR6BxUXNeMTAeZVK7tEkeejmEuOMdA3nlGmQS8FPw52HZ1430tGgkXUCwJBd4pxRqRoubkMnHv_bv-mAwlm_feAWsiJWo1N3RR_fJlbWgNGVQpctT95nCx-Uu9dyInEoAhr0ec9GHjknXaiYBsEm-Zt1lk3mzv1IsA0KMrXS0Jz3yd-fsHm2AUfdCBglIrQvvCClAiv9r3QXpYrEaI1jXZX0k6wja6NbC1LHNPqTl42G6eNcfqjutA9qUtubV3neFj51v34CGhSZiKPpR4s8LRaJcbR970p_Tez4XdQeexRcSJF4gSkwdAJG2f_0W00]--></g></svg></p></div>
+</div>
+<div class="row">
+<div class="col-sm-5 my-auto">
+<ol start="2">
+<li>Dentro de la carpeta <strong><code>.agents</code></strong>, creando una subcarpeta llamada <strong><code>skills</code></strong> y dentro de ella una subcarpeta por cada Skill que queramos usar.</li>
+</ol>
+</div>
+<div class="col-sm-7 my-auto">
+<p align="center" class="puml"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentstyletype="text/css" data-diagram-type="SALT" height="177px" preserveAspectRatio="none" style="width:354px;height:177px;background:#FFFFFF;" version="1.1" viewBox="0 0 354 177" width="354px" zoomAndPan="magnify"><defs></defs><g><path d="M17,10.0938 L17,12.0938 L25,12.0938 L25,11.0938 L20,11.0938 L20,10.0938 L17,10.0938 M17,13.0938 L17,17.5938 C17,17.8738 17.22,18.0938 17.5,18.0938 L24.5,18.0938 C24.78,18.0938 25,17.8738 25,17.5938 L25,13.0938 L17,13.0938" fill="#000000"></path><text fill="#808080" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="72.0293" x="26" y="18.457">[mi_proyecto]</text><path d="M27,25.1875 L27,27.1875 L35,27.1875 L35,26.1875 L30,26.1875 L30,25.1875 L27,25.1875 M27,28.1875 L27,32.6875 C27,32.9675 27.22,33.1875 27.5,33.1875 L34.5,33.1875 C34.78,33.1875 35,32.9675 35,32.6875 L35,28.1875 L27,28.1875" fill="#00008B"></path><text fill="#00008B" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="46.0313" x="36" y="33.5508">[.agents]</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="69.3457" x="36" y="48.6445">AGENTS.md</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="90.041" x="36" y="63.7383">desarrollador.md</text><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="56.0098" x="36" y="78.832">revisor.md</text><path d="M37,85.5625 L37,87.5625 L45,87.5625 L45,86.5625 L40,86.5625 L40,85.5625 L37,85.5625 M37,88.5625 L37,93.0625 C37,93.3425 37.22,93.5625 37.5,93.5625 L44.5,93.5625 C44.78,93.5625 45,93.3425 45,93.0625 L45,88.5625 L37,88.5625" fill="#4169E1"></path><text fill="#4169E1" font-family="sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacing" textLength="38.0156" x="46" y="93.9258">[skills]</text><path d="M47,100.6563 L47,102.6563 L55,102.6563 L55,101.6563 L50,101.6563 L50,100.6563 L47,100.6563 M47,103.6563 L47,108.1563 C47,108.4363 47.22,108.6563 47.5,108.6563 L54.5,108.6563 C54.78,108.6563 55,108.4363 55,108.1563 L55,103.6563 L47,103.6563" fill="#1E90FF"></path><text fill="#1E90FF" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="27.334" x="56" y="109.0195">[xlsx]</text><path d="M57,115.75 L57,117.75 L65,117.75 L65,116.75 L60,116.75 L60,115.75 L57,115.75 M57,118.75 L57,123.25 C57,123.53 57.22,123.75 57.5,123.75 L64.5,123.75 C64.78,123.75 65,123.53 65,123.25 L65,118.75 L57,118.75" fill="#87CEEB"></path><text fill="#87CEEB" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="41.3379" x="66" y="124.1133">[scripts]</text><text fill="#808080" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="236.7539" x="110.6719" y="124.1133">(Scripts de Python para leer y escribir Excel)</text><text fill="#87CEEB" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="52.6934" x="56" y="139.207">SKILL.md</text><text fill="#808080" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="142.0488" x="112.0273" y="139.207">(Prompt/Reglas de la Skill)</text><path d="M47,145.9375 L47,147.9375 L55,147.9375 L55,146.9375 L50,146.9375 L50,145.9375 L47,145.9375 M47,148.9375 L47,153.4375 C47,153.7175 47.22,153.9375 47.5,153.9375 L54.5,153.9375 C54.78,153.9375 55,153.7175 55,153.4375 L55,148.9375 L47,148.9375" fill="#1E90FF"></path><text fill="#1E90FF" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="107.3848" x="56" y="154.3008">[dotnet-wpf-modern]</text><text fill="#87CEEB" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="52.6934" x="56" y="169.3945">SKILL.md</text><text fill="#808080" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="142.0488" x="112.0273" y="169.3945">(Prompt/Reglas de la Skill)</text><rect fill="none" height="2" style="stroke:#888888;stroke-width:1;" width="2" x="9" y="12.5469"></rect><rect fill="none" height="2" style="stroke:#888888;stroke-width:1;" width="2" x="19" y="27.6406"></rect><line style="stroke:#888888;stroke-width:1;" x1="10" x2="10" y1="15.5469" y2="28.6406"></line><line style="stroke:#888888;stroke-width:1;" x1="10" x2="18" y1="28.6406" y2="28.6406"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="20" y1="30.6406" y2="43.7344"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="28" y1="43.7344" y2="43.7344"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="20" y1="30.6406" y2="58.8281"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="28" y1="58.8281" y2="58.8281"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="20" y1="30.6406" y2="73.9219"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="28" y1="73.9219" y2="73.9219"></line><rect fill="none" height="2" style="stroke:#888888;stroke-width:1;" width="2" x="29" y="88.0156"></rect><line style="stroke:#888888;stroke-width:1;" x1="20" x2="20" y1="30.6406" y2="89.0156"></line><line style="stroke:#888888;stroke-width:1;" x1="20" x2="28" y1="89.0156" y2="89.0156"></line><rect fill="none" height="2" style="stroke:#888888;stroke-width:1;" width="2" x="39" y="103.1094"></rect><line style="stroke:#888888;stroke-width:1;" x1="30" x2="30" y1="91.0156" y2="104.1094"></line><line style="stroke:#888888;stroke-width:1;" x1="30" x2="38" y1="104.1094" y2="104.1094"></line><line style="stroke:#888888;stroke-width:1;" x1="40" x2="40" y1="106.1094" y2="119.2031"></line><line style="stroke:#888888;stroke-width:1;" x1="40" x2="48" y1="119.2031" y2="119.2031"></line><line style="stroke:#888888;stroke-width:1;" x1="40" x2="40" y1="106.1094" y2="134.2969"></line><line style="stroke:#888888;stroke-width:1;" x1="40" x2="48" y1="134.2969" y2="134.2969"></line><rect fill="none" height="2" style="stroke:#888888;stroke-width:1;" width="2" x="39" y="148.3906"></rect><line style="stroke:#888888;stroke-width:1;" x1="30" x2="30" y1="91.0156" y2="149.3906"></line><line style="stroke:#888888;stroke-width:1;" x1="30" x2="38" y1="149.3906" y2="149.3906"></line><line style="stroke:#888888;stroke-width:1;" x1="40" x2="40" y1="151.3906" y2="164.4844"></line><line style="stroke:#888888;stroke-width:1;" x1="40" x2="48" y1="164.4844" y2="164.4844"></line><!--SRC=[hLB1JXin4BtxA-PK9K59IGg8hb04XIrgs4341YueGiDwihNYjLTZRyWAyUyuIPC0KgKUwekbvpVptXlFgVF8tg7s8irG4tJ5Yu1mNiQhQmzElaojbiJzayngor7EMFSV2lLOigqfytQo9WRccY2HPq-welwsyg63EHdlDimzEBkChyTffv1RH993PgirIill7vZcods4_WW5VTGhfLPhf-LcIcitQRKsz9qnAtFYJzOMsYssldPSDwi_4Lt6gWmPuFqS6kaQ3VPXLFlVra29ZA2966gWPT6JOeWN6UdctsNIgrz94Y9-R3vYMvJ-wotb6bSI6Y5Tncl-MpPflI7VVYwdxS86n4p-iuDNyIfEoSZL_eYHHkFlXWdCYPqAe-XsUlkzmyv18qKFWyf0xnYwtwBzxr7l4CxZT0pBzwPeN8uISBRYZ40gvyFCAXyQDCK0vmYtbV6ge0XkIZA3YwiD0B6PAxQc2Bib1lV37U7eeFr3UKY9WnMu7ueBccAbVQZ8h5GcZ-1k_BDzB18qUHMMCmfV9SvjwCjr177w1W00]--></g></svg></p></div>
+</div>
+<p><strong>Nosotros vamos usar el primer enfoque</strong>, pues nos permite tener una organización más clara y jerárquica de todo lo relacionado con la definición de los agentes y sus Skills, manteniendo todo en la carpeta <code>.agents</code> y evitando mezclarlo con otros archivos del proyecto.</p>
+<p><strong>Si utilizados el primer enfoque</strong>, una buena práctica en indicarle a los agentes personalizados, cómo deben consumir las Skills y qué Skills están disponibles en el proyecto. Esto se puede hacer de forma general para todos los agentes en el archivo <code>.agents/AGENTS.md</code> o de forma específica para cada agente en su archivo de reglas correspondiente. Por ejemplo, en el archivo <code>.agents/desarrollador.md</code> podemos añadir una sección que indique qué Skills están disponibles para ese agente y cómo debe utilizarlas.</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">##</span> 🧰 Habilidades Disponibles</span>
+<span class="token list punctuation">-</span> Para manipular ficheros Excel, consulta y aplica <span class="token code-snippet code keyword">`.skills/xlsx/SKILL.md`</span>.
+<span class="token list punctuation">-</span> Para patrones de interfaz gráfica en C#, consulta <span class="token code-snippet code keyword">`.skills/dotnet-wpf-modern/SKILL.md`</span>.
+</code></pre><div style="page-break-after:always;"></div>
+<h3 id="bronwfiled-vs-greenfield">Bronwfiled vs Greenfield </h3>
+<p>En el ámbito del desarrollo e ingeniería de software, el término <em><strong>'brownfield'</strong></em> se refiere al desarrollo, extensión o modificación de un sistema sobre una base de código preexistente (código legado o aplicaciones que ya están funcionando en producción).</p>
+<p>El concepto proviene de la planificación urbana y la construcción, donde un terreno brownfield es aquel que ya cuenta con edificaciones previa e infraestructura que condicionan lo que se puede construir a continuación.</p>
+<p>Para comprenderlo mejor, en software se suele contrastar con su opuesto:</p>
+<ul>
+<li>
+<p><strong>Greenfield (Proyecto desde cero)</strong>: Se construye sobre un «lienzo en blanco». No hay código heredado, no hay restricciones de arquitectura antigua ni deuda técnica previa.</p>
+</li>
+<li>
+<p><strong>Brownfield (Proyecto existente)</strong>: Se debe trabajar respetando el código actual, esquemas de bases de datos existentes, dependencias en uso y decisiones técnicas tomadas en el pasado.</p>
+</li>
+</ul>
+<div style="page-break-after:always;"></div>
+<h2 id="estrategias-o-recetas-de-desarrollo-asistido-por-ia">Estrategias o '<em>recetas</em>' de desarrollo asistido por IA </h2>
+<p>Vamos a ver solo algunas de las ideas, sin profundizar en su implementación. Pues, dependiendo del tipo marco de trabajo agéntico que usemos y el tamaño del proyecto, algunas de estas estrategias pueden llevar a cabo de muchas maneras.</p>
+<h3 id="vibe-coding-programar-por-vibras">Vibe Coding (Programar por "Vibras") </h3>
+<p><img src="./imagenes/vibe.png" alt="nombre" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<p>Fue la primera aproximación que los desarrolladores adoptaron para trabajar con IA sobre finales del 2022.</p>
+<p>Imagina que te subes a un taxi y le dices al conductor: "<em>Quiero ir a un lugar bonito que tenga buena comida, tú sabrás dónde</em>" sin darle una dirección exacta. Eso es Vibe Coding. En el desarrollo de software, <strong>vibe coding consiste en pedirle cosas a la IA a través de instrucciones sueltas o conversacionales (prompts) sin una planificación previa</strong>. Tú solo describes lo que quieres en lenguaje natural, y la IA genera bloques enteros de código. Tú lo pruebas, si falla le dices "<em>no funciona, arréglalo</em>", y repites el proceso confiando en el instinto o la "vibra" del momento.</p>
+<ul>
+<li>
+<p><strong>VENTAJAS</strong>:</p>
+<ul>
+<li><strong>Rapidez:</strong> Permite crear prototipos iniciales, experimentar o validar ideas de manera muy rápida.</li>
+<li><strong>Flexibilidad:</strong> No requiere una planificación detallada ni un conocimiento profundo del proyecto desde el principio.</li>
+<li><strong>Creatividad:</strong> Fomenta la exploración y la generación de ideas innovadoras sin restricciones.</li>
+</ul>
+</li>
+<li>
+<p><strong>INCONVENIENTES</strong>:</p>
+<ul>
+<li><strong>Desorganización:</strong> Al no tener un plan estructurado, es fácil acabar con un código desorganizado (código espagueti) que ni tú ni la IA lográis entender tras varias iteraciones.</li>
+<li><strong>Dependencia de la IA:</strong> Puede generar una dependencia excesiva de la IA para resolver problemas, limitando el desarrollo de habilidades propias del programador.</li>
+<li><strong>Dificultad para escalar:</strong> A medida que el proyecto crece, mantener la coherencia y la calidad del código puede volverse complicado sin una estructura clara.</li>
+</ul>
+</li>
+</ul>
+<p>El principal problema del Vibe Coding es que la IA carece de memoria a largo plazo, y como ya hemos comentado, las iteraciones facilitan caer en el fenómeno de "Lost in the Middle". En este punto, la IA empieza a repetirse, olvida las especificaciones iniciales y pierde el hilo de la conversación, lo que genera resultados inconsistentes o erróneos.</p>
+<div class="admonition tip">
+<p class="admonition-title">Consejo:</p>
+<p>Para mitigar este efecto, una excelente práctica tras lograr un avance o una funcionalidad válida es pedirle a la IA que sintetice el estado actual del proyecto y lo guarde en un archivo de contexto.<br>
+De esta manera podrás liberar la ventana de contexto del "ruido" acumulado y conservar únicamente la información relevante para continuar el desarrollo en una sesión limpia.</p>
+</div>
+<div style="page-break-after:always;"></div>
+<h3 id="marco-de-trabajo-rpi-research-plan-implement">Marco de trabajo RPI (Research, Plan, Implement) </h3>
+<p>Es un modelo de trabajo para entornos <em><strong>'brownfield'</strong></em>. El acrónimo RPI fue acuñado por <strong>Dex Horthy</strong> y ampliado o revisado a principios de 2026 en la <strong><a href="https://www.youtube.com/watch?v=YwZR6tc7qYg">conferencia de la Agentic AI Foundation</a></strong> (AAIF) como <strong>QRSPI</strong> (Questions, Research, Design, Structure, Plan, Implement) y que se ha convertido en un estándar de facto para el desarrollo asistido por IA.</p>
+<p>El marco fragmenta el <strong>ciclo de trabajo en tres etapas aisladas y delimitadas</strong> por <strong>artefactos</strong> escritos en texto plano (<strong><code>RESEARCH.md</code></strong>, <strong><code>PLAN.md</code></strong>, <strong><code>PLAN-CHECKLIST.md</code></strong>) que actúan como la única fuente de verdad entre el modelo y el desarrollador humano.</p>
+<p>Cada fase se inicia en una <strong>ventana de contexto limpia</strong>, donde el agente de IA solo tiene acceso a la información contenida en los artefactos correspondientes.</p>
+<h4 id="la-idea-central-de-rpi">La idea central de RPI </h4>
+<p>La premisa central de RPI reside en priorizar la claridad contextual sobre la velocidad inmediata de generación.</p>
+<p>Esto evita varios problemas que aparecen en el contexto de desarrollo asistido por IA:</p>
+<ol>
+<li>
+<p><strong>El radio de impacto (Blast Radius)</strong><br>
+Corregir una <strong>desviación o drift</strong> de una meta en la etapa de planificación (<strong><code>PLAN.md</code></strong>) significa modificar un par de líneas de texto plano en lenguaje natural. Es lo que en RPI se llama "<em><strong>cirugía cerebral</strong></em>": redirigir la intención del agente en 10 segundos antes de que se haya escrito una sola línea de código.</p>
+<p>Además de que el drift será muchísimo mayor, si intentas corregir lo iterando directamente sobre el código implementado, el agente ya habrá generado decenas de archivos, modelos de datos y dependencias que tendrás que revertir, limpiar o refactorizar.</p>
+<p><img src="imagenes/RPI_idea.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+</li>
+<li>
+<p><strong>Contaminación y degradación del contexto (Context Rot)</strong><br>
+Cuando intentas corregir a un agente mientras está programando (diciéndole cosas como "no, ese método no era así, ajusta la API"), la ventana de contexto del LLM se llena rápidamente de:</p>
+<ul>
+<li>Trazas de errores pasados.</li>
+<li>Fragmentos de código descontinuado o descartado.</li>
+<li>Respuestas de corrección e instrucciones contradictorias.</li>
+</ul>
+<p>Esta acumulación de <em>'ruido'</em> degrada la capacidad de razonamiento del modelo y provoca que empiece a cometer alucinaciones o a ignorar instrucciones previas. En cambio, si corriges el drift en el plan, simplemente editas el documento en disco, reinicias la sesión de contexto a cero e inicias la implementación con un entorno 100% limpio.</p>
+<p>Algunos autores proponen no superar el 40% de la ventana de contexto. En ese caso hay que guardar el estado en algún tipo de artefacto y limpiar el contexto.</p>
+</li>
+</ol>
+<div class="admonition summary">
+<p class="admonition-title">Resumen</p>
+<p>En el desarrollo agéntico, iterar sobre el código es caro, ruidoso y degrada al modelo; iterar sobre el plan es barato, limpio y preserva el control humano. La premisa de RPI es desplazar toda la fricción de alineación al inicio (Shift-Left) para que la fase de implementación sea un proceso puramente mecánico y predecible.</p>
+</div>
+<p>A continuación te muestro un ejemplo a modo ilustrativo del aspecto que podrían tener los <strong>artefactos</strong> de un proyecto básico de Android que sigue el marco RPI básico:</p>
+<p>El ejemplo es meramente ilustrativo y no debe usarse como base o plantilla de nada. Es más, en él no se define ningún tipo de diseño de UI/UX etc.</p>
+<p>Contenido ejemplo de <strong><code>RESEARCH.md</code></strong>:</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> RESEARCH: Pantalla de Creación y Edición de Contactos</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 1. Mapeo del Repositorio Actual</span>
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Punto de Entrada:</span><span class="token punctuation">**</span></span> <span class="token code-snippet code keyword">`app/src/main/java/com/example/agenda/MainActivity.kt`</span>
+  <span class="token list punctuation">-</span> Utiliza <span class="token code-snippet code keyword">`ComponentActivity`</span> con <span class="token code-snippet code keyword">`setContent { AgendaTheme { AgendaApp() } }`</span>.
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Navegación:</span><span class="token punctuation">**</span></span> <span class="token code-snippet code keyword">`app/src/main/java/com/example/agenda/ui/navigation/NavGraph.kt`</span>
+  <span class="token list punctuation">-</span> Actualmente gestiona una única ruta de destino: <span class="token code-snippet code keyword">`Route.ContactList ("contact_list")`</span>.
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Capa de Datos:</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Entidad:</span><span class="token punctuation">**</span></span> <span class="token code-snippet code keyword">`app/src/main/java/com/example/agenda/data/local/ContactEntity.kt`</span> (Líneas 1-28).
+    <span class="token list punctuation">-</span> Campos: <span class="token code-snippet code keyword">`id: Long = 0`</span>, <span class="token code-snippet code keyword">`name: String`</span>, <span class="token code-snippet code keyword">`phone: String`</span>, <span class="token code-snippet code keyword">`email: String`</span>.
+  <span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">DAO:</span><span class="token punctuation">**</span></span> <span class="token code-snippet code keyword">`app/src/main/java/com/example/agenda/data/local/ContactDao.kt`</span>
+    <span class="token list punctuation">-</span> Métodos existentes: <span class="token code-snippet code keyword">`getAllContacts(): Flow&lt;List&lt;ContactEntity&gt;&gt;`</span>, <span class="token code-snippet code keyword">`insertContact(contact: ContactEntity): Long`</span>.
+    <span class="token list punctuation">-</span> Método faltante: <span class="token code-snippet code keyword">`getContactById(id: Long): Flow&lt;ContactEntity?&gt;`</span> y <span class="token code-snippet code keyword">`updateContact(contact: ContactEntity)`</span>.
+
+<span class="token title important"><span class="token punctuation">##</span> 2. Capa de UI y Gestión de Estado</span>
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Pantalla Existente:</span><span class="token punctuation">**</span></span> <span class="token code-snippet code keyword">`app/src/main/java/com/example/agenda/ui/screens/ContactListScreen.kt`</span>
+  <span class="token list punctuation">-</span> Utiliza <span class="token code-snippet code keyword">`LazyColumn`</span> para desplegar elementos.
+  <span class="token list punctuation">-</span> Posee un <span class="token code-snippet code keyword">`FloatingActionButton`</span> sin callback asignado (<span class="token code-snippet code keyword">`onClick = {}`</span>).
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">ViewModel Existente:</span><span class="token punctuation">**</span></span> <span class="token code-snippet code keyword">`app/src/main/java/com/example/agenda/ui/viewmodel/ContactListViewModel.kt`</span>
+  <span class="token list punctuation">-</span> Expone <span class="token code-snippet code keyword">`uiState: StateFlow&lt;ContactListUiState&gt;`</span> mediante <span class="token code-snippet code keyword">`stateIn()`</span>.
+
+<span class="token title important"><span class="token punctuation">##</span> 3. Dependencias e Inyección</span>
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Hilt / Dagger:</span><span class="token punctuation">**</span></span> Configurado mediante <span class="token code-snippet code keyword">`@HiltViewModel`</span> en ViewModels y <span class="token code-snippet code keyword">`@AndroidEntryPoint`</span> en <span class="token code-snippet code keyword">`MainActivity`</span>.
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Bibliotecas UI:</span><span class="token punctuation">**</span></span> <span class="token code-snippet code keyword">`androidx.compose.material3:material3:1.2.0`</span>, <span class="token code-snippet code keyword">`androidx.navigation:navigation-compose:2.7.7`</span>.
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Pruebas:</span><span class="token punctuation">**</span></span> <span class="token code-snippet code keyword">`app/src/test/java/com/example/agenda/`</span> con JUnit 4 y MockK instalados.
+</code></pre><p>Contenido ejemplo de <strong><code>PLAN.md</code></strong>:</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> PLAN: Implementación de la Pantalla de Detalle/Formulario de Contacto</span>
+
+<span class="token title important"><span class="token punctuation">##</span> 1. Arquitectura de la Solución</span>
+Se agregará una pantalla <span class="token code-snippet code keyword">`ContactDetailScreen`</span> construida con Material 3 y Jetpack Compose. La gestión del formulario se manejará de forma unidireccional (UDF - Unidirectional Data Flow) expuesta desde <span class="token code-snippet code keyword">`ContactDetailViewModel`</span>.
+
+<span class="token title important"><span class="token punctuation">##</span> 2. Modificaciones y Nuevos Componentes</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Capa de Datos</span>
+Modificar <span class="token code-snippet code keyword">`ContactDao.kt`</span> para agregar soporte de consulta unitaria y actualización:
+<span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`suspend fun getContactById(id: Long): ContactEntity?`</span>
+<span class="token list punctuation">-</span> <span class="token code-snippet code keyword">`suspend fun updateContact(contact: ContactEntity)`</span>
+
+<span class="token title important"><span class="token punctuation">###</span> Capa de UI / State</span>
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Crear <span class="token code-snippet code keyword">`ContactDetailUiState.kt`</span></span><span class="token punctuation">**</span></span> en <span class="token code-snippet code keyword">`app/src/main/java/com/example/agenda/ui/screens/detail/`</span>:
+  <span class="token list punctuation">-</span> Campos: <span class="token code-snippet code keyword">`name: String`</span>, <span class="token code-snippet code keyword">`phone: String`</span>, <span class="token code-snippet code keyword">`email: String`</span>, <span class="token code-snippet code keyword">`isSaving: Boolean`</span>, <span class="token code-snippet code keyword">`errorMessage: String?`</span>.
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Crear <span class="token code-snippet code keyword">`ContactDetailViewModel.kt`</span>:</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> Métodos: <span class="token code-snippet code keyword">`onNameChange(String)`</span>, <span class="token code-snippet code keyword">`onPhoneChange(String)`</span>, <span class="token code-snippet code keyword">`onEmailChange(String)`</span>, <span class="token code-snippet code keyword">`saveContact()`</span>.
+<span class="token list punctuation">-</span> <span class="token bold"><span class="token punctuation">**</span><span class="token content">Crear Composable <span class="token code-snippet code keyword">`ContactDetailScreen.kt`</span>:</span><span class="token punctuation">**</span></span>
+  <span class="token list punctuation">-</span> Layout con <span class="token code-snippet code keyword">`Scaffold`</span>, <span class="token code-snippet code keyword">`TopAppBar`</span>, tres componentes <span class="token code-snippet code keyword">`OutlinedTextField`</span> y botón de guardado.
+
+<span class="token title important"><span class="token punctuation">###</span> Navegación</span>
+Modificar <span class="token code-snippet code keyword">`NavGraph.kt`</span>:
+<span class="token list punctuation">-</span> Registrar la ruta <span class="token code-snippet code keyword">`Route.ContactDetail`</span> (<span class="token code-snippet code keyword">`"contact_detail/{contactId}"`</span>).
+<span class="token list punctuation">-</span> Conectar la navegación del <span class="token code-snippet code keyword">`FloatingActionButton`</span> de <span class="token code-snippet code keyword">`ContactListScreen`</span> hacia la ruta de creación (<span class="token code-snippet code keyword">`contactId = -1L`</span>).
+
+<span class="token title important"><span class="token punctuation">##</span> 3. Criterios de Verificación Generales</span>
+<span class="token list punctuation">-</span> Las pruebas unitarias del ViewModel deben cubrir la validación de campos vacíos.
+<span class="token list punctuation">-</span> Compilación limpia sin advertencias de deprecación en Compose.
+</code></pre><p>Contenido ejemplo de <strong><code>PLAN-CHECKLIST.md</code></strong>:</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> PLAN-CHECKLIST: Tareas de Implementación</span>
+
+<span class="token title important"><span class="token punctuation">##</span> Fase 1: Persistencia y Capa de Datos</span>
+<span class="token list punctuation">-</span> [ ] <span class="token bold"><span class="token punctuation">**</span><span class="token content">Tarea 1.1:</span><span class="token punctuation">**</span></span> Actualizar <span class="token code-snippet code keyword">`ContactDao.kt`</span> con métodos de consulta por ID y actualización.
+  <span class="token list punctuation">-</span> <span class="token italic"><span class="token punctuation">*</span><span class="token content">Verificación:</span><span class="token punctuation">*</span></span> <span class="token code-snippet code keyword">`./gradlew testDebugUnitTest --tests "com.example.agenda.data.ContactDaoTest"`</span>
+<span class="token list punctuation">-</span> [ ] <span class="token bold"><span class="token punctuation">**</span><span class="token content">Tarea 1.2:</span><span class="token punctuation">**</span></span> Actualizar <span class="token code-snippet code keyword">`ContactRepository.kt`</span> para exponer los nuevos métodos del DAO.
+  <span class="token list punctuation">-</span> <span class="token italic"><span class="token punctuation">*</span><span class="token content">Verificación:</span><span class="token punctuation">*</span></span> <span class="token code-snippet code keyword">`./gradlew testDebugUnitTest --tests "com.example.agenda.data.ContactRepositoryTest"`</span>
+
+<span class="token title important"><span class="token punctuation">##</span> Fase 2: ViewModel y Manejo de Estado (UDF)</span>
+<span class="token list punctuation">-</span> [ ] <span class="token bold"><span class="token punctuation">**</span><span class="token content">Tarea 2.1:</span><span class="token punctuation">**</span></span> Crear la clase de estado <span class="token code-snippet code keyword">`ContactDetailUiState.kt`</span> y <span class="token code-snippet code keyword">`ContactDetailViewModel.kt`</span>.
+  <span class="token list punctuation">-</span> <span class="token italic"><span class="token punctuation">*</span><span class="token content">Verificación:</span><span class="token punctuation">*</span></span> <span class="token code-snippet code keyword">`./gradlew testDebugUnitTest --tests "com.example.agenda.ui.ContactDetailViewModelTest"`</span>
+
+<span class="token title important"><span class="token punctuation">##</span> Fase 3: Interfaz de Usuario (Compose) y Navegación</span>
+<span class="token list punctuation">-</span> [ ] <span class="token bold"><span class="token punctuation">**</span><span class="token content">Tarea 3.1:</span><span class="token punctuation">**</span></span> Construir el Composable <span class="token code-snippet code keyword">`ContactDetailScreen.kt`</span> con campos <span class="token code-snippet code keyword">`OutlinedTextField`</span>.
+  <span class="token list punctuation">-</span> <span class="token italic"><span class="token punctuation">*</span><span class="token content">Verificación:</span><span class="token punctuation">*</span></span> <span class="token code-snippet code keyword">`./gradlew connectedCheck`</span>
+<span class="token list punctuation">-</span> [ ] <span class="token bold"><span class="token punctuation">**</span><span class="token content">Tarea 3.2:</span><span class="token punctuation">**</span></span> Registrar la ruta en <span class="token code-snippet code keyword">`NavGraph.kt`</span> y vincular el click del FAB en <span class="token code-snippet code keyword">`ContactListScreen.kt`</span>.
+  <span class="token list punctuation">-</span> <span class="token italic"><span class="token punctuation">*</span><span class="token content">Verificación:</span><span class="token punctuation">*</span></span> <span class="token code-snippet code keyword">`./gradlew assembleDebug`</span>
+</code></pre><div style="page-break-after:always;"></div>
+<h3 id="harness-engineering-ingeniería-de-arnés">Harness Engineering (Ingeniería de Arnés) </h3>
+<p>Perfectamente compatible con el marco RPI y todas las definiciones y componentes que hemos visto, <strong>Mitchell Hashimoto</strong> con su artículo <em><strong>"<a href="https://mitchellh.com/writing/my-ai-adoption-journey#step-5-engineer-the-harness">My AI Adoption Journey</a>"</strong></em> cuñó el término a principios de 2026. En este artículo propone un enfoque más estructurado y seguro para el desarrollo asistido por IA, al que denomina <strong>Ingeniería de Arnés (Harness Engineering)</strong>. Estas recetas de desarrollo asistido por IA han sido adoptadas y ampliadas por la comunidad de desarrolladores y se han convertido en un estándar de facto para el desarrollo asistido por IA.</p>
+<p>Básicamente la <strong>Ingeniería de Arnés (Harness Engineering)</strong>, consiste en crear un <strong>entorno de desarrollo controlado y seguro</strong> para que los agentes de IA puedan ejecutar código, interactuar con herramientas y APIs, y realizar pruebas sin comprometer la integridad del proyecto ni la seguridad del sistema.</p>
+<p>Podemos decir que agrupa los elementos de trabajo de un agente en una <strong>estructura o andamiaje</strong> que se denomina <strong>Arnés (Harness)</strong>. Por tanto, el denominado <em>«arnés»</em> es realmente una infraestructura técnica que incluye:</p>
+<ol>
+<li><strong>Contexto:</strong>
+<ul>
+<li>Prompts e instrucciones del sistema.</li>
+<li>Ventana de contexto y memoria (<em>Context Window</em>).</li>
+<li>Herramientas y extensiones (<em>Tools</em>, MCP, <em>Skills</em>, entorno de ejecución).</li>
+</ul>
+</li>
+<li><strong>Subagentes y equipos de agentes:</strong>
+<ul>
+<li>Definición de roles, configuraciones y una <strong>planificación del flujo de trabajo</strong> que deben seguir. Este puede ser el <strong><code>PLAN.md</code></strong> generado a partir de la investigación <strong><code>RESEARCH.md</code></strong>.</li>
+<li>Posible integración de un <strong>agente orquestador</strong> que coordine al resto y determine el orden de ejecución de las tareas.</li>
+</ul>
+</li>
+<li><strong>Gestión de estado:</strong>
+<ul>
+<li>Mecanismo de persistencia para registrar el progreso, los cambios realizados y la información relevante, permitiendo retomar la sesión si el bucle se interrumpe o reinicia.<br>
+Puede ser un <strong><code>PLAN-CHECKLIST.md</code></strong> con cada uno de los tareas de implementación generadas en el <strong><code>PLAN.md</code></strong>.</li>
+</ul>
+</li>
+<li><strong>Permisos y entornos aislados (<em>Sandboxing</em>):</strong>
+<ul>
+<li>Control de accesos y restricciones de seguridad para la ejecución de código y llamadas a sistemas externos.</li>
+</ul>
+</li>
+<li><strong>Flujo de trabajo en bucle (<em>Loop execution</em>):</strong>
+<ul>
+<li>Ciclos iterativos de razonamiento, acción, observación y refinamiento.</li>
+</ul>
+</li>
+<li><strong>Observabilidad y evaluaciones:</strong>
+<ul>
+<li>Registros de ejecución (<em>logs</em>).</li>
+<li>Métricas de rendimiento y consumo de tokens.</li>
+<li>Evaluaciones de calidad del código y cobertura de pruebas.</li>
+<li>Pruebas de interfaz de usuario con herramientas automatizadas.</li>
+</ul>
+</li>
+<li><strong>Automejora (<em>Self-improvement</em>):</strong>
+<ul>
+<li>Al detectar fallos, el agente de revisión no solo corrige el código, sino que también puede <strong>actualizar el flujo de trabajo, el contexto o las <em>Skills</em></strong> para evitar reincidir en el error.</li>
+<li>Permite la mejora recursiva mediante archivos de control (por ejemplo, <strong><code>self-improvement.md</code></strong>) donde se consolidan las directrices aprendidas para futuras iteraciones.</li>
+</ul>
+</li>
+</ol>
+<p><img src="imagenes/arn%C3%A9s.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<p>Fíjate que en la imagen anterior <strong>el LLM que usamos para el desarrollador es diferente al que usamos para el revisor</strong>. De esta forma, cada agente puede especializarse en su rol y aprovechar las fortalezas de distintos modelos de lenguaje según la tarea que deba realizar. Por ejemplo, un LLM más grande y potente podría ser ideal para el agente revisor, mientras que un LLM más ligero y rápido podría ser suficiente para el agente desarrollador.</p>
+<p>Como ves, seguimos usando todos los conceptos ya vistos. La Ingeniería de Arnés o simplmente Arnés, <strong>organiza en una infraestructura más estandarizada de máximos enfocada en la calidad y la seguridad</strong>, ampliando y robusteciendo el ciclo de trabajo de los agentes autónomos.</p>
+<p><strong>Muchos entornos de desarrollo asistidos por Agentes de IA ya incluyen un arnés predefinido</strong> que podemos usar tal cual o adaptarlo a nuestras necesidades.</p>
+<p>No tenemos porqué usar todos los elementos de un arnés en todos los proyectos. Podemos usar solo algunos de ellos y añadir otros que nos interesen dependiendo de la características del proyecto, nuestras necesidades o incluso el consumo de tokens que queramos asumir. Por ejemplo, si nuestro proyecto es pequeño y no requiere un control exhaustivo de la calidad del código, podemos prescindir de la parte de observabilidad y evaluaciones. O si no necesitamos que los agentes se auto-mejoren, podemos omitir la sección de automejora.</p>
+<div style="page-break-after:always;"></div>
+<h3 id="spec-driven-development-o-sdd-desarrollo-dirigido-por-especificaciones">Spec-Driven Development o SDD (Desarrollo Dirigido por Especificaciones) </h3>
+<p>Una derivada más, <strong>profundizando en la línea de RPI y de la Ingeniería de Arnés</strong>, es el <strong>Spec-Driven Development (SDD)</strong>, que se centra en la creación de un documento de especificaciones detallado (<strong>Spec</strong>) antes de escribir cualquier línea de código. La idea es que el desarrollo del software se guíe por un plan claro y bien definido, evitando malentendidos y garantizando que el producto final cumpla con los requisitos establecidos. Le damos la formalidad de la Arquitectura en edificación o la Ingeniería Industrial, donde se redacta un proyecto con planos, memorias y especificaciones técnicas antes de iniciar la construcción.</p>
+<p>Se trata pues de <strong>estructurar y estandarizar</strong> más aún el flujo de trabajo que teníamos con RPI, añadiendo un paso inicial de <strong>especificación detallada</strong> que sirve como contrato entre los desarrolladores y los agentes de IA. Esto ayuda a reducir la ambigüedad y asegura que todos los involucrados tengan una comprensión clara de lo que se espera lograr.</p>
+<p><img src="./imagenes/sdd.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<p>El SDD establece que la especificación formal debe redactarse antes de la generación de código, sirviendo como la <strong>única fuente de verdad</strong> (single source of truth) compartida tanto por los agentes de IA como por los colaboradores humanos.</p>
+<h4 id="marcos-de-trabajo-dentro-del-sdd">Marcos de trabajo dentro del SDD </h4>
+<p>En estos comienzos del desarrollo asistido por IA, a nivel corporativo se ha optado por varias estrategias o marcos de trabajo que se basan en el SDD, La diferencia entre los tres enfoques radica en la longevidad de la especificación, el mecanismo de gobernanza y el nivel de cumplimiento exigido al código generado.</p>
+<h5 id="spec-first-especificación-inicial-o-desechable">Spec-First (Especificación Inicial o Desechable) </h5>
+<ul>
+<li><strong>Filosofía</strong>: Escribir y acordar una especificación detallada (entradas, salidas, casos límite, contratos de API) antes de iniciar la implementación o alimentar al modelo de IA.</li>
+<li><strong>Ciclo de vida del artefacto</strong>: Puntual / Efímero. Con el tiempo se produce un <em>drift</em> entre la especificación y el código implementado, por lo que la especificación se descarta tras la implementación.</li>
+<li><strong>Uso ideal</strong>: Tareas atómicas, <strong>prototipos rápidos</strong>, scripts o <strong>funciones aisladas</strong> dentro de una misma base de código.</li>
+</ul>
+<h5 id="constitucional-spec-csdd">Constitucional Spec (CSDD) </h5>
+<ul>
+<li>
+<p><strong>Filosofía</strong>: Introduce una capa jerárquica de gobernanza innegociable (Constitución) que rige sobre todas las especificaciones de características, planes técnicos y código. No es bidireccional como en Spec-Anchored, sino que la Constitución es la fuente de verdad y las especificaciones de características deben cumplirla.<br>
+<strong>El código es una commodity que debe ser reemplazado totalmente</strong>.</p>
+</li>
+<li>
+<p><strong>Ciclo de vida del artefacto</strong>: Estructural y normativo. La "Constitución" es un <strong>documento versionado que codifica restricciones no negociables</strong> (estándares de seguridad CWE/OWASP, estándares de código ISO/IEC, políticas de privacidad, patrones arquitectónicos obligatorios y niveles RFC 2119). El flujo de trabajo desciende en cascada:</p>
+<p class="dot"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 12.2.0 (20241103.1931)
+ -->
+<!-- Title: SDD Pages: 1 -->
+<svg width="500pt" height="50pt" viewBox="0.00 0.00 500.00 50.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(0.6 0.6) rotate(0) translate(29.55 60.07)">
+<title>SDD</title>
+<!-- Constitution -->
+<g id="node1" class="node">
+<title>Constitution</title>
+<polygon fill="none" stroke="black" points="157.37,-36.8 0,-36.8 0,0 157.37,0 157.37,-36.8"></polygon>
+<text text-anchor="middle" x="78.68" y="-22" font-family="Helvetica,sans-Serif" font-size="12.00">Constitución</text>
+<text text-anchor="middle" x="78.68" y="-7.6" font-family="Helvetica,sans-Serif" font-size="12.00">(Políticas y Restricciones)</text>
+</g>
+<!-- FeatureSpec -->
+<g id="node2" class="node">
+<title>FeatureSpec</title>
+<polygon fill="none" stroke="black" points="391.44,-36.8 193.37,-36.8 193.37,0 391.44,0 391.44,-36.8"></polygon>
+<text text-anchor="middle" x="292.41" y="-22" font-family="Helvetica,sans-Serif" font-size="12.00">Especificación de Característica</text>
+<text text-anchor="middle" x="292.41" y="-7.6" font-family="Helvetica,sans-Serif" font-size="12.00">(Entradas, Salidas, Casos Límite)</text>
+</g>
+<!-- Constitution&#45;&gt;FeatureSpec -->
+<g id="edge1" class="edge">
+<title>Constitution-&gt;FeatureSpec</title>
+<path fill="none" stroke="black" d="M157.62,-18.4C165.47,-18.4 173.55,-18.4 181.65,-18.4"></path>
+<polygon fill="black" stroke="black" points="181.6,-21.9 191.6,-18.4 181.6,-14.9 181.6,-21.9"></polygon>
+</g>
+<!-- ImplementationPlan -->
+<g id="node3" class="node">
+<title>ImplementationPlan</title>
+<polygon fill="none" stroke="black" points="572.18,-36.8 427.44,-36.8 427.44,0 572.18,0 572.18,-36.8"></polygon>
+<text text-anchor="middle" x="499.81" y="-22" font-family="Helvetica,sans-Serif" font-size="12.00">Plan de Implementación</text>
+<text text-anchor="middle" x="499.81" y="-7.6" font-family="Helvetica,sans-Serif" font-size="12.00">(Pasos Detallados)</text>
+</g>
+<!-- FeatureSpec&#45;&gt;ImplementationPlan -->
+<g id="edge2" class="edge">
+<title>FeatureSpec-&gt;ImplementationPlan</title>
+<path fill="none" stroke="black" d="M391.9,-18.4C399.85,-18.4 407.84,-18.4 415.67,-18.4"></path>
+<polygon fill="black" stroke="black" points="415.5,-21.9 425.5,-18.4 415.5,-14.9 415.5,-21.9"></polygon>
+</g>
+<!-- CodeTasks -->
+<g id="node4" class="node">
+<title>CodeTasks</title>
+<polygon fill="none" stroke="black" points="774.24,-36.8 608.18,-36.8 608.18,0 774.24,0 774.24,-36.8"></polygon>
+<text text-anchor="middle" x="691.21" y="-22" font-family="Helvetica,sans-Serif" font-size="12.00">Tareas de Código</text>
+<text text-anchor="middle" x="691.21" y="-7.6" font-family="Helvetica,sans-Serif" font-size="12.00">(Implementación y Pruebas)</text>
+</g>
+<!-- ImplementationPlan&#45;&gt;CodeTasks -->
+<g id="edge3" class="edge">
+<title>ImplementationPlan-&gt;CodeTasks</title>
+<path fill="none" stroke="black" d="M572.41,-18.4C580.25,-18.4 588.3,-18.4 596.35,-18.4"></path>
+<polygon fill="black" stroke="black" points="596.19,-21.9 606.19,-18.4 596.19,-14.9 596.19,-21.9"></polygon>
+</g>
+</g>
+</svg>
+</p><p>Cualquier especificación o código generado por IA que viole un principio constitucional es rechazado automáticamente.</p>
+</li>
+<li>
+<p><strong>Uso ideal</strong>: Software en entornos fuertemente regulados (banca, salud, defensa), arquitecturas críticas o flujos altamente autónomos de agentes de IA.</p>
+</li>
+</ul>
+<h5 id="spec-anchored-especificación-anclada-o-viva">Spec-Anchored (Especificación Anclada o Viva) </h5>
+<ul>
+<li><strong>Filosofía</strong>: En ella, la especificación es un artefacto vivo co-versionado en el repositorio junto al código fuente y validado mecánicamente. <strong>Un cambio en el código se refleja en la especificación y viceversa, garantizando que ambos estén siempre alineados</strong>.</li>
+<li><strong>Ciclo de vida del artefacto</strong>: Continuo y bidireccional. Lo ideal es que si el código diverge de la especificación, la compilación o los tests fallan en el proceso de CI.</li>
+<li><strong>Uso ideal</strong>: Proyectos '<em>Bronwfield</em>' y '<em>Greenfield</em>' del tipo Microservicios, APIs públicas/compartidas, proyectos que perdurarán más allá del equipo inicial y sistemas con mantenimiento asistido recurrente por IA.</li>
+</ul>
+<p><img src="./imagenes/sdd_spec_anchored.png" alt="alt text" style="display:block;margin:0 auto;width:100%;max-width:600px;"></p>
+<h5 id="frameworks-para-sdd">Frameworks para SDD </h5>
+<p>Para generar una marco de desarrollo de SDD, se necesita mucho boilerplate de entorno, skills, commands y un flujo de trabajo muy estructurado. Aunque aún no existe un estándar nio siquiera de facto para SDD, sí hay varias propuestas de marcos de trabajo que implementan estas ideas y que diferentes entornos de desarrollo agéntico por IA soportan o van incorporando en sus versiones más recientes.</p>
+<p>Aquí tienes una comparativa de los tres marcos de trabajo más populares y con mayor tracción en la comunidad a <strong>septiembre de 2026</strong>:</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Existe un IDE denominado propietario de AWS denominado Kiro que implementa un marco de trabajo SDD muy similar a BMAD, pero no es OpenSource y no se puede usar fuera del ecosistema AWS. Está muy orientado a proyectos de microservicios y arquitecturas serverless, y no lo incluimos en la comparativa.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Criterio / Dimensión</th>
+<th style="text-align:left">OpenSpec</th>
+<th style="text-align:left">SpecKit</th>
+<th style="text-align:left">BMAD</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Autores / Creadores</strong></td>
+<td style="text-align:left"><strong>Fission-AI</strong> OpenSource</td>
+<td style="text-align:left"><strong>GitHub Spec Kit</strong> (OpenSource)</td>
+<td style="text-align:left"><strong>Comunidad BMAD Method</strong> (Creadores independientes de la metodología ágil guiada por IA).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Naturaleza del proyecto</strong></td>
+<td style="text-align:left">Estándar y formato de especificación abierta <strong>basado en artefactos Markdown</strong> desacoplados.</td>
+<td style="text-align:left">Toolkit de herramientas operativas CLI, plantillas, generadores de código ...</td>
+<td style="text-align:left">Framework metodológico y ecosistema modular con CLI propio (<code>npx</code>).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Curva de Aprendizaje</strong></td>
+<td style="text-align:left"><strong>Baja</strong><br>(Basado en Markdown estructurado y esquemas declarativos directos; requiere mínima configuración).</td>
+<td style="text-align:left"><strong>Media</strong><br>(Requiere familiarizarse con la CLI, generadores de código y la configuración de tests en CI/CD).</td>
+<td style="text-align:left"><strong>Alta - Muy Alta</strong><br>(Implica <strong>asimilar la metodología completa</strong>, sus más de 30 flujos agénticos y la estructura de gobernanza).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Enfoque principal</strong></td>
+<td style="text-align:left">Interoperabilidad, neutralidad y estandarización entre <strong>múltiples plataformas</strong>.</td>
+<td style="text-align:left">Automatización del ciclo de desarrollo, validación estática y CI/CD.</td>
+<td style="text-align:left">Gobernanza arquitectónica, descomposición de tareas y control de agentes de IA.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Popularidad y Marco de Adopción</strong></td>
+<td style="text-align:left"><strong>Emergente</strong><br>(Proyectos pequeños y medianos basados en '<strong>Spec-First</strong>' y '<strong>Spec-Anchored</strong>' ideal para equipos pequeños por su sencillez).</td>
+<td style="text-align:left"><strong>Moderada / Estable</strong><br>(Proyectos pequeños y medianos basados en '<strong>Spec-Anchored</strong>' con automatización CI/CD muy alta).</td>
+<td style="text-align:left"><strong>Alta</strong><br>(Proyectos medianos y grandes basados en '<strong>Constitutional Spec</strong>' con fuerte gobernanza y control de agentes).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Caso de uso ideal</strong></td>
+<td style="text-align:left">Proyectos multi-lenguaje o multi-servicio que requieren contratos universales.</td>
+<td style="text-align:left">Equipos que buscan automatizar generación de código, mocks y pruebas de contrato.</td>
+<td style="text-align:left">Proyectos complejos donde es crítico gobernar la arquitectura antes de codificar.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="anexo-i---mejorando-rpi-con-qrspi-crispy">Anexo I - Mejorando RPI con QRSPI (<em>'Crispy'</em>) </h2>
+<p>Aunque se solucionaba el problema del <em>'drift'</em> a medida que las organizaciones escalaron el uso de RPI en <strong>repositorios reales de gran volume n</strong>, el analista de ingeniería Alex Lavaee y el propio creador de RPI, Dex Horthy, <strong>identificaron tres modos de fallo críticos</strong> que afectaban la fiabilidad del patrón a escala de producción.</p>
+<ol>
+<li>
+<p><strong>El Límite del Presupuesto de Instrucciones</strong> (Instruction Budget Frontier)<br>
+Los modelos de lenguaje experimentan una <strong>degradación silenciosa cuando la cantidad de instrucciones operativas supera un umbral crítico (aproximadamente entre 150 y 200 instrucciones)</strong>. El modelo no emite un error explícito, sino que fallaba en silencio ignorando las directivas más profundas del prompt (por lo general, las reglas de alineación arquitectónica).</p>
+</li>
+<li>
+<p><strong>La Trampa de las Palabras Mágicas</strong> (The Magic Words Trap)<br>
+Para que el framework funcionara correctamente en RPI, el usuario debía ingresar frases desencadenantes muy específicas (como "<em><strong>Trabajemos juntos, compartiendo dudas antes de redactar el plan.</strong></em>"). Si el usuario no utilizaba el "<em>saludo secreto</em>", el agente se saltaba la alineación e interactuaba por defecto de forma precipitada.</p>
+</li>
+<li>
+<p><strong>La Ilusión de la Lectura del Plan</strong> (Plan-Reading Illusion)<br>
+Los modelos de lenguaje son capaces de redactar planes en texto con una prosa sumamente convincente. Los ingenieros humanos leían el archivo <strong><code>PLAN.md</code></strong>, comprobaban que <strong>sonaba muy bonito y coherente</strong> y lo aprobaban. Sin embargo, el modelo a menudo redactaba planes basados en suposiciones erróneas sobre patrones heredados, contratos de API implícitos o dependencias no verificadas. <strong>Aprobar un plan bien escrito no garantizaba la corrección de sus supuestos técnicos.</strong></p>
+</li>
+</ol>
+<p>El Marco QRSPI (o CRISPY) modela el proceso en 2 fases y 8 etapas con intervención humana en cada etapa.</p>
+<p><strong>Fase 1 Alineación (Alignment):</strong></p>
+<ol>
+<li><strong>Questions (q) - Preguntas Dirigidas</strong>: En lugar de saturar al agente con un prompt masivo, el ingeniero formula preguntas explícitas que fuerzan al modelo a inspeccionar todas las áreas afectadas del código base antes de opinar.</li>
+<li><strong>Research (R) - Investigación Ciega</strong>: El agente recopila datos puramente fácticos sobre el código actual evitando cualquier contaminación externa con contexto, tickets o artefactos.</li>
+<li><strong>Design Discussion (D) - Cirugía Cerebral</strong>: El agente genera un artefacto en Markdown de ~200 líneas detallando el estado actual, el estado deseado y las decisiones de diseño propuestas. El desarrollador realiza lo que Horthy denomina "cirugía cerebral": si el agente propone usar un patrón heredado, el desarrollador rectifica la dirección antes de que se escriba cualquier línea de plan.</li>
+<li><strong>Structure Outline (S) - Esquema Estructural</strong>: Actúa como un archivo de cabecera (Header File) que define firmas, tipos de datos y los límites de la integración. En esta etapa se impone la regla de las rebanadas verticales (vertical slices): construir desde la simulación de API, pasando por el frontend hasta la base de datos con puntos de verificación intermedios, en lugar de capas horizontales masivas e inscriptibles.</li>
+<li><strong>Plan (P) - Planificación Táctica</strong>: Se genera el plan paso a paso. Dado que el diseño y la estructura ya fueron corregidos en las etapas D y S, la ilusión de la lectura del plan queda totalmente neutralizada y la revisión humana en esta etapa toma pocos segundos.</li>
+</ol>
+<p><strong>Fases de Ejecución (Execution):</strong></p>
+<ol start="6">
+<li><strong>Work Tree - Árbol de Trabajo</strong>: Organización jerárquica de tareas basadas en las rebanadas verticales del esquema.</li>
+<li><strong>Implement (I) - Codificación Mecánica</strong>: Ejecución del código tarea por tarea en un contexto limpio.</li>
+<li><strong>Pull Request (PR) - Revisión y Propiedad</strong>: El desarrollador humano revisa el producto final como un PR convencional. Como la alineación ocurrió en la etapa de Diseño y Estructura, las revisiones de código son inmediatas y sin sorpresas arquitectónicas.</li>
+</ol>
+<p><strong>Reglas de Gestión de Contexto en QRSPI:</strong></p>
+<ol>
+<li><strong>Techo del 40% de Contexto</strong>: El uso de la ventana de contexto debe mantenerse idealmente por debajo del 40% de su capacidad. Si el contexto supera el 60%, se fuerza un reinicio inmediato registrando el progreso en disco.</li>
+<li><strong>Cargas de Instrucción Reducidas</strong>: Cada subagente o fase debe recibir menos de 40 instrucciones operativas directas para no sobrepasar el presupuesto de atención del LLM.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Avanzado</p>
+<p>Recuerda que esta arquitectura es especialmente útil en <strong>proyectos grandes y complejos</strong>, donde la coordinación entre múltiples agentes y la gestión de dependencias es crítica.<br>
+Requiere de un marco con mucho boilerplate inicial. Existiendo propuestas de plantillas para el mismo en <strong><a href="https://github.com/search?q=qrspi&amp;type=repositories">repositorios en github</a></strong></p>
+</div>
 
       </div>
       
