@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>Actividad Guiada. GitHub y Git primeros pasos</title>
+      <title>Actividad Reactivar Equipo HADA</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -222,553 +222,155 @@ code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-fami
     <body for="html-export">
       <div class="crossnote markdown-preview  ">
       
-<h1 id="actividad-guiada-github-y-git-primeros-pasos">Actividad Guiada: GitHub y Git. Primeros pasos </h1>
-<div class="md-toc">
-<details open="" class="md-toc-details">
-<summary class="md-toc-link-wrapper" data-level="0">
-  <a href="#actividad-guiada-github-y-git-primeros-pasos" class="md-toc-link">Actividad Guiada: GitHub y Git. Primeros pasos</a>
-</summary>
-<details open="" class="md-toc-details">
-<summary class="md-toc-link-wrapper" data-level="1">
-  <a href="#parte-1-configuración-del-entorno-de-trabajo-en-github" class="md-toc-link">Parte 1: Configuración del Entorno de Trabajo en GitHub.</a>
-</summary>
-<div class="md-toc-link-wrapper" data-level="2">
-  <a href="#actividad-1-creación-de-organizaciones-y-equipos-de-github-de-forma-individual" class="md-toc-link">Actividad 1. Creación de organizaciones y equipos de GitHub de forma individual.</a>
+<h1 id="guia-de-actividad--hada-con-github-y-c">Guia de Actividad:  HADA con GitHub y C# </h1>
+<div class="row">
+<div class="col-sm-6">
+<p>Esta actividad os ayudara a reactivar el equipo con una entrega real en GitHub: desarrollar un programa pequeno en C# por ramas y fusionar el trabajo mediante Pull Requests.</p>
+<div class="admonition quote">
+<p class="admonition-title">Objetivo</p>
+<p>Construir en equipo una aplicacion de consola en C# para gestionar tareas, aplicando flujo de organizacion GitHub, ramas y revision final segun roles H.A.D.A.</p>
 </div>
-</details>
-<details open="" class="md-toc-details">
-<summary class="md-toc-link-wrapper" data-level="1">
-  <a href="#parte-2-trabajando-en-local-con-el-repositorio-creado-en-github-mediante-comandos-de-git" class="md-toc-link">Parte 2: Trabajando en Local con el repositorio creado en GitHub, mediante comandos de Git</a>
-</summary>
-<div class="md-toc-link-wrapper" data-level="2">
-  <a href="#actividad-2-trabajo-en-local-con-git" class="md-toc-link">Actividad 2. Trabajo en local con Git</a>
 </div>
-</details>
-<div class="md-toc-link-wrapper" data-level="1">
-  <a href="#a1-glosario-de-comandos-utilizados" class="md-toc-link">A1. Glosario de Comandos Utilizados</a>
+<div class="col-sm-6">
+<p><img src="../assets/reto.png" alt="alt text"></p>
 </div>
-<div class="md-toc-link-wrapper" data-level="1">
-  <a href="#a2-flujo-recomendado-para-el-día-a-día" class="md-toc-link">A.2 Flujo recomendado para el día a día</a>
 </div>
-</details>
-</div>
-<p><strong><a href="actividad2.pdf">Descargar</a></strong></p>
-<p>En esta actividad aprenderéis el flujo básico de trabajo con Git y GitHub: clonar un repositorio, crear y usar ramas, guardar cambios con commits y sincronizar correctamente vuestro trabajo entre el entorno local y el repositorio remoto.</p>
-<p><strong>Herramientas:</strong></p>
+<h2 id="recursos">Recursos </h2>
 <ul>
-<li><strong>Navegador web</strong> (para GitHub)</li>
-<li><strong>Visual Code</strong> (para lo comandos de Git en local)</li>
+<li>Ordenadores con VS Code.</li>
+<li>Cuenta GitHub de cada miembro.</li>
+<li>SDK de .NET instalado (version 8 o superior).</li>
 </ul>
-<h2 id="parte-1-configuración-del-entorno-de-trabajo-en-github">Parte 1: Configuración del Entorno de Trabajo en GitHub. </h2>
-<p>Vamos a hacer una primera aproximación al concepto de Organización, Equipo y Repositorio en GitHub. Para ello vamos a realizar primero una actividad individual que permita a todos los alumnos pasar por todos los pasos y luego los volveremos a repetir por equipos para que tenga más sentido.</p>
+<p>Repositorio objetivo en la organizacion: <code>hada-task-tracker</code></p>
+<div style="page-break-after:always;"></div>
+<h2 id="roles-del-equipo-hada">Roles del Equipo: H.A.D.A. </h2>
+<div class="row d-flex justify-content-evenly">
+<div class="col-sm-5 border rounded mb-3 shadow-sm p-4">
+<p><strong>Hacedor(a) (H)</strong></p>
+<p>Implementa codigo, hace commits frecuentes y mantiene su rama lista para revision.</p>
+</div>
+<div class="col-sm-5 border rounded mb-3 shadow-sm p-4">
+<p><strong>Analista (A)</strong></p>
+<p>Define criterios de aceptacion por tarea, estima tiempos y revisa si el resultado cumple lo acordado.</p>
+</div>
+<div class="col-sm-5 border rounded mb-3 shadow-sm p-4">
+<p><strong>Diplomatico(a) (D)</strong></p>
+<p>Coordina el tablero de trabajo, ordena prioridades y gestiona bloqueos entre ramas o PR.</p>
+</div>
+<div class="col-sm-5 border rounded mb-3 shadow-sm p-4">
+<p><strong>Arquitecto(a) (A)</strong></p>
+<p>Diseña la estructura del programa, define nombres de ramas y valida la integracion final en <code>main</code>.</p>
+</div>
+</div>
+<div style="page-break-after:always;"></div>
+<h2 id="producto-a-construir">Producto a construir </h2>
+<p>Aplicacion de consola <code>TaskTracker</code> con estas funciones minimas:</p>
 <ul>
-<li>
-<p><strong>¿Qué es una organización en GitHub?</strong></p>
-<p>Una <strong>organización</strong> en GitHub es un espacio compartido donde un equipo o empresa puede gestionar múltiples repositorios juntos. A diferencia de un usuario personal, una organización puede tener varios propietarios y miembros con distintos niveles de acceso.</p>
-<p>Las organizaciones incluyen funcionalidades adicionales como equipos (<em>teams</em>), gestión de permisos por repositorio, y en los planes de pago, herramientas de seguridad avanzadas.</p>
-</li>
-<li>
-<p><strong>¿Cuándo usar usuario personal u organización?</strong></p>
-<table>
-<thead>
-<tr>
-<th>Situación</th>
-<th>Recomendación</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Proyecto personal, portfolio, aprendizaje</td>
-<td><strong>Usuario personal</strong></td>
-</tr>
-<tr>
-<td>Proyecto de empresa o startup</td>
-<td><strong>Organización</strong></td>
-</tr>
-<tr>
-<td>Proyecto open source con varios colaboradores</td>
-<td><strong>Organización</strong></td>
-</tr>
-<tr>
-<td>Trabajo freelance en solitario</td>
-<td><strong>Usuario personal</strong></td>
-</tr>
-<tr>
-<td>Equipo de desarrollo (2 o más personas)</td>
-<td><strong>Organización</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>si trabajas solo o en proyectos personales, el usuario personal es suficiente. En cuanto haya un equipo, una empresa o varios proyectos relacionados, una organización facilita mucho la gestión.</p>
-</div>
-</li>
+<li>Anadir tarea.</li>
+<li>Listar tareas.</li>
+<li>Marcar tarea como completada.</li>
+<li>Guardar/cargar tareas en fichero <code>tareas.json</code>.</li>
 </ul>
-<h3 id="actividad-1-creación-de-organizaciones-y-equipos-de-github-de-forma-individual">Actividad 1. Creación de organizaciones y equipos de GitHub de forma individual. </h3>
-<h4 id="paso-1-alta-en-github-si-aún-no-tenéis-cuenta">Paso 1: Alta en GitHub si aún no tenéis cuenta </h4>
-<p>Cada miembro del equipo debe tener su propia cuenta de GitHub.</p>
-<ol>
-<li>Id a <a href="https://github.com">github.com</a>.</li>
-<li>Haced clic en <strong>"Sign up"</strong> y seguid las instrucciones para crear una cuenta gratuita.</li>
-</ol>
-<h4 id="paso-2-crear-una-organización">Paso 2: Crear una Organización </h4>
-<p>La organización en GitHub servirá como el contenedor de vuestro proyecto de equipo cuando comencemos con el proyecto, ahora se trata de que todos adquiráis los conocimientos necesarios para realizar estas acciones, por lo que:</p>
-<ol>
-<li>Cada uno de vosotros deberá crear una organización.</li>
-<li>Haced clic en el icono <code>+</code> en la esquina superior derecha de GitHub y seleccionad <strong>"New organization"</strong>.</li>
-<li>Elegid el plan gratuito ("Free").</li>
-<li>Nombrad la organización siguiendo este formato: <code>[apellido1_nombre]_pi2damiesbalmis</code>. Por ejemplo: <code>garcia_sonia_pi2damiesbalmis</code>.</li>
-<li>Completad los pasos de creación.</li>
-</ol>
-<h4 id="paso-3-añadir-miembros-a-la-organización">Paso 3: Añadir Miembros a la Organización </h4>
-<p>Ahora, el propietario de la organización debe invitar al menos a tres compañeros y al <strong>profesor</strong>.</p>
-<ol>
-<li>Dentro de la página de la organización, id a la pestaña <strong>"People"</strong>.</li>
-<li>Haced clic en el botón <strong>"Invite member"</strong>.</li>
-<li>Buscad por nombre de usuario de GitHub o email a cada compañero y al profesor y enviad las invitaciones.</li>
-<li>Los invitados recibirán un correo para aceptar la invitación. ¡Aceptadla!</li>
-<li>Cambiar el rol del profesor a <strong>"Owner"</strong> para que tenga permisos completos.</li>
-</ol>
-<h4 id="paso-4-crear-un-equipo">Paso 4: Crear un Equipo </h4>
-<p>Los equipos ayudan a gestionar los permisos de acceso a los repositorios.</p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Crear un equipo es algo opcional en este caso, pero es una buena práctica para gestionar permisos en proyectos más grandes.</p>
-</div>
-<ol>
-<li>En la página de la organización, id a la pestaña <strong>"Teams"</strong>.</li>
-<li>Haced clic en <strong>"New team"</strong>.</li>
-<li>Dadle un nombre al equipo, por ejemplo, "<em><strong>equipo1_garcia_sonia</strong></em>".</li>
-<li>En el siguiente paso, añadid a todos los miembros de la organización al equipo.</li>
-</ol>
-<h4 id="paso-5-crear-un-repositorio-de-prueba">Paso 5: Crear un Repositorio de prueba </h4>
-<ol>
-<li>En la página principal de la organización, haced clic en el botón verde <strong>"New"</strong> para crear un nuevo repositorio.</li>
-<li><strong>Repository name:</strong> <code>pruebas</code></li>
-<li><strong>Description:</strong> (Opcional) "Repositorio para practicar el flujo de Git".</li>
-<li>Seleccionad <strong>"Public"</strong>.</li>
-<li><strong>Importante:</strong> Marcad la casilla <strong>"Add a README file"</strong>. Esto inicializa el repositorio con un primer fichero.</li>
-<li>Haced clic en <strong>"Create repository"</strong>.</li>
-</ol>
-<h2 id="parte-2-trabajando-en-local-con-el-repositorio-creado-en-github-mediante-comandos-de-git">Parte 2: Trabajando en Local con el repositorio creado en GitHub, mediante comandos de Git </h2>
-<p>En este punto vamos a clonar el repositorio de GitHub a una carpeta local de nuestro ordenador. Crearemos una nueva rama a parte de la main para acostumbrarnos a realizar el trabajo de forma organizada.</p>
-<h3 id="actividad-2-trabajo-en-local-con-git">Actividad 2. Trabajo en local con Git </h3>
-<ul>
-<li>
-<p><code>git clone</code> crea una copia completa de un repositorio remoto en tu máquina, incluyendo todo el historial.</p>
-<pre class="salida_consola"># Clonar un repositorio de GitHub
-git clone https://github.com/usuario/repositorio.git
-
-# Clonar en una carpeta con un nombre diferente
-git clone https://github.com/usuario/repositorio.git mi-carpeta
-
-# Clonar solo la rama principal (más rápido en repos muy grandes)
-git clone --single-branch https://github.com/usuario/repositorio.git
-
-# Clonar y entrar en la carpeta
-git clone https://github.com/usuario/repositorio.git
-cd repositorio
-  </pre>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Al clonar, Git configura automáticamente <code>origin</code> apuntando al repositorio de GitHub.</p>
-</div>
-</li>
-</ul>
-<h4 id="paso-1-clonar-el-repositorio">Paso 1: Clonar el Repositorio </h4>
+<h2 id="plan-en-2-sesiones">Plan en 2 sesiones </h2>
+<h2 id="sesion-1-preparar-dividir-y-avanzar-por-ramas-50-min">Sesion 1: Preparar, dividir y avanzar por ramas (50 min) </h2>
+<h3 id="bloque-1-preparacion-del-repositorio-15-min">Bloque 1: Preparacion del repositorio (15 min) </h3>
 <ol>
 <li>
-<p>En Visual Code abriremos la carpeta donde vayamos a situar la carpeta de nuestro repositorio.</p>
+<p>En la organizacion, cread el repositorio <code>hada-task-tracker</code> con <code>README.md</code>.</p>
 </li>
 <li>
-<p><strong>Clonar el repositorio:</strong></p>
-<ul>
-<li>
-<p>En la página del repositorio <code>pruebas</code> en GitHub, haced clic en el botón verde <strong><code>[&lt;&gt; Code]</code></strong>.</p>
+<p>Clonad el repositorio en local.</p>
 </li>
 <li>
-<p>Copiad la URL HTTPS (por ejemplo: <code>https://github.com/nombre-organizacion/pruebas.git</code>).</p>
-</li>
-<li>
-<p>En la terminal bash de VSCode,  ejecutar:</p>
-   <pre class="salida_consola">   git clone [URL_COPIADA_DEL_REPOSITORIO]</pre>
-</li>
-<li>
-<p>Abrir en Vs Code la nueva carpeta creada. O situarte en ella en la terminal con:</p>
-  <pre class="salida_consola">  cd pruebas</pre>
-</li>
-</ul>
-</li>
-</ol>
-<h4 id="paso-2-crear-y-moverse-a-una-rama-personal">Paso 2: Crear y Moverse a una Rama Personal </h4>
-<p>Las ramas (<em>branches</em>) son una de las características más poderosas de Git. Permiten trabajar en nuevas funcionalidades, correcciones o experimentos de forma completamente aislada del código principal, y fusionarlos cuando estén listos. En un repositorio de un equipo cada persona debe trabajar en su propia rama para no interferir con el trabajo de los demás. Una rama es como una línea temporal independiente del proyecto.</p>
-<ul>
-<li>
-<p><code>git branch</code>  Gestionar ramas</p>
-<pre class="salida_consola"># Ver todas las ramas locales
-git branch
-
-# Ver todas las ramas (locales y remotas)
-git branch -a
-
-# Crear una nueva rama (sin cambiarte a ella)
-git branch nombre-rama
-
-# Eliminar una rama (solo si ya fue fusionada)
-git branch -d nombre-rama
-
-# Eliminar una rama forzosamente (aunque no haya sido fusionada)
-git branch -D nombre-rama
-
-# Renombrar la rama actual
-git branch -m nuevo-nombre
-
-# Ver la última actividad de cada rama
-git branch -v
-</pre>
-</li>
-<li>
-<p><code>git switch</code> Cambiar de rama (comando moderno)</p>
-<p><code>git switch</code> es el comando moderno para cambiar entre ramas (disponible desde Git 2.23).</p>
-  <pre class="salida_consola">  # Cambiar a una rama existente
-  git switch nombre-rama
-  
-  # Crear una nueva rama y cambiarte a ella en un solo paso
-  git switch -c nueva-funcionalidad
-  
-  # Volver a la rama anterior
-  git switch - </pre>
-</li>
-<li>
-<p><code>git checkout</code> Cambiar de rama (comando clásico)</p>
-<p><code>git checkout</code> es el comando clásico. Funciona igual que <code>git switch</code> pero también tiene otros usos (como restaurar archivos).</p>
-<pre class="salida_consola"># Cambiar a una rama existente
-git checkout nombre-rama
-
-# Crear una nueva rama y cambiarte a ella
-git checkout -b nueva-funcionalidad
-
-# Volver a la rama anterior
-git checkout -
-</pre>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><strong><code>switch</code> vs <code>checkout</code>:</strong> ambos funcionan igual para cambiar de rama. <code>switch</code> es más moderno y claro en su propósito. En proyectos actuales se recomienda <code>switch</code>, pero encontrarás <code>checkout</code> en mucha documentación y tutoriales.</p>
-</div>
-</li>
-</ul>
-<ol>
-<li>
-<p><strong>Crear una nueva rama:</strong> Reemplazad <code>[tu-nombre]</code> por vuestro nombre en minúsculas.</p>
- <pre class="salida_consola"> git branch [tu-nombre]</pre>
-</li>
-<li>
-<p><strong>Moverse a la nueva rama:</strong></p>
- <pre class="salida_consola"> git switch [tu-nombre]</pre>
-<div class="admonition warning">
-<p class="admonition-title">Nota</p>
-<p>Acabáis de crear una "copia" del estado actual de la rama <code>main</code> y os habéis movido a ella para empezar a trabajar. Todos vuestros cambios a partir de ahora se harán en esta nueva rama.</p>
-</div>
-</li>
-</ol>
-<h4 id="paso-3-crear-y-añadir-un-fichero">Paso 3: Crear y Añadir un Fichero </h4>
-<p>Ahora, añadiremos un fichero al proyecto</p>
-<ol>
-<li>
-<p><strong>Crear un fichero Markdown:</strong> Usad el Bloc de notas o vuestro editor preferido para crear un fichero con vuestro nombre. Por ejemplo, <code>juan.md</code>.</p>
- <pre class="salida_consola"> notepad juan.md</pre>
-</li>
-<li>
-<p>Añadir contenido al fichero. Podéis usar sintaxis Markdown, por ejemplo:</p>
-<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> Fichero de Juan</span>
-
-<span class="token list punctuation">*</span> Me gusta el desarrollo de software.
-<span class="token list punctuation">*</span> Mi lenguaje favorito es Python.
-</code></pre>
-</li>
-<li>
-<p>Guardar y cerrad el fichero.</p>
-</li>
-<li>
-<p><strong>Añadir el fichero al "staging area"</strong>: Le indicamos a Git que queremos incluir este fichero en nuestro próximo "guardado" (commit).</p>
- <pre class="salida_consola"> git add juan.md</pre>
-</li>
-<li>
-<p><strong>Hacer commit</strong>: Guardamos los cambios de forma permanente en el historial de nuestra rama.</p>
- <pre class="salida_consola"> git commit -m "Añade fichero de Juan"</pre>
-</li>
-</ol>
-<h4 id="paso-4-subir-la-rama-a-github">Paso 4: Subir la Rama a GitHub </h4>
-<p>Vuestros cambios (la nueva rama y el nuevo fichero) solo existen en vuestro ordenador. Ahora los subiréis a GitHub.</p>
-<ul>
-<li>
-<p><code>git push</code> — Subir cambios al remoto<br>
-<code>git push</code> envía los commits de tu repositorio local al repositorio remoto.</p>
-  <pre class="salida_consola">  git push --set-upstream origin [tu-nombre]</pre>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>El comando <code>--set-upstream origin [tu-nombre]</code> crea un enlace entre tu rama local y una nueva rama con el mismo nombre en el repositorio remoto (GitHub), para que en futuros <code>push</code> solo necesites escribir <code>git push</code>.</p>
-</div>
-  <pre class="salida_consola">  
-  # Subir la rama actual al remoto (primera vez, con -u para configurar el seguimiento)
-  git push -u origin main
-  
-  # Subir la rama actual (después de haber configurado el seguimiento con -u)
-  git push
-  
-  # Subir una rama específica
-  git push origin nombre-rama
-  
-  # Subir todas las ramas locales
-  git push --all origin
-  </pre>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Importante: solo puedes hacer push si no hay cambios en el remoto que tú no tengas. Si alguien más ha subido algo, primero debes hacer git pull.</p>
-</div>
-</li>
-</ul>
-<h4 id="paso-5-añadir-nuevos-cambios-a-tu-rama-y-actualizar">Paso 5: Añadir nuevos cambios a tu rama y actualizar </h4>
-<p>Crea un nuevo fichero llamado <code>saludo.md</code> en tu rama personal, añade un saludo gracioso, súbelo a GitHub y luego integra esos cambios en <code>main</code> para que queden iguales en local y en remoto.</p>
-<ol>
-<li>
-<p><strong>Asegúrate de estar en tu rama personal:</strong></p>
- <pre class="salida_consola"> git switch [tu-nombre]</pre>
-</li>
-<li>
-<p><strong>Crea el fichero <code>saludo.md</code> con un saludo gracioso:</strong></p>
- <pre class="salida_consola"> notepad saludo.md</pre>
-<p>Escribe algo como este ejemplo y guarda:</p>
-<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> Saludo del equipo</span>
-
-Hola profe. Si este commit falla, echadle la culpa al teclado, no al programador.
-</code></pre>
-</li>
-<li>
-<p><strong>Añade, confirma y sube los cambios de tu rama:</strong></p>
- <pre class="salida_consola"> git add saludo.md
- git commit -m "Añade saludo gracioso en saludo.md"
- git push origin [tu-nombre]</pre>
-</li>
-<li>
-<p><strong>Cámbiate a <code>main</code> y actualizala con lo último del remoto:</strong></p>
- <pre class="salida_consola"> git switch main
- git pull origin main</pre>
-</li>
-<li>
-<p><strong>Comprueba qué hay en <code>main</code> antes de integrar tu rama:</strong></p>
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Si  los cambios anteriores no existen en <code>main</code>, es normal: todavía no has integrado tu rama personal.</p>
-</div>
-</li>
-</ol>
-<h4 id="paso-6-integrar-tu-rama-a-main">Paso 6: Integrar tu rama a main </h4>
-<p>Integra tu rama personal en <code>main</code> y sube <code>main</code> a remoto:</p>
-<ul>
-<li>
-<p><code>git merge</code> — Fusionar ramas</p>
-<p><code>git merge</code> integra los cambios de una rama en otra. Debes estar en la rama de destino antes de ejecutarlo.</p>
-<pre class="salida_consola"># Primero, cámbiate a la rama que recibirá los cambios
-git switch main
-
-# Fusiona la rama de la funcionalidad en main
-git merge rama-personal
-
-# Fusionar sin crear un commit de merge (si es posible)
-git merge --ff-only rama-personal
-
-# Fusionar creando siempre un commit de merge (mantiene el historial)
-git merge --no-ff rama-personal
- </pre>
-</li>
-</ul>
-<ol>
-<li>
-<p><strong>Integra tu rama a main, añadiendo los nuevos cambios</strong></p>
- <pre class="salida_consola"> git merge [tu-nombre]
+<p>Inicializad el proyecto C#:</p>
+ <pre class="salida_consola"> git clone https://github.com/ORGANIZACION/hada-task-tracker.git
+ cd hada-task-tracker
+ dotnet new console -n TaskTracker
+ git add .
+ git commit -m "Inicializa proyecto TaskTracker"
  git push origin main
  </pre>
 </li>
-<li>
-<p><strong>Comprueba que <code>saludo.md</code> ya existe en <code>main</code>  y tiene el mismo contenido</strong></p>
-</li>
-<li>
-<p><strong>Verifica que no tienes cambios pendientes en local:</strong></p>
- <pre class="salida_consola"> git status</pre>
-</li>
-<li>
-<p><strong>Sincroniza referencias y compara <code>main</code> local con <code>origin/main</code>:</strong></p>
- <pre class="salida_consola"> git fetch origin
- git diff main origin/main</pre>
-<div class="admonition tip">
-<p class="admonition-title">Importante</p>
-<p>Si <code>git diff main origin/main</code> no muestra nada, significa que <code>main</code> está igual en local y en remoto.</p>
-</div>
-</li>
-<li>
-<p><strong>Comprueba en GitHub web</strong> que en la rama <code>main</code> aparece el fichero <code>saludo.md</code> con el contenido que has creado.</p>
-</li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Si trabajas tú solo en el repositorio, puedes usar ramas para organizar tareas concretas y eliminarlas cuando ya estén integradas en <code>main</code>. En ese escenario, la integración suele ser sencilla y sin conflictos.</p>
-</div>
-<h4 id="paso-7-trabajar-en-paralelo">Paso 7: Trabajar en paralelo </h4>
+<h3 id="bloque-2-plan-hada-y-reparto-por-ramas-15-min">Bloque 2: Plan HADA y reparto por ramas (15 min) </h3>
 <ol>
-<li>Crea ramas para diferentes funcionalidades</li>
+<li>
+<p>Definid 4 tareas técnicas, por ejemplo:<br>
+* T1: modelo de tarea (<code>TaskItem</code>) y lista en memoria.<br>
+* T2: menu por consola y opcion "anadir tarea".<br>
+* T3: listar y completar tareas.<br>
+* T4: persistencia JSON (<code>tareas.json</code>).</p>
+</li>
+<li>
+<p>Cread una rama por tarea:</p>
+ <pre class="salida_consola"> git switch -c feature/modelo-taskitem
+ git switch main
+ git switch -c feature/menu-anadir
+ git switch main
+ git switch -c feature/listar-completar
+ git switch main
+ git switch -c feature/persistencia-json
+ git switch main
+ git push --all origin
+ </pre>
+</li>
+<li>
+<p>Asignad una tarea por persona segun rol y estimad tiempo por tarea.</p>
+</li>
 </ol>
-  <pre class="salida_consola">  git branch funcionalidad-carrito
-  git branch funcionalidad-busqueda
-  
-  # Verifica que se crearon
-  git branch
-  </pre>
-<ol start="2">
-<li>Trabaja en las distintas ramas en paralelo. Por ejemplo, creando archivos con distintos contenidos.</li>
+<h3 id="bloque-3-primer-desarrollo-en-paralelo-20-min">Bloque 3: Primer desarrollo en paralelo (20 min) </h3>
+<p>Cada miembro empieza su tarea en su rama y sube al menos un commit funcional.</p>
+<h3 id="entregables-de-la-sesion-1">Entregables de la Sesion 1 </h3>
+<ol>
+<li>Repositorio creado en la organizacion y proyecto C# inicial en <code>main</code>.</li>
+<li>Cuatro ramas de funcionalidad publicadas en remoto.</li>
+<li>Minimo 1 commit por rama (o evidencia de avance en 3 ramas como minimo).</li>
+<li>Fichero <code>PLAN_HADA.md</code> con reparto de tareas, estimaciones y responsable.</li>
 </ol>
-  <pre class="salida_consola">   # Trabaja en la rama del carrito
-   git switch funcionalidad-carrito
-   echo "&lt;div id='carrito'&gt;0 artículos&lt;/div&gt;" &gt;&gt; index.html
-   git add index.html
-   git commit -m "Añade icono del carrito de compras"
-
-    # Cambia a la rama de búsqueda y añade otro cambio independiente
-    git switch funcionalidad-busqueda
-    echo "# Mejora de búsqueda" &gt; busqueda.md
-    echo "Añadir campo de búsqueda en la cabecera" &gt;&gt; busqueda.md
-    git add busqueda.md
-    git commit -m "Añade propuesta inicial para funcionalidad de búsqueda"
-  
-    # Vuelve a main y trabaja en otra cosa sin interferir
-    git switch main
-    echo "/* Nuevos colores corporativos */" &gt;&gt; css/styles.css
-    git add css/styles.css
-    git commit -m "Actualiza paleta de colores corporativos"
-    
-    # Verifica que main no tiene los cambios del carrito
-    cat index.html  # El div del carrito no aparece aquí
-  </pre>
-<ol start="3">
-<li>Fusionar cambios</li>
+<h2 id="sesion-2-integrar-validar-y-evaluar-50-min">Sesion 2: Integrar, validar y evaluar (50 min) </h2>
+<h3 id="bloque-1-finalizacion-de-tareas-y-pr-20-min">Bloque 1: Finalizacion de tareas y PR (20 min) </h3>
+<ol>
+<li>Terminad el desarrollo pendiente en cada rama.</li>
+<li>Cada rama abre un PR contra <code>main</code>.</li>
+<li>Revisiones minimas por PR:<br>
+* Compila (<code>dotnet build</code>).<br>
+* Funcion principal probada en consola.<br>
+* Mensaje de commit claro.</li>
 </ol>
-  <pre class="salida_consola">  # Asegúrate de estar en main
-  git switch main
-  
-  # Fusiona la rama del carrito
-  git merge funcionalidad-carrito
-  
-  # Verifica que los cambios del carrito están ahora en main
-  cat index.html  # Ahora sí aparece el div del carrito
-  
-  # El historial muestra ambas líneas de desarrollo
-  git log --oneline --graph
-  
-  # Elimina la rama ya fusionada porque se ha terminado el trabajo en ella
-  git branch -d funcionalidad-carrito
-  </pre>  
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>En la siguiente actividad simularemos un caso más real, con varias personas trabajando a la vez sobre el mismo repositorio, donde sí pueden aparecer conflictos y errores de sincronización.</p>
+<h3 id="bloque-2-fusion-ordenada-y-prueba-de-integracion-20-min">Bloque 2: Fusion ordenada y prueba de integracion (20 min) </h3>
+<ol>
+<li>Fusionad PR en este orden recomendado: T1 -&gt; T2 -&gt; T3 -&gt; T4.</li>
+<li>Tras cada fusion, ejecutad en <code>main</code>:</li>
+</ol>
+<h3 id="bloque-3-evaluacion-hada-10-min">Bloque 3: Evaluacion HADA (10 min) </h3>
+<p>Rellenad <code>RETRO_HADA.md</code> con estas evidencias:</p>
+<ol>
+<li><strong>Viabilidad tecnica (Analista):</strong><br>
+* Que funciono bien del diseno.<br>
+* Que deuda tecnica queda.</li>
+<li><strong>Temporizacion real vs estimada (Arquitecto + Analista):</strong><br>
+* Tiempo estimado por tarea.<br>
+* Tiempo real por tarea.<br>
+* Desviacion y causa.</li>
+<li><strong>Colaboracion y flujo GitHub (Diplomatico):</strong><br>
+* Numero de PR abiertos/cerrados.<br>
+* Bloqueos detectados y como se resolvieron.</li>
+<li><strong>Ejecucion (Hacedor):</strong><br>
+* Que entregables quedaron finalizados en <code>main</code>.<br>
+* Que tarea se aplaza al siguiente sprint.</li>
+</ol>
+<h3 id="entregables-de-la-sesion-2">Entregables de la Sesion 2 </h3>
+<ol>
+<li>PR de cada funcionalidad revisado y fusionado.</li>
+<li>Aplicacion <code>TaskTracker</code> funcionando en <code>main</code> con las 4 funciones minimas.</li>
+<li>Fichero <code>RETRO_HADA.md</code> completo con viabilidad, tiempos y mejora.</li>
+<li>Demo corta del equipo ejecutando la aplicacion en consola.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Resultado esperado</p>
+<p>El equipo termina con una aplicacion C# funcional, historial de ramas y PR, y una revision objetiva de viabilidad, tiempos y forma de trabajo segun H.A.D.A.</p>
 </div>
-<hr>
-<h2 id="a1-glosario-de-comandos-utilizados">A1. Glosario de Comandos Utilizados </h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Comando</th>
-<th style="text-align:left">Descripción en esta actividad</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>git config --global user.name</code></td>
-<td style="text-align:left">Configura tu nombre de autor para todos tus repositorios.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git config --global user.email</code></td>
-<td style="text-align:left">Configura tu email de autor para todos tus repositorios.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git clone [url]</code></td>
-<td style="text-align:left">Crea una copia local de un repositorio remoto de GitHub.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git branch [nombre-rama]</code></td>
-<td style="text-align:left">Crea una nueva rama.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git switch [nombre-rama]</code></td>
-<td style="text-align:left">Cambia a la rama indicada para trabajar en ella.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git checkout [nombre-rama]</code></td>
-<td style="text-align:left">Se mueve a la rama especificada para empezar a trabajar en ella.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git add [fichero]</code></td>
-<td style="text-align:left">Añade un fichero modificado al "área de preparación" (staging) para incluirlo en el próximo commit.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git commit -m "mensaje"</code></td>
-<td style="text-align:left">Guarda una instantánea de los cambios preparados en el historial local de la rama.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git push origin [nombre-rama]</code></td>
-<td style="text-align:left">Sube los commits de tu rama local a la rama correspondiente en GitHub (remoto <code>origin</code>).</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git pull origin [nombre-rama]</code></td>
-<td style="text-align:left">Descarga los cambios de una rama remota y los fusiona en tu rama local actual.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git fetch origin</code></td>
-<td style="text-align:left">Actualiza las referencias remotas sin fusionarlas automáticamente en tu rama local.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git diff main origin/main</code></td>
-<td style="text-align:left">Compara la rama <code>main</code> local con <code>origin/main</code> para verificar si están iguales.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git status</code></td>
-<td style="text-align:left">Muestra si hay cambios pendientes o si el repositorio está limpio.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>git merge [nombre-rama]</code></td>
-<td style="text-align:left">Fusiona el historial de la rama especificada en la rama actual.</td>
-</tr>
-</tbody>
-</table>
-<hr>
-<h2 id="a2-flujo-recomendado-para-el-día-a-día">A.2 Flujo recomendado para el día a día </h2>
-<p>Este es el flujo de trabajo que se recomienda seguir en el trabajo diario con Git y GitHub:</p>
-<h4 id="al-empezar-la-jornada">Al empezar la jornada </h4>
-  <pre class="salida_consola">git pull                          # 1. Descarga los cambios del equipo
-git status                        # 2. Confirma que todo está limpio
-git switch -c tarea/descripcion   # 3. Crea una rama para la nueva tarea
-  </pre>
-<h4 id="durante-el-trabajo">Durante el trabajo </h4>
-  <pre class="salida_consola"># Trabaja en tu código...
-
-git status                        # Revisa qué ha cambiado
-git diff                          # Revisa los detalles del cambio
-git add .                         # Prepara los cambios
-git commit -m "Descripción clara" # Guarda el punto de control
-# Repite: trabaja → status → add → commit
-  </pre>
-<h4 id="al-terminar-la-tarea">Al terminar la tarea </h4>
-  <pre class="salida_consola">git switch main                   # Vuelve a la rama principal
-git pull                          # Descarga posibles cambios nuevos
-git merge tarea/descripcion       # Fusiona tu trabajo
-git push                          # Sube al repositorio remoto
-git branch -d tarea/descripcion   # Limpia la rama ya fusionada
-  </pre>
-<h4 id="diagrama-del-flujo-completo">Diagrama del flujo completo </h4>
-<p><img src="./imagenes/diagrama_flujo_trabajo.png" alt="nombre" style="display:block;margin:0 auto;width:100%;max-width:700px;"></p>
-<div class="admonition warning">
-<p class="admonition-title"> <strong>Regla de oro:</strong> haz <code>pull</code> antes de empezar y <code>push</code> al terminar. Haz commits pequeños y frecuentes. Usa ramas para todo lo que no sea un cambio trivial.</p>
-</div>
+<p>El objetivo final es que podais repetir este flujo en proyectos reales: planificar, desarrollar en paralelo, integrar con calidad y aprender del resultado.</p>
 
       </div>
       

@@ -1,5 +1,5 @@
 <!DOCTYPE html><html><head>
-      <title>Actividad Reto Marsmallow Challenge</title>
+      <title>Actividad Colaboración con Git y GitHub</title>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
@@ -219,106 +219,419 @@ code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-fami
     
       <div class="crossnote markdown-preview  ">
       
-<h1 id="guía-de-actividad-el-reto-del-marshmallow-malvavisco">Guía de Actividad: El Reto del Marshmallow (Malvavisco) </h1>
-<div class="row">
-<div class="col-sm-6">
-<p>¡Bienvenidos al Reto del Marshmallow! Esta es una actividad divertida y desafiante diseñada para que experimentéis de primera mano la resolución de problemas y la importancia de la colaboración en equipo.</p>
-<div class="admonition quote">
-<p class="admonition-title">Objetivo</p>
-<p>Construir en equipo la torre autoportante más alta posible que sostenga un malvavisco (nube o marshmallow) en su cima.</p>
-</div>
-</div>
-<div class="col-sm-6">
-<p><img src="assets/reto.png" alt="alt text"></p>
-</div>
-</div>
-<h2 id="materiales-por-equipo-️">Materiales por Equipo 🛠️ </h2>
-<p>Cada equipo recibirá un kit con los siguientes materiales. <strong>¡Administradlos sabiamente!</strong></p>
+<h1 id="actividad-guiada-colaboración-con-git-y-github">Actividad Guiada: Colaboración con Git y GitHub </h1>
+<p><strong><a href="actividad1.pdf">Descargar</a></strong></p>
+<p>En esta actividad, aprenderéis a colaborar en un mismo proyecto utilizando Git y GitHub. Seguiremos un <strong>flujo de trabajo básico pero fundamental</strong> para cualquier equipo de desarrollo. El objetivo es que os <strong>familiaricéis con los comandos esenciales</strong> y las buenas prácticas para trabajar de forma sincronizada.</p>
+<p><strong>Herramientas:</strong></p>
 <ul>
-<li>20 espaguetis crudos.</li>
-<li>1 metro de cinta adhesiva.</li>
-<li>2 gomas amarillas.</li>
-<li>1 malvavisco.</li>
-<li>Una superficie de trabajo plana.</li>
+<li><strong>Navegador web</strong> (para GitHub)</li>
+<li><strong>Línea de comandos de Windows (CMD)</strong></li>
+<li><strong>Un editor de texto</strong> (como el Bloc de notas)</li>
 </ul>
-<div style="page-break-after:always;"></div>
-<h2 id="roles-del-equipo-hada-">Roles del Equipo: H.A.D.A. 🧚 </h2>
-<p>Para potenciar vuestra colaboración, cada miembro del equipo asumirá su rol específico. Estos roles no son para limitar vuestra participación, sino para asegurar que diferentes perspectivas clave estén siempre presentes.</p>
-<div class="row d-flex justify-content-evenly">
-<div class="col-sm-5 border rounded mb-3 shadow-sm p-4">
-<p><strong>Hacedor(a) (H)</strong></p>
-<p>Eres la persona de acción. Te centras en la construcción física y en la ejecución del plan. Tu lema es "¡Manos a la obra!". Durante la construcción, eres quien lidera el ensamblaje práctico de la estructura.</p>
-</div>
-<div class="col-sm-5 border rounded mb-3 shadow-sm p-4">
-<p><strong>Analista (A)</strong></p>
-<p>Eres la voz de la lógica y la precaución. Te encargas de medir, evaluar la estabilidad de la estructura y preguntar "¿Funcionará esto realmente?". Mides la resistencia de los materiales y controlas el tiempo.</p>
-</div>
-<div class="col-sm-5 border rounded mb-3 shadow-sm p-4">
-<p><strong>Diplomático(a) (D)</strong></p>
-<p>Tu misión es mantener al equipo unido y comunicado. Te aseguras de que todas las voces sean escuchadas, gestionas los posibles conflictos y mantienes la moral alta. Eres el pegamento del equipo.</p>
-</div>
-<div class="col-sm-5 border rounded mb-3 shadow-sm p-4">
-<p><strong>Arquitecto(a) (A)</strong></p>
-<p>Eres la persona visionaria y creativa. Te concentras en el diseño general de la torre, explorando diferentes ideas y bocetos antes de empezar a construir. Tu objetivo es generar una propuesta sólida y bien pensada.</p>
-</div>
-</div>
+<p><strong>Organización:</strong> Equipo de 4 o 5 alumnos del proyecto intermodular de 2º DAM.</p>
+<h2 id="parte-1-configuración-del-entorno-de-trabajo">Parte 1: Configuración del Entorno de Trabajo </h2>
+<h3 id="paso-1-alta-en-github-si-aún-no-tenéis-cuenta">Paso 1: Alta en GitHub si aún no tenéis cuenta </h3>
+<p>Cada miembro del equipo debe tener su propia cuenta de GitHub.</p>
+<ol>
+<li>Id a <a href="https://github.com">github.com</a>.</li>
+<li>Haced clic en <strong>"Sign up"</strong> y seguid las instrucciones para crear una cuenta gratuita.</li>
+</ol>
+<h3 id="paso-2-crear-una-organización">Paso 2: Crear una Organización </h3>
+<p>La organización en GitHub servirá como el contenedor de vuestro proyecto de equipo.</p>
+<ol>
+<li>Uno rol <strong>Hacedor</strong> del equipo debe crear la organización.</li>
+<li>Haced clic en el icono <code>+</code> en la esquina superior derecha de GitHub y seleccionad <strong>"New organization"</strong>.</li>
+<li>Elegid el plan gratuito ("Free").</li>
+<li>Nombrad la organización siguiendo este formato: <code>[nombreequipo]_pi2damiesbalmis</code>. Por ejemplo: <code>equipo_alfa_pi2damiesbalmis</code>.</li>
+<li>Completad los pasos de creación.</li>
+</ol>
+<h3 id="paso-3-añadir-miembros-a-la-organización">Paso 3: Añadir Miembros a la Organización </h3>
+<p>Ahora, el propietario de la organización debe invitar al resto de compañeros y al <strong>profesor</strong>.</p>
+<ol>
+<li>Dentro de la página de la organización, id a la pestaña <strong>"People"</strong>.</li>
+<li>Haced clic en el botón <strong>"Invite member"</strong>.</li>
+<li>Buscad por nombre de usuario de GitHub o email a cada compañero y al profesor y enviad las invitaciones.</li>
+<li>Los invitados recibirán un correo para aceptar la invitación. ¡Aceptadla!</li>
+<li>Cambia is el rol del profesor a <strong>"Owner"</strong> para que tenga permisos completos.</li>
+</ol>
+<h3 id="paso-4-crear-un-equipo">Paso 4: Crear un Equipo </h3>
+<p>Los equipos ayudan a gestionar los permisos de acceso a los repositorios.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>Si sois 5 personas en el equipo, una puede desempeñar el rol de "Coordinador", ayudando al Diplomático a gestionar el tiempo y al Analista a verificar la estabilidad, sirviendo de apoyo general.</strong></p>
+<p class="admonition-title">Nota</p>
+<p>Crear un equipo es algo opcional en este caso, pero es una buena práctica para gestionar permisos en proyectos más grandes.</p>
 </div>
-<div style="page-break-after:always;"></div>
-<h2 id="fases-del-reto-duración-total-1-hora">Fases del Reto (Duración total: ~1 hora) </h2>
-<h3 id="fase-1-entender-y-activar-el-equipo-10-min">Fase 1: Entender y Activar el Equipo (10 min) </h3>
 <ol>
-<li><strong>Revisad las Reglas:</strong>
-<ul>
-<li>La torre debe sostenerse por sí misma, sin apoyos externos.</li>
-<li>El malvavisco completo debe estar en la cima.</li>
-<li>Solo se pueden usar los materiales del kit. Podéis romper los espaguetis y cortar la cinta y la cuerda.</li>
-<li>El tiempo de construcción es de <strong>18 minutos</strong>.</li>
-</ul>
-</li>
-<li><strong>Contrato de Equipo:</strong> Dedicad 5 minutos, liderados por el <strong>Diplomático</strong>, para establecer vuestras propias reglas. Hablad sobre qué comportamientos potencian el trabajo en equipo (ej: escuchar activamente) y cuáles lo frenan (ej: criticar sin proponer)</li>
+<li>En la página de la organización, id a la pestaña <strong>"Teams"</strong>.</li>
+<li>Haced clic en <strong>"New team"</strong>.</li>
+<li>Dadle un nombre al equipo, por ejemplo, "<em><strong>equipo_alfa</strong></em>".</li>
+<li>En el siguiente paso, añadid a todos los miembros de la organización al equipo.</li>
 </ol>
-<h3 id="fase-2-idear-y-diseñar-15-min">Fase 2: Idear y Diseñar (15 min) </h3>
+<h3 id="paso-5-crear-el-repositorio-del-proyecto">Paso 5: Crear el Repositorio del Proyecto </h3>
+<p>El repositorio contendrá todos los ficheros de vuestro proyecto.</p>
+<ol>
+<li>En la página principal de la organización, haced clic en el botón verde <strong>"New"</strong> para crear un nuevo repositorio.</li>
+<li><strong>Repository name:</strong> <code>pruebas</code></li>
+<li><strong>Description:</strong> (Opcional) "Repositorio para practicar el flujo de Git".</li>
+<li>Seleccionad <strong>"Public"</strong>.</li>
+<li><strong>Importante:</strong> Marcad la casilla <strong>"Add a README file"</strong>. Esto inicializa el repositorio con un primer fichero.</li>
+<li>Haced clic en <strong>"Create repository"</strong>.</li>
+</ol>
+<hr>
+<h2 id="parte-2-trabajo-en-local-con-git">Parte 2: Trabajo en Local con Git </h2>
+<h3 id="paso-6-clonar-el-repositorio-y-configuración-inicial">Paso 6: Clonar el Repositorio y Configuración Inicial </h3>
+<p>Cada miembro del equipo debe tener una copia local del proyecto.</p>
+<ol>
+<li>
+<p><strong>Configuración inicial de Git (solo la primera vez en un ordenador):</strong><br>
+Abrid el CMD de Windows y configurad vuestro nombre y email. Esto es crucial para que Git sepa quién realiza cada cambio.</p>
+ <pre class="salida_consola"> git config --global user.name "Tu Nombre Completo"
+ git config --global user.email "tu_email@ejemplo.com"</pre>
+</li>
+<li>
+<p><strong>Clonar el repositorio:</strong></p>
+<ul>
+<li>En la página del repositorio <code>pruebas</code> en GitHub, haced clic en el botón verde <strong><code>[&lt;&gt; Code]</code></strong>.</li>
+<li>Copiad la URL HTTPS (por ejemplo: <code>https://github.com/nombre-organizacion/pruebas.git</code>).</li>
+<li>En el CMD, navegad a la carpeta donde queráis guardar el proyecto (ej: <code>cd repositorios</code>) y ejecutad:</li>
+</ul>
+ <!-- end list -->
+ <pre class="salida_consola"> git clone [URL_COPIADA_DEL_REPOSITORIO]</pre>
+<ul>
+<li>Navegad dentro de la carpeta recién creada:</li>
+</ul>
+ <!-- end list -->
+ <pre class="salida_consola"> cd pruebas</pre>
+</li>
+</ol>
+<h3 id="paso-7-crear-y-moverse-a-una-rama-personal">Paso 7: Crear y Moverse a una Rama Personal </h3>
+<p>Cada uno trabajará en su propia rama para no interferir con el trabajo de los demás. Una rama es como una línea temporal independiente del proyecto.</p>
+<ol>
+<li>
+<p><strong>Crear una nueva rama:</strong> Reemplazad <code>[tu-nombre]</code> por vuestro nombre en minúsculas.</p>
+ <pre class="salida_consola"> git branch [tu-nombre]</pre>
+</li>
+<li>
+<p><strong>Moverse a la nueva rama:</strong></p>
+ <pre class="salida_consola"> git checkout [tu-nombre]</pre>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Acabáis de crear una "copia" del estado actual de la rama <code>main</code> y os habéis movido a ella para empezar a trabajar. Todos vuestros cambios a partir de ahora se harán en esta nueva rama.</p>
+</div>
+</li>
+</ol>
+<h3 id="paso-8-crear-y-añadir-un-fichero">Paso 8: Crear y Añadir un Fichero </h3>
+<p>Ahora, cada uno añadirá su propio fichero al proyecto.</p>
+<ol>
+<li>
+<p><strong>Crear un fichero Markdown:</strong> Usad el Bloc de notas o vuestro editor preferido para crear un fichero con vuestro nombre. Por ejemplo, <code>juan.md</code>.</p>
+ <pre class="salida_consola"> notepad juan.md</pre>
+</li>
+<li>
+<p>Añadid contenido al fichero. Podéis usar sintaxis Markdown, por ejemplo:</p>
+<pre data-role="codeBlock" data-info="markdown" class="language-markdown markdown"><code><span class="token title important"><span class="token punctuation">#</span> Fichero de Juan</span>
+
+<span class="token list punctuation">*</span> Me gusta el desarrollo de software.
+<span class="token list punctuation">*</span> Mi lenguaje favorito es Python.
+</code></pre></li>
+<li>
+<p>Guardad y cerrad el fichero.</p>
+</li>
+<li>
+<p><strong>Añadir el fichero al "staging area"</strong>: Le indicamos a Git que queremos incluir este fichero en nuestro próximo "guardado" (commit).</p>
+ <pre class="salida_consola"> git add juan.md</pre>
+</li>
+<li>
+<p><strong>Hacer commit</strong>: Guardamos los cambios de forma permanente en el historial de nuestra rama.</p>
+ <pre class="salida_consola"> git commit -m "Añade fichero de Juan"</pre>
+</li>
+</ol>
+<h3 id="paso-9-subir-la-rama-a-github">Paso 9: Subir la Rama a GitHub </h3>
+<p>Vuestros cambios (la nueva rama y el nuevo fichero) solo existen en vuestro ordenador. Ahora los subiréis a GitHub.</p>
+<pre class="salida_consola">git push --set-upstream origin [tu-nombre]</pre>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El comando <code>--set-upstream origin [tu-nombre]</code> crea un enlace entre tu rama local y una nueva rama con el mismo nombre en el repositorio remoto (GitHub), para que en futuros <code>push</code> solo necesites escribir <code>git push</code>.</p>
+</div>
+<hr>
+<h2 id="parte-3-integración-y-colaboración">Parte 3: Integración y Colaboración </h2>
+<h3 id="paso-10-sincronizar-y-fusionar-en-main">Paso 10: Sincronizar y Fusionar en <code>main</code> </h3>
+<p>Ahora, cada miembro del equipo (de uno en uno, para evitar conflictos iniciales) integrará sus cambios en la rama principal <code>main</code>.</p>
+<ol>
+<li>
+<p><strong>Volver a la rama <code>main</code>:</strong></p>
+ <pre class="salida_consola"> git checkout main</pre>
+</li>
+<li>
+<p><strong>Traer los últimos cambios de <code>main</code> desde GitHub:</strong> Esto es una buena práctica para asegurar que tienes la última versión antes de fusionar tus cambios.</p>
+ <pre class="salida_consola"> git pull origin main</pre>
+</li>
+<li>
+<p><strong>Fusionar (merge) tu rama personal en <code>main</code>:</strong></p>
+ <pre class="salida_consola"> git merge [tu-nombre]</pre>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Este comando coge todos los commits de tu rama personal y los aplica sobre la rama <code>main</code> en tu ordenador. Ahora tu <code>main</code> local tiene los cambios de tus compañeros (del <code>pull</code>) y los tuyos (del <code>merge</code>).</p>
+</div>
+</li>
+</ol>
+<h3 id="paso-11-subir-los-cambios-de-main">Paso 11: Subir los Cambios de <code>main</code> </h3>
+<p>Ahora que tu <code>main</code> local está actualizada con tus cambios, súbela a GitHub para que los demás puedan verla.</p>
+<pre class="salida_consola">git push origin main</pre>
 <div class="admonition tip">
-<p class="admonition-title">En esta fase <strong>NO</strong> se puede empezar a construir.</p>
+<p class="admonition-title">Importante</p>
+<p>El resto del equipo debe ahora ejecutar <code>git pull origin main</code> en sus ramas <code>main</code> locales para recibir los cambios que acabas de subir.</p>
 </div>
+<h3 id="paso-12-actualizar-tu-rama-y-añadir-nuevo-contenido">Paso 12: Actualizar tu Rama y Añadir Nuevo Contenido </h3>
+<p>Antes de seguir trabajando en tu rama, es buena idea sincronizarla con los cambios que se han añadido a <code>main</code>.</p>
 <ol>
-<li><strong>Lluvia de Ideas Individual:</strong> Cada miembro del equipo, durante 5 minutos, dibuja un boceto de su propia idea para la torre.</li>
-<li><strong>Puesta en Común:</strong> El <strong>Arquitecto</strong> lidera la sesión.Cada persona presenta su propuesta al resto del equipo[cite: 58].</li>
-<li><strong>Análisis y Selección:</strong> El <strong>Analista</strong> evalúa las ventajas y desventajas de cada diseño (estabilidad, altura, uso de material). El <strong>Hacedor</strong> opina sobre la viabilidad de la construcción. El <strong>Diplomático</strong> se asegura de que la decisión final sea consensuada.</li>
-<li><strong>Diseño Definitivo:</strong> Cread un diseño final que combine las mejores ideas del equipo.</li>
+<li>
+<p><strong>Vuelve a tu rama personal:</strong></p>
+ <pre class="salida_consola"> git checkout [tu-nombre]</pre>
+</li>
+<li>
+<p><strong>Fusiona los cambios de <code>main</code> en tu rama:</strong></p>
+ <pre class="salida_consola"> git merge main</pre>
+</li>
+<li>
+<p><strong>Añade nuevo contenido a tu fichero:</strong></p>
+ <pre class="salida_consola"> notepad [tu-nombre].md</pre>
+<p>Añade una nueva sección y guarda los cambios.</p>
+</li>
+<li>
+<p><strong>Haz <code>add</code> y <code>commit</code> de los nuevos cambios:</strong></p>
+ <pre class="salida_consola"> git add [tu-nombre].md
+ git commit -m "Actualiza fichero con nueva información"</pre>
+</li>
 </ol>
-<h3 id="fase-3-planificar-la-construcción-10-min">Fase 3: Planificar la Construcción (10 min) </h3>
-<p>Ahora que tenéis un diseño, es hora de planificar cómo lo vais a construir.</p>
+<h3 id="paso-13-colaborar-con-un-pull-request">Paso 13: Colaborar con un Pull Request </h3>
+<p>En lugar de subir los cambios directamente a <code>main</code>, ahora usaremos un <strong>Pull Request (PR)</strong>. Este es un mecanismo para proponer cambios y pedir que alguien los revise antes de integrarlos.</p>
 <ol>
-<li><strong>Definir Pasos:</strong> Liderados por el <strong>Arquitecto</strong> y el <strong>Hacedor</strong>, definid los pasos a seguir. Por ejemplo: "1º Construir la base triangular, 2º Levantar los pilares, 3º Colocar el malvavisco...".</li>
-<li><strong>Asignar Tareas:</strong> ¿Quién se encarga de cortar la cinta? ¿Quién sujeta la estructura mientras otro la asegura? Planificad estas pequeñas acciones para ser más eficientes. El <strong>Analista</strong> recuerda al equipo el límite de tiempo.</li>
-</ol>
-<h3 id="fase-4-a-construir-18-min-">Fase 4: ¡A Construir! (18 min) ⏰ </h3>
-<p>¡Es el momento de la verdad!</p>
+<li>
+<p><strong>Sube los últimos cambios de tu rama a GitHub:</strong></p>
+ <pre class="salida_consola"> git push origin [tu-nombre]</pre>
+</li>
+<li>
+<p><strong>Crea el Pull Request en GitHub:</strong></p>
 <ul>
-<li>El facilitador pondrá un cronómetro a la vista.</li>
-<li>El <strong>Hacedor</strong> lidera la construcción siguiendo el plan.</li>
-<li>El <strong>Arquitecto</strong> vigila que la estructura se ajuste al diseño global.</li>
-<li>El <strong>Analista</strong> comprueba constantemente la estabilidad y advierte de posibles puntos débiles.</li>
-<li>El <strong>Diplomático</strong> gestiona el estrés, anima al equipo y se asegura de que la comunicación fluya, especialmente si las cosas no salen como se planearon.</li>
-<li>Cuando el tiempo termine, todos deben levantar las manos.¡No se puede tocar la torre!.</li>
+<li>Ve a la página del repositorio en tu navegador.</li>
+<li>Verás un mensaje amarillo que dice <strong>"Your branch had recent pushes"</strong>. Haz clic en el botón verde <strong>"Compare &amp; pull request"</strong>.</li>
+<li>Se abrirá un formulario. Asegúrate de que la base sea <code>main</code> y la rama a comparar sea <code>[tu-nombre]</code>.</li>
+<li>Añade un título y una descripción para tu PR.</li>
+<li>En la barra lateral derecha, busca la sección <strong>"Reviewers"</strong> y selecciona a un compañero del equipo para que revise tus cambios.</li>
+<li>Haz clic en <strong>"Create pull request"</strong>.</li>
 </ul>
-<h3 id="fase-5-medición-y-reflexión-20-min">Fase 5: Medición y Reflexión (20 min) </h3>
-<ol>
-<li><strong>Medición:</strong> El facilitador medirá la altura de cada torre desde la mesa hasta la cima del malvavisco. El equipo cuya torre sea la más alta, ¡gana!.</li>
-<li><strong>Reflexión en Equipo:</strong> Dedicad los últimos minutos a reflexionar sobre vuestro trabajo. Usad estas preguntas como guía:
+</li>
+<li>
+<p><strong>Revisar y Aprobar el Pull Request (acción del revisor):</strong></p>
 <ul>
-<li>¿Qué esperábamos conseguir y qué hemos conseguido realmente?.</li>
-<li>¿Qué ha salido bien y qué ha salido mal?.</li>
-<li>¿Qué haríamos diferente la próxima vez?.</li>
-<li><strong>Sobre los roles:</strong> ¿Cómo ha funcionado vuestro rol asignado? ¿Os habéis sentido cómodos? ¿Cómo ha afectado la dinámica del equipo tener roles definidos?</li>
+<li>El compañero asignado recibirá una notificación.</li>
+<li>Debe ir a la pestaña <strong>"Pull Requests"</strong> del repositorio y abrir tu PR.</li>
+<li>En la pestaña <strong>"Files changed"</strong>, puede ver los cambios que has hecho.</li>
+<li>Si todo está correcto, debe hacer clic en <strong>"Review changes"</strong>, seleccionar <strong>"Approve"</strong> y enviar la revisión.</li>
+<li>Finalmente, el revisor debe hacer clic en el botón verde <strong>"Merge pull request"</strong> y confirmar la fusión. Esto integrará tus cambios en la rama <code>main</code> directamente en GitHub.</li>
 </ul>
 </li>
 </ol>
-<p>El verdadero objetivo de este reto no es solo construir una torre, sino aprender a construir un equipo mejor. ¡Mucha suerte y a disfrutar!</p>
+<hr>
+<h2 id="parte-4-gestión-de-conflictos">Parte 4: Gestión de Conflictos </h2>
+<h3 id="paso-14-simular-y-resolver-un-conflicto">Paso 14: Simular y Resolver un Conflicto </h3>
+<p>¿Qué pasa si dos personas modifican la misma línea del mismo fichero al mismo tiempo? Git no sabrá qué cambio conservar y se producirá un <strong>conflicto</strong>. Vamos a simularlo.</p>
+<p><strong>Preparación:</strong></p>
+<ul>
+<li><strong>Dos miembros del equipo</strong> (Persona A y Persona B) se ponen de acuerdo.</li>
+<li>Ambos deben tener su rama <code>main</code> local actualizada: <code>git checkout main</code> y luego <code>git pull origin main</code>.</li>
+<li>Van a modificar el fichero <code>README.md</code>.</li>
+</ul>
+<p><strong>Acciones Simultáneas:</strong></p>
+<ol>
+<li>
+<p><strong>Persona A:</strong></p>
+<ul>
+<li>
+<p>Abre <code>README.md</code> (<code>notepad README.md</code>).</p>
+</li>
+<li>
+<p>Modifica la primera línea añadiendo: <code>Proyecto del Equipo Alfa</code>.</p>
+</li>
+<li>
+<p>Guarda el fichero.</p>
+</li>
+<li>
+<p>Ejecuta los siguientes comandos:</p>
+<pre class="salida_consola">git add README.md
+git commit -m "Modificación de Persona A"
+git push origin main</pre>
+</li>
+<li>
+<p>El <code>push</code> de la Persona A tendrá éxito. ¡Ha sido más rápida!</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Persona B:</strong></p>
+<ul>
+<li>
+<p>Al mismo tiempo, abre <code>README.md</code>.</p>
+</li>
+<li>
+<p>Modifica la <strong>misma primera línea</strong> añadiendo: <code>Pruebas de colaboración - Equipo Alfa</code>.</p>
+</li>
+<li>
+<p>Guarda el fichero.</p>
+</li>
+<li>
+<p>Ejecuta los siguientes comandos:</p>
+<pre class="salida_consola">git add README.md
+git commit -m "Modificación de Persona B"
+git push origin main</pre>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>El Conflicto:</strong><br>
+El <code>push</code> de la Persona B <strong>fallará</strong>. Git mostrará un error indicando que el repositorio remoto tiene cambios que no tienes en tu local. Git te sugerirá que hagas un <code>git pull</code> primero.</p>
+<p><strong>Resolución (Persona B):</strong></p>
+<ol>
+<li>
+<p><strong>Intenta sincronizar con <code>git pull</code>:</strong></p>
+ <pre class="salida_consola"> git pull origin main</pre>
+</li>
+<li>
+<p>Git intentará fusionar los cambios remotos con los tuyos, pero fallará y mostrará un mensaje de <code>MERGE_CONFLICT</code>. Te dirá en qué fichero está el conflicto (<code>README.md</code>).</p>
+</li>
+<li>
+<p><strong>Abre el fichero conflictivo:</strong></p>
+ <pre class="salida_consola"> notepad README.md</pre>
+<p>Verás algo como esto:</p>
+ <div class="box_bg_lightgray">
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Proyecto del Equipo Alfa
+=======
+Pruebas de colaboración - Equipo Alfa
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; [hash-del-commit-remoto]
+</code></pre> </div> <!-- fin ejemplo -->
+<p><strong>Explicación de los marcadores:</strong></p>
+<ul>
+<li><strong><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code></strong>: Indica el inicio de tus cambios locales.</li>
+<li><strong><code>=======</code></strong>: Separa tus cambios de los cambios que vienen del repositorio remoto.</li>
+<li><strong><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; ...</code></strong>: Marca el final de los cambios remotos.</li>
+</ul>
+</li>
+<li>
+<p><strong>Resuelve el conflicto:</strong> Debes editar el fichero manualmente para decidir cómo debe quedar la versión final. Elimina los marcadores de Git (<strong><code>&lt;&lt;&lt;</code></strong>, <strong><code>===</code></strong>, <strong><code>&gt;&gt;&gt;</code></strong>) y deja el contenido deseado. Por ejemplo, podéis decidir combinar ambas ideas:</p>
+ <div class="box_bg_lightgray">
+<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code># Pruebas de colaboración - Proyecto del Equipo Alfa
+</code></pre> </div>
+</li>
+<li>
+<p><strong>Guarda el fichero</strong> una vez resuelto.</p>
+</li>
+<li>
+<p><strong>Informa a Git de que el conflicto está resuelto:</strong></p>
+ <pre class="salida_consola"> git add README.md</pre>
+</li>
+<li>
+<p><strong>Completa la fusión con un commit:</strong></p>
+ <pre class="salida_consola"> git commit</pre>
+<p>Se abrirá un editor de texto con un mensaje de commit predefinido. Simplemente guarda y cierra el editor para confirmar.</p>
+</li>
+<li>
+<p><strong>Ahora sí, haz el <code>push</code> final:</strong></p>
+ <pre class="salida_consola"> git push origin main</pre>
+<p>¡Éxito! El conflicto ha sido resuelto y los cambios están en GitHub.</p>
+</li>
+</ol>
+<hr>
+<h2 id="push-directo-vs-pull-request">Push Directo vs. Pull Request </h2>
+<p>Aunque en este ejercicio hemos hecho ambas cosas, en entornos profesionales casi siempre se prefiere el Pull Request para la rama principal.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Característica</th>
+<th style="text-align:left">Push Directo a <code>main</code></th>
+<th style="text-align:left">Pull Request (PR)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Velocidad</strong></td>
+<td style="text-align:left"><strong>Ventaja:</strong> Muy rápido y directo. Ideal para proyectos personales o correcciones triviales.</td>
+<td style="text-align:left"><strong>Inconveniente:</strong> Proceso más lento, requiere más pasos y la intervención de otra persona.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Calidad y Revisión</strong></td>
+<td style="text-align:left"><strong>Inconveniente:</strong> No hay revisión de código. Es fácil introducir errores (<code>bugs</code>) en la rama principal.</td>
+<td style="text-align:left"><strong>Ventaja:</strong> Permite la <strong>revisión por pares</strong>. Otros pueden revisar el código, sugerir mejoras y detectar errores antes de que lleguen a <code>main</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Colaboración</strong></td>
+<td style="text-align:left"><strong>Inconveniente:</strong> Es un proceso aislado. No fomenta la discusión sobre los cambios.</td>
+<td style="text-align:left"><strong>Ventaja:</strong> Es el centro de la colaboración. Permite discutir los cambios, hacer preguntas y mantener un registro de las decisiones tomadas.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Integración Continua</strong></td>
+<td style="text-align:left"><strong>Inconveniente:</strong> Puede romper el <code>build</code> o las pruebas automáticas si se sube código defectuoso.</td>
+<td style="text-align:left"><strong>Ventaja:</strong> Se pueden ejecutar pruebas automáticas sobre el PR. Si las pruebas fallan, se bloquea la fusión, protegiendo la rama <code>main</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Historial del Proyecto</strong></td>
+<td style="text-align:left"><strong>Ventaja:</strong> Genera un historial más lineal y simple.</td>
+<td style="text-align:left"><strong>Inconveniente:</strong> Puede generar un historial más "ruidoso" con commits de fusión, aunque existen estrategias para evitarlo (squash, rebase).</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="glosario-de-comandos-utilizados">Glosario de Comandos Utilizados </h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Comando</th>
+<th style="text-align:left">Descripción en esta actividad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>git config --global user.name</code></td>
+<td style="text-align:left">Configura tu nombre de autor para todos tus repositorios.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git config --global user.email</code></td>
+<td style="text-align:left">Configura tu email de autor para todos tus repositorios.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git clone [url]</code></td>
+<td style="text-align:left">Crea una copia local de un repositorio remoto de GitHub.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git branch [nombre-rama]</code></td>
+<td style="text-align:left">Crea una nueva rama.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git checkout [nombre-rama]</code></td>
+<td style="text-align:left">Se mueve a la rama especificada para empezar a trabajar en ella.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git add [fichero]</code></td>
+<td style="text-align:left">Añade un fichero modificado al "área de preparación" (staging) para incluirlo en el próximo commit.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git commit -m "mensaje"</code></td>
+<td style="text-align:left">Guarda una instantánea de los cambios preparados en el historial local de la rama.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git push origin [nombre-rama]</code></td>
+<td style="text-align:left">Sube los commits de tu rama local a la rama correspondiente en GitHub (remoto <code>origin</code>).</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git pull origin [nombre-rama]</code></td>
+<td style="text-align:left">Descarga los cambios de una rama remota y los fusiona en tu rama local actual.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>git merge [nombre-rama]</code></td>
+<td style="text-align:left">Fusiona el historial de la rama especificada en la rama actual.</td>
+</tr>
+</tbody>
+</table>
 
       </div>
       

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diario de Actividad - Aplicacion C# con GitHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .question-group h3 { border-bottom: 2px solid #e5e7eb; padding-bottom: 8px; margin-top: 24px; margin-bottom: 16px; }
+        .question-group h4 { margin-top: 20px; margin-bottom: 12px; color: #4b5563; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="container mx-auto max-w-4xl p-4 sm:p-6 md:p-8">
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-900">Diario de Reflexion del Equipo</h1>
+            <p class="text-lg text-gray-600 mt-2">Aplicacion C# con GitHub</p>
+        </header>
+
+        <form id="activity-form" class="bg-white p-6 sm:p-8 rounded-xl shadow-lg space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <label for="team" class="block text-sm font-medium text-gray-700">Equipo:</label>
+                    <input type="text" id="team" name="team" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="repository" class="block text-sm font-medium text-gray-700">Repositorio:</label>
+                    <input type="text" id="repository" name="repository" value="hada-task-tracker" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                </div>
+                <div>
+                    <label for="date" class="block text-sm font-medium text-gray-700">Fecha:</label>
+                    <input type="date" id="date" name="date" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm">
+                </div>
+            </div>
+
+            <div class="question-group">
+                <h3 class="text-xl font-semibold text-gray-900">1. Resultados Obtenidos y Comparacion</h3>
+                <div>
+                    <label for="q1" class="block text-md font-medium text-gray-700">Que esperabamos conseguir y que hemos conseguido realmente?</label>
+                    <textarea id="q1" name="q1" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Comparad las expectativas iniciales con el resultado final."></textarea>
+                </div>
+                <div>
+                    <label for="q2" class="block text-md font-medium text-gray-700 mt-4">Que funcionalidades quedaron implementadas en main?</label>
+                    <textarea id="q2" name="q2" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Anadir, listar, completar y guardar/cargar tareas. Indicad otras mejoras."></textarea>
+                </div>
+                <div>
+                    <label for="q3" class="block text-md font-medium text-gray-700 mt-4">La aplicacion compila y funciona correctamente?</label>
+                    <textarea id="q3" name="q3" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Incluid el resultado de dotnet build, las pruebas de consola y los problemas pendientes."></textarea>
+                </div>
+                <div>
+                    <label for="q4" class="block text-md font-medium text-gray-700 mt-4">Que evidencias del trabajo colaborativo hemos generado?</label>
+                    <textarea id="q4" name="q4" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Ramas, commits, Pull Requests y documentos entregados."></textarea>
+                </div>
+            </div>
+
+            <div class="question-group">
+                <h3 class="text-xl font-semibold text-gray-900">2. Analisis del Proceso y la Dinamica del Equipo</h3>
+                <h4 class="text-lg font-semibold">a) Lo que Salio Bien: Fortalezas</h4>
+                <div>
+                    <label for="q5" class="block text-md font-medium text-gray-700">Que aspectos de la planificacion y del desarrollo funcionaron especialmente bien?</label>
+                    <textarea id="q5" name="q5" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Pensad en el reparto, las ramas, la comunicacion, la programacion y las revisiones."></textarea>
+                </div>
+                <div>
+                    <label for="q6" class="block text-md font-medium text-gray-700 mt-4">Que decision tecnica u organizativa resulto especialmente acertada?</label>
+                    <textarea id="q6" name="q6" rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Describid la decision y como ayudo al resultado."></textarea>
+                </div>
+                <div>
+                    <label for="q7" class="block text-md font-medium text-gray-700 mt-4">Que practica de GitHub nos ayudo mas?</label>
+                    <textarea id="q7" name="q7" rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Commits, Pull Requests, revisiones, orden de fusion o tablero."></textarea>
+                </div>
+
+                <h4 class="text-lg font-semibold">b) Lo que Salio Mal: Debilidades y Desafios</h4>
+                <div>
+                    <label for="q8" class="block text-md font-medium text-gray-700">Que dificultades tecnicas encontramos?</label>
+                    <textarea id="q8" name="q8" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Errores de compilacion, conflictos de fusion, JSON, Git o funcionalidades complejas."></textarea>
+                </div>
+                <div>
+                    <label for="q9" class="block text-md font-medium text-gray-700 mt-4">Hubo bloqueos o problemas de comunicacion?</label>
+                    <textarea id="q9" name="q9" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Indicad la situacion, su impacto y como se resolvio."></textarea>
+                </div>
+                <div>
+                    <label for="q10" class="block text-md font-medium text-gray-700 mt-4">Que parte de la aplicacion o del proceso quedo por debajo de lo esperado?</label>
+                    <textarea id="q10" name="q10" rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Deuda tecnica, codigo pendiente, pruebas o documentacion por mejorar."></textarea>
+                </div>
+
+                <h4 class="text-lg font-semibold">c) Comparacion de Tiempos</h4>
+                <div>
+                    <label for="q11" class="block text-md font-medium text-gray-700">Como fueron los tiempos estimados frente a los tiempos reales?</label>
+                    <textarea id="q11" name="q11" rows="4" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Indicad responsable, estimacion, tiempo real y desviacion para T1, T2, T3, T4 e integracion."></textarea>
+                </div>
+                <div>
+                    <label for="q12" class="block text-md font-medium text-gray-700 mt-4">Que tarea tuvo mayor desviacion y como mejoraremos futuras estimaciones?</label>
+                    <textarea id="q12" name="q12" rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                </div>
+
+                <h4 class="text-lg font-semibold">d) Nuestro Contrato de Equipo</h4>
+                <div>
+                    <label for="q13" class="block text-md font-medium text-gray-700">Se cumplio el Contrato de Equipo?</label>
+                    <input type="text" id="q13" name="q13" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Si / No / Parcialmente">
+                </div>
+                <div>
+                    <label for="q14" class="block text-md font-medium text-gray-700 mt-4">Que compromisos funcionaron bien y cuales fueron dificiles de mantener?</label>
+                    <textarea id="q14" name="q14" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Incluid medidas concretas para mejorar."></textarea>
+                </div>
+
+                <h4 class="text-lg font-semibold">e) Reflexion sobre los Roles H.A.D.A.</h4>
+                <div>
+                    <label for="q15" class="block text-md font-medium text-gray-700">Como ha funcionado cada rol durante la actividad?</label>
+                    <textarea id="q15" name="q15" rows="4" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Reflexionad sobre Hacedor, Analista, Diplomatico, Arquitecto y Coordinador si aplica."></textarea>
+                </div>
+                <div>
+                    <label for="q16" class="block text-md font-medium text-gray-700 mt-4">Os habeis sentido comodos con vuestro rol y como afecto al trabajo?</label>
+                    <textarea id="q16" name="q16" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Explicad si los roles facilitaron la organizacion o generaron dificultades."></textarea>
+                </div>
+            </div>
+
+            <div class="question-group">
+                <h3 class="text-xl font-semibold text-gray-900">3. Aprendizajes y Conclusiones</h3>
+                <div>
+                    <label for="q17" class="block text-md font-medium text-gray-700">Que tres aprendizajes clave extraemos sobre el trabajo en equipo y el desarrollo con GitHub?</label>
+                    <textarea id="q17" name="q17" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Escribid tres aprendizajes concretos."></textarea>
+                </div>
+                <div>
+                    <label for="q18" class="block text-md font-medium text-gray-700 mt-4">Que hemos aprendido sobre ramas, commits, Pull Requests y fusion?</label>
+                    <textarea id="q18" name="q18" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Incluid una practica que mantendreis y otra que mejorareis."></textarea>
+                </div>
+                <div>
+                    <label for="q19" class="block text-md font-medium text-gray-700 mt-4">Que hemos aprendido sobre la calidad de una aplicacion C#?</label>
+                    <textarea id="q19" name="q19" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Compilacion, pruebas, estructura, persistencia y errores."></textarea>
+                </div>
+                <div>
+                    <label for="q20" class="block text-md font-medium text-gray-700 mt-4">Que hariamos diferente la proxima vez?</label>
+                    <textarea id="q20" name="q20" rows="3" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Indicad acciones concretas para mejorar el siguiente sprint."></textarea>
+                </div>
+            </div>
+
+            <div class="question-group">
+                <h3 class="text-xl font-semibold text-gray-900">4. Propuestas de Mejora Continua y Cierre HADA</h3>
+                <div>
+                    <label for="q21" class="block text-md font-medium text-gray-700">Que mejora tecnica priorizariamos para el siguiente sprint?</label>
+                    <textarea id="q21" name="q21" rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Validacion, mensajes de error, pruebas automatizadas o nuevas funciones."></textarea>
+                </div>
+                <div>
+                    <label for="q22" class="block text-md font-medium text-gray-700 mt-4">Que mejora del proceso de equipo aplicariamos?</label>
+                    <textarea id="q22" name="q22" rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Seguimiento, criterios de aceptacion, revisiones o estimaciones."></textarea>
+                </div>
+                <div>
+                    <label for="q23" class="block text-md font-medium text-gray-700 mt-4">Que consejo dariamos a otro equipo que va a realizar esta actividad?</label>
+                    <textarea id="q23" name="q23" rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                </div>
+                <div>
+                    <label for="q24" class="block text-md font-medium text-gray-700 mt-4">Resumen final de viabilidad, tiempos, colaboracion y entregables</label>
+                    <textarea id="q24" name="q24" rows="4" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Podeis organizar la respuesta por Analista, Arquitecto, Diplomatico y Hacedor."></textarea>
+                </div>
+                <div>
+                    <label for="q25" class="block text-md font-medium text-gray-700 mt-4">Compromiso de mejora para el siguiente sprint</label>
+                    <textarea id="q25" name="q25" rows="2" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"></textarea>
+                </div>
+            </div>
+
+            <div class="pt-6 text-right">
+                <button type="submit" class="inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors">
+                    Generar PDF e Imprimir
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('activity-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({ orientation: 'p', unit: 'mm', format: 'a4' });
+            const data = Object.fromEntries(new FormData(event.target).entries());
+            const margin = 15;
+            let y = 20;
+            const pageHeight = doc.internal.pageSize.height;
+            const pageWidth = doc.internal.pageSize.width;
+            const contentWidth = pageWidth - margin * 2;
+
+            function addText(text, options = {}, isQuestion = false) {
+                if (y > pageHeight - margin) { doc.addPage(); y = margin; }
+                const finalOptions = { maxWidth: contentWidth, align: 'justify', ...options };
+                doc.setFont('helvetica', isQuestion ? 'bold' : 'normal');
+                doc.setTextColor(...(isQuestion ? [0, 0, 0] : [75, 85, 99]));
+                const splitText = doc.splitTextToSize(text || 'Sin respuesta.', finalOptions.maxWidth);
+                doc.text(splitText, margin, y, finalOptions);
+                y += doc.getTextDimensions(splitText).h + (isQuestion ? 2 : 6);
+            }
+
+            doc.setFontSize(22);
+            doc.setFont('helvetica', 'bold');
+            doc.text('Diario de Reflexion: Aplicacion C# con GitHub', pageWidth / 2, y, { align: 'center' });
+            y += 15;
+            doc.setFontSize(12);
+            doc.setFont('helvetica', 'normal');
+            doc.text(`Equipo: ${data.team || 'No especificado'}`, margin, y);
+            doc.text(`Repositorio: ${data.repository || 'No especificado'}`, pageWidth / 2, y, { align: 'center' });
+            doc.text(`Fecha: ${data.date || 'No especificada'}`, pageWidth - margin, y, { align: 'right' });
+            y += 15;
+
+            const sections = [
+                { title: '1. Resultados Obtenidos y Comparacion', header: true, items: [
+                    ['Que esperabamos conseguir y que hemos conseguido realmente?', data.q1],
+                    ['Que funcionalidades quedaron implementadas en main?', data.q2],
+                    ['La aplicacion compila y funciona correctamente?', data.q3],
+                    ['Que evidencias del trabajo colaborativo hemos generado?', data.q4]
+                ]},
+                { title: '2. Analisis del Proceso y la Dinamica del Equipo', header: true, items: [
+                    ['a) Lo que Salio Bien: Fortalezas', data.q5, true],
+                    ['Que aspectos de la planificacion y del desarrollo funcionaron especialmente bien?', data.q5],
+                    ['Que decision tecnica u organizativa resulto especialmente acertada?', data.q6],
+                    ['Que practica de GitHub nos ayudo mas?', data.q7],
+                    ['b) Lo que Salio Mal: Debilidades y Desafios', data.q8, true],
+                    ['Que dificultades tecnicas encontramos?', data.q8],
+                    ['Hubo bloqueos o problemas de comunicacion?', data.q9],
+                    ['Que parte de la aplicacion o del proceso quedo por debajo de lo esperado?', data.q10],
+                    ['c) Comparacion de Tiempos', data.q11, true],
+                    ['Como fueron los tiempos estimados frente a los tiempos reales?', data.q11],
+                    ['Que tarea tuvo mayor desviacion y como mejoraremos futuras estimaciones?', data.q12],
+                    ['d) Nuestro Contrato de Equipo', data.q13, true],
+                    ['Se cumplio el Contrato de Equipo?', data.q13],
+                    ['Que compromisos funcionaron bien y cuales fueron dificiles de mantener?', data.q14],
+                    ['e) Reflexion sobre los Roles H.A.D.A.', data.q15, true],
+                    ['Como ha funcionado cada rol durante la actividad?', data.q15],
+                    ['Os habeis sentido comodos con vuestro rol y como afecto al trabajo?', data.q16]
+                ]},
+                { title: '3. Aprendizajes y Conclusiones', header: true, items: [
+                    ['Que tres aprendizajes clave extraemos sobre el trabajo en equipo y el desarrollo con GitHub?', data.q17],
+                    ['Que hemos aprendido sobre ramas, commits, Pull Requests y fusion?', data.q18],
+                    ['Que hemos aprendido sobre la calidad de una aplicacion C#?', data.q19],
+                    ['Que hariamos diferente la proxima vez?', data.q20]
+                ]},
+                { title: '4. Propuestas de Mejora Continua y Cierre HADA', header: true, items: [
+                    ['Que mejora tecnica priorizariamos para el siguiente sprint?', data.q21],
+                    ['Que mejora del proceso de equipo aplicariamos?', data.q22],
+                    ['Que consejo dariamos a otro equipo que va a realizar esta actividad?', data.q23],
+                    ['Resumen final de viabilidad, tiempos, colaboracion y entregables', data.q24],
+                    ['Compromiso de mejora para el siguiente sprint', data.q25]
+                ]}
+            ];
+
+            doc.setFontSize(12);
+            sections.forEach(section => {
+                if (y > pageHeight - 30) { doc.addPage(); y = margin; }
+                y += 8;
+                doc.setFontSize(16);
+                doc.setFont('helvetica', 'bold');
+                doc.setTextColor(0, 0, 0);
+                doc.text(section.title, margin, y);
+                y += 8;
+                doc.setFontSize(12);
+                section.items.forEach(item => {
+                    if (item[2]) {
+                        y += 5;
+                        doc.setFontSize(14);
+                        doc.setTextColor(75, 85, 99);
+                        doc.text(item[0], margin, y);
+                        y += 8;
+                        doc.setFontSize(12);
+                    } else {
+                        addText(item[0], {}, true);
+                        addText(item[1], {}, false);
+                    }
+                });
+            });
+            doc.save('diario_actividad_csharp_respuestas.pdf');
+        });
+    </script>
+</body>
+</html>
