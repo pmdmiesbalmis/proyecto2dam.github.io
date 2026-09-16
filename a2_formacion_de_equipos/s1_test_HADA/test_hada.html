@@ -99,12 +99,13 @@
 
     <script>
         // --- DATOS DEL TEST ---
+        // NOTA: El orden original de las afirmaciones es: [Hacedor, Armonizador, Divergente, Analista]
         const questions = [
             { block: 1, statements: [
-                "Prefiero asumir tareas y asegurarme de que todo esté organizado.",
-                "Me esfuerzo por que todos se sientan bien y participen.",
-                "Suelo proponer ideas nuevas o distintas a lo habitual.",
-                "Me gusta revisar el trabajo con detalle y asegurarme de que sea correcto."
+                "Prefiero asumir tareas y asegurarme de que todo esté organizado.", // Hacedor (0)
+                "Me esfuerzo por que todos se sientan bien y participen.",          // Armonizador (1)
+                "Suelo proponer ideas nuevas o distintas a lo habitual.",           // Divergente (2)
+                "Me gusta revisar el trabajo con detalle y asegurarme de que sea correcto." // Analista (3)
             ]},
             { block: 2, statements: [
                 "Me resulta natural llevar el ritmo del grupo y que no se pierda tiempo.",
@@ -215,6 +216,15 @@
 
         // --- LÓGICA DE LA APLICACIÓN ---
 
+        // Función para barajar un array (Fisher-Yates)
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
         function generateTest() {
             questions.forEach((q, blockIndex) => {
                 const blockDiv = document.createElement('div');
@@ -230,20 +240,35 @@
                 errorMsg.className = 'text-red-500 text-sm mb-2 h-4 error-message';
                 blockDiv.appendChild(errorMsg);
 
-                q.statements.forEach((statement, statementIndex) => {
+                // --- ALEATORIZACIÓN ---
+                // Creamos un array de objetos con la afirmación y su índice original (perfil)
+                const shuffledStatements = q.statements.map((statement, originalIndex) => ({
+                    text: statement,
+                    profileIndex: originalIndex
+                }));
+                
+                // Barajamos el array
+                shuffleArray(shuffledStatements);
+
+                // Renderizamos las preguntas en el orden barajado
+                shuffledStatements.forEach((item, visualIndex) => {
                     const statementDiv = document.createElement('div');
                     statementDiv.className = 'flex items-center justify-between mb-4 flex-wrap sm:flex-nowrap';
 
                     const label = document.createElement('label');
-                    label.textContent = statement;
+                    label.textContent = item.text;
                     label.className = 'flex-grow pr-4 text-slate-700';
-                    label.htmlFor = `q-${blockIndex}-${statementIndex}`;
+                    label.htmlFor = `q-${blockIndex}-${visualIndex}`;
                     
                     const select = document.createElement('select');
-                    select.name = `q-${blockIndex}-${statementIndex}`;
-                    select.id = `q-${blockIndex}-${statementIndex}`;
+                    select.name = `q-${blockIndex}-${visualIndex}`;
+                    select.id = `q-${blockIndex}-${visualIndex}`;
                     select.className = 'w-full sm:w-24 mt-2 sm:mt-0 p-2 border border-slate-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none transition';
-                    select.dataset.statementIndex = statementIndex;
+                    
+                    // --- CLAVE: Guardamos el índice del perfil original en un data-attribute ---
+                    // Esto permite que la puntuación se asigne correctamente aunque la pregunta
+                    // se haya movido de posición visual.
+                    select.dataset.profileIndex = item.profileIndex;
 
                     const defaultOption = document.createElement('option');
                     defaultOption.value = "";
@@ -280,7 +305,6 @@
             const selects = blockElement.querySelectorAll('select');
             const values = new Set();
             let hasDuplicates = false;
-            let allSelected = true;
 
             selects.forEach(select => {
                 const value = select.value;
@@ -289,8 +313,6 @@
                         hasDuplicates = true;
                     }
                     values.add(value);
-                } else {
-                    allSelected = false;
                 }
             });
 
@@ -332,14 +354,16 @@
         }
 
         function calculateResults() {
-            const scores = [0, 0, 0, 0]; // Index corresponds to profile index
+            const scores = [0, 0, 0, 0]; // Index corresponde al perfil original (0: Hacedor, 1: Armonizador, 2: Divergente, 3: Analista)
             
             document.querySelectorAll('.question-block').forEach(block => {
                 block.querySelectorAll('select').forEach(select => {
                     const score = parseInt(select.value, 10);
-                    const statementIndex = parseInt(select.dataset.statementIndex, 10);
-                    if (!isNaN(score)) {
-                        scores[statementIndex] += score;
+                    // Leemos el índice del perfil original guardado en el data-attribute
+                    const profileIndex = parseInt(select.dataset.profileIndex, 10);
+                    
+                    if (!isNaN(score) && !isNaN(profileIndex)) {
+                        scores[profileIndex] += score;
                     }
                 });
             });
