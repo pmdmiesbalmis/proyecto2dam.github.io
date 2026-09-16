@@ -1,996 +1,1651 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Guía Didáctica: Proyecto Intermodular 2º DAM | IES Doctor Balmis</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Guía Didáctica: Proyecto Intermodular 2º DAM | IES Doctor Balmis</title>
 
-  <!-- Reveal.js Core CSS (CDN) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/reset.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/reveal.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/theme/white.css" />
+    <!-- Reveal.js Core CSS (CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/reset.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/reveal.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/theme/white.css" />
 
-  <!-- Code Syntax Highlighting Theme (CDN) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/plugin/highlight/monokai.css" />
+    <!-- Code Syntax Highlighting Theme (CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/plugin/highlight/monokai.css" />
 
-  <!-- Custom Stylesheet (Local & Offline) -->
-  <link rel="stylesheet" href="css/custom.css" />
+    <!-- Custom Stylesheet (Local & Offline) -->
+    <style>
+        :root {
+            --font-main: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-mono: 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+
+            /* Paleta Light */
+            --color-bg-light: #f8fafc;
+            --color-bg-card: #ffffff;
+            --color-bg-card-hover: #f1f5f9;
+            --color-border: #e2e8f0;
+            --color-border-bright: #38bdf8;
+
+            --color-text-main: #0f172a;
+            --color-text-muted: #334155;
+            --color-text-dim: #64748b;
+
+            --color-cyan: #0284c7;
+            --color-cyan-glow: rgba(2, 132, 199, 0.15);
+            --color-emerald: #059669;
+            --color-emerald-glow: rgba(5, 150, 105, 0.15);
+            --color-amber: #d97706;
+            --color-amber-glow: rgba(217, 119, 6, 0.15);
+            --color-purple: #7c3aed;
+            --color-purple-glow: rgba(124, 58, 237, 0.15);
+            --color-rose: #e11d48;
+            --color-rose-glow: rgba(225, 29, 72, 0.15);
+            --color-blue: #2563eb;
+
+            --grad-cyan: linear-gradient(135deg, #0284c7 0%, #1d4ed8 100%);
+            --grad-emerald: linear-gradient(135deg, #059669 0%, #0f766e 100%);
+            --grad-purple: linear-gradient(135deg, #7c3aed 0%, #581c87 100%);
+            --grad-amber: linear-gradient(135deg, #d97706 0%, #9a3412 100%);
+            --grad-rose: linear-gradient(135deg, #e11d48 0%, #9f1239 100%);
+            --grad-card: #ffffff;
+        }
+
+        /* Background canvas light */
+        .reveal-viewport {
+            background: radial-gradient(circle at 10% 10%, #ffffff 0%, #f8fafc 55%, #edf2f7 100%) !important;
+            font-family: var(--font-main) !important;
+            color: var(--color-text-main) !important;
+        }
+
+        .reveal {
+            font-family: var(--font-main) !important;
+            font-size: 26px !important;
+            color: var(--color-text-main) !important;
+        }
+
+        /* Global typography light */
+        .reveal h1,
+        .reveal h2,
+        .reveal h3,
+        .reveal h4,
+        .reveal h5 {
+            font-family: var(--font-main) !important;
+            text-transform: none !important;
+            letter-spacing: -0.02em !important;
+            font-weight: 700 !important;
+            color: #0f172a !important;
+            margin-bottom: 0.4em !important;
+        }
+
+        .reveal h1 {
+            font-size: 2.3em !important;
+            line-height: 1.15 !important;
+        }
+
+        .reveal h2 {
+            font-size: 1.7em !important;
+            line-height: 1.2 !important;
+        }
+
+        .reveal h3 {
+            font-size: 1.25em !important;
+            line-height: 1.25 !important;
+        }
+
+        .reveal h4 {
+            font-size: 1.05em !important;
+        }
+
+        .reveal p {
+            line-height: 1.5 !important;
+            color: var(--color-text-muted);
+        }
+
+        .reveal strong {
+            color: #0f172a;
+            font-weight: 600;
+        }
+
+        /* Slide Header & Titles */
+        .slide-header {
+            margin-bottom: 22px !important;
+            text-align: left;
+        }
+
+        .slide-header .tag-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.55em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 12px;
+            border-radius: 9999px;
+            background: #e0f2fe;
+            color: var(--color-cyan);
+            border: 1px solid #bae6fd;
+            margin-bottom: 8px;
+        }
+
+        .slide-header h2 {
+            margin: 0 !important;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .slide-header p.subtitle {
+            font-size: 0.68em;
+            margin: 4px 0 0 0 !important;
+            color: var(--color-text-dim);
+        }
+
+        /* Gradients text */
+        .text-grad-cyan {
+            background: var(--grad-cyan);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-grad-emerald {
+            background: var(--grad-emerald);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-grad-purple {
+            background: var(--grad-purple);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-grad-amber {
+            background: var(--grad-amber);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            align-items: stretch;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            align-items: stretch;
+        }
+
+        .grid-1-2 {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .grid-2-1 {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        /* Card Components - Light Style */
+        .card {
+            background: #ffffff;
+            border: 1px solid var(--color-border);
+            border-radius: 14px;
+            padding: 18px 22px;
+            text-align: left;
+            box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: #cbd5e1;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -3px rgba(15, 23, 42, 0.1), 0 4px 8px -2px rgba(15, 23, 42, 0.06);
+        }
+
+        .card.glow-cyan {
+            border-top: 4px solid var(--color-cyan);
+        }
+
+        .card.glow-emerald {
+            border-top: 4px solid var(--color-emerald);
+        }
+
+        .card.glow-amber {
+            border-top: 4px solid var(--color-amber);
+        }
+
+        .card.glow-purple {
+            border-top: 4px solid var(--color-purple);
+        }
+
+        .card.glow-rose {
+            border-top: 4px solid var(--color-rose);
+        }
+
+        .card.glow-blue {
+            border-top: 4px solid var(--color-blue);
+        }
+
+        .card-title {
+            font-size: 0.88em;
+            font-weight: 700;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .card-body {
+            font-size: 0.72em;
+            line-height: 1.48;
+            color: var(--color-text-muted);
+        }
+
+        .card-body ul {
+            margin: 6px 0 0 0 !important;
+            padding-left: 1.2em !important;
+        }
+
+        .card-body li {
+            margin-bottom: 4px;
+            color: #334155;
+        }
+
+        /* Badges - Light Vibrant Pastel */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.65em;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 6px;
+            line-height: 1.3;
+        }
+
+        .badge-cyan {
+            background: #e0f2fe;
+            color: #0284c7;
+            border: 1px solid #bae6fd;
+        }
+
+        .badge-emerald {
+            background: #dcfce7;
+            color: #059669;
+            border: 1px solid #bbf7d0;
+        }
+
+        .badge-amber {
+            background: #fef3c7;
+            color: #b45309;
+            border: 1px solid #fde68a;
+        }
+
+        .badge-purple {
+            background: #f3e8ff;
+            color: #7c3aed;
+            border: 1px solid #e9d5ff;
+        }
+
+        .badge-rose {
+            background: #ffe4e6;
+            color: #e11d48;
+            border: 1px solid #fecdd3;
+        }
+
+        .badge-gray {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* Custom Tables - Light Style */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 12px 0;
+            border-radius: 10px;
+            border: 1px solid var(--color-border);
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+        }
+
+        .reveal table.custom-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.65em;
+            margin: 0;
+            color: var(--color-text-main);
+        }
+
+        .reveal table.custom-table th {
+            background: #f8fafc;
+            color: #0369a1;
+            font-weight: 700;
+            padding: 10px 14px;
+            border-bottom: 2px solid #cbd5e1;
+            text-align: left;
+            letter-spacing: 0.02em;
+        }
+
+        .reveal table.custom-table td {
+            padding: 8px 14px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: middle;
+            color: #334155;
+        }
+
+        .reveal table.custom-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .reveal table.custom-table tr:hover td {
+            background: #f8fafc;
+        }
+
+        /* Alert Boxes - Light Style */
+        .alert-box {
+            display: flex;
+            gap: 14px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 0.72em;
+            text-align: left;
+            margin: 14px 0;
+            align-items: flex-start;
+        }
+
+        .alert-box.info {
+            background: #f0f9ff;
+            border-left: 4px solid var(--color-cyan);
+            color: #0369a1;
+            border: 1px solid #bae6fd;
+            border-left-width: 4px;
+        }
+
+        .alert-box.warning {
+            background: #fffbeb;
+            border-left: 4px solid var(--color-amber);
+            color: #92400e;
+            border: 1px solid #fde68a;
+            border-left-width: 4px;
+        }
+
+        .alert-box.danger {
+            background: #fff1f2;
+            border-left: 4px solid var(--color-rose);
+            color: #9f1239;
+            border: 1px solid #fecdd3;
+            border-left-width: 4px;
+        }
+
+        .alert-box.success {
+            background: #f0fdf4;
+            border-left: 4px solid var(--color-emerald);
+            color: #166534;
+            border: 1px solid #bbf7d0;
+            border-left-width: 4px;
+        }
+
+        .alert-icon {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            margin-top: 1px;
+        }
+
+        /* Formula Box - Light Style */
+        .formula-card {
+            background: #ffffff;
+            border: 1.5px solid #38bdf8;
+            box-shadow: 0 8px 20px -4px rgba(2, 132, 199, 0.12);
+            border-radius: 12px;
+            padding: 18px 24px;
+            text-align: center;
+            margin: 16px auto;
+        }
+
+        .formula-text {
+            font-family: var(--font-mono);
+            font-size: 0.9em;
+            font-weight: 700;
+            color: #0284c7;
+            letter-spacing: 0.02em;
+        }
+
+        .formula-sub {
+            font-size: 0.65em;
+            color: #64748b;
+            margin-top: 6px;
+        }
+
+        /* Metric Pill - Light Style */
+        .metric-pill {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 16px;
+            border-radius: 10px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+        }
+
+        .metric-pill .metric-val {
+            font-size: 1.4em;
+            font-weight: 800;
+            font-family: var(--font-mono);
+            line-height: 1;
+        }
+
+        .metric-pill .metric-lbl {
+            font-size: 0.55em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-text-dim);
+            margin-top: 4px;
+        }
+
+        /* Hero Title Slide - Light */
+        .hero-slide {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-slide h1 {
+            font-size: 2.5em !important;
+            margin-bottom: 12px !important;
+            color: #0f172a !important;
+        }
+
+        .hero-slide .hero-tagline {
+            font-size: 0.95em;
+            color: #475569;
+            max-width: 800px;
+            margin: 0 auto 24px auto;
+            line-height: 1.4;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.6em;
+            color: #475569;
+            background: #ffffff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 2px 4px rgba(15, 23, 42, 0.04);
+        }
+
+        /* SVG Icons helpers */
+        .svg-icon {
+            display: inline-block;
+            vertical-align: middle;
+            width: 1.1em;
+            height: 1.1em;
+            fill: currentColor;
+        }
+
+        /* Reveal Overrides for Light Theme */
+        .reveal .progress {
+            color: var(--color-cyan) !important;
+            height: 4px !important;
+        }
+
+        .reveal .controls {
+            color: var(--color-cyan) !important;
+        }
+
+        .reveal .slide-number {
+            font-family: var(--font-mono) !important;
+            font-size: 13px !important;
+            background-color: #ffffff !important;
+            color: var(--color-cyan) !important;
+            border-radius: 6px !important;
+            border: 1px solid var(--color-border) !important;
+            padding: 4px 8px !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        code {
+            font-family: var(--font-mono);
+            background: #f1f5f9;
+            color: #0f172a;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+            font-size: 0.85em;
+        }
+    </style>
 </head>
-<body>
-  <div class="reveal">
-    <div class="slides">
 
-      <!-- ==========================================
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- ==========================================
            SLIDE 1: PORTADA
       ========================================== -->
-      <section data-transition="zoom">
-        <div class="hero-slide">
-          <div class="tag-pill" style="display:inline-flex; align-items:center; gap:6px; font-size:0.55em; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:4px 14px; border-radius:9999px; background:#e0f2fe; color:#0284c7; border:1px solid #bae6fd; margin-bottom:14px;">
-            <span>📘 Guía Didáctica Oficial</span> &nbsp;|&nbsp; <span>2º DAM</span> &nbsp;|&nbsp; <span>Primer Día de Clase</span>
-          </div>
-          <h1 style="font-size: 2.3em !important; margin-bottom: 8px !important;">
-            Proyecto <span class="text-grad-cyan">Intermodular</span>
-          </h1>
-          <p class="hero-tagline">
-            Presentación de la Guía Didáctica: Objetivos, Metodología, Temporalización y Criterios de Evaluación
-          </p>
-          
-          <div class="hero-meta">
-            <div class="hero-meta-item">
-              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
-              <span><strong>Módulo:</strong> Proyecto Intermodular (2º DAM)</span>
-            </div>
-            <div class="hero-meta-item">
-              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
-              <span><strong>Departamento:</strong> Informática</span>
-            </div>
-            <div class="hero-meta-item">
-              <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-              <span><strong>Centro:</strong> IES Doctor Balmis</span>
-            </div>
-          </div>
-        </div>
-      </section>
+            <section data-transition="zoom">
+                <div class="hero-slide">
+                    <div class="tag-pill"
+                        style="display:inline-flex; align-items:center; gap:6px; font-size:0.55em; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:4px 14px; border-radius:9999px; background:#e0f2fe; color:#0284c7; border:1px solid #bae6fd; margin-bottom:14px;">
+                        <span>📘 Guía Didáctica Oficial</span> &nbsp;|&nbsp; <span>2º DAM</span> &nbsp;|&nbsp;
+                        <span>Primer Día de Clase</span>
+                    </div>
+                    <h1 style="font-size: 2.3em !important; margin-bottom: 8px !important;">
+                        Proyecto <span class="text-grad-cyan">Intermodular</span>
+                    </h1>
+                    <p class="hero-tagline">
+                        Presentación de la Guía Didáctica: Objetivos, Metodología, Temporalización y Criterios de
+                        Evaluación
+                    </p>
 
-      <!-- ==========================================
+                    <div class="hero-meta">
+                        <div class="hero-meta-item">
+                            <svg class="svg-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+                            </svg>
+                            <span><strong>Módulo:</strong> Proyecto Intermodular (2º DAM)</span>
+                        </div>
+                        <div class="hero-meta-item">
+                            <svg class="svg-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
+                            </svg>
+                            <span><strong>Departamento:</strong> Informática</span>
+                        </div>
+                        <div class="hero-meta-item">
+                            <svg class="svg-icon" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                            </svg>
+                            <span><strong>Centro:</strong> IES Doctor Balmis</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==========================================
            SLIDE 2: ÍNDICE GENERAL (SEGÚN GUÍA)
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">Estructura de la Guía</div>
-          <h2>Contenido de la Guía Didáctica</h2>
-          <p class="subtitle">Estructura oficial del módulo según el documento de programación</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">Estructura de la Guía</div>
+                    <h2>Contenido de la Guía Didáctica</h2>
+                    <p class="subtitle">Estructura oficial del módulo según el documento de programación</p>
+                </div>
 
-        <div class="grid-2">
-          <div class="card glow-cyan">
-            <div class="card-title">
-              <span class="badge badge-cyan">1</span>
-              <span>Contextualización</span>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>Equipos heterogéneos de <strong>4 o 5 miembros</strong>.</li>
-                <li>El rol del profesorado como <strong>"facilitador" y mentor</strong>.</li>
-                <li>Anclaje ético: <strong>Objetivos de Desarrollo Sostenible (ODS)</strong>.</li>
-              </ul>
-            </div>
-          </div>
+                <div class="grid-2">
+                    <div class="card glow-cyan">
+                        <div class="card-title">
+                            <span class="badge badge-cyan">1</span>
+                            <span>Contextualización</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Equipos heterogéneos de <strong>4 o 5 miembros</strong>.</li>
+                                <li>El rol del profesorado como <strong>"facilitador" y mentor</strong>.</li>
+                                <li>Anclaje ético: <strong>Objetivos de Desarrollo Sostenible (ODS)</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-          <div class="card glow-emerald">
-            <div class="card-title">
-              <span class="badge badge-emerald">2</span>
-              <span>Metodología Ágil (SCRUM)</span>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>Proyecto planteado por <strong>retos</strong>.</li>
-                <li><strong>16 Sprints quincenales</strong> (2 semanas de duración cada uno).</li>
-                <li>Roles: <strong>Product Owner</strong>, <strong>Development Team</strong> y <strong>Scrum Master rotativo</strong>.</li>
-              </ul>
-            </div>
-          </div>
+                    <div class="card glow-emerald">
+                        <div class="card-title">
+                            <span class="badge badge-emerald">2</span>
+                            <span>Metodología Ágil (SCRUM)</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Proyecto planteado por <strong>retos</strong>.</li>
+                                <li><strong>16 Sprints quincenales</strong> (2 semanas de duración cada uno).</li>
+                                <li>Roles: <strong>Product Owner</strong>, <strong>Development Team</strong> y
+                                    <strong>Scrum Master rotativo</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-          <div class="card glow-purple">
-            <div class="card-title">
-              <span class="badge badge-purple">3</span>
-              <span>Herramientas y Entorno Colaborativo</span>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li><strong>GitHub:</strong> Flujo GitFlow simplificado y Pull Requests.</li>
-                <li><strong>GitHub Projects:</strong> Tablero Kanban para gestión de Backlogs.</li>
-                <li><strong>Markdown:</strong> Documentación del proyecto en el repositorio.</li>
-                <li><strong>Diario de Trabajo Individual:</strong> `NOMBRE_APELLIDO.md`.</li>
-              </ul>
-            </div>
-          </div>
+                    <div class="card glow-purple">
+                        <div class="card-title">
+                            <span class="badge badge-purple">3</span>
+                            <span>Herramientas y Entorno Colaborativo</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>GitHub:</strong> Flujo GitFlow simplificado y Pull Requests.</li>
+                                <li><strong>GitHub Projects:</strong> Tablero Kanban para gestión de Backlogs.</li>
+                                <li><strong>Markdown:</strong> Documentación del proyecto en el repositorio.</li>
+                                <li><strong>Diario de Trabajo Individual:</strong> `NOMBRE_APELLIDO.md`.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-          <div class="card glow-amber">
-            <div class="card-title">
-              <span class="badge badge-amber">4 & 5</span>
-              <span>Planificación y Evaluación</span>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li><strong>Temporalización detallada:</strong> 16 quincenas y entregables clave.</li>
-                <li><strong>Instrumentos y Rúbricas:</strong> Sprint Review grupal e individual.</li>
-                <li><strong>Criterios de calificación:</strong> 60% individual / 40% grupal y RAs.</li>
-                <li><strong>Fórmulas oficiales</strong>, recuperación y pérdida de continua.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+                    <div class="card glow-amber">
+                        <div class="card-title">
+                            <span class="badge badge-amber">4 & 5</span>
+                            <span>Planificación y Evaluación</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Temporalización detallada:</strong> 16 quincenas y entregables clave.</li>
+                                <li><strong>Instrumentos y Rúbricas:</strong> Sprint Review grupal e individual.</li>
+                                <li><strong>Criterios de calificación:</strong> 60% individual / 40% grupal y RAs.</li>
+                                <li><strong>Fórmulas oficiales</strong>, recuperación y pérdida de continua.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 3: 1. CONTEXTUALIZACIÓN
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">1. Contextualización</div>
-          <h2>Equipos, Rol Docente y Compromiso ODS</h2>
-          <p class="subtitle">Bases de trabajo y marco ético del Proyecto Intermodular</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">1. Contextualización</div>
+                    <h2>Equipos, Rol Docente y Compromiso ODS</h2>
+                    <p class="subtitle">Bases de trabajo y marco ético del Proyecto Intermodular</p>
+                </div>
 
-        <div class="grid-3">
-          <div class="card glow-cyan">
-            <div class="card-title">
-              👥 Trabajo en Equipo
-            </div>
-            <div class="card-body">
-              <p>Diseñado para un grupo heterogéneo de estudiantes de <strong>2º de DAM</strong>.</p>
-              <ul>
-                <li>Equipos de <strong>4 o 5 miembros</strong>.</li>
-                <li>Fomento activo de la <strong>colaboración</strong>, la <strong>comunicación</strong> y la <strong>responsabilidad compartida</strong>.</li>
-              </ul>
-            </div>
-          </div>
+                <div class="grid-3">
+                    <div class="card glow-cyan">
+                        <div class="card-title">
+                            👥 Trabajo en Equipo
+                        </div>
+                        <div class="card-body">
+                            <p>Diseñado para un grupo heterogéneo de estudiantes de <strong>2º de DAM</strong>.</p>
+                            <ul>
+                                <li>Equipos de <strong>4 o 5 miembros</strong>.</li>
+                                <li>Fomento activo de la <strong>colaboración</strong>, la <strong>comunicación</strong>
+                                    y la <strong>responsabilidad compartida</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-          <div class="card glow-purple">
-            <div class="card-title">
-              🧭 Profesor "Facilitador"
-            </div>
-            <div class="card-body">
-              <p>Evolución desde el instructor tradicional al rol de <strong>mentor y facilitador</strong>:</p>
-              <ul>
-                <li>Guiar a los equipos en el proceso.</li>
-                <li>Proveer herramientas metodológicas y técnicas.</li>
-                <li>Práctica de la <strong>escucha activa</strong>.</li>
-                <li>Ayudar a alcanzar objetivos de forma autónoma.</li>
-              </ul>
-            </div>
-          </div>
+                    <div class="card glow-purple">
+                        <div class="card-title">
+                            🧭 Profesor "Facilitador"
+                        </div>
+                        <div class="card-body">
+                            <p>Evolución desde el instructor tradicional al rol de <strong>mentor y
+                                    facilitador</strong>:</p>
+                            <ul>
+                                <li>Guiar a los equipos en el proceso.</li>
+                                <li>Proveer herramientas metodológicas y técnicas.</li>
+                                <li>Práctica de la <strong>escucha activa</strong>.</li>
+                                <li>Ayudar a alcanzar objetivos de forma autónoma.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-          <div class="card glow-emerald">
-            <div class="card-title">
-              🌍 Alineación con los ODS
-            </div>
-            <div class="card-body">
-              <p>Pilar fundamental y <strong>requisito explícito</strong> de la programación:</p>
-              <ul>
-                <li>Anclaje en los <strong>Objetivos de Desarrollo Sostenible</strong> de la ONU.</li>
-                <li>Cada equipo identifica un <strong>desafío social, medioambiental o económico real</strong>.</li>
-                <li>Alinea su propuesta de solución con uno o varios ODS en la fase de ideación.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+                    <div class="card glow-emerald">
+                        <div class="card-title">
+                            🌍 Alineación con los ODS
+                        </div>
+                        <div class="card-body">
+                            <p>Pilar fundamental y <strong>requisito explícito</strong> de la programación:</p>
+                            <ul>
+                                <li>Anclaje en los <strong>Objetivos de Desarrollo Sostenible</strong> de la ONU.</li>
+                                <li>Cada equipo identifica un <strong>desafío social, medioambiental o económico
+                                        real</strong>.</li>
+                                <li>Alinea su propuesta de solución con uno o varios ODS en la fase de ideación.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 4: 2. METODOLOGÍA ÁGIL (SCRUM)
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">2. Metodología</div>
-          <h2>Marco de Trabajo Ágil: SCRUM</h2>
-          <p class="subtitle">Aprendizaje por retos en iteraciones quincenales de desarrollo de software</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">2. Metodología</div>
+                    <h2>Marco de Trabajo Ágil: SCRUM</h2>
+                    <p class="subtitle">Aprendizaje por retos en iteraciones quincenales de desarrollo de software</p>
+                </div>
 
-        <div class="grid-2">
-          <div class="card glow-cyan">
-            <div class="card-title">
-              <span class="badge badge-cyan">Retos & Sprints</span>
-              <span>16 Sprints Quincenales</span>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>El proyecto se <strong>plantea por retos</strong>, siguiendo el marco de trabajo ágil <strong>SCRUM</strong> por ser el estándar de facto en la industria del software.</li>
-                <li>Se adecúa a los principios pedagógicos de <strong>flexibilidad, entrega iterativa y mejora continua</strong>.</li>
-                <li><strong>Sprints:</strong> Cada quincena lectiva constituye un Sprint de <strong>dos semanas de duración</strong>.</li>
-                <li>El proyecto se completará en un total de <strong>16 sprints</strong> a lo largo del curso.</li>
-              </ul>
-            </div>
-          </div>
+                <div class="grid-2">
+                    <div class="card glow-cyan">
+                        <div class="card-title">
+                            <span class="badge badge-cyan">Retos & Sprints</span>
+                            <span>16 Sprints Quincenales</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>El proyecto se <strong>plantea por retos</strong>, siguiendo el marco de trabajo
+                                    ágil <strong>SCRUM</strong> por ser el estándar de facto en la industria del
+                                    software.</li>
+                                <li>Se adecúa a los principios pedagógicos de <strong>flexibilidad, entrega iterativa y
+                                        mejora continua</strong>.</li>
+                                <li><strong>Sprints:</strong> Cada quincena lectiva constituye un Sprint de <strong>dos
+                                        semanas de duración</strong>.</li>
+                                <li>El proyecto se completará en un total de <strong>16 sprints</strong> a lo largo del
+                                    curso.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-          <div class="card glow-emerald">
-            <div class="card-title">
-              <span class="badge badge-emerald">Roles</span>
-              <span>Organización de Roles en el Aula</span>
-            </div>
-            <div class="card-body">
-              <div style="margin-bottom: 12px;">
-                <strong>👑 Product Owner (El Profesor):</strong>
-                <p style="margin: 2px 0 0 0; font-size: 0.9em;">Define los requisitos generales, los criterios de aceptación y el marco de trabajo.</p>
-              </div>
-              <div style="margin-bottom: 12px;">
-                <strong>💻 Development Team (Los Alumnos):</strong>
-                <p style="margin: 2px 0 0 0; font-size: 0.9em;">Constituido por los equipos de alumnos, encargados del diseño, implementación y calidad del producto.</p>
-              </div>
-              <div>
-                <strong>🔄 Scrum Master (Rotativo):</strong>
-                <p style="margin: 2px 0 0 0; font-size: 0.9em;">Para fomentar el liderazgo, el rol de Scrum Master podrá ser <strong>rotativo entre los miembros del equipo en cada sprint</strong>.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                    <div class="card glow-emerald">
+                        <div class="card-title">
+                            <span class="badge badge-emerald">Roles</span>
+                            <span>Organización de Roles en el Aula</span>
+                        </div>
+                        <div class="card-body">
+                            <div style="margin-bottom: 12px;">
+                                <strong>👑 Product Owner (El Profesor):</strong>
+                                <p style="margin: 2px 0 0 0; font-size: 0.9em;">Define los requisitos generales, los
+                                    criterios de aceptación y el marco de trabajo.</p>
+                            </div>
+                            <div style="margin-bottom: 12px;">
+                                <strong>💻 Development Team (Los Alumnos):</strong>
+                                <p style="margin: 2px 0 0 0; font-size: 0.9em;">Constituido por los equipos de alumnos,
+                                    encargados del diseño, implementación y calidad del producto.</p>
+                            </div>
+                            <div>
+                                <strong>🔄 Scrum Master (Rotativo):</strong>
+                                <p style="margin: 2px 0 0 0; font-size: 0.9em;">Para fomentar el liderazgo, el rol de
+                                    Scrum Master podrá ser <strong>rotativo entre los miembros del equipo en cada
+                                        sprint</strong>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 5: 3. HERRAMIENTAS Y ENTORNO COLABORATIVO
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">3. Herramientas</div>
-          <h2>Entorno de Trabajo Colaborativo</h2>
-          <p class="subtitle">Plataformas y estándares para la gestión profesional del proyecto</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">3. Herramientas</div>
+                    <h2>Entorno de Trabajo Colaborativo</h2>
+                    <p class="subtitle">Plataformas y estándares para la gestión profesional del proyecto</p>
+                </div>
 
-        <div class="grid-2">
-          <div class="card glow-blue">
-            <div class="card-title">
-              <span class="badge badge-cyan">Git</span>
-              <span>GitHub & GitHub Projects</span>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li><strong>GitHub:</strong> Plataforma central para el control de versiones. Se exige un uso correcto de flujo de ramas (ej. GitFlow simplificado), <strong>Pull Requests</strong> para integrar código y revisión de código entre compañeros como proceso de calidad.</li>
-                <li><strong>GitHub Projects:</strong> Gestión del <strong>Product Backlog</strong> y los <strong>Sprint Backlogs</strong> mediante un tablero Kanban (<em>To Do</em>, <em>In Progress</em>, <em>Done</em>), garantizando transparencia sobre el progreso.</li>
-              </ul>
-            </div>
-          </div>
+                <div class="grid-2">
+                    <div class="card glow-blue">
+                        <div class="card-title">
+                            <span class="badge badge-cyan">Git</span>
+                            <span>GitHub & GitHub Projects</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>GitHub:</strong> Plataforma central para el control de versiones. Se exige
+                                    un uso correcto de flujo de ramas (ej. GitFlow simplificado), <strong>Pull
+                                        Requests</strong> para integrar código y revisión de código entre compañeros
+                                    como proceso de calidad.</li>
+                                <li><strong>GitHub Projects:</strong> Gestión del <strong>Product Backlog</strong> y los
+                                    <strong>Sprint Backlogs</strong> mediante un tablero Kanban (<em>To Do</em>, <em>In
+                                        Progress</em>, <em>Done</em>), garantizando transparencia sobre el progreso.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
 
-          <div class="card glow-purple">
-            <div class="card-title">
-              <span class="badge badge-purple">Docs</span>
-              <span>Documentación en Markdown</span>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>Toda la documentación (definición, análisis, diseño, manuales, memoria) se genera en formato <strong>Markdown</strong> y se aloja en el propio repositorio de GitHub.</li>
-                <li>Se recomienda el uso de extensiones como <strong>Markdown Preview Enhanced</strong> para la inclusión de diagramas (PlantUML), fórmulas y elementos enriquecidos.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+                    <div class="card glow-purple">
+                        <div class="card-title">
+                            <span class="badge badge-purple">Docs</span>
+                            <span>Documentación en Markdown</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Toda la documentación (definición, análisis, diseño, manuales, memoria) se genera en
+                                    formato <strong>Markdown</strong> y se aloja en el propio repositorio de GitHub.
+                                </li>
+                                <li>Se recomienda el uso de extensiones como <strong>Markdown Preview Enhanced</strong>
+                                    para la inclusión de diagramas (PlantUML), fórmulas y elementos enriquecidos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="card glow-amber" style="margin-top: 14px;">
-          <div class="card-title" style="color:var(--color-amber);">
-            ⭐ Diario de Trabajo Individual: `NOMBRE_APELLIDO.md`
-          </div>
-          <div class="card-body">
-            Cada <strong>alumno</strong> debe mantener un fichero denominado <strong>`NOMBRE_APELLIDO.md`</strong> en la raíz del repositorio.
-            En él se registrará diariamente: <em>las tareas realizadas, el tiempo dedicado, los problemas encontrados, las soluciones aplicadas y una reflexión sobre el aprendizaje</em>.
-            <div style="color: #b45309; font-weight: 700; margin-top: 4px;">
-              ⚠️ Instrumento fundamental para la evaluación individual. SOLO se tendrá en cuenta si se ha llevado al día.
-            </div>
-          </div>
-        </div>
-      </section>
+                <div class="card glow-amber" style="margin-top: 14px;">
+                    <div class="card-title" style="color:var(--color-amber);">
+                        ⭐ Diario de Trabajo Individual: `NOMBRE_APELLIDO.md`
+                    </div>
+                    <div class="card-body">
+                        Cada <strong>alumno</strong> debe mantener un fichero denominado
+                        <strong>`NOMBRE_APELLIDO.md`</strong> en la raíz del repositorio.
+                        En él se registrará diariamente: <em>las tareas realizadas, el tiempo dedicado, los problemas
+                            encontrados, las soluciones aplicadas y una reflexión sobre el aprendizaje</em>.
+                        <div style="color: #b45309; font-weight: 700; margin-top: 4px;">
+                            ⚠️ Instrumento fundamental para la evaluación individual. SOLO se tendrá en cuenta si se ha
+                            llevado al día.
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 6: 4. TEMPORALIZACIÓN - 1ª EVALUACIÓN
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">4. Planificación</div>
-          <h2>Temporalización: 1ª Evaluación (Quincenas 1 a 6)</h2>
-          <p class="subtitle">De las semanas preliminares al prototipado UI/UX y el Sprint 2</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">4. Planificación</div>
+                    <h2>Temporalización: 1ª Evaluación (Quincenas 1 a 6)</h2>
+                    <p class="subtitle">De las semanas preliminares al prototipado UI/UX y el Sprint 2</p>
+                </div>
 
-        <div class="table-container">
-          <table class="custom-table">
-            <thead>
-              <tr>
-                <th style="width: 12%;">Sprint</th>
-                <th style="width: 12%;">Semanas</th>
-                <th style="width: 16%;">Fechas</th>
-                <th style="width: 32%;">Objetivo Principal del Sprint</th>
-                <th style="width: 28%;">Entregables Clave</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>-</td>
-                <td>1 - 2</td>
-                <td>14 sep - 25 sep</td>
-                <td>Iniciación a Git. Técnicas H.A.D.A.</td>
-                <td>Actividad 1 y 2 de Git.<br>Creación de equipos con técnicas H.A.D.A.</td>
-              </tr>
-              <tr>
-                <td>-</td>
-                <td>3 - 4</td>
-                <td>28 sep - 09 oct</td>
-                <td>Git y GitHub.<br>Activación equipos H.A.D.A.</td>
-                <td>Actividad 3 y 4 de Git.<br>Diario de activación de equipos.</td>
-              </tr>
-              <tr>
-                <td>-</td>
-                <td>5 - 6</td>
-                <td>12 oct - 23 oct</td>
-                <td>Organización definitiva.<br>Definición Proyecto con ODS. Scrum.</td>
-                <td>Documento casos de uso y objetivos S.M.A.R.T. (MD).<br>Documentación SCRUM y test.</td>
-              </tr>
-              <tr>
-                <td>-</td>
-                <td>7 - 8</td>
-                <td>26 oct - 06 nov</td>
-                <td>GitHub Project y Scrum.</td>
-                <td>Documentación SCRUM en MD en GitHub Projects. Actividad práctica Scrum.</td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-cyan">Sprint 1</span></td>
-                <td>9 - 10</td>
-                <td>09 nov - 20 nov</td>
-                <td>IA y Modelo de Dominio (C#).</td>
-                <td>Introducción a la IA agéntica.<br>Clases del modelo en C#.</td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-cyan">Sprint 2</span><br><small>(1ª Ev)</small></td>
-                <td>11 - 12</td>
-                <td>23 nov - 04 dic</td>
-                <td>Transpilación y Mocks con IA.</td>
-                <td>Refinamientos, Clases en Kotlin y Java, ficheros de mocks de datos.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+                <div class="table-container">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 12%;">Sprint</th>
+                                <th style="width: 12%;">Semanas</th>
+                                <th style="width: 16%;">Fechas</th>
+                                <th style="width: 32%;">Objetivo Principal del Sprint</th>
+                                <th style="width: 28%;">Entregables Clave</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>-</td>
+                                <td>1 - 2</td>
+                                <td>14 sep - 25 sep</td>
+                                <td>Iniciación a Git. Técnicas H.A.D.A.</td>
+                                <td>Actividad 1 y 2 de Git.<br>Creación de equipos con técnicas H.A.D.A.</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>3 - 4</td>
+                                <td>28 sep - 09 oct</td>
+                                <td>Git y GitHub.<br>Activación equipos H.A.D.A.</td>
+                                <td>Actividad 3 y 4 de Git.<br>Diario de activación de equipos.</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>5 - 6</td>
+                                <td>12 oct - 23 oct</td>
+                                <td>Organización definitiva.<br>Definición Proyecto con ODS. Scrum.</td>
+                                <td>Documento casos de uso y objetivos S.M.A.R.T. (MD).<br>Documentación SCRUM y test.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>7 - 8</td>
+                                <td>26 oct - 06 nov</td>
+                                <td>GitHub Project y Scrum.</td>
+                                <td>Documentación SCRUM en MD en GitHub Projects. Actividad práctica Scrum.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-cyan">Sprint 1</span></td>
+                                <td>9 - 10</td>
+                                <td>09 nov - 20 nov</td>
+                                <td>IA y Modelo de Dominio (C#).</td>
+                                <td>Introducción a la IA agéntica.<br>Clases del modelo en C#.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-cyan">Sprint 2</span><br><small>(1ª Ev)</small></td>
+                                <td>11 - 12</td>
+                                <td>23 nov - 04 dic</td>
+                                <td>Transpilación y Mocks con IA.</td>
+                                <td>Refinamientos, Clases en Kotlin y Java, ficheros de mocks de datos.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 7: 4. TEMPORALIZACIÓN - 2ª EVALUACIÓN
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">4. Planificación</div>
-          <h2>Temporalización: 2ª Evaluación (Quincenas 7 a 12)</h2>
-          <p class="subtitle">Frontends de Escritorio y Móvil, y lógica inicial de Backend</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">4. Planificación</div>
+                    <h2>Temporalización: 2ª Evaluación (Quincenas 7 a 12)</h2>
+                    <p class="subtitle">Frontends de Escritorio y Móvil, y lógica inicial de Backend</p>
+                </div>
 
-        <div class="table-container">
-          <table class="custom-table">
-            <thead>
-              <tr>
-                <th style="width: 12%;">Sprint</th>
-                <th style="width: 12%;">Semanas</th>
-                <th style="width: 16%;">Fechas</th>
-                <th style="width: 32%;">Objetivo Principal del Sprint</th>
-                <th style="width: 28%;">Entregables Clave</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="badge badge-emerald">Sprint 3</span></td>
-                <td>13 - 14</td>
-                <td>07 dic - 18 dic</td>
-                <td>Prototipado UI/UX.<br>Frontend Móvil (Android+MVI).</td>
-                <td>Prototipos UI/UX en Figma/Penpot.<br>App Android con Compose y datos mock.</td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-emerald">Sprint 4</span></td>
-                <td>15 - 16</td>
-                <td>07 ene - 15 ene</td>
-                <td>Frontend Escritorio (WPF+MVVM).</td>
-                <td>Aplicación WPF con vistas y ViewModels, usando datos mock.</td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-emerald">Sprint 5</span></td>
-                <td>17 - 18</td>
-                <td>18 ene - 29 ene</td>
-                <td>Frontend Escritorio (Funcional).</td>
-                <td>Lógica de negocio y navegación implementada en app de escritorio.</td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-emerald">Sprint 6</span></td>
-                <td>19 - 20</td>
-                <td>01 feb - 12 feb</td>
-                <td>Frontend Móvil (Funcional).</td>
-                <td>Lógica de negocio y navegación implementada en la app móvil.</td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-emerald">Sprint 7</span><br><small>(2ª Ev)</small></td>
-                <td>21 - 22</td>
-                <td>15 feb - 26 feb</td>
-                <td>Backend: API REST (CRUD).</td>
-                <td>Definición entidades en ORM y BD, operaciones CRUD necesarias.</td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-emerald">Sprint 8</span></td>
-                <td>22 - 23</td>
-                <td>01 mar - 12 mar</td>
-                <td>Backend: API REST (Lógica).</td>
-                <td>Lógica de negocio implementada en los servicios de la API.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+                <div class="table-container">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 12%;">Sprint</th>
+                                <th style="width: 12%;">Semanas</th>
+                                <th style="width: 16%;">Fechas</th>
+                                <th style="width: 32%;">Objetivo Principal del Sprint</th>
+                                <th style="width: 28%;">Entregables Clave</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="badge badge-emerald">Sprint 3</span></td>
+                                <td>13 - 14</td>
+                                <td>07 dic - 18 dic</td>
+                                <td>Prototipado UI/UX.<br>Frontend Móvil (Android+MVI).</td>
+                                <td>Prototipos UI/UX en Figma/Penpot.<br>App Android con Compose y datos mock.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-emerald">Sprint 4</span></td>
+                                <td>15 - 16</td>
+                                <td>07 ene - 15 ene</td>
+                                <td>Frontend Escritorio (WPF+MVVM).</td>
+                                <td>Aplicación WPF con vistas y ViewModels, usando datos mock.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-emerald">Sprint 5</span></td>
+                                <td>17 - 18</td>
+                                <td>18 ene - 29 ene</td>
+                                <td>Frontend Escritorio (Funcional).</td>
+                                <td>Lógica de negocio y navegación implementada en app de escritorio.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-emerald">Sprint 6</span></td>
+                                <td>19 - 20</td>
+                                <td>01 feb - 12 feb</td>
+                                <td>Frontend Móvil (Funcional).</td>
+                                <td>Lógica de negocio y navegación implementada en la app móvil.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-emerald">Sprint 7</span><br><small>(2ª Ev)</small></td>
+                                <td>21 - 22</td>
+                                <td>15 feb - 26 feb</td>
+                                <td>Backend: API REST (CRUD).</td>
+                                <td>Definición entidades en ORM y BD, operaciones CRUD necesarias.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-emerald">Sprint 8</span></td>
+                                <td>22 - 23</td>
+                                <td>01 mar - 12 mar</td>
+                                <td>Backend: API REST (Lógica).</td>
+                                <td>Lógica de negocio implementada en los servicios de la API.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 8: 4. TEMPORALIZACIÓN - 3ª EVALUACIÓN
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">4. Planificación</div>
-          <h2>Temporalización: 3ª Evaluación (Quincenas 13 a 16)</h2>
-          <p class="subtitle">Seguridad, integración Full-Stack y entrega final del proyecto</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">4. Planificación</div>
+                    <h2>Temporalización: 3ª Evaluación (Quincenas 13 a 16)</h2>
+                    <p class="subtitle">Seguridad, integración Full-Stack y entrega final del proyecto</p>
+                </div>
 
-        <div class="table-container">
-          <table class="custom-table">
-            <thead>
-              <tr>
-                <th style="width: 12%;">Sprint</th>
-                <th style="width: 12%;">Semanas</th>
-                <th style="width: 16%;">Fechas</th>
-                <th style="width: 32%;">Objetivo Principal del Sprint</th>
-                <th style="width: 28%;">Entregables Clave</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>FE</strong></td>
-                <td><strong>FE</strong></td>
-                <td><strong>FE</strong></td>
-                <td><strong>Formación en Empresa</strong></td>
-                <td><strong>Formación en Empresa</strong></td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-purple">Sprint 10</span></td>
-                <td>24 - 25</td>
-                <td>15 mar - 09 abr</td>
-                <td>Backend: Seguridad y autorización.</td>
-                <td>API con endpoints de login y registro más endpoints protegidos por roles.</td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-purple">Sprint 11</span></td>
-                <td>26 - 27</td>
-                <td>12 abr - 23 abr</td>
-                <td>Funcionalidad individual Escritorio o Móvil.</td>
-                <td>Frontend y Backend funcional, de escritorio o móvil. <strong>Individual por alumno</strong>.</td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-purple">Sprint 12</span></td>
-                <td>28 - 29</td>
-                <td>26 abr - 07 may</td>
-                <td>Documentación API e Integración Full-Stack Escritorio.</td>
-                <td>Documentar API con Swagger y conectar App de Escritorio a la API REST de forma segura.</td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-purple">Sprint 13</span></td>
-                <td>30 - 31</td>
-                <td>10 may - 21 may</td>
-                <td>Integración Full-Stack Android.</td>
-                <td>Conectar la App de Android a la API REST de forma segura.</td>
-              </tr>
-              <tr>
-                <td><span class="badge badge-purple">Sprint 14</span></td>
-                <td>32 - 33</td>
-                <td>24 may - 04 jun</td>
-                <td>Avanzado y Entrega Final.</td>
-                <td>(Opcional) CI/CD. Memoria final, vídeo y presentación.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+                <div class="table-container">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 12%;">Sprint</th>
+                                <th style="width: 12%;">Semanas</th>
+                                <th style="width: 16%;">Fechas</th>
+                                <th style="width: 32%;">Objetivo Principal del Sprint</th>
+                                <th style="width: 28%;">Entregables Clave</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>FE</strong></td>
+                                <td><strong>FE</strong></td>
+                                <td><strong>FE</strong></td>
+                                <td><strong>Formación en Empresa</strong></td>
+                                <td><strong>Formación en Empresa</strong></td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-purple">Sprint 10</span></td>
+                                <td>24 - 25</td>
+                                <td>15 mar - 09 abr</td>
+                                <td>Backend: Seguridad y autorización.</td>
+                                <td>API con endpoints de login y registro más endpoints protegidos por roles.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-purple">Sprint 11</span></td>
+                                <td>26 - 27</td>
+                                <td>12 abr - 23 abr</td>
+                                <td>Funcionalidad individual Escritorio o Móvil.</td>
+                                <td>Frontend y Backend funcional, de escritorio o móvil. <strong>Individual por
+                                        alumno</strong>.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-purple">Sprint 12</span></td>
+                                <td>28 - 29</td>
+                                <td>26 abr - 07 may</td>
+                                <td>Documentación API e Integración Full-Stack Escritorio.</td>
+                                <td>Documentar API con Swagger y conectar App de Escritorio a la API REST de forma
+                                    segura.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-purple">Sprint 13</span></td>
+                                <td>30 - 31</td>
+                                <td>10 may - 21 may</td>
+                                <td>Integración Full-Stack Android.</td>
+                                <td>Conectar la App de Android a la API REST de forma segura.</td>
+                            </tr>
+                            <tr>
+                                <td><span class="badge badge-purple">Sprint 14</span></td>
+                                <td>32 - 33</td>
+                                <td>24 may - 04 jun</td>
+                                <td>Avanzado y Entrega Final.</td>
+                                <td>(Opcional) CI/CD. Memoria final, vídeo y presentación.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 9: 5. INSTRUMENTOS DE EVALUACIÓN
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">5. Evaluación</div>
-          <h2>Instrumentos de Evaluación del Módulo</h2>
-          <p class="subtitle">Herramientas para valorar el proceso formativo y los incrementos de producto</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">5. Evaluación</div>
+                    <h2>Instrumentos de Evaluación del Módulo</h2>
+                    <p class="subtitle">Herramientas para valorar el proceso formativo y los incrementos de producto</p>
+                </div>
 
-        <div class="grid-2">
-          <div class="card glow-cyan">
-            <div class="card-title">
-              <span class="badge badge-cyan">01</span>
-              <span>Actividades Guiadas y Test en Aules</span>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li><strong>Retos y actividades grupales iniciales:</strong> Se evalúan en Aules de forma individual mediante calificación <strong>No Hecho / Hecho</strong> según el entregable especificado y la participación observada.</li>
-                <li><strong>Cuestionarios tipo test individualizados:</strong> En apartados con muchos conceptos o definiciones (como la teoría de SCRUM) para evaluar la comprensión.</li>
-              </ul>
-            </div>
-          </div>
+                <div class="grid-2">
+                    <div class="card glow-cyan">
+                        <div class="card-title">
+                            <span class="badge badge-cyan">01</span>
+                            <span>Actividades Guiadas y Test en Aules</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Retos y actividades grupales iniciales:</strong> Se evalúan en Aules de
+                                    forma individual mediante calificación <strong>No Hecho / Hecho</strong> según el
+                                    entregable especificado y la participación observada.</li>
+                                <li><strong>Cuestionarios tipo test individualizados:</strong> En apartados con muchos
+                                    conceptos o definiciones (como la teoría de SCRUM) para evaluar la comprensión.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-          <div class="card glow-amber">
-            <div class="card-title">
-              <span class="badge badge-amber">02</span>
-              <span>Diario de Trabajo Individual</span>
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>Componente clave para evaluar la <strong>contribución y el aprendizaje individual</strong> de cada alumno.</li>
-                <li>Se revisará <strong>cada quincena</strong> para asegurar que se está utilizando correctamente y con rigor.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+                    <div class="card glow-amber">
+                        <div class="card-title">
+                            <span class="badge badge-amber">02</span>
+                            <span>Diario de Trabajo Individual</span>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>Componente clave para evaluar la <strong>contribución y el aprendizaje
+                                        individual</strong> de cada alumno.</li>
+                                <li>Se revisará <strong>cada quincena</strong> para asegurar que se está utilizando
+                                    correctamente y con rigor.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="card glow-emerald" style="margin-top: 14px;">
-          <div class="card-title" style="color:var(--color-emerald);">
-            🚀 03. La Sprint Review Quincenal
-          </div>
-          <div class="card-body">
-            Cada Sprint culmina con una <strong>Sprint Review</strong> donde el equipo presenta el <strong>incremento de producto desarrollado</strong>.
-            Esta presentación será evaluada por el profesor (y en algunos casos compañeros) mediante <strong>rúbricas grupales e individuales</strong>.
-          </div>
-        </div>
-      </section>
+                <div class="card glow-emerald" style="margin-top: 14px;">
+                    <div class="card-title" style="color:var(--color-emerald);">
+                        🚀 03. La Sprint Review Quincenal
+                    </div>
+                    <div class="card-body">
+                        Cada Sprint culmina con una <strong>Sprint Review</strong> donde el equipo presenta el
+                        <strong>incremento de producto desarrollado</strong>.
+                        Esta presentación será evaluada por el profesor (y en algunos casos compañeros) mediante
+                        <strong>rúbricas grupales e individuales</strong>.
+                    </div>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 10: RÚBRICAS DE EVALUACIÓN (GRUPAL E INDIVIDUAL)
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">5. Rúbricas</div>
-          <h2>Rúbricas de Evaluación del Sprint</h2>
-          <p class="subtitle">Nueva definición oficial de criterios y baremos (Puntuación máxima: 10 puntos en cada rúbrica)</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">5. Rúbricas</div>
+                    <h2>Rúbricas de Evaluación del Sprint</h2>
+                    <p class="subtitle">Nueva definición oficial de criterios y baremos (Puntuación máxima: 10 puntos en
+                        cada rúbrica)</p>
+                </div>
 
-        <div class="grid-2">
-          <div class="card glow-cyan">
-            <div class="card-title">
-              <span class="badge badge-cyan">Grupal &bull; 10 pts</span>
-              <span>Evaluación Grupal del Sprint</span>
-            </div>
-            <div class="card-body">
-              <div style="margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed var(--color-border);">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <strong>1. Funcionalidad del Incremento</strong>
-                  <span class="badge badge-cyan">5 pts</span>
-                </div>
-                <div style="font-size: 0.9em; margin-top: 3px; color: var(--color-text-muted);">
-                  Cumplimiento del MVP y funcionalidades avanzadas sin errores (0 &bull; 2 &bull; 4 &bull; 5 pts).
-                </div>
-              </div>
+                <div class="grid-2">
+                    <div class="card glow-cyan">
+                        <div class="card-title">
+                            <span class="badge badge-cyan">Grupal &bull; 10 pts</span>
+                            <span>Evaluación Grupal del Sprint</span>
+                        </div>
+                        <div class="card-body">
+                            <div
+                                style="margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed var(--color-border);">
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <strong>1. Funcionalidad del Incremento</strong>
+                                    <span class="badge badge-cyan">5 pts</span>
+                                </div>
+                                <div style="font-size: 0.9em; margin-top: 3px; color: var(--color-text-muted);">
+                                    Cumplimiento del MVP y funcionalidades avanzadas sin errores (0 &bull; 2 &bull; 4
+                                    &bull; 5 pts).
+                                </div>
+                            </div>
 
-              <div style="margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed var(--color-border);">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <strong>2. Scrum en GitHub Projects</strong>
-                  <span class="badge badge-cyan">4 pts</span>
-                </div>
-                <div style="font-size: 0.9em; margin-top: 3px; color: var(--color-text-muted);">
-                  Gestión integral: iteración/sprint, backlog de tareas MVP, columna <em>Done</em>, retrospectiva y PRs a <code>main</code> con más de un revisor (0 &bull; 1,5 &bull; 3 &bull; 4 pts).
-                </div>
-              </div>
+                            <div
+                                style="margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed var(--color-border);">
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <strong>2. Scrum en GitHub Projects</strong>
+                                    <span class="badge badge-cyan">4 pts</span>
+                                </div>
+                                <div style="font-size: 0.9em; margin-top: 3px; color: var(--color-text-muted);">
+                                    Gestión integral: iteración/sprint, backlog de tareas MVP, columna <em>Done</em>,
+                                    retrospectiva y PRs a <code>main</code> con más de un revisor (0 &bull; 1,5 &bull; 3
+                                    &bull; 4 pts).
+                                </div>
+                            </div>
 
-              <div>
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <strong>3. Documentación de Eventos</strong>
-                  <span class="badge badge-cyan">1 pto</span>
-                </div>
-                <div style="font-size: 0.9em; margin-top: 3px; color: var(--color-text-muted);">
-                  Seguimiento coherente y completo de <em>Sprint Planning</em> y <em>Retrospective</em> en Markdown (0 &bull; 0,25 &bull; 0,75 &bull; 1 pto).
-                </div>
-              </div>
-            </div>
-          </div>
+                            <div>
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <strong>3. Documentación de Eventos</strong>
+                                    <span class="badge badge-cyan">1 pto</span>
+                                </div>
+                                <div style="font-size: 0.9em; margin-top: 3px; color: var(--color-text-muted);">
+                                    Seguimiento coherente y completo de <em>Sprint Planning</em> y
+                                    <em>Retrospective</em> en Markdown (0 &bull; 0,25 &bull; 0,75 &bull; 1 pto).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-          <div class="card glow-emerald">
-            <div class="card-title">
-              <span class="badge badge-emerald">Individual &bull; 10 pts</span>
-              <span>Evaluación Individual del Sprint</span>
-            </div>
-            <div class="card-body">
-              <div style="margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px dashed var(--color-border);">
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <strong>1. Participación en el Incremento</strong>
-                  <span class="badge badge-emerald">6 pts</span>
-                </div>
-                <div style="font-size: 0.9em; margin-top: 3px; color: var(--color-text-muted);">
-                  Aportación de código, diseño y entregables; workflow en GitHub (ramas, PRs); asistencia a eventos Scrum (Planning/Review) y rol de liderazgo/revisión (0 &bull; 2 &bull; 4 &bull; 6 pts).
-                </div>
-              </div>
+                    <div class="card glow-emerald">
+                        <div class="card-title">
+                            <span class="badge badge-emerald">Individual &bull; 10 pts</span>
+                            <span>Evaluación Individual del Sprint</span>
+                        </div>
+                        <div class="card-body">
+                            <div
+                                style="margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px dashed var(--color-border);">
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <strong>1. Participación en el Incremento</strong>
+                                    <span class="badge badge-emerald">6 pts</span>
+                                </div>
+                                <div style="font-size: 0.9em; margin-top: 3px; color: var(--color-text-muted);">
+                                    Aportación de código, diseño y entregables; workflow en GitHub (ramas, PRs);
+                                    asistencia a eventos Scrum (Planning/Review) y rol de liderazgo/revisión (0 &bull; 2
+                                    &bull; 4 &bull; 6 pts).
+                                </div>
+                            </div>
 
-              <div>
-                <div style="display:flex; justify-content:space-between; align-items:center;">
-                  <strong>2. Diario de Trabajo y Asistencia</strong>
-                  <span class="badge badge-emerald">4 pts</span>
+                            <div>
+                                <div style="display:flex; justify-content:space-between; align-items:center;">
+                                    <strong>2. Diario de Trabajo y Asistencia</strong>
+                                    <span class="badge badge-emerald">4 pts</span>
+                                </div>
+                                <div style="font-size: 0.9em; margin-top: 3px; color: var(--color-text-muted);">
+                                    Frecuencia de entradas respecto al máximo de días del equipo (&ge;90%, 70-90%,
+                                    30-70%, &lt;30%) vinculadas directamente a tareas y commits realizados (0 &bull; 1,5
+                                    &bull; 3 &bull; 4 pts).
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div style="font-size: 0.9em; margin-top: 3px; color: var(--color-text-muted);">
-                  Frecuencia de entradas respecto al máximo de días del equipo (&ge;90%, 70-90%, 30-70%, &lt;30%) vinculadas directamente a tareas y commits realizados (0 &bull; 1,5 &bull; 3 &bull; 4 pts).
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 11: 5.1 TIPOS DE EVALUACIONES
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">5.1 Tipos</div>
-          <h2>Tipos de Evaluaciones Empleadas</h2>
-          <p class="subtitle">Definición de los 4 marcos de evaluación del módulo</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">5.1 Tipos</div>
+                    <h2>Tipos de Evaluaciones Empleadas</h2>
+                    <p class="subtitle">Definición de los 4 marcos de evaluación del módulo</p>
+                </div>
 
-        <div class="grid-2">
-          <div class="card glow-cyan">
-            <div class="card-title">
-              <span class="badge badge-cyan">Trimestral</span>
-              <span>Evaluación Trimestral</span>
-            </div>
-            <div class="card-body">
-              Consiste en evaluar al alumno al final de un trimestre mediante la evaluación de las actividades o retos superados de forma <strong>grupal e individual</strong>.
-            </div>
-          </div>
+                <div class="grid-2">
+                    <div class="card glow-cyan">
+                        <div class="card-title">
+                            <span class="badge badge-cyan">Trimestral</span>
+                            <span>Evaluación Trimestral</span>
+                        </div>
+                        <div class="card-body">
+                            Consiste en evaluar al alumno al final de un trimestre mediante la evaluación de las
+                            actividades o retos superados de forma <strong>grupal e individual</strong>.
+                        </div>
+                    </div>
 
-          <div class="card glow-emerald">
-            <div class="card-title">
-              <span class="badge badge-emerald">Continua</span>
-              <span>Evaluación Continua</span>
-            </div>
-            <div class="card-body">
-              Consiste en evaluar el trabajo en el proceso de enseñanza-aprendizaje del alumno durante <strong>todo el curso</strong> y comprobar tanto su rendimiento como la superación de los <strong>Resultados de Aprendizaje (RA)</strong> del módulo.
-            </div>
-          </div>
+                    <div class="card glow-emerald">
+                        <div class="card-title">
+                            <span class="badge badge-emerald">Continua</span>
+                            <span>Evaluación Continua</span>
+                        </div>
+                        <div class="card-body">
+                            Consiste en evaluar el trabajo en el proceso de enseñanza-aprendizaje del alumno durante
+                            <strong>todo el curso</strong> y comprobar tanto su rendimiento como la superación de los
+                            <strong>Resultados de Aprendizaje (RA)</strong> del módulo.
+                        </div>
+                    </div>
 
-          <div class="card glow-amber">
-            <div class="card-title">
-              <span class="badge badge-amber">Ordinaria</span>
-              <span>Evaluación Final Ordinaria</span>
-            </div>
-            <div class="card-body">
-              Consiste en evaluar al alumno del módulo completo a través de actividades o retos, que incluyen los <strong>RA que no haya superado</strong> según los criterios de calificación y evaluación.
-            </div>
-          </div>
+                    <div class="card glow-amber">
+                        <div class="card-title">
+                            <span class="badge badge-amber">Ordinaria</span>
+                            <span>Evaluación Final Ordinaria</span>
+                        </div>
+                        <div class="card-body">
+                            Consiste en evaluar al alumno del módulo completo a través de actividades o retos, que
+                            incluyen los <strong>RA que no haya superado</strong> según los criterios de calificación y
+                            evaluación.
+                        </div>
+                    </div>
 
-          <div class="card glow-purple">
-            <div class="card-title">
-              <span class="badge badge-purple">Extraordinaria</span>
-              <span>Evaluación Final Extraordinaria</span>
-            </div>
-            <div class="card-body">
-              Consiste en evaluar al alumno del módulo completo a través de actividades o retos, que incluyen los <strong>RA no superados</strong> en la convocatoria ordinaria.
-            </div>
-          </div>
-        </div>
-      </section>
+                    <div class="card glow-purple">
+                        <div class="card-title">
+                            <span class="badge badge-purple">Extraordinaria</span>
+                            <span>Evaluación Final Extraordinaria</span>
+                        </div>
+                        <div class="card-body">
+                            Consiste en evaluar al alumno del módulo completo a través de actividades o retos, que
+                            incluyen los <strong>RA no superados</strong> en la convocatoria ordinaria.
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 12: 5.2 CRITERIOS DE CALIFICACIÓN POR TRIMESTRE
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">5.2 Criterios</div>
-          <h2>Calificación por Trimestre y Peso de los RA</h2>
-          <p class="subtitle">Equilibrio entre la valoración individual y grupal en cada evaluación</p>
-        </div>
-
-        <div class="grid-2">
-          <div class="card glow-cyan">
-            <div class="card-title">
-              <span class="badge badge-cyan">Ponderación</span>
-              <span>Ponderación de la Nota Trimestral</span>
-            </div>
-            <div class="card-body">
-              <p>La nota de cada trimestre se calcula con la siguiente ponderación:</p>
-              <div style="display:flex; justify-content:space-around; margin: 18px 0; text-align:center;">
-                <div class="metric-pill" style="border-color:var(--color-cyan);">
-                  <span class="metric-val" style="color:var(--color-cyan);">60%</span>
-                  <span class="metric-lbl">Individual</span>
-                  <span style="font-size:0.55em; color:var(--color-text-muted); margin-top:2px;">Media calificaciones individuales</span>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">5.2 Criterios</div>
+                    <h2>Calificación por Trimestre y Peso de los RA</h2>
+                    <p class="subtitle">Equilibrio entre la valoración individual y grupal en cada evaluación</p>
                 </div>
-                <div class="metric-pill" style="border-color:var(--color-emerald);">
-                  <span class="metric-val" style="color:var(--color-emerald);">40%</span>
-                  <span class="metric-lbl">Grupal</span>
-                  <span style="font-size:0.55em; color:var(--color-text-muted); margin-top:2px;">Media calificaciones grupales</span>
+
+                <div class="grid-2">
+                    <div class="card glow-cyan">
+                        <div class="card-title">
+                            <span class="badge badge-cyan">Ponderación</span>
+                            <span>Ponderación de la Nota Trimestral</span>
+                        </div>
+                        <div class="card-body">
+                            <p>La nota de cada trimestre se calcula con la siguiente ponderación:</p>
+                            <div style="display:flex; justify-content:space-around; margin: 18px 0; text-align:center;">
+                                <div class="metric-pill" style="border-color:var(--color-cyan);">
+                                    <span class="metric-val" style="color:var(--color-cyan);">60%</span>
+                                    <span class="metric-lbl">Individual</span>
+                                    <span style="font-size:0.55em; color:var(--color-text-muted); margin-top:2px;">Media
+                                        calificaciones individuales</span>
+                                </div>
+                                <div class="metric-pill" style="border-color:var(--color-emerald);">
+                                    <span class="metric-val" style="color:var(--color-emerald);">40%</span>
+                                    <span class="metric-lbl">Grupal</span>
+                                    <span style="font-size:0.55em; color:var(--color-text-muted); margin-top:2px;">Media
+                                        calificaciones grupales</span>
+                                </div>
+                            </div>
+                            <p style="font-size:0.7em; text-align:center; color:#334155;">
+                                Cada evaluación se <strong>calificará de 0 a 10 puntos</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card glow-emerald">
+                        <div class="card-title">
+                            <span class="badge badge-emerald">Resultados</span>
+                            <span>Peso de la Calificación en los RA</span>
+                        </div>
+                        <div class="card-body">
+                            <table class="custom-table" style="margin-top: 8px;">
+                                <thead>
+                                    <tr>
+                                        <th>Trimestre</th>
+                                        <th>Peso de la calificación en los RA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>1º Trimestre</strong></td>
+                                        <td><span class="badge badge-cyan">RA1: 100%</span> &nbsp; y &nbsp; <span
+                                                class="badge badge-cyan">RA2: 100%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2º Trimestre</strong></td>
+                                        <td><span class="badge badge-emerald">RA3: 60%</span> &nbsp; y &nbsp; <span
+                                                class="badge badge-emerald">RA4: 60%</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>3º Trimestre</strong></td>
+                                        <td><span class="badge badge-purple">RA3: 40%</span> &nbsp; y &nbsp; <span
+                                                class="badge badge-purple">RA4: 40%</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p style="font-size:0.62em; color:var(--color-text-dim); margin-top:10px;">
+                                La nota obtenida se refleja en la nota de los RA según la ponderación indicada en la
+                                tabla.
+                            </p>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <p style="font-size:0.7em; text-align:center; color:#334155;">
-                Cada evaluación se <strong>calificará de 0 a 10 puntos</strong>.
-              </p>
-            </div>
-          </div>
+            </section>
 
-          <div class="card glow-emerald">
-            <div class="card-title">
-              <span class="badge badge-emerald">Resultados</span>
-              <span>Peso de la Calificación en los RA</span>
-            </div>
-            <div class="card-body">
-              <table class="custom-table" style="margin-top: 8px;">
-                <thead>
-                  <tr>
-                    <th>Trimestre</th>
-                    <th>Peso de la calificación en los RA</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>1º Trimestre</strong></td>
-                    <td><span class="badge badge-cyan">RA1: 100%</span> &nbsp; y &nbsp; <span class="badge badge-cyan">RA2: 100%</span></td>
-                  </tr>
-                  <tr>
-                    <td><strong>2º Trimestre</strong></td>
-                    <td><span class="badge badge-emerald">RA3: 60%</span> &nbsp; y &nbsp; <span class="badge badge-emerald">RA4: 60%</span></td>
-                  </tr>
-                  <tr>
-                    <td><strong>3º Trimestre</strong></td>
-                    <td><span class="badge badge-purple">RA3: 40%</span> &nbsp; y &nbsp; <span class="badge badge-purple">RA4: 40%</span></td>
-                  </tr>
-                </tbody>
-              </table>
-              <p style="font-size:0.62em; color:var(--color-text-dim); margin-top:10px;">
-                La nota obtenida se refleja en la nota de los RA según la ponderación indicada en la tabla.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 13: FÓRMULAS OFICIALES DE CALIFICACIÓN
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">5.2 Fórmulas</div>
-          <h2>Escala de Valoración Final Oficial</h2>
-          <p class="subtitle">Cálculo de la Evaluación Continua y la Evaluación Final Ordinaria</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">5.2 Fórmulas</div>
+                    <h2>Escala de Valoración Final Oficial</h2>
+                    <p class="subtitle">Cálculo de la Evaluación Continua y la Evaluación Final Ordinaria</p>
+                </div>
 
-        <div class="formula-card">
-          <div style="font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-cyan); margin-bottom: 6px;">
-            1. Calificación Final de la Evaluación Continua
-          </div>
-          <div class="formula-text">
-            Calificación Continua = RA1 &times; 0.15 + RA2 &times; 0.15 + RA3 &times; 0.3 + RA4 &times; 0.4
-          </div>
-          <div class="formula-sub">
-            ⚠️ <strong>Requisito indispensable:</strong> Siempre que los RA hayan sido superados con una <strong>nota mínima de 5</strong>. En caso contrario, el alumno deberá recuperar los RA no superados en la evaluación final ordinaria.
-          </div>
-        </div>
+                <div class="formula-card">
+                    <div
+                        style="font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-cyan); margin-bottom: 6px;">
+                        1. Calificación Final de la Evaluación Continua
+                    </div>
+                    <div class="formula-text">
+                        Calificación Continua = RA1 &times; 0.15 + RA2 &times; 0.15 + RA3 &times; 0.3 + RA4 &times; 0.4
+                    </div>
+                    <div class="formula-sub">
+                        ⚠️ <strong>Requisito indispensable:</strong> Siempre que los RA hayan sido superados con una
+                        <strong>nota mínima de 5</strong>. En caso contrario, el alumno deberá recuperar los RA no
+                        superados en la evaluación final ordinaria.
+                    </div>
+                </div>
 
-        <div class="formula-card" style="border-color: #86efac; box-shadow: 0 0 25px rgba(5, 150, 105, 0.08);">
-          <div style="font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-emerald); margin-bottom: 6px;">
-            2. Calificación Final de la Evaluación Ordinaria (Superada la Continua)
-          </div>
-          <div class="formula-text" style="color: var(--color-emerald);">
-            Calificación Ordinaria = Calificación Continua &times; 0.9 + Calificación 1er Curso &times; 0.1
-          </div>
-          <div class="formula-sub">
-            Se pondera el 10% de la calificación obtenida en 1er Curso junto con el 90% de la Calificación Continua del Proyecto.
-          </div>
-        </div>
-      </section>
+                <div class="formula-card" style="border-color: #86efac; box-shadow: 0 0 25px rgba(5, 150, 105, 0.08);">
+                    <div
+                        style="font-size: 0.7em; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-emerald); margin-bottom: 6px;">
+                        2. Calificación Final de la Evaluación Ordinaria (Superada la Continua)
+                    </div>
+                    <div class="formula-text" style="color: var(--color-emerald);">
+                        Calificación Ordinaria = Calificación Continua &times; 0.9 + Calificación 1er Curso &times; 0.1
+                    </div>
+                    <div class="formula-sub">
+                        Se pondera el 10% de la calificación obtenida en 1er Curso junto con el 90% de la Calificación
+                        Continua del Proyecto.
+                    </div>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 14: RECUPERACIÓN POR RESULTADOS DE APRENDIZAJE
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">5.2 Recuperación</div>
-          <h2>Actividades de Recuperación por RA</h2>
-          <p class="subtitle">Retos a entregar antes de la evaluación final ordinaria o extraordinaria</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">5.2 Recuperación</div>
+                    <h2>Actividades de Recuperación por RA</h2>
+                    <p class="subtitle">Retos a entregar antes de la evaluación final ordinaria o extraordinaria</p>
+                </div>
 
-        <div class="table-container">
-          <table class="custom-table">
-            <thead>
-              <tr>
-                <th style="width: 20%;">Resultado de Aprendizaje</th>
-                <th style="width: 80%;">Actividades de Recuperación según la Guía Didáctica</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>RA1</strong></td>
-                <td>Diseñar un proyecto que cumpla con las especificaciones y apartados planteados en el curso.</td>
-              </tr>
-              <tr>
-                <td><strong>RA2</strong></td>
-                <td>Identificar los casos y uso (User Stories) y las tareas a realizar y las tecnologías a utilizar de un proyecto dado.</td>
-              </tr>
-              <tr>
-                <td><strong>RA3</strong></td>
-                <td>Planificar la ejecución de un proyecto dado, determinando el número de sprints, las tareas a realizar en cada sprint y la documentación asociada.</td>
-              </tr>
-              <tr>
-                <td><strong>RA4</strong></td>
-                <td>Gestionar el Backlog y los Sprint (iteraciones) en un proyecto de GitHub Projects definiendo User Stories y Tareas según la metodología explicada en clase de un planificación dada.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+                <div class="table-container">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 20%;">Resultado de Aprendizaje</th>
+                                <th style="width: 80%;">Actividades de Recuperación según la Guía Didáctica</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>RA1</strong></td>
+                                <td>Diseñar un proyecto que cumpla con las especificaciones y apartados planteados en el
+                                    curso.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RA2</strong></td>
+                                <td>Identificar los casos y uso (User Stories) y las tareas a realizar y las tecnologías
+                                    a utilizar de un proyecto dado.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RA3</strong></td>
+                                <td>Planificar la ejecución de un proyecto dado, determinando el número de sprints, las
+                                    tareas a realizar en cada sprint y la documentación asociada.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>RA4</strong></td>
+                                <td>Gestionar el Backlog y los Sprint (iteraciones) en un proyecto de GitHub Projects
+                                    definiendo User Stories y Tareas según la metodología explicada en clase de un
+                                    planificación dada.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-        <div class="card" style="padding: 10px 16px; margin-top: 10px; font-size: 0.7em;">
-          Dichas actividades se calificarán con una rúbrica que contemple los criterios de evaluación asociados a dicho RA y si la calificación de todos los RA es <strong>igual o superior a 5</strong>, se aplicará la fórmula:
-          <div style="font-family: var(--font-mono); color: var(--color-cyan); font-weight: 700; margin-top: 4px; text-align: center;">
-            Calificación Ordinaria = (RA1 &times; 0.15 + RA2 &times; 0.15 + RA3 &times; 0.3 + RA4 &times; 0.4) &times; 0.9 + Calificación 1er Curso &times; 0.1
-          </div>
-        </div>
-      </section>
+                <div class="card" style="padding: 10px 16px; margin-top: 10px; font-size: 0.7em;">
+                    Dichas actividades se calificarán con una rúbrica que contemple los criterios de evaluación
+                    asociados a dicho RA y si la calificación de todos los RA es <strong>igual o superior a 5</strong>,
+                    se aplicará la fórmula:
+                    <div
+                        style="font-family: var(--font-mono); color: var(--color-cyan); font-weight: 700; margin-top: 4px; text-align: center;">
+                        Calificación Ordinaria = (RA1 &times; 0.15 + RA2 &times; 0.15 + RA3 &times; 0.3 + RA4 &times;
+                        0.4) &times; 0.9 + Calificación 1er Curso &times; 0.1
+                    </div>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 15: 5.3 PÉRDIDA DE EVALUACIÓN CONTINUA
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">5.3 Asistencia</div>
-          <h2>Pérdida del Derecho a Evaluación Continua</h2>
-          <p class="subtitle">Condiciones de asistencia regular y situaciones de abandono del módulo</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">5.3 Asistencia</div>
+                    <h2>Pérdida del Derecho a Evaluación Continua</h2>
+                    <p class="subtitle">Condiciones de asistencia regular y situaciones de abandono del módulo</p>
+                </div>
 
-        <div class="grid-2">
-          <div class="card glow-rose">
-            <div class="card-title">
-              ⚠️ Requisitos de Asistencia
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>La asistencia es requisito fundamental para la evaluación continua.</li>
-                <li>La <strong>ausencia (justificada o no) al 15% o más de las horas</strong> asignadas al módulo conlleva la pérdida de este derecho, pudiendo optar a un <strong>examen final</strong> elaborado por el profesor.</li>
-                <li>La inasistencia injustificada al <strong>15% o más de las horas totales</strong> de los módulos matriculados o durante <strong>10 días consecutivos</strong> podrá conllevar la <strong>anulación automática de la matrícula</strong>.</li>
-              </ul>
-            </div>
-          </div>
+                <div class="grid-2">
+                    <div class="card glow-rose">
+                        <div class="card-title">
+                            ⚠️ Requisitos de Asistencia
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li>La asistencia es requisito fundamental para la evaluación continua.</li>
+                                <li>La <strong>ausencia (justificada o no) al 15% o más de las horas</strong> asignadas
+                                    al módulo conlleva la pérdida de este derecho, pudiendo optar a un <strong>examen
+                                        final</strong> elaborado por el profesor.</li>
+                                <li>La inasistencia injustificada al <strong>15% o más de las horas totales</strong> de
+                                    los módulos matriculados o durante <strong>10 días consecutivos</strong> podrá
+                                    conllevar la <strong>anulación automática de la matrícula</strong>.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-          <div class="card glow-amber">
-            <div class="card-title">
-              📋 Supuestos de Calificación con 1 Punto
-            </div>
-            <div class="card-body">
-              <p>Se considera abandonado el módulo y se califica con <strong>nota de 1 punto en la evaluación trimestral</strong> si concurre:</p>
-              <table class="custom-table" style="margin-top: 6px;">
-                <thead>
-                  <tr>
-                    <th>Motivo</th>
-                    <th>Situación</th>
-                    <th>Porcentaje</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Faltas</td>
-                    <td>no justificadas</td>
-                    <td>&gt;= 15%</td>
-                  </tr>
-                  <tr>
-                    <td>Prácticas de clase</td>
-                    <td>no presentadas, fuera de plazo o No Hecho</td>
-                    <td>&gt;= 50%</td>
-                  </tr>
-                  <tr>
-                    <td>Faltas</td>
-                    <td>a 10 días de clases consecutivas</td>
-                    <td>-</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
+                    <div class="card glow-amber">
+                        <div class="card-title">
+                            📋 Supuestos de Calificación con 1 Punto
+                        </div>
+                        <div class="card-body">
+                            <p>Se considera abandonado el módulo y se califica con <strong>nota de 1 punto en la
+                                    evaluación trimestral</strong> si concurre:</p>
+                            <table class="custom-table" style="margin-top: 6px;">
+                                <thead>
+                                    <tr>
+                                        <th>Motivo</th>
+                                        <th>Situación</th>
+                                        <th>Porcentaje</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Faltas</td>
+                                        <td>no justificadas</td>
+                                        <td>&gt;= 15%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Prácticas de clase</td>
+                                        <td>no presentadas, fuera de plazo o No Hecho</td>
+                                        <td>&gt;= 50%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Faltas</td>
+                                        <td>a 10 días de clases consecutivas</td>
+                                        <td>-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 16: 5.4 MEDIDAS DISCIPLINARIAS
       ========================================== -->
-      <section data-transition="slide">
-        <div class="slide-header">
-          <div class="tag-pill">5.4 Disciplina</div>
-          <h2>Medidas Disciplinarias en Evaluaciones</h2>
-          <p class="subtitle">Régimen aplicable ante copia o manipulación intencionada</p>
-        </div>
+            <section data-transition="slide">
+                <div class="slide-header">
+                    <div class="tag-pill">5.4 Disciplina</div>
+                    <h2>Medidas Disciplinarias en Evaluaciones</h2>
+                    <p class="subtitle">Régimen aplicable ante copia o manipulación intencionada</p>
+                </div>
 
-        <div class="card glow-rose" style="max-width: 900px; margin: 0 auto; text-align: left;">
-          <div class="card-title" style="color:var(--color-rose);">
-            ⚖️ Régimen Sancionador en Pruebas y Actividades
-          </div>
-          <div class="card-body">
-            <p>
-              Además de las sanciones contempladas en el reglamento de régimen interior (RRI), la <strong>copia o manipulación intencionada</strong> con el objetivo de falsear los resultados de una actividad o prueba susceptible de ser evaluada, podrá ser sancionada a criterio del docente según la gravedad con alguna de las siguientes medidas:
-            </p>
-            <div style="margin: 16px 0; display:flex; flex-direction:column; gap:10px;">
-              <div class="alert-box danger" style="margin:0;">
-                <div><strong>1.</strong> Pérdida de la evaluación de dicha actividad, siendo su calificación de <strong>1 punto</strong>.</div>
-              </div>
-              <div class="alert-box danger" style="margin:0;">
-                <div><strong>2.</strong> Calificación de <strong>1 punto en la nota de la evaluación trimestral</strong>.</div>
-              </div>
-              <div class="alert-box danger" style="margin:0;">
-                <div><strong>3.</strong> <strong>Evaluación negativa del módulo</strong> con calificación de "no superado" y nota final <strong>inferior a 4</strong> en la convocatoria a la que pertenezca la actividad o prueba.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+                <div class="card glow-rose" style="max-width: 900px; margin: 0 auto; text-align: left;">
+                    <div class="card-title" style="color:var(--color-rose);">
+                        ⚖️ Régimen Sancionador en Pruebas y Actividades
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            Además de las sanciones contempladas en el reglamento de régimen interior (RRI), la
+                            <strong>copia o manipulación intencionada</strong> con el objetivo de falsear los resultados
+                            de una actividad o prueba susceptible de ser evaluada, podrá ser sancionada a criterio del
+                            docente según la gravedad con alguna de las siguientes medidas:
+                        </p>
+                        <div style="margin: 16px 0; display:flex; flex-direction:column; gap:10px;">
+                            <div class="alert-box danger" style="margin:0;">
+                                <div><strong>1.</strong> Pérdida de la evaluación de dicha actividad, siendo su
+                                    calificación de <strong>1 punto</strong>.</div>
+                            </div>
+                            <div class="alert-box danger" style="margin:0;">
+                                <div><strong>2.</strong> Calificación de <strong>1 punto en la nota de la evaluación
+                                        trimestral</strong>.</div>
+                            </div>
+                            <div class="alert-box danger" style="margin:0;">
+                                <div><strong>3.</strong> <strong>Evaluación negativa del módulo</strong> con
+                                    calificación de "no superado" y nota final <strong>inferior a 4</strong> en la
+                                    convocatoria a la que pertenezca la actividad o prueba.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-      <!-- ==========================================
+            <!-- ==========================================
            SLIDE 17: CIERRE Y PREGUNTAS
       ========================================== -->
-      <section data-transition="zoom">
-        <div class="hero-slide">
-          <div class="tag-pill" style="display:inline-flex; align-items:center; gap:6px; font-size:0.55em; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:4px 14px; border-radius:9999px; background:#dcfce7; color:#059669; border:1px solid #bbf7d0; margin-bottom:14px;">
-            🚀 ¡Comenzamos el Proyecto!
-          </div>
-          <h2 style="font-size: 2.2em !important; margin-bottom: 12px !important;">
-            Proyecto Intermodular 2º DAM
-          </h2>
-          <p class="hero-tagline" style="font-size: 0.9em; max-width: 750px;">
-            Guía Didáctica presentada. Todo el material, entregables y tableros están a vuestra disposición en Aules y GitHub.
-          </p>
+            <section data-transition="zoom">
+                <div class="hero-slide">
+                    <div class="tag-pill"
+                        style="display:inline-flex; align-items:center; gap:6px; font-size:0.55em; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; padding:4px 14px; border-radius:9999px; background:#dcfce7; color:#059669; border:1px solid #bbf7d0; margin-bottom:14px;">
+                        🚀 ¡Comenzamos el Proyecto!
+                    </div>
+                    <h2 style="font-size: 2.2em !important; margin-bottom: 12px !important;">
+                        Proyecto Intermodular 2º DAM
+                    </h2>
+                    <p class="hero-tagline" style="font-size: 0.9em; max-width: 750px;">
+                        Guía Didáctica presentada. Todo el material, entregables y tableros están a vuestra disposición
+                        en Aules y GitHub.
+                    </p>
 
-          <div class="grid-3" style="max-width: 800px; margin: 20px auto; text-align: center;">
-            <div class="card" style="padding: 12px;">
-              <div style="font-size: 1.2em; margin-bottom: 4px;">🤝</div>
-              <strong style="font-size: 0.75em; color: #0f172a;">Paso 1</strong>
-              <p style="font-size: 0.6em; margin: 2px 0 0 0;">Iniciación a Git y creación de equipos con técnicas H.A.D.A.</p>
-            </div>
-            <div class="card" style="padding: 12px;">
-              <div style="font-size: 1.2em; margin-bottom: 4px;">🌱</div>
-              <strong style="font-size: 0.75em; color: #0f172a;">Paso 2</strong>
-              <p style="font-size: 0.6em; margin: 2px 0 0 0;">Definición del proyecto alineado con los ODS</p>
-            </div>
-            <div class="card" style="padding: 12px;">
-              <div style="font-size: 1.2em; margin-bottom: 4px;">⚡</div>
-              <strong style="font-size: 0.75em; color: #0f172a;">Paso 3</strong>
-              <p style="font-size: 0.6em; margin: 2px 0 0 0;">Configuración de GitHub Projects y primer Sprint</p>
-            </div>
-          </div>
+                    <div class="grid-3" style="max-width: 800px; margin: 20px auto; text-align: center;">
+                        <div class="card" style="padding: 12px;">
+                            <div style="font-size: 1.2em; margin-bottom: 4px;">🤝</div>
+                            <strong style="font-size: 0.75em; color: #0f172a;">Paso 1</strong>
+                            <p style="font-size: 0.6em; margin: 2px 0 0 0;">Iniciación a Git y creación de equipos con
+                                técnicas H.A.D.A.</p>
+                        </div>
+                        <div class="card" style="padding: 12px;">
+                            <div style="font-size: 1.2em; margin-bottom: 4px;">🌱</div>
+                            <strong style="font-size: 0.75em; color: #0f172a;">Paso 2</strong>
+                            <p style="font-size: 0.6em; margin: 2px 0 0 0;">Definición del proyecto alineado con los ODS
+                            </p>
+                        </div>
+                        <div class="card" style="padding: 12px;">
+                            <div style="font-size: 1.2em; margin-bottom: 4px;">⚡</div>
+                            <strong style="font-size: 0.75em; color: #0f172a;">Paso 3</strong>
+                            <p style="font-size: 0.6em; margin: 2px 0 0 0;">Configuración de GitHub Projects y primer
+                                Sprint</p>
+                        </div>
+                    </div>
 
-          <div style="margin-top: 24px; font-size: 0.75em; color: var(--color-cyan); font-weight: 600;">
-            ¿Dudas o preguntas sobre la Guía Didáctica?
-          </div>
-          <div style="font-size: 0.55em; color: var(--color-text-dim); margin-top: 6px;">
-            Departamento de Informática &bull; IES Doctor Balmis
-          </div>
+                    <div style="margin-top: 24px; font-size: 0.75em; color: var(--color-cyan); font-weight: 600;">
+                        ¿Dudas o preguntas sobre la Guía Didáctica?
+                    </div>
+                    <div style="font-size: 0.55em; color: var(--color-text-dim); margin-top: 6px;">
+                        Departamento de Informática &bull; IES Doctor Balmis
+                    </div>
+                </div>
+            </section>
+
         </div>
-      </section>
-
     </div>
-  </div>
 
-  <!-- Reveal.js Core Scripts & Plugins (CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/reveal.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/plugin/notes.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/plugin/markdown.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/plugin/highlight.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/plugin/search.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/plugin/zoom.js"></script>
+    <!-- Reveal.js Core Scripts & Plugins (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/plugin/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/plugin/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/plugin/highlight.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/plugin/search.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@6.0.2/dist/plugin/zoom.js"></script>
 
-  <script>
-    // Inicialización de Reveal.js (CDN)
-    Reveal.initialize({
-      hash: true,
-      slideNumber: 'c/t',
-      controls: true,
-      progress: true,
-      center: true,
-      transition: 'slide',
-      backgroundTransition: 'fade',
-      width: 1200,
-      height: 720,
-      margin: 0.04,
-      minScale: 0.2,
-      maxScale: 2.0,
-      plugins: [
-        RevealMarkdown,
-        RevealHighlight,
-        RevealNotes,
-        RevealSearch,
-        RevealZoom
-      ]
-    });
-  </script>
+    <script>
+        // Inicialización de Reveal.js (CDN)
+        Reveal.initialize({
+            hash: true,
+            slideNumber: 'c/t',
+            controls: true,
+            progress: true,
+            center: true,
+            transition: 'slide',
+            backgroundTransition: 'fade',
+            width: 1200,
+            height: 720,
+            margin: 0.04,
+            minScale: 0.2,
+            maxScale: 2.0,
+            plugins: [
+                RevealMarkdown,
+                RevealHighlight,
+                RevealNotes,
+                RevealSearch,
+                RevealZoom
+            ]
+        });
+    </script>
 </body>
+
 </html>
