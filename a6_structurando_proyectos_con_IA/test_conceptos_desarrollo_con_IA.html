@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Conceptos de IA</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 35%, #7c3aed 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 18px;
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.25);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+            color: white;
+            padding: 28px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: clamp(2.1rem, 4vw, 3rem);
+            margin-bottom: 8px;
+            font-weight: 900;
+        }
+
+        .header p {
+            font-size: 1.05rem;
+            opacity: 0.95;
+        }
+
+        .student-info {
+            padding: 28px 30px;
+            background: #f8fafc;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .student-info h2 {
+            color: #0f172a;
+            margin-bottom: 18px;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.25s ease;
+            background: white;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1d4ed8;
+        }
+
+        .test-content {
+            padding: 28px 30px;
+        }
+
+        .question {
+            margin-bottom: 26px;
+            padding: 20px 18px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid #1d4ed8;
+        }
+
+        .question.correct {
+            background: #dcfce7;
+            border-left-color: #22c55e;
+        }
+
+        .question.incorrect {
+            background: #fee2e2;
+            border-left-color: #ef4444;
+        }
+
+        .question-number {
+            font-weight: 800;
+            color: #1d4ed8;
+            font-size: 1.05rem;
+            margin-bottom: 10px;
+        }
+
+        .question-text {
+            font-size: 1.08rem;
+            color: #0f172a;
+            margin-bottom: 14px;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            padding: 12px 14px;
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .option:hover {
+            background: #eef4ff;
+            border-color: #93c5fd;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        .option label {
+            cursor: pointer;
+            flex: 1;
+            color: #1e293b;
+            line-height: 1.4;
+        }
+
+        .option.selected {
+            background: #e0f2fe;
+            border-color: #60a5fa;
+        }
+
+        .option.correct-answer {
+            background: #dcfce7;
+            border-color: #22c55e;
+        }
+
+        .option.wrong-answer {
+            background: #fee2e2;
+            border-color: #ef4444;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 0.96rem;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid #bbf7d0;
+        }
+
+        .feedback.incorrect {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #fecaca;
+        }
+
+        .buttons {
+            padding: 24px 30px 28px;
+            text-align: center;
+            background: #f8fafc;
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: 800;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            color: white;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #16a34a 0%, #10b981 100%);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(22, 163, 74, 0.3);
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .results {
+            display: none;
+            padding: 28px 30px;
+            background: #f8fafc;
+            border-top: 3px solid #1d4ed8;
+        }
+
+        .results.show {
+            display: block;
+        }
+
+        .results h2 {
+            color: #0f172a;
+            margin-bottom: 18px;
+            text-align: center;
+            font-size: 1.8rem;
+        }
+
+        .score-display {
+            text-align: center;
+            padding: 24px 20px;
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 14px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .score-number {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            color: #1d4ed8;
+        }
+
+        .score-text {
+            font-size: 1.1rem;
+            color: #475569;
+            margin-top: 8px;
+        }
+
+        .score-message {
+            font-size: 1.05rem;
+            color: #0f172a;
+            margin-top: 14px;
+            padding: 14px 16px;
+            background: #eff6ff;
+            border-radius: 10px;
+            border: 1px solid #dbeafe;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 18px 20px;
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+
+        .loading.show {
+            display: block;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 Test de conceptos de IA</h1>
+            <p>Evaluación de conocimientos sobre desarrollo asistido por IA</p>
+        </div>
+
+        <div class="student-info">
+            <h2>Información del estudiante</h2>
+            <div class="form-group">
+                <label for="studentName">Nombre completo:</label>
+                <input type="text" id="studentName" placeholder="Escribe tu nombre completo" required>
+            </div>
+            <div class="form-group">
+                <label for="studentEmail">Correo electrónico:</label>
+                <input type="email" id="studentEmail" placeholder="tu@email.com">
+            </div>
+        </div>
+
+        <div class="test-content" id="testContent"></div>
+
+        <div class="results" id="results">
+            <h2>📊 Resultados del test</h2>
+            <div class="score-display">
+                <div class="score-number" id="scoreNumber">0/15</div>
+                <div class="score-text">Respuestas correctas</div>
+                <div class="score-message" id="scoreMessage"></div>
+            </div>
+        </div>
+
+        <div class="loading" id="loading">
+            <p>Generando PDF... Por favor, espera.</p>
+        </div>
+
+        <div class="buttons">
+            <button class="btn btn-primary" id="submitBtn" onclick="submitTest()">Corregir test</button>
+            <button class="btn btn-success" id="pdfBtn" onclick="generatePDF()" style="display: none;">📄 Descargar PDF</button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: '¿Qué significa LLM?',
+                options: [
+                    'Large Linguistic Module',
+                    'Large Language Model',
+                    'Local Logic Machine',
+                    'Learning Language Manager'
+                ],
+                correct: 1,
+                explanation: 'LLM significa Large Language Model, un modelo de lenguaje grande entrenado con grandes cantidades de texto.'
+            },
+            {
+                question: '¿Qué es un token en el contexto de un modelo de lenguaje?',
+                options: [
+                    'Una unidad mínima de información que el modelo puede procesar',
+                    'Un tipo de prompt reusable',
+                    'Un archivo de configuración de Python',
+                    'Un comando de Git instalado en el sistema'
+                ],
+                correct: 0,
+                explanation: 'Un token es la unidad básica de procesamiento del modelo, como una palabra o fragmento de palabra.'
+            },
+            {
+                question: '¿Cuál de estas definiciones describe mejor un prompt?',
+                options: [
+                    'Un entorno virtual para ejecución de scripts',
+                    'La instrucción o conjunto de instrucciones que se da a la IA',
+                    'Una API para acceder a la nube',
+                    'Una herramienta gráfica de diseño'
+                ],
+                correct: 1,
+                explanation: 'Un prompt es la instrucción inicial que guía la respuesta de la IA.'
+            },
+            {
+                question: '¿Qué es la ingeniería de prompts?',
+                options: [
+                    'El diseño de instrucciones efectivas para obtener mejores respuestas',
+                    'La automatización del hardware del ordenador',
+                    'La creación de bases de datos relacionales',
+                    'La configuración del navegador'
+                ],
+                correct: 0,
+                explanation: 'La ingeniería de prompts consiste en formular instrucciones claras y bien estructuradas para maximizar la calidad de la respuesta.'
+            },
+            {
+                question: '¿Qué representa el contexto en un sistema de IA?',
+                options: [
+                    'La información que se aporta para que la IA entienda la tarea y el proyecto',
+                    'La versión del sistema operativo',
+                    'El color de la interfaz del editor',
+                    'El nombre del modelo en la nube'
+                ],
+                correct: 0,
+                explanation: 'El contexto incluye documentación, instrucciones, ejemplos y datos relevantes que ayudan a la IA a responder mejor.'
+            },
+            {
+                question: '¿Qué es la ventana de contexto?',
+                options: [
+                    'El espacio físico donde se guarda el proyecto',
+                    'La cantidad máxima de texto que un modelo puede procesar a la vez',
+                    'La velocidad de conexión a internet',
+                    'El tamaño de la pantalla del navegador'
+                ],
+                correct: 1,
+                explanation: 'La ventana de contexto es la “memoria a corto plazo” del modelo, medida en tokens.'
+            },
+            {
+                question: '¿Por qué se dice que muchos modelos son stateless?',
+                options: [
+                    'Porque no recuerdan nada entre conversaciones y cada interacción se procesa de nuevo',
+                    'Porque solo funcionan si están conectados a una base de datos',
+                    'Porque necesitan una tarjeta gráfica para funcionar',
+                    'Porque se ejecutan únicamente en entornos móviles'
+                ],
+                correct: 0,
+                explanation: 'Los modelos suelen ser stateless: cada interacción se procesa desde cero aunque el historial se reenvíe en el chat.'
+            },
+            {
+                question: '¿Qué característica define mejor a un agente de IA?',
+                options: [
+                    'Puede actuar con objetivos, herramientas y autonomía dentro de un entorno',
+                    'Solo crea diagramas visuales sin ejecutar ninguna acción',
+                    'Es un lenguaje de programación',
+                    'Es una base de datos de conocimiento'
+                ],
+                correct: 0,
+                explanation: 'Un agente combina objetivo, planificación, herramientas y ejecución para tomar decisiones dentro de un flujo de trabajo.'
+            },
+            {
+                question: '¿Qué papel suele desempeñar el planificador dentro de un agente?',
+                options: [
+                    'Organizar las tareas y decidir el orden de ejecución',
+                    'Guardar la información en una base de datos',
+                    'Crear el código HTML del proyecto',
+                    'Cambiar el idioma del sistema operativo'
+                ],
+                correct: 0,
+                explanation: 'El planificador ayuda a dividir la tarea y decidir cómo actuar de manera ordenada.'
+            },
+            {
+                question: '¿Cuál de estas opciones es un componente clave del bucle de acción de un agente?',
+                options: [
+                    'Planificar, ejecutar, evaluar y ajustar según la retroalimentación',
+                    'Descargar, instalar y reiniciar el equipo',
+                    'Cifrar el disco duro y bloquear el sistema',
+                    'Cambiar la resolución del monitor'
+                ],
+                correct: 0,
+                explanation: 'El bucle de acción hace que el agente repita un flujo de pensamiento, acción y corrección.'
+            },
+            {
+                question: '¿Qué es MCP?',
+                options: [
+                    'Model Context Protocol',
+                    'Machine Code Parser',
+                    'Memory Control Program',
+                    'Main Code Project'
+                ],
+                correct: 0,
+                explanation: 'MCP significa Model Context Protocol, un protocolo para estructurar y presentar el contexto a la IA.'
+            },
+            {
+                question: '¿Cuál es la finalidad principal de MCP?',
+                options: [
+                    'Estandarizar la forma en que un agente recibe, interpreta y usa el contexto',
+                    'Compilar archivos PDF para imprimir',
+                    'Actualizar el firmware del equipo',
+                    'Generar animaciones 3D'
+                ],
+                correct: 0,
+                explanation: 'MCP ayuda a que el agente entienda mejor el contexto y conecte con herramientas externas de manera segura.'
+            },
+            {
+                question: '¿Qué es una aplicación CLI?',
+                options: [
+                    'Una interfaz de línea de comandos para interactuar con la IA o con herramientas del sistema',
+                    'Una aplicación de edición gráfica para crear iconos',
+                    'Un entorno de diseño de bases de datos',
+                    'Un programa que solo funciona en navegador'
+                ],
+                correct: 0,
+                explanation: 'Una CLI permite interactuar con software a través de terminal y scripts, normalmente de forma más directa y automatizable.'
+            },
+            {
+                question: '¿Qué es un rol de agente?',
+                options: [
+                    'Un nombre de la herramienta que ejecuta el código',
+                    'Un conjunto de responsabilidades y reglas que definen cómo debe comportarse el agente',
+                    'Una variable de entorno del sistema',
+                    'El idioma principal del editor'
+                ],
+                correct: 1,
+                explanation: 'Los roles definen el comportamiento, permisos y responsabilidades del agente en el proyecto.'
+            },
+            {
+                question: '¿Qué suele incluir un archivo AGENTS.md en un proyecto con IA?',
+                options: [
+                    'La lista de reglas generales, contexto global y agentes disponibles',
+                    'Solo una colección de imágenes de la interfaz',
+                    'La configuración del hardware del equipo',
+                    'Un historial de pruebas de navegador'
+                ],
+                correct: 0,
+                explanation: 'AGENTS.md normalmente describe el contexto del proyecto, los agentes y las reglas de colaboración.'
+            },
+            {
+                question: '¿Qué ventaja tiene explicar bien el contexto antes de pedir a la IA que haga una tarea?',
+                options: [
+                    'Aumenta la probabilidad de obtener una respuesta más útil y precisa',
+                    'Hace que la IAIgnore por completo la instrucción',
+                    'Reduce la posibilidad de que se ejecute código en el proyecto',
+                    'Obliga a la IA a ser más lenta en todos los casos'
+                ],
+                correct: 0,
+                explanation: 'Cuanto mejor explicado esté el contexto, más preciso y útil será el resultado generado por la IA.'
+            }
+        ];
+
+        function initTest() {
+            const testContent = document.getElementById('testContent');
+            testContent.innerHTML = '';
+
+            questions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.id = `question-${index}`;
+
+                const optionsHTML = q.options.map((option, optIndex) => `
+                    <div class="option">
+                        <input type="radio" name="q${index}" id="q${index}_${optIndex}" value="${optIndex}">
+                        <label for="q${index}_${optIndex}">${option}</label>
+                    </div>
+                `).join('');
+
+                questionDiv.innerHTML = `
+                    <div class="question-number">Pregunta ${index + 1}</div>
+                    <div class="question-text">${q.question}</div>
+                    <div class="options">${optionsHTML}</div>
+                    <div class="feedback" id="feedback-${index}"></div>
+                `;
+
+                testContent.appendChild(questionDiv);
+
+                const optionEls = questionDiv.querySelectorAll('.option');
+                optionEls.forEach((opt, optIndex) => {
+                    opt.addEventListener('click', () => selectOption(index, optIndex));
+                });
+            });
+        }
+
+        function selectOption(questionIndex, optionIndex) {
+            const options = document.querySelectorAll(`#question-${questionIndex} .option`);
+            options.forEach(opt => opt.classList.remove('selected'));
+            options[optionIndex].classList.add('selected');
+
+            const radio = document.getElementById(`q${questionIndex}_${optionIndex}`);
+            if (radio) {
+                radio.checked = true;
+            }
+        }
+
+        function submitTest() {
+            const studentName = document.getElementById('studentName').value.trim();
+
+            if (!studentName) {
+                alert('Por favor, introduce tu nombre antes de corregir el test.');
+                return;
+            }
+
+            let correctAnswers = 0;
+
+            questions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                const questionDiv = document.getElementById(`question-${index}`);
+                const feedbackDiv = document.getElementById(`feedback-${index}`);
+                const options = questionDiv.querySelectorAll('.option');
+
+                if (selectedOption) {
+                    const selectedIndex = parseInt(selectedOption.value);
+
+                    if (selectedIndex === q.correct) {
+                        questionDiv.classList.add('correct');
+                        feedbackDiv.className = 'feedback correct show';
+                        feedbackDiv.innerHTML = `✅ Correcto. ${q.explanation}`;
+                        correctAnswers++;
+                        options[selectedIndex].classList.add('correct-answer');
+                    } else {
+                        questionDiv.classList.add('incorrect');
+                        feedbackDiv.className = 'feedback incorrect show';
+                        feedbackDiv.innerHTML = `❌ Incorrecto. La respuesta correcta es: <strong>${q.options[q.correct]}</strong>. ${q.explanation}`;
+                        options[q.correct].classList.add('correct-answer');
+                        options[selectedIndex].classList.add('wrong-answer');
+                    }
+                } else {
+                    questionDiv.classList.add('incorrect');
+                    feedbackDiv.className = 'feedback incorrect show';
+                    feedbackDiv.innerHTML = `❌ No respondida. La respuesta correcta es: <strong>${q.options[q.correct]}</strong>. ${q.explanation}`;
+                    options[q.correct].classList.add('correct-answer');
+                }
+            });
+
+            showResults(correctAnswers);
+            document.getElementById('submitBtn').style.display = 'none';
+            document.getElementById('pdfBtn').style.display = 'inline-block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showResults(correctAnswers) {
+            const totalQuestions = questions.length;
+            const percentage = (correctAnswers / totalQuestions) * 100;
+
+            document.getElementById('results').classList.add('show');
+            document.getElementById('scoreNumber').textContent = `${correctAnswers}/${totalQuestions}`;
+
+            let message = '';
+            if (percentage >= 90) {
+                message = '🎉 ¡Excelente! Dominas muy bien los conceptos de IA.';
+            } else if (percentage >= 70) {
+                message = '👍 Muy buen nivel. Has comprendido la mayoría de los conceptos clave.';
+            } else if (percentage >= 50) {
+                message = '📘 Tienes una base buena, pero aún conviene repasar algunos conceptos.';
+            } else {
+                message = '📚 Necesitas revisar más conceptos. ¡Sigue practicando!';
+            }
+
+            document.getElementById('scoreMessage').textContent = message;
+        }
+
+        function generatePDF() {
+            document.getElementById('loading').classList.add('show');
+
+            setTimeout(() => {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+
+                const studentName = document.getElementById('studentName').value || 'Estudiante';
+                const studentEmail = document.getElementById('studentEmail').value || 'No proporcionado';
+                const date = new Date().toLocaleDateString('es-ES');
+
+                let correctAnswers = 0;
+                questions.forEach((q, index) => {
+                    const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                    if (selectedOption && parseInt(selectedOption.value) === q.correct) {
+                        correctAnswers++;
+                    }
+                });
+
+                const percentage = ((correctAnswers / questions.length) * 100).toFixed(1);
+
+                doc.setFontSize(20);
+                doc.setTextColor(29, 78, 216);
+                doc.text('Test de conceptos de IA', 105, 20, { align: 'center' });
+
+                doc.setFontSize(12);
+                doc.setTextColor(0, 0, 0);
+                doc.text(`Nombre: ${studentName}`, 20, 35);
+                doc.text(`Email: ${studentEmail}`, 20, 42);
+                doc.text(`Fecha: ${date}`, 20, 49);
+
+                doc.setLineWidth(0.5);
+                doc.line(20, 55, 190, 55);
+
+                doc.setFontSize(14);
+                doc.setTextColor(29, 78, 216);
+                doc.text('Resultados:', 20, 66);
+                doc.setFontSize(12);
+                doc.setTextColor(0, 0, 0);
+                doc.text(`Aciertos: ${correctAnswers}/${questions.length} (${percentage}%)`, 20, 74);
+
+                let y = 90;
+                doc.setFontSize(10);
+
+                questions.forEach((q, index) => {
+                    if (y > 260) {
+                        doc.addPage();
+                        y = 20;
+                    }
+
+                    const selectedOption = document.querySelector(`input[name="q${index}"]:checked`);
+                    const isCorrect = selectedOption && parseInt(selectedOption.value) === q.correct;
+                    const selectedText = selectedOption ? q.options[parseInt(selectedOption.value)] : 'No respondida';
+
+                    const questionText = `${index + 1}. ${q.question}`;
+                    const splitQuestion = doc.splitTextToSize(questionText, 170);
+                    doc.setTextColor(0, 0, 0);
+                    doc.text(splitQuestion, 20, y);
+                    y += splitQuestion.length * 6;
+
+                    doc.setTextColor(isCorrect ? 22 : 128, isCorrect ? 163 : 128, isCorrect ? 74 : 128);
+                    doc.text(`Respuesta elegida: ${selectedText}`, 25, y);
+                    y += 8;
+
+                    doc.setTextColor(0, 0, 0);
+                    doc.text(`Correcta: ${q.options[q.correct]}`, 25, y);
+                    y += 10;
+                });
+
+                doc.save(`Test_IA_${studentName.replace(/\s+/g, '_')}_${date.replace(/\//g, '-')}.pdf`);
+                document.getElementById('loading').classList.remove('show');
+            }, 500);
+        }
+
+        window.onload = initTest;
+    </script>
+</body>
+</html>

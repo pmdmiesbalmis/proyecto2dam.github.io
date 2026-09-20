@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad IA: Desarrollo Asistido por IA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 35%, #7c3aed 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 920px;
+            margin: 0 auto;
+        }
+
+        .game-header {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 22px;
+            padding: 28px 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.25);
+            text-align: center;
+        }
+
+        .game-title {
+            font-size: clamp(2.1rem, 4vw, 3rem);
+            background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 15px;
+            border-radius: 14px;
+            text-align: center;
+            border: 3px solid #1d4ed8;
+        }
+
+        .stat-label {
+            font-size: 0.82rem;
+            color: #475569;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .stat-value {
+            font-size: clamp(1.5rem, 2vw, 2.3rem);
+            color: #1d4ed8;
+            font-weight: 800;
+            margin-top: 5px;
+        }
+
+        .level-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
+            color: white;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-top: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 22px;
+            padding: 32px 28px 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.25);
+            min-height: 420px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .question-number {
+            font-size: 1.15rem;
+            color: #1d4ed8;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+            color: white;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            margin-bottom: 18px;
+            font-weight: 700;
+        }
+
+        .question-text {
+            font-size: clamp(1.3rem, 2vw, 1.8rem);
+            color: #0f172a;
+            margin-bottom: 28px;
+            line-height: 1.6;
+            font-weight: 700;
+        }
+
+        .timer {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .timer-circle {
+            width: 82px;
+            height: 82px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f97316 0%, #facc15 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .options-container {
+            display: grid;
+            gap: 14px;
+        }
+
+        .option-btn {
+            background: white;
+            border: 3px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 18px 18px;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #0f172a;
+        }
+
+        .option-btn:hover {
+            border-color: #1d4ed8;
+            background: #eff6ff;
+            transform: translateX(5px);
+        }
+
+        .option-letter {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .option-btn.correct {
+            border-color: #22c55e;
+            background: #dcfce7;
+            animation: correctAnswer 0.5s;
+        }
+
+        .option-btn.incorrect {
+            border-color: #ef4444;
+            background: #fee2e2;
+            animation: shake 0.5s;
+        }
+
+        .option-btn.disabled {
+            pointer-events: none;
+            opacity: 0.72;
+        }
+
+        @keyframes correctAnswer {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .feedback {
+            margin-top: 18px;
+            padding: 18px 20px;
+            border-radius: 14px;
+            font-size: 1.02rem;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .feedback.show {
+            display: block;
+            animation: slideDown 0.5s;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .feedback.correct {
+            background: #dcfce7;
+            border: 2px solid #22c55e;
+            color: #166534;
+        }
+
+        .feedback.incorrect {
+            background: #fee2e2;
+            border: 2px solid #ef4444;
+            color: #991b1b;
+        }
+
+        .points-earned {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #16a34a;
+            text-align: center;
+            margin: 12px 0 8px;
+        }
+
+        .next-btn {
+            background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+            color: white;
+            border: none;
+            border-radius: 14px;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            margin-top: 20px;
+            display: none;
+            transition: all 0.25s ease;
+            width: 100%;
+        }
+
+        .next-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(29, 78, 216, 0.35);
+        }
+
+        .next-btn.show {
+            display: block;
+        }
+
+        .start-screen {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 26px;
+            padding: 44px 32px;
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.25);
+        }
+
+        .start-screen h1 {
+            font-size: clamp(2.3rem, 5vw, 4rem);
+            background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 18px;
+            font-weight: 900;
+        }
+
+        .start-screen p {
+            font-size: 1.15rem;
+            color: #475569;
+            margin-bottom: 26px;
+            line-height: 1.7;
+        }
+
+        .activity-selector,
+        .difficulty-selector {
+            display: flex;
+            gap: 18px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 26px 0;
+        }
+
+        .activity-btn,
+        .difficulty-btn {
+            padding: 18px 28px;
+            border: 3px solid #dbeafe;
+            background: white;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #1e293b;
+            min-width: 220px;
+        }
+
+        .activity-btn:hover,
+        .difficulty-btn:hover {
+            border-color: #1d4ed8;
+            transform: translateY(-4px);
+        }
+
+        .activity-btn.selected,
+        .difficulty-btn.selected {
+            border-color: #1d4ed8;
+            background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+            color: white;
+            box-shadow: 0 12px 24px rgba(29, 78, 216, 0.25);
+        }
+
+        .start-btn {
+            background: linear-gradient(135deg, #16a34a 0%, #10b981 100%);
+            color: white;
+            border: none;
+            border-radius: 16px;
+            padding: 18px 54px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            margin-top: 10px;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 25px rgba(22,163,74,0.35);
+        }
+
+        .results-screen {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 22px;
+            padding: 42px 28px;
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(15, 23, 42, 0.25);
+            display: none;
+        }
+
+        .results-screen.show {
+            display: block;
+        }
+
+        .final-score {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 20px 0;
+        }
+
+        .achievement {
+            background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);
+            color: white;
+            padding: 14px 26px;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin: 18px 0;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(130px, 1fr));
+            gap: 18px;
+            margin: 28px 0;
+        }
+
+        .stat-item {
+            background: #f8fafc;
+            padding: 18px 14px;
+            border-radius: 14px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .stat-item-label {
+            font-size: 0.8rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .stat-item-value {
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 900;
+            color: #1d4ed8;
+            margin-top: 6px;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            margin-top: 26px;
+            flex-wrap: wrap;
+        }
+
+        .share-btn {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            color: white;
+        }
+
+        .restart-btn {
+            background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%);
+        }
+
+        .restart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(29, 78, 216, 0.35);
+        }
+
+        .progress-bar-container {
+            background: #e2e8f0;
+            height: 12px;
+            border-radius: 999px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #1d4ed8 0%, #7c3aed 100%);
+            transition: width 0.5s ease;
+        }
+
+        .combo-counter {
+            position: fixed;
+            top: 110px;
+            right: 32px;
+            background: linear-gradient(135deg, #f97316 0%, #facc15 100%);
+            color: white;
+            padding: 16px 18px;
+            border-radius: 14px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            display: none;
+            animation: bounce 0.5s;
+        }
+
+        .combo-counter.show {
+            display: block;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        @media (max-width: 720px) {
+            body {
+                padding: 14px;
+            }
+
+            .start-screen,
+            .game-header,
+            .question-card,
+            .results-screen {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            .activity-btn,
+            .difficulty-btn {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="start-screen" id="startScreen">
+            <h1>🤖 IA & Desarrollo</h1>
+            <p>Practica los conceptos fundamentales del desarrollo asistido por IA, desde LLM y prompts hasta agentes, MCP y entornos de trabajo.</p>
+
+            <div>
+                <h3 style="margin-bottom: 12px; color: #1e293b;">Elige la actividad</h3>
+                <div class="activity-selector">
+                    <button class="activity-btn selected" data-activity="actividad1">Actividad 1: Fundamentos</button>
+                    <button class="activity-btn" data-activity="actividad2">Actividad 2: Agentes y herramientas</button>
+                </div>
+            </div>
+
+            <div>
+                <h3 style="margin-bottom: 12px; color: #1e293b;">Selecciona la dificultad</h3>
+                <div class="difficulty-selector">
+                    <button class="difficulty-btn selected" data-difficulty="easy">Fácil</button>
+                    <button class="difficulty-btn" data-difficulty="medium">Media</button>
+                    <button class="difficulty-btn" data-difficulty="hard">Difícil</button>
+                </div>
+            </div>
+
+            <button class="start-btn" onclick="startGame()">¡Comenzar actividad! 🚀</button>
+        </div>
+
+        <div id="gameScreen" style="display: none;">
+            <div class="game-header">
+                <div class="game-title">Desarrollo Asistido por IA</div>
+                <div class="level-badge" id="levelBadge">Nivel 1 - Aprendiz</div>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-label">Puntuación</div>
+                        <div class="stat-value" id="scoreDisplay">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Racha</div>
+                        <div class="stat-value" id="streakDisplay">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Aciertos</div>
+                        <div class="stat-value" id="correctDisplay">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Actividad</div>
+                        <div class="stat-value" id="activityDisplay">1</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progressBar" style="width: 0%;"></div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-number" id="questionNumber">Pregunta 1</div>
+                <div class="category-badge" id="categoryBadge">Fundamentos</div>
+                <div class="question-text" id="questionText">Pregunta</div>
+
+                <div class="timer">
+                    <div class="timer-circle" id="timerDisplay">30</div>
+                </div>
+
+                <div class="options-container" id="optionsContainer"></div>
+                <div class="feedback" id="feedback"></div>
+                <div class="points-earned" id="pointsEarned"></div>
+                <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Siguiente pregunta</button>
+            </div>
+        </div>
+
+        <div class="results-screen" id="resultsScreen">
+            <h1>🎉 ¡Actividad completada!</h1>
+            <div class="final-score" id="finalScore">0</div>
+            <div class="achievement" id="achievement">🏆 Logro</div>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-item-label">Aciertos</div>
+                    <div class="stat-item-value" id="finalCorrect">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-label">Fallos</div>
+                    <div class="stat-item-value" id="finalIncorrect">0</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-label">Precisión</div>
+                    <div class="stat-item-value" id="finalAccuracy">0%</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-item-label">Mejor racha</div>
+                    <div class="stat-item-value" id="finalStreak">0</div>
+                </div>
+            </div>
+
+            <div class="share-buttons">
+                <button class="share-btn restart-btn" onclick="restartGame()">Repetir actividad</button>
+            </div>
+        </div>
+
+        <div class="combo-counter" id="comboCounter">🔥 ¡Combo x2!</div>
+    </div>
+
+    <script>
+        const questionSets = {
+            actividad1: [
+                {
+                    category: 'Fundamentos',
+                    question: '¿Qué significa LLM?',
+                    options: [
+                        'Large Language Management',
+                        'Large Language Model',
+                        'Learning Logic Module',
+                        'Language Link Machine'
+                    ],
+                    correct: 1,
+                    difficulty: 'easy',
+                    explanation: 'LLM significa Large Language Model: un modelo de lenguaje grande entrenado con grandes cantidades de texto para entender y generar lenguaje.'
+                },
+                {
+                    category: 'Fundamentos',
+                    question: '¿Qué es un token?',
+                    options: [
+                        'Una unidad mínima de información que procesa un modelo',
+                        'Un archivo de configuración',
+                        'Un comando de terminal',
+                        'Un tipo de usuario de IA'
+                    ],
+                    correct: 0,
+                    difficulty: 'easy',
+                    explanation: 'Un token es la unidad básica de procesamiento del modelo, como una palabra, fragmento de palabra o carácter.'
+                },
+                {
+                    category: 'Prompting',
+                    question: '¿Qué es un prompt?',
+                    options: [
+                        'Un tipo de algoritmo de cifrado',
+                        'La instrucción o conjunto de instrucciones que se da a la IA',
+                        'Una base de datos',
+                        'Un framework de despliegue'
+                    ],
+                    correct: 1,
+                    difficulty: 'easy',
+                    explanation: 'Un prompt es la instrucción inicial que guía a la IA para generar la respuesta deseada.'
+                },
+                {
+                    category: 'Prompting',
+                    question: '¿Qué busca la ingeniería de prompts?',
+                    options: [
+                        'Aumentar la velocidad del sistema operativo',
+                        'Diseñar instrucciones eficaces para obtener mejores respuestas',
+                        'Crear interfaces gráficas',
+                        'Instalar librerías de Python'
+                    ],
+                    correct: 1,
+                    difficulty: 'medium',
+                    explanation: 'La ingeniería de prompts consiste en formular instrucciones claras y bien estructuradas para mejorar la calidad de la respuesta.'
+                },
+                {
+                    category: 'Contexto',
+                    question: '¿Qué es el contexto en IA?',
+                    options: [
+                        'La información que se proporciona a la IA para entender el proyecto y la tarea',
+                        'La conexión Wi‑Fi del equipo',
+                        'El navegador que usa la IA',
+                        'La memoria del disco duro'
+                    ],
+                    correct: 0,
+                    difficulty: 'easy',
+                    explanation: 'El contexto incluye documentación, archivos, instrucciones, ejemplos y datos relevantes que ayudan a la IA a responder mejor.'
+                },
+                {
+                    category: 'Contexto',
+                    question: '¿Qué representa la ventana de contexto?',
+                    options: [
+                        'La cantidad de memoria RAM del ordenador',
+                        'El máximo de texto que la IA puede procesar en una conversación',
+                        'La velocidad de internet',
+                        'La configuración del teclado'
+                    ],
+                    correct: 1,
+                    difficulty: 'medium',
+                    explanation: 'La ventana de contexto es la “memoria a corto plazo” del modelo, medida en tokens.'
+                },
+                {
+                    category: 'Conversación',
+                    question: '¿Por qué se dice que muchos modelos son stateless?',
+                    options: [
+                        'Porque no tienen memoria persistente entre conversaciones',
+                        'Porque solo sirven para tareas matemáticas',
+                        'Porque no pueden entender texto',
+                        'Porque siempre dependen de una base de datos'
+                    ],
+                    correct: 0,
+                    difficulty: 'medium',
+                    explanation: 'Los modelos suelen ser stateless: cada interacción se procesa desde cero, aunque el chat reenvía el historial acumulado.'
+                },
+                {
+                    category: 'Agente',
+                    question: '¿Qué caracteriza a un agente de IA?',
+                    options: [
+                        'Solo responde preguntas sin actuar',
+                        'Puede tomar decisiones, ejecutar herramientas y actuar con objetivos',
+                        'Se limita a leer documentos',
+                        'No requiere instrucciones'
+                    ],
+                    correct: 1,
+                    difficulty: 'easy',
+                    explanation: 'Un agente combina objetivo, herramientas, planificación y capacidad para ejecutar acciones dentro de un entorno.'
+                },
+                {
+                    category: 'Agente',
+                    question: '¿Cuál de estos es un componente clave de un agente?',
+                    options: [
+                        'Controlador de despliegue',
+                        'Planificador',
+                        'Cargador de drivers',
+                        'Servidor web'
+                    ],
+                    correct: 1,
+                    difficulty: 'easy',
+                    explanation: 'El planificador ayuda a organizar tareas y decidir el orden de ejecución.'
+                },
+                {
+                    category: 'Agente',
+                    question: '¿Qué sucede en el bucle de acción de un agente?',
+                    options: [
+                        'Solo procesa texto y termina',
+                        'Planifica, ejecuta, evalúa y ajusta con retroalimentación',
+                        'No necesita cambiar nada',
+                        'Se queda inactivo'
+                    ],
+                    correct: 1,
+                    difficulty: 'medium',
+                    explanation: 'El bucle de acción hace que el agente repita el ciclo de pensar, actuar y corregir en función de los resultados.'
+                },
+                {
+                    category: 'Herramientas',
+                    question: '¿Qué entornos suelen utilizar más los agentes?',
+                    options: [
+                        'Python y Node.js',
+                        'OnlyOffice y Excel',
+                        'FTP y SQL Server',
+                        'Cassandra y MongoDB'
+                    ],
+                    correct: 0,
+                    difficulty: 'easy',
+                    explanation: 'Python y Node.js son entornos muy habituales para automación, scripts, APIs y herramientas de desarrollo.'
+                },
+                {
+                    category: 'Herramientas',
+                    question: '¿Para qué se usa normalmente un entorno virtual de Python?',
+                    options: [
+                        'Para aislar dependencias de un proyecto',
+                        'Para jugar a videojuegos',
+                        'Para ocultar archivos del sistema',
+                        'Para reducir la resolución de pantalla'
+                    ],
+                    correct: 0,
+                    difficulty: 'medium',
+                    explanation: 'Los entornos virtuales aíslan dependencias y evitan conflictos entre proyectos.'
+                }
+            ],
+            actividad2: [
+                {
+                    category: 'MCP',
+                    question: '¿Qué es MCP?',
+                    options: [
+                        'Model Context Protocol',
+                        'Machine Code Processor',
+                        'Main Command Pattern',
+                        'Memory Control Protocol'
+                    ],
+                    correct: 0,
+                    difficulty: 'easy',
+                    explanation: 'MCP es Model Context Protocol: un protocolo para estructurar y presentar el contexto a la IA de forma segura y consistente.'
+                },
+                {
+                    category: 'MCP',
+                    question: '¿Cuál es la función principal de MCP?',
+                    options: [
+                        'Gestionar la conexión a la tarjeta gráfica',
+                        'Estandarizar cómo el agente recibe y usa el contexto',
+                        'Compilar código Java',
+                        'Crear interfaces de usuario'
+                    ],
+                    correct: 1,
+                    difficulty: 'medium',
+                    explanation: 'MCP ayuda a que los agentes interpreten bien el contexto y puedan interactuar con herramientas y servicios externos.'
+                },
+                {
+                    category: 'CLI',
+                    question: '¿Qué es una aplicación CLI?',
+                    options: [
+                        'Una interfaz gráfica para diseñar apps',
+                        'Una herramienta que se ejecuta en terminal para interactuar con la IA',
+                        'Un compilador de C',
+                        'Un plugin de navegador'
+                    ],
+                    correct: 1,
+                    difficulty: 'easy',
+                    explanation: 'La CLI ofrece una interfaz de línea de comandos más directa y automatizable para ejecutar tareas.'
+                },
+                {
+                    category: 'CLI',
+                    question: '¿Qué comando de GitHub CLI podría usarse para crear una Pull Request?',
+                    options: [
+                        'gh pr create',
+                        'git pull request',
+                        'gh repo clone',
+                        'npm start'
+                    ],
+                    correct: 0,
+                    difficulty: 'medium',
+                    explanation: 'gh pr create es el comando típico para crear una pull request desde GitHub CLI.'
+                },
+                {
+                    category: 'Roles',
+                    question: '¿Qué son los “roles” en un agente de IA?',
+                    options: [
+                        'Pistas visuales del entorno',
+                        'Reglas y responsabilidades que definen su comportamiento',
+                        'Tipos de modelos de lenguaje',
+                        'Versiones de Python'
+                    ],
+                    correct: 1,
+                    difficulty: 'easy',
+                    explanation: 'Los roles definen el comportamiento, permisos y responsabilidades del agente dentro del proyecto.'
+                },
+                {
+                    category: 'Roles',
+                    question: '¿Qué haría un agente con rol de revisor?',
+                    options: [
+                        'Escribir código sin validar',
+                        'Leer el código y sugerir cambios o avisos',
+                        'Instalar paquetes de forma automática',
+                        'Publicar en redes sociales'
+                    ],
+                    correct: 1,
+                    difficulty: 'medium',
+                    explanation: 'Un agente revisor suele validar calidad, seguridad y consistencia sin ejecutar cambios de producción.'
+                },
+                {
+                    category: 'Arquitectura',
+                    question: '¿Qué tipo de información suele incluirse en un archivo AGENTS.md?',
+                    options: [
+                        'Configuración general del proyecto y reglas de agentes',
+                        'Solo imágenes del proyecto',
+                        'Un registro de la hoja de cálculo',
+                        'El código compilado'
+                    ],
+                    correct: 0,
+                    difficulty: 'easy',
+                    explanation: 'AGENTS.md suele describir el contexto global del proyecto, los agentes disponibles y las reglas generales de ejecución.'
+                },
+                {
+                    category: 'Arquitectura',
+                    question: '¿Qué ventaja tiene definir varios agentes con distintos roles?',
+                    options: [
+                        'Permite especializar responsabilidades y mejorar la colaboración',
+                        'Hace que todo el proyecto se ejecute más lento',
+                        'Reduce la seguridad del desarrollo',
+                        'Elimina la necesidad de contextos'
+                    ],
+                    correct: 0,
+                    difficulty: 'medium',
+                    explanation: 'La división en roles ayuda a coordinar tareas, evitar conflictos y mantener un flujo más organizado.'
+                },
+                {
+                    category: 'Guardrails',
+                    question: '¿Qué son los guardrails en el contexto de agentes?',
+                    options: [
+                        'Restricciones o límites para orientar el comportamiento seguro del agente',
+                        'Sensores de temperatura del equipo',
+                        'Herramientas de edición de vídeo',
+                        'Routes de red interna'
+                    ],
+                    correct: 0,
+                    difficulty: 'medium',
+                    explanation: 'Los guardrails son reglas o limitaciones que ayudan a que el agente actúe de forma segura y coherente.'
+                },
+                {
+                    category: 'Python',
+                    question: '¿Qué es lo más habitual al crear un proyecto con IA en Python?',
+                    options: [
+                        'Trabajar directamente sin entorno virtual',
+                        'Crear un entorno virtual para aislar dependencias',
+                        'Cambiar siempre el sistema operativo',
+                        'No instalar never paquetes'
+                    ],
+                    correct: 1,
+                    difficulty: 'easy',
+                    explanation: 'Los entornos virtuales facilitan aislar dependencias y evitar conflictos entre proyectos.'
+                },
+                {
+                    category: 'Node.js',
+                    question: '¿Qué permite Node.js en el desarrollo con IA?',
+                    options: [
+                        'Ejecutar scripts en JavaScript y usar paquetes de npm',
+                        'Solo crear ficheros PDF',
+                        'Reemplazar completamente a Python',
+                        'Hacer cálculos matemáticos offline'
+                    ],
+                    correct: 0,
+                    difficulty: 'medium',
+                    explanation: 'Node.js es muy útil para ejecutar scripts, automatizar tareas y trabajar con bibliotecas y APIs.'
+                },
+                {
+                    category: 'Contexto',
+                    question: '¿Qué ocurre si una conversación supera el tamaño de la ventana de contexto?',
+                    options: [
+                        'La IA elimina automáticamente parte del historial o recorta información',
+                        'Se duplica el proyecto',
+                        'El navegador se reinicia',
+                        'El modelo se vuelve más preciso'
+                    ],
+                    correct: 0,
+                    difficulty: 'medium',
+                    explanation: 'Cuando se supera la ventana de contexto, algunos mensajes antiguos suelen recortarse o descartarse.'
+                }
+            ]
+        };
+
+        const difficultySettings = {
+            easy: { time: 30, points: 100 },
+            medium: { time: 20, points: 150 },
+            hard: { time: 15, points: 200 }
+        };
+
+        let gameState = {
+            difficulty: 'easy',
+            selectedActivity: 'actividad1',
+            timePerQuestion: 30,
+            currentQuestion: 0,
+            score: 0,
+            streak: 0,
+            maxStreak: 0,
+            correctAnswers: 0,
+            incorrectAnswers: 0,
+            timer: null,
+            timeLeft: 30,
+            selectedQuestions: []
+        };
+
+        function selectActivity(activity) {
+            gameState.selectedActivity = activity;
+            document.querySelectorAll('.activity-btn').forEach(btn => {
+                btn.classList.toggle('selected', btn.dataset.activity === activity);
+            });
+            document.getElementById('activityDisplay').textContent = activity === 'actividad1' ? '1' : '2';
+        }
+
+        function selectDifficulty(difficulty) {
+            gameState.difficulty = difficulty;
+            gameState.timePerQuestion = difficultySettings[difficulty].time;
+            document.querySelectorAll('.difficulty-btn').forEach(btn => {
+                btn.classList.toggle('selected', btn.dataset.difficulty === difficulty);
+            });
+        }
+
+        function startGame() {
+            const activityQuestions = [...questionSets[gameState.selectedActivity]];
+            gameState.selectedQuestions = [...activityQuestions].sort(() => Math.random() - 0.5);
+            gameState.currentQuestion = 0;
+            gameState.score = 0;
+            gameState.streak = 0;
+            gameState.maxStreak = 0;
+            gameState.correctAnswers = 0;
+            gameState.incorrectAnswers = 0;
+
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('gameScreen').style.display = 'block';
+            document.getElementById('activityDisplay').textContent = gameState.selectedActivity === 'actividad1' ? '1' : '2';
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (gameState.currentQuestion >= gameState.selectedQuestions.length) {
+                showResults();
+                return;
+            }
+
+            const question = gameState.selectedQuestions[gameState.currentQuestion];
+            gameState.timeLeft = gameState.timePerQuestion;
+            clearInterval(gameState.timer);
+            startTimer();
+
+            document.getElementById('questionNumber').textContent = `Pregunta ${gameState.currentQuestion + 1}`;
+            document.getElementById('categoryBadge').textContent = question.category;
+            document.getElementById('questionText').textContent = question.question;
+
+            const totalQuestions = gameState.selectedQuestions.length;
+            const progress = ((gameState.currentQuestion + 1) / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'option-btn';
+                button.type = 'button';
+                button.innerHTML = `
+                    <span class="option-letter">${String.fromCharCode(65 + index)}</span>
+                    <span>${option}</span>
+                `;
+                button.addEventListener('click', () => selectAnswer(index));
+                optionsContainer.appendChild(button);
+            });
+
+            document.getElementById('feedback').classList.remove('show', 'correct', 'incorrect');
+            document.getElementById('feedback').textContent = '';
+            document.getElementById('nextBtn').classList.remove('show');
+            document.getElementById('pointsEarned').textContent = '';
+        }
+
+        function startTimer() {
+            document.getElementById('timerDisplay').textContent = gameState.timeLeft;
+            gameState.timer = setInterval(() => {
+                gameState.timeLeft--;
+                const timerDisplay = document.getElementById('timerDisplay');
+                timerDisplay.textContent = gameState.timeLeft;
+
+                if (gameState.timeLeft <= 5) {
+                    timerDisplay.style.transform = 'scale(1.08)';
+                }
+
+                if (gameState.timeLeft <= 0) {
+                    clearInterval(gameState.timer);
+                    selectAnswer(-1);
+                }
+            }, 1000);
+        }
+
+        function selectAnswer(selectedIndex) {
+            clearInterval(gameState.timer);
+            const question = gameState.selectedQuestions[gameState.currentQuestion];
+            const optionButtons = document.querySelectorAll('.option-btn');
+            const feedbackDiv = document.getElementById('feedback');
+            const pointsEarned = document.getElementById('pointsEarned');
+
+            optionButtons.forEach(button => button.classList.add('disabled'));
+
+            const basePoints = difficultySettings[gameState.difficulty].points;
+            const timeBonus = Math.max(0, Math.floor((gameState.timeLeft / gameState.timePerQuestion) * 50));
+            let earnedPoints = 0;
+            const isCorrect = selectedIndex === question.correct;
+
+            optionButtons.forEach((button, index) => {
+                if (index === question.correct) {
+                    button.classList.add('correct');
+                }
+                if (index === selectedIndex && index !== question.correct) {
+                    button.classList.add('incorrect');
+                }
+            });
+
+            if (isCorrect) {
+                earnedPoints = basePoints + timeBonus;
+                gameState.score += earnedPoints;
+                gameState.streak += 1;
+                gameState.maxStreak = Math.max(gameState.maxStreak, gameState.streak);
+                gameState.correctAnswers += 1;
+                feedbackDiv.className = 'feedback show correct';
+                feedbackDiv.textContent = `✅ Correcto. ${question.explanation}`;
+                pointsEarned.textContent = `+${earnedPoints} puntos`;
+                showCombo();
+            } else {
+                gameState.streak = 0;
+                gameState.incorrectAnswers += 1;
+                feedbackDiv.className = 'feedback show incorrect';
+                feedbackDiv.textContent = `❌ Incorrecto. La respuesta correcta era: ${question.options[question.correct]}. ${question.explanation}`;
+                pointsEarned.textContent = '0 puntos';
+            }
+
+            updateStats();
+            document.getElementById('nextBtn').classList.add('show');
+        }
+
+        function showCombo() {
+            const comboCounter = document.getElementById('comboCounter');
+            comboCounter.textContent = `🔥 ¡Combo x${gameState.streak}!`;
+            comboCounter.classList.add('show');
+            setTimeout(() => {
+                comboCounter.classList.remove('show');
+            }, 1800);
+        }
+
+        function updateStats() {
+            document.getElementById('scoreDisplay').textContent = gameState.score;
+            document.getElementById('streakDisplay').textContent = gameState.streak;
+            document.getElementById('correctDisplay').textContent = gameState.correctAnswers;
+
+            const level = Math.floor(gameState.score / 1000) + 1;
+            const levelNames = ['Aprendiz', 'Explorador', 'Practicante', 'Analista', 'Especialista', 'Maestro'];
+            const levelText = levelNames[Math.min(level - 1, levelNames.length - 1)];
+            document.getElementById('levelBadge').textContent = `Nivel ${level} - ${levelText}`;
+        }
+
+        function nextQuestion() {
+            gameState.currentQuestion += 1;
+            loadQuestion();
+        }
+
+        function showResults() {
+            document.getElementById('gameScreen').style.display = 'none';
+            document.getElementById('resultsScreen').classList.add('show');
+
+            const totalQuestions = gameState.selectedQuestions.length;
+            const accuracy = totalQuestions === 0 ? 0 : Math.round((gameState.correctAnswers / totalQuestions) * 100);
+
+            let achievementText = 'Reintenta';
+            let achievementEmoji = '🔁';
+
+            if (accuracy >= 90) {
+                achievementText = 'Maestro de IA';
+                achievementEmoji = '🏆';
+            } else if (accuracy >= 75) {
+                achievementText = 'Especialista ágil';
+                achievementEmoji = '🚀';
+            } else if (accuracy >= 60) {
+                achievementText = 'Buen nivel';
+                achievementEmoji = '⭐';
+            } else if (accuracy >= 50) {
+                achievementText = 'Aprendiz activo';
+                achievementEmoji = '📘';
+            }
+
+            document.getElementById('finalScore').textContent = gameState.score;
+            document.getElementById('achievement').textContent = `${achievementEmoji} ${achievementText}`;
+            document.getElementById('finalCorrect').textContent = gameState.correctAnswers;
+            document.getElementById('finalIncorrect').textContent = gameState.incorrectAnswers;
+            document.getElementById('finalAccuracy').textContent = `${accuracy}%`;
+            document.getElementById('finalStreak').textContent = gameState.maxStreak;
+        }
+
+        function restartGame() {
+            document.getElementById('resultsScreen').classList.remove('show');
+            document.getElementById('startScreen').style.display = 'block';
+            document.getElementById('gameScreen').style.display = 'none';
+            clearInterval(gameState.timer);
+            gameState.score = 0;
+            gameState.streak = 0;
+            updateStats();
+        }
+
+        document.querySelectorAll('.activity-btn').forEach(button => {
+            button.addEventListener('click', () => selectActivity(button.dataset.activity));
+        });
+
+        document.querySelectorAll('.difficulty-btn').forEach(button => {
+            button.addEventListener('click', () => selectDifficulty(button.dataset.difficulty));
+        });
+
+        updateStats();
+    </script>
+</body>
+</html>
