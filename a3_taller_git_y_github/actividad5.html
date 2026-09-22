@@ -202,326 +202,431 @@ code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-fami
     <body for="html-export">
       <div class="crossnote markdown-preview  ">
       
-<h1 id="actividad-colaboración-con-git-y-github">Actividad: Colaboración con Git y GitHub </h1>
-<p><strong><a href="actividad3.pdf">Descargar</a></strong></p>
+<h1 id="actividad-git-worktrees-y-flujos-de-trabajo-en-paralelo">Actividad: Git Worktrees y Flujos de Trabajo en Paralelo </h1>
+<p><strong><a href="actividad5.pdf">Descargar</a></strong></p>
 <div class="md-toc">
 <details open="" class="md-toc-details">
 <summary class="md-toc-link-wrapper" data-level="0">
-  <a href="#actividad-colaboración-con-git-y-github" class="md-toc-link">Actividad: Colaboración con Git y GitHub</a>
+  <a href="#actividad-git-worktrees-y-flujos-de-trabajo-en-paralelo" class="md-toc-link">Actividad: Git Worktrees y Flujos de Trabajo en Paralelo</a>
 </summary>
-<div class="md-toc-link-wrapper" data-level="1">
-  <a href="#1-configuración-del-equipo-y-trabajo-en-ramas-personales" class="md-toc-link">1. Configuración del equipo y trabajo en ramas personales</a>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="1">
+  <a href="#1-fundamentos-qué-es-un-git-worktree" class="md-toc-link">1. Fundamentos: ¿Qué es un Git Worktree?</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#11-el-modelo-tradicional-de-git-y-sus-limitaciones" class="md-toc-link">1.1. El modelo tradicional de Git y sus limitaciones</a>
 </div>
-<div class="md-toc-link-wrapper" data-level="1">
-  <a href="#2-integración-en-la-rama-principal" class="md-toc-link">2. Integración en la rama principal</a>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#12-la-solución-git-worktrees" class="md-toc-link">1.2. La solución: Git Worktrees</a>
 </div>
+</details>
 <div class="md-toc-link-wrapper" data-level="1">
-  <a href="#3-resolución-de-conflictos" class="md-toc-link">3. Resolución de conflictos</a>
+  <a href="#2-diferencias-ramas-convencionales-vs-git-worktrees" class="md-toc-link">2. Diferencias: Ramas Convencionales vs. Git Worktrees</a>
 </div>
 <details open="" class="md-toc-details">
 <summary class="md-toc-link-wrapper" data-level="1">
-  <a href="#4-colaboración-mediante-pull-request" class="md-toc-link">4. Colaboración mediante Pull Request</a>
+  <a href="#3-casos-de-uso-profesionales-y-aplicación-en-ia-agéntica" class="md-toc-link">3. Casos de Uso Profesionales y Aplicación en IA Agéntica</a>
 </summary>
 <div class="md-toc-link-wrapper" data-level="2">
-  <a href="#push-directo-vs-pull-request" class="md-toc-link">Push Directo vs. Pull Request</a>
+  <a href="#31-casos-de-uso-típicos-en-la-industria" class="md-toc-link">3.1. Casos de uso típicos en la industria</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#32-git-worktrees-e-ia-agéntica-agentic-ai" class="md-toc-link">3.2. Git Worktrees e IA Agéntica (<em>Agentic AI</em>)</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#33-arquitectura-visual-de-git-worktrees-e-ia-agéntica" class="md-toc-link">3.3. Arquitectura visual de Git Worktrees e IA Agéntica</a>
 </div>
 </details>
+<div class="md-toc-link-wrapper" data-level="1">
+  <a href="#4-actividad-práctica-guiada-dominando-los-git-worktrees-con-cmd" class="md-toc-link">4. Actividad Práctica Guiada: Dominando los Git Worktrees con CMD</a>
+</div>
 <details open="" class="md-toc-details">
 <summary class="md-toc-link-wrapper" data-level="1">
   <a href="#anexo" class="md-toc-link">Anexo</a>
 </summary>
 <div class="md-toc-link-wrapper" data-level="2">
-  <a href="#a1-diagrama-del-flujo-completo" class="md-toc-link">A.1 Diagrama del flujo completo</a>
+  <a href="#a1-glosario-de-comandos-de-git-worktree" class="md-toc-link">A.1. Glosario de Comandos de Git Worktree</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#a2-buenas-prácticas-y-recomendaciones" class="md-toc-link">A.2. Buenas Prácticas y Recomendaciones</a>
 </div>
 </details>
 </details>
 </div>
-<p>En estas actividades, aprenderéis a colaborar en un mismo proyecto utilizando Git y GitHub. Esta actividad está diseñada para simular un flujo de trabajo colaborativo real, tal como se practica en la industria del desarrollo de software. La idea de esta actividad es ver que lo que hemos hecho en la actividad anterior no es un conjunto aislado de comandos, sino parte de un proceso más amplio y estructurado que facilita la colaboración efectiva entre múltiples desarrolladores.</p>
+<p>En las actividades anteriores aprendisteis a trabajar con repositorios locales y remotos, a crear ramas con <strong><code>git switch</code></strong> y a colaborar en equipo resolviendo conflictos. Sin embargo, en el modelo tradicional de Git siempre se trabaja con <strong>un único directorio de trabajo</strong> activo a la vez. Cuando cambias de rama, Git modifica los archivos en ese mismo directorio.</p>
+<p>En esta actividad aprenderéis qué son los <strong>Git Worktrees</strong>, una característica avanzada de Git que permite tener <strong>múltiples ramas activas simultáneamente en carpetas independientes</strong>, compartiendo el mismo repositorio y base de datos de Git. Exploraremos por qué es una herramienta esencial en entornos profesionales y cómo se ha convertido en una pieza clave para la <strong>IA Agéntica</strong> (sistemas de agentes autónomos que programan en paralelo).</p>
 <p><strong>Herramientas:</strong></p>
 <ul>
-<li><strong>Navegador web</strong> (para GitHub)</li>
-<li><strong>Visual Studio Code</strong> (para los comandos de Git en local)</li>
+<li><strong>Símbolo del sistema de Windows (<code>cmd.exe</code>)</strong> (o la terminal <strong>cmd</strong> integrada en Visual Studio Code)</li>
+<li><strong>Git para Windows</strong> (versión 2.20 o superior instalada)</li>
+<li><strong>Visual Studio Code</strong> o el <strong>Bloc de notas</strong> (opcional, para inspeccionar archivos)</li>
 </ul>
 <div style="page-break-after:always;"></div>
-<h2 id="1-configuración-del-equipo-y-trabajo-en-ramas-personales">1. Configuración del equipo y trabajo en ramas personales </h2>
-<div class="box_bg_lightgreen">
-<h4 id="paso-1-prepara-el-entorno-de-trabajo-del-equipo">Paso 1: Prepara el entorno de trabajo del equipo </h4>
-<p>Organizad el espacio de trabajo del equipo en GitHub como ya hicisteis en la Actividad 2:</p>
+<h2 id="1-fundamentos-qué-es-un-git-worktree">1. Fundamentos: ¿Qué es un Git Worktree? </h2>
+<h3 id="11-el-modelo-tradicional-de-git-y-sus-limitaciones">1.1. El modelo tradicional de Git y sus limitaciones </h3>
+<p>Hasta ahora, la relación entre un repositorio Git y el sistema de archivos ha sido de <strong>1 a 1</strong>:</p>
 <ul>
-<li>
-<p>El profesor o vosotros os debéis organizar en grupos de 4 o 5 compañeros.</p>
-</li>
-<li>
-<p>Cada grupo deberá decidir quién va a ser el <strong>Owner</strong>.</p>
-</li>
-<li>
-<p>Cread una <strong>organización</strong> (por ejemplo, <strong><code>equipo3_2dam_balmis</code></strong>), invitad a todos los miembros del grupo y añadid al profesor con rol <strong>Owner</strong>.</p>
-</li>
-<li>
-<p>Dentro de esa organización cread un repositorio de trabajo público (por ejemplo, <strong><code>proyecto-colaborativo</code></strong>) inicializado con <strong><code>README.md</code></strong>, será el repositorio común que usaréis durante toda la actividad.</p>
-</li>
-<li>
-<p>Cada miembro del equipo deberá clonar el repositorio remoto en su máquina local y crear su rama personal con su nombre, dejándola asociada al remoto. <em>Se deja una pista en el siguiente código, pero deberéis de adaptar los comandos.</em></p>
-  <pre class="salida_consola">  git clone https://github.com/equipo3_2dam_balmis/proyecto-colaborativo.git
-  cd proyecto-colaborativo
-  git switch -c nombre-alumno
-  git push -u origin nombre-alumno
-  </pre>
-<div class="admonition info">
-<p class="admonition-title">Recuerda</p>
-<p>La opción <strong><code>-u</code></strong> deja vinculada la rama local con la rama remota para que, a partir de ese momento, podáis usar <strong><code>git push</code></strong> y <strong><code>git pull</code></strong> sin indicar siempre <strong><code>origin nombre-alumno</code></strong>.</p>
-</div>
-</li>
+<li>Una carpeta de proyecto contiene tu código visible (<em>directorio de trabajo</em> o <em>working tree</em>).</li>
+<li>Dentro de esa misma carpeta existe un subdirectorio oculto <strong><code>.git\</code></strong> con la base de datos de objetos, commits, ramas e historial.</li>
 </ul>
-</div> <!-- fin ejercicio -->
-<div class="box_bg_lightgreen">
-<h4 id="paso-2-crear-y-subir-cambios-en-la-rama-personal">Paso 2: Crear y subir cambios en la rama personal </h4>
-<p>Cada alumno, trabajando en su rama personal, debe crear un archivo con su nombre, añadir contenido, subirlo al remoto y comprobar que su repositorio local queda sincronizado con GitHub.</p>
-<pre class="salida_consola"># 1) Asegúrate de estar en tu rama
-git switch nombre-alumno
-
-# 2) Crea tu archivo (ejemplo: ana.md) y edítalo
-notepad ana.md
-
-# 3) Añade, confirma y sube tus cambios
-git add ana.md
-git commit -m "Añade archivo personal de Ana"
-git push
-
-# 4) Descarga información del remoto (sin mezclar) y verifica las diferencias con el archivo
-git fetch origin
-git diff ana origin/ana
-
-# 5) Trae todos los cambios del remoto
-git pull
+<p>Cuando necesitas trabajar en otra rama, ejecutas:</p>
+<pre class="salida_consola">git switch otra-rama
 </pre>
-<p>Comprobación final: <strong><code>git status</code></strong> debe indicar <em>working tree clean</em> y no debe haber diferencias pendientes con el remoto de vuestra rama.</p>
-</div> <!-- fin ejercicio -->
-<div style="page-break-after:always;"></div>
-<h2 id="2-integración-en-la-rama-principal">2. Integración en la rama principal </h2>
-<div class="box_bg_lightgreen">
-<h4 id="paso-3-integrar-tu-rama-en-main-y-publicar-main-remoto">Paso 3: Integrar tu rama en main y publicar main remoto </h4>
-<p>Aunque tenemos actualizada en local y remoto nuestra rama, los cambios no están subidos a la rama <strong><code>main</code></strong> todavía. Por lo que deberemos de realizar los siguientes pasos: primero deberemos integrar en la <strong><code>main</code></strong> local los cambios de tu rama personal y después publicarlos en remoto (GitHub).</p>
-<div class="admonition warning">
-<p class="admonition-title">Importante</p>
-<p>Solo puedes hacer <strong><code>push</code></strong> si no hay cambios en el remoto que tú no tengas. Si alguien más ha subido algo, primero debes hacer <strong><code>git pull</code></strong>.</p>
-</div>
-<pre class="salida_consola">git switch main
-git pull origin main
-git merge nombre-alumno
-git push origin main
-git switch nombre-alumno
-</pre>
-<div class="admonition note">
-<p class="admonition-title">Fusión de ramas</p>
-<p>Este comando coge todos los commits de tu rama personal y los aplica sobre la rama <strong><code>main</code></strong> en tu ordenador. Ahora tu <strong><code>main</code></strong> local tiene los cambios de tus compañeros (del <strong><code>pull</code></strong>) y los tuyos (del <strong><code>merge</code></strong>).</p>
-</div>
-</div> <!-- fin ejercicio -->
-<div style="page-break-after:always;"></div>
-<h2 id="3-resolución-de-conflictos">3. Resolución de conflictos </h2>
-<div class="box_bg_lightgreen">
-<h4 id="paso-4-integración-colaboración-y-resolución-de-conflictos">Paso 4: Integración, colaboración y resolución de conflictos </h4>
-<p>En los anteriores pasos, cada miembro del equipo ha trabajado en un archivo independiente del repositorio, por lo que no ha interferido con los cambios de ningún otro miembro, pero ¿qué pasa si dos personas modifican la misma línea del mismo fichero al mismo tiempo? Git no sabrá qué cambio conservar y se producirá un <strong>conflicto</strong>. Vamos a simularlo.</p>
-<p><strong>Preparación:</strong></p>
-<ul>
-<li><strong>Dos miembros del equipo</strong> (Persona A y Persona B) se ponen de acuerdo.</li>
-<li>Ambos deben tener su rama <strong><code>main</code></strong> local actualizada: <strong><code>git switch main</code></strong> y luego <strong><code>git pull origin main</code></strong>.</li>
-<li>Van a modificar el fichero <strong><code>README.md</code></strong>.</li>
-</ul>
-<p><strong>Acciones Simultáneas:</strong></p>
+<p>Git reemplaza "en caliente" todos los archivos del directorio de trabajo con la versión de la nueva rama.</p>
+<p>¿Qué problemas surgen con este enfoque en el desarrollo profesional?</p>
 <ol>
-<li>
-<p><strong>Persona A:</strong></p>
-<ul>
-<li>
-<p>Abre <strong><code>README.md</code></strong> (<strong><code>notepad README.md</code></strong>).</p>
-</li>
-<li>
-<p>Modifica la primera línea añadiendo: <strong><code>Proyecto del Equipo Alfa</code></strong>.</p>
-</li>
-<li>
-<p>Guarda el fichero.</p>
-</li>
-<li>
-<p>Ejecuta los siguientes comandos:</p>
-  <pre class="salida_consola">  git add README.md
-  git commit -m "Modificación de Persona A"
-  git push origin main
-  </pre>
-</li>
-<li>
-<p>El <strong><code>push</code></strong> de la Persona A tendrá éxito. ¡Ha sido más rápida!</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Persona B:</strong></p>
-<ul>
-<li>
-<p>Al mismo tiempo, abre <strong><code>README.md</code></strong>.</p>
-</li>
-<li>
-<p>Modifica la <strong>misma primera línea</strong> añadiendo: <strong><code>Pruebas de colaboración - Equipo Alfa</code></strong>.</p>
-</li>
-<li>
-<p>Guarda el fichero.</p>
-</li>
-<li>
-<p>Ejecuta los siguientes comandos:</p>
-  <pre class="salida_consola">  git add README.md
-  git commit -m "Modificación de Persona B"
-  git push origin main
-  </pre>
-</li>
-</ul>
-</li>
+<li><strong>Cambio de contexto forzado (<em>Context Switching</em>):</strong> Si estás a mitad de una tarea y tienes cambios sin confirmar (<em>uncommitted changes</em>), Git te impide cambiar de rama a menos que uses <strong><code>git stash</code></strong> (guardar en el cajón temporal) o hagas un commit provisional sucio.</li>
+<li><strong>Imposibilidad de ejecución simultánea:</strong> No puedes mantener en marcha el servidor de desarrollo (<code>npm run dev</code>, Docker o Spring Boot) de una versión mientras inspeccionas o depuras otra versión distinta.</li>
+<li><strong>Cachés y reconstrucciones pesadas:</strong> En proyectos con dependencias voluminosas (<code>node_modules\</code>, <code>build\</code>, <code>target\</code>), cambiar de rama suele invalidar las cachés de compilación, obligando a reconstruir todo el proyecto desde cero.</li>
+<li><strong>La "solución mala" (múltiples clones):</strong> Muchos desarrolladores noveles optan por clonar el repositorio varias veces en carpetas distintas (<code>proyecto-repo1</code>, <code>proyecto-repo2</code>). Esto duplica innecesariamente gigabytes de historial en disco, consume ancho de banda y no comparte los commits locales ni los stashes entre carpetas.</li>
 </ol>
-<p><strong>El Conflicto:</strong></p>
-<p>El <strong><code>push</code></strong> de la Persona B <strong>fallará</strong>. Git mostrará un error indicando que el repositorio remoto tiene cambios que no tienes en tu local. Git te sugerirá que hagas un <strong><code>git pull</code></strong> primero.</p>
-<p><strong>Resolución (Persona B):</strong></p>
-<ol>
-<li>
-<p><strong>Intenta sincronizar con <code>git pull</code>:</strong></p>
- <pre class="salida_consola"> git pull origin main
- </pre>
-</li>
-<li>
-<p>Git intentará fusionar los cambios remotos con los tuyos, pero fallará y mostrará un mensaje de <strong><code>MERGE_CONFLICT</code></strong>. Te dirá en qué fichero está el conflicto (<strong><code>README.md</code></strong>).</p>
-</li>
-<li>
-<p><strong>Abre el fichero conflictivo:</strong></p>
- <pre class="salida_consola"> notepad README.md
- </pre>
-<p>Verás algo como esto:</p>
- <div class="box_bg_lightgray">
-<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
-Proyecto del Equipo Alfa
-=======
-Pruebas de colaboración - Equipo Alfa
-&gt;&gt;&gt;&gt;&gt;&gt;&gt; [hash-del-commit-remoto]
-</code></pre> </div> <!-- fin ejemplo -->
-<div class="admonition info">
-<p class="admonition-title">Explicación de los marcadores</p>
+<h3 id="12-la-solución-git-worktrees">1.2. La solución: Git Worktrees </h3>
+<p>Introducido a partir de Git 2.5, un <strong>Worktree</strong> (<em>árbol de trabajo</em>) permite vincular <strong>múltiples directorios de trabajo a un único repositorio <code>.git</code></strong>.</p>
 <ul>
-<li><strong><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code></strong>: Indica el inicio de tus cambios locales.</li>
-<li><strong><code>=======</code></strong>: Separa tus cambios de los cambios que vienen del repositorio remoto.</li>
-<li><strong><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; ...</code></strong>: Marca el final de los cambios remotos.</li>
+<li>Tienes <strong>un solo historial y base de datos Git</strong> (ahorro masivo de espacio en disco).</li>
+<li>Tienes <strong>dos o más carpetas físicas simultáneas</strong> en tu disco duro, cada una con una rama distinta lista para editar, compilar o ejecutar en paralelo.</li>
+<li>Los commits, etiquetas, referencias remotas y configuraciones se comparten instantáneamente entre todos los árboles de trabajo.</li>
 </ul>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>📁 Directorio del Proyecto Principal (C:\practicas\taller-worktree)
+├── 📁 .git\                 ← Base de datos central (commits, ramas, objetos)
+├── 📄 index.html            ← Rama: main
+└── 📄 app.js
+
+📁 ..\taller-hotfix          ← Directorio vinculado (Worktree secundario)
+├── 📄 .git                  ← Archivo de enlace que apunta a la BD principal
+├── 📄 index.html            ← Rama: hotfix-urgente
+└── 📄 app.js
+
+📁 ..\agente-ia-test         ← Directorio vinculado para IA / Tests
+├── 📄 .git                  ← Archivo de enlace que apunta a la BD principal
+└── 📄 app.test.js           ← Rama: ia/generar-tests
+</code></pre><div class="admonition info">
+<p class="admonition-title">Estructura interna de un Worktree</p>
+<p>El directorio principal contiene la carpeta habitual <strong><code>.git\</code></strong>. En cambio, en los directorios secundarios vinculados no hay una carpeta <strong><code>.git</code></strong>, sino un <strong>archivo de texto plano llamado <code>.git</code></strong> que contiene una directiva de enlace como <code>gitdir: C:/practicas/taller-worktree/.git/worktrees/taller-hotfix</code>. De este modo, Git sabe exactamente dónde acudir para consultar y registrar los cambios.</p>
 </div>
-</li>
-<li>
-<p><strong>Resuelve el conflicto:</strong> Debes editar el fichero manualmente para decidir cómo debe quedar la versión final. Elimina los marcadores de Git (<strong><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code></strong>, <strong><code>=======</code></strong>, <strong><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code></strong>) y deja el contenido deseado. Por ejemplo, podéis decidir combinar ambas ideas:</p>
- <div class="box_bg_lightgray">
-<pre data-role="codeBlock" data-info="txt" class="language-txt txt"><code># Pruebas de colaboración - Proyecto del Equipo Alfa
-</code></pre> </div>
-</li>
-<li>
-<p><strong>Guarda el fichero</strong> una vez resuelto.</p>
-</li>
-<li>
-<p><strong>Informa a Git de que el conflicto está resuelto:</strong></p>
- <pre class="salida_consola"> git add README.md
- </pre>
-</li>
-<li>
-<p><strong>Completa la fusión con un commit:</strong></p>
- <pre class="salida_consola"> git commit
- </pre>
-<p>Se abrirá un editor de texto con un mensaje de commit predefinido. Simplemente guarda y cierra el editor para confirmar.</p>
-</li>
-<li>
-<p><strong>Ahora sí, haz el <code>push</code> final:</strong></p>
- <pre class="salida_consola"> git push origin main
- </pre>
-<p>¡Éxito! El conflicto ha sido resuelto y los cambios están en GitHub.</p>
-</li>
-</ol>
-</div> <!-- fin ejercicio -->
 <div style="page-break-after:always;"></div>
-<h2 id="4-colaboración-mediante-pull-request">4. Colaboración mediante Pull Request </h2>
-<h3 id="push-directo-vs-pull-request">Push Directo vs. Pull Request </h3>
-<p>Aunque en este ejercicio hemos hecho ambas cosas, en entornos profesionales casi siempre se prefiere el Pull Request para la rama principal.</p>
+<h2 id="2-diferencias-ramas-convencionales-vs-git-worktrees">2. Diferencias: Ramas Convencionales vs. Git Worktrees </h2>
+<p>Para tener claro cuándo conviene utilizar cada método, revisemos la siguiente comparativa:</p>
 <table>
 <thead>
 <tr>
 <th style="text-align:left">Característica</th>
-<th style="text-align:left">Push Directo a <strong><code>main</code></strong></th>
-<th style="text-align:left">Pull Request (PR)</th>
+<th style="text-align:left">Ramas con <strong><code>git switch</code></strong> / <strong><code>git checkout</code></strong></th>
+<th style="text-align:left">Árboles de Trabajo con <strong><code>git worktree</code></strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left"><strong>Velocidad</strong></td>
-<td style="text-align:left"><strong>Ventaja:</strong> Muy rápido y directo. Ideal para proyectos personales o correcciones triviales.</td>
-<td style="text-align:left"><strong>Inconveniente:</strong> Proceso más lento, requiere más pasos y la intervención de otra persona.</td>
+<td style="text-align:left"><strong>Directorios físicos</strong></td>
+<td style="text-align:left">Solo 1 directorio en disco. Los archivos cambian según la rama activa.</td>
+<td style="text-align:left">Múltiples directorios en disco simultáneos e independientes.</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>Calidad y Revisión</strong></td>
-<td style="text-align:left"><strong>Inconveniente:</strong> No hay revisión de código. Es fácil introducir errores (<strong><code>bugs</code></strong>) en la rama principal.</td>
-<td style="text-align:left"><strong>Ventaja:</strong> Permite la <strong>revisión por pares</strong>. Otros pueden revisar el código, sugerir mejoras y detectar errores antes de que lleguen a <strong><code>main</code></strong>.</td>
+<td style="text-align:left"><strong>Cambios sin guardar</strong></td>
+<td style="text-align:left">Obliga a realizar <strong><code>git stash</code></strong> o commits temporales antes de cambiar.</td>
+<td style="text-align:left">Puedes cambiar de ventana de consola; tus cambios no confirmados quedan intactos en su carpeta.</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>Colaboración</strong></td>
-<td style="text-align:left"><strong>Inconveniente:</strong> Es un proceso aislado. No fomenta la discusión sobre los cambios.</td>
-<td style="text-align:left"><strong>Ventaja:</strong> Es el centro de la colaboración. Permite discutir los cambios, hacer preguntas y mantener un registro de las decisiones tomadas.</td>
+<td style="text-align:left"><strong>Ejecución en paralelo</strong></td>
+<td style="text-align:left">Imposible: solo puedes ejecutar la versión de la rama activa en ese instante.</td>
+<td style="text-align:left">Totalmente posible: puedes levantar dos servidores web en puertos distintos a la vez.</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>Integración Continua</strong></td>
-<td style="text-align:left"><strong>Inconveniente:</strong> Puede romper el <strong><code>build</code></strong> o las pruebas automáticas si se sube código defectuoso.</td>
-<td style="text-align:left"><strong>Ventaja:</strong> Se pueden ejecutar pruebas automáticas sobre el PR. Si las pruebas fallan, se bloquea la fusión, protegiendo la rama <strong><code>main</code></strong>.</td>
+<td style="text-align:left"><strong>Consumo de disco</strong></td>
+<td style="text-align:left">Mínimo (un solo conjunto de archivos).</td>
+<td style="text-align:left">Muy eficiente: solo replica los archivos de código fuente, <strong>no</strong> la base de datos <strong><code>.git</code></strong>.</td>
 </tr>
 <tr>
-<td style="text-align:left"><strong>Historial del Proyecto</strong></td>
-<td style="text-align:left"><strong>Ventaja:</strong> Genera un historial más lineal y simple.</td>
-<td style="text-align:left"><strong>Inconveniente:</strong> Puede generar un historial más "ruidoso" con commits de fusión, aunque existen estrategias para evitarlo (<strong><code>squash</code></strong>, <strong><code>rebase</code></strong>).</td>
+<td style="text-align:left"><strong>Aislamiento en IDEs</strong></td>
+<td style="text-align:left">Una sola ventana de editor por repositorio.</td>
+<td style="text-align:left">Cada Worktree puede abrirse como un proyecto independiente en Visual Studio Code.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Ramas idénticas</strong></td>
+<td style="text-align:left">Te mueves a la rama que desees en tu único directorio.</td>
+<td style="text-align:left"><strong>Regla de seguridad:</strong> Git <strong>no</strong> permite tener la misma rama activa en dos worktrees a la vez para evitar colisiones de <code>HEAD</code>.</td>
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">Regla fundamental de seguridad en Git Worktrees</p>
+<p>Git previene la corrupción de datos: <strong>dos worktrees no pueden tener la misma rama abierta al mismo tiempo</strong>. Si intentas hacer un checkout de una rama que ya está siendo usada en otro worktree, Git emitirá un error bloqueando la operación hasta que desvincules el worktree correspondiente o te cambies de rama en él.</p>
+</div>
+<hr>
+<h2 id="3-casos-de-uso-profesionales-y-aplicación-en-ia-agéntica">3. Casos de Uso Profesionales y Aplicación en IA Agéntica </h2>
+<h3 id="31-casos-de-uso-típicos-en-la-industria">3.1. Casos de uso típicos en la industria </h3>
+<ol>
+<li><strong>Parche urgente en producción (<em>Hotfix</em>):</strong><br>
+Estás desarrollando una gran funcionalidad que aún no compila en la rama <strong><code>feature/tienda</code></strong>. El responsable técnico te pide arreglar urgentemente una errata o un bug en <strong><code>main</code></strong>. Con Worktrees no tienes que guardar con stash ni deshacer nada: creas un worktree en otra carpeta, corriges, haces push y eliminas el worktree al terminar.</li>
+<li><strong>Revisión de Pull Requests (<em>Code Review</em>):</strong><br>
+Un compañero te pide que pruebes su rama localmente. Abres un worktree en una carpeta temporal, ejecutas su código y compruebas el funcionamiento sin cerrar tu tarea en curso ni pausar tu editor.</li>
+<li><strong>Pruebas de larga duración o compilaciones pesadas:</strong><br>
+Lanzas una suite de pruebas que tarda 15 minutos en un worktree en segundo plano mientras continúas programando otra funcionalidad en tu worktree principal.</li>
+</ol>
+<h3 id="32-git-worktrees-e-ia-agéntica-agentic-ai">3.2. Git Worktrees e IA Agéntica (<em>Agentic AI</em>) </h3>
+<p>En la actualidad, el desarrollo de software está experimentando una revolución con la llegada de la <strong>IA Agéntica</strong>. A diferencia de los chatbots tradicionales (que solo sugieren fragmentos de código en una ventana de chat), los <strong>agentes de software autónomos</strong> (como <em>Antigravity</em>, <em>Claude Code</em>, <em>Devin</em> o subagentes de desarrollo) son capaces de:</p>
+<ul>
+<li>Explorar el repositorio de forma autónoma.</li>
+<li>Ejecutar comandos en la consola, correr suites de pruebas y analizar logs.</li>
+<li>Crear y modificar múltiples archivos para resolver un bug o implementar una característica completa.</li>
+</ul>
+<p>¿Por qué los <strong>Git Worktrees</strong> son la base técnica de los sistemas multi-agente modernos?</p>
+<ul>
+<li><strong>Aislamiento total del entorno del programador:</strong> Si un agente de IA modificara archivos directamente en tu directorio de trabajo mientras estás escribiendo código, se producirían colisiones constantes, el autoguardado del editor generaría conflictos y los archivos cambiarían en tu pantalla sin tu control.</li>
+<li><strong>Ejecución paralela de múltiples subagentes:</strong> Un sistema de IA agéntica puede desplegar varios subagentes a la vez:
+<ul>
+<li>El <strong>Subagente A</strong> trabaja en un worktree generando pruebas unitarias en una rama <strong><code>ai/unit-tests</code></strong>.</li>
+<li>El <strong>Subagente B</strong> investiga una vulnerabilidad en otro worktree en la rama <strong><code>ai/security-fix</code></strong>.</li>
+<li>El <strong>Desarrollador Humano</strong> sigue codificando tranquilamente en el workspace principal en <strong><code>main</code></strong>.</li>
+</ul>
+</li>
+<li><strong>Espacio y velocidad instantánea:</strong> El agente crea un nuevo worktree en milisegundos sin necesidad de clonar gigabytes del repositorio ni reconfigurar credenciales de Git.</li>
+<li><strong>Inspección no intrusiva:</strong> El desarrollador puede entrar en la carpeta del agente en cualquier momento, revisar el progreso en el Explorador de Windows y, si el resultado es satisfactorio, fusionar la rama con un simple <strong><code>git merge</code></strong>.</li>
+</ul>
 <div style="page-break-after:always;"></div>
+<h3 id="33-arquitectura-visual-de-git-worktrees-e-ia-agéntica">3.3. Arquitectura visual de Git Worktrees e IA Agéntica </h3>
+<p>El siguiente diagrama ilustra cómo coexisten los diferentes directorios de trabajo conectados al mismo repositorio central:</p>
+<p><img src="./imagenes/diagrama_worktrees.png" alt="Diagrama de arquitectura de Git Worktrees e IA Agéntica" style="display:block;margin:0 auto;width:100%;max-width:700px;"></p>
+<div class="admonition info">
+<p class="admonition-title">Relación con herramientas modernas</p>
+<p>Muchos entornos de desarrollo con soporte para agentes autónomos disponen de modos de espacio de trabajo compartido (<strong><code>Workspace: share</code></strong>), los cuales se implementan internamente utilizando <strong><code>git worktree</code></strong> para garantizar aislamiento total sin duplicar consumo de memoria ni almacenamiento.</p>
+</div>
+<div style="page-break-after:always;"></div>
+<h2 id="4-actividad-práctica-guiada-dominando-los-git-worktrees-con-cmd">4. Actividad Práctica Guiada: Dominando los Git Worktrees con CMD </h2>
+<p>En esta práctica aprenderás a crear, gestionar y limpiar árboles de trabajo en Git utilizando la consola de comandos de Windows (<strong>cmd</strong>), simulando un flujo de trabajo profesional y una integración paralela con un agente de IA.</p>
 <div class="box_bg_lightgreen">
-<h4 id="paso-5-colaborar-con-un-pull-request">Paso 5: Colaborar con un Pull Request </h4>
-<p>En lugar de subir los cambios directamente a <strong><code>main</code></strong>, ahora usaremos un <strong>Pull Request (PR)</strong>. Este es un mecanismo para proponer cambios y pedir que alguien los revise antes de integrarlos.</p>
+<h4 id="paso-1-preparar-el-repositorio-de-pruebas">Paso 1: Preparar el repositorio de pruebas </h4>
+<p>Vamos a crear un repositorio limpio para entender el funcionamiento desde cero sin interferir en otros proyectos.</p>
 <ol>
 <li>
-<p><strong>Sube los últimos cambios de tu rama a GitHub:</strong></p>
- <pre class="salida_consola"> git push origin nombre-alumno
+<p>Abre el <strong>Símbolo del sistema de Windows (<code>cmd.exe</code>)</strong> (puedes presionar <strong><code>Win + R</code></strong>, escribir <strong><code>cmd</code></strong> y pulsar <strong>Enter</strong>) o abre el terminal integrado configurado en <strong>Command Prompt (cmd)</strong> en VS Code.</p>
+</li>
+<li>
+<p>Sitúate en tu carpeta de prácticas habitual y crea la carpeta para el proyecto:</p>
+ <pre class="salida_consola"> mkdir taller-worktree
+ cd taller-worktree
+ git init</pre>
+</li>
+<li>
+<p>Crea un archivo principal <strong><code>app.js</code></strong> con un código de inicio y confirma el primer commit:</p>
+ <pre class="salida_consola"> echo console.log('Aplicacion principal v1.0 en ejecucion'); &gt; app.js
+ git add app.js
+ git commit -m "Commit inicial: versión base 1.0"</pre>
+</li>
+<li>
+<p>Asegúrate de que la rama por defecto se llama <strong><code>main</code></strong>:</p>
+ <pre class="salida_consola"> git branch -M main
+ git status</pre>
+</li>
+</ol>
+</div> <!-- fin ejercicio -->
+<div class="box_bg_lightgreen">
+<h4 id="paso-2-listar-los-árboles-de-trabajo-existentes">Paso 2: Listar los árboles de trabajo existentes </h4>
+<p>Por defecto, cada repositorio Git tiene un único worktree: la carpeta en la que te encuentras.</p>
+<ol>
+<li>
+<p>Ejecuta el comando para listar los árboles de trabajo:</p>
+ <pre class="salida_consola"> git worktree list</pre>
+</li>
+<li>
+<p>Observa la salida por pantalla. Verás una línea similar a:</p>
+ <pre class="salida_consola"> C:/practicas/taller-worktree   a1b2c3d [main]</pre>
+<p>Git indica la ruta completa de la carpeta de trabajo, el identificador del último commit y la rama activa en ese directorio.</p>
+</li>
+</ol>
+</div> <!-- fin ejercicio -->
+<div style="page-break-after:always;"></div>
+<div class="box_bg_lightgreen">
+<h4 id="paso-3-crear-un-segundo-worktree-para-un-hotfix-urgente">Paso 3: Crear un segundo Worktree para un Hotfix urgente </h4>
+<p>Imagina que estás trabajando en la rama principal y recibes un aviso urgente: hay que corregir un fallo crítico en el código sin alterar lo que estás haciendo en <strong><code>main</code></strong>.</p>
+<ol>
+<li>
+<p>Crea un nuevo worktree en una carpeta hermana llamada <strong><code>..\taller-hotfix</code></strong> asociada a una nueva rama <strong><code>hotfix-urgente</code></strong>:</p>
+ <pre class="salida_consola"> git worktree add ..\taller-hotfix -b hotfix-urgente</pre>
+<div class="admonition tip">
+<p class="admonition-title">Explicación del comando</p>
+<ul>
+<li><strong><code>git worktree add</code></strong>: Indica a Git que cree un nuevo árbol de trabajo.</li>
+<li><strong><code>..\taller-hotfix</code></strong>: Es la ruta del nuevo directorio físico donde se descargarán los archivos.</li>
+<li><strong><code>-b hotfix-urgente</code></strong>: Crea simultáneamente una nueva rama llamada <strong><code>hotfix-urgente</code></strong> y la asocia a este nuevo directorio.</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Vuelve a comprobar la lista de worktrees:</p>
+ <pre class="salida_consola"> git worktree list</pre>
+<p>Ahora aparecerán dos rutas independientes, cada una con su rama activa correspondiente:</p>
+<ul>
+<li>El repositorio original con <strong><code>[main]</code></strong>.</li>
+<li>La nueva carpeta <strong><code>..\taller-hotfix</code></strong> con <strong><code>[hotfix-urgente]</code></strong>.</li>
+</ul>
+</li>
+</ol>
+</div> <!-- fin ejercicio -->
+<div class="box_bg_lightgreen">
+<h4 id="paso-4-explorar-la-estructura-interna-del-worktree">Paso 4: Explorar la estructura interna del Worktree </h4>
+<p>Vamos a comprobar cómo Git gestiona internamente este nuevo directorio sin duplicar el repositorio.</p>
+<ol>
+<li>
+<p>Navega a la nueva carpeta del hotfix:</p>
+ <pre class="salida_consola"> cd ..\taller-hotfix</pre>
+</li>
+<li>
+<p>En la consola <strong>cmd</strong>, lista todos los archivos, incluyendo los archivos ocultos mediante el parámetro <strong><code>/a</code></strong>:</p>
+ <pre class="salida_consola"> dir /a</pre>
+</li>
+<li>
+<p>Observa el elemento <strong><code>.git</code></strong>. En este directorio <strong>no es una carpeta</strong> (no aparece marcada con <code>&lt;DIR&gt;</code>), sino un fichero de texto plano. Muestra su contenido por pantalla con el comando <strong><code>type</code></strong>:</p>
+ <pre class="salida_consola"> type .git</pre>
+<p>Verás una sola línea que indica la ruta del repositorio central a la que apunta:</p>
+ <pre class="salida_consola"> gitdir: C:/practicas/taller-worktree/.git/worktrees/taller-hotfix</pre>
+</li>
+</ol>
+</div> <!-- fin ejercicio -->
+<div style="page-break-after:always;"></div>
+<div class="box_bg_lightgreen">
+<h4 id="paso-5-trabajar-en-paralelo-de-forma-simultánea">Paso 5: Trabajar en paralelo de forma simultánea </h4>
+<p>Comprobemos la verdadera ventaja de los worktrees: trabajar a la vez en dos ramas sin tocar <strong><code>git switch</code></strong>.</p>
+<ol>
+<li>
+<p>Estando dentro de <strong><code>..\taller-hotfix</code></strong>, añade la corrección al archivo <strong><code>app.js</code></strong> y haz un commit:</p>
+ <pre class="salida_consola"> echo console.log('Parche urgente de seguridad aplicado'); &gt;&gt; app.js
+ git commit -am "Aplica parche urgente en hotfix"</pre>
+</li>
+<li>
+<p>Regresa a la carpeta principal (puedes abrir una segunda ventana de <strong>cmd</strong> o cambiar de directorio con <strong><code>cd ..\taller-worktree</code></strong>):</p>
+ <pre class="salida_consola"> cd ..\taller-worktree
+ git status</pre>
+</li>
+<li>
+<p>Observa que en <strong><code>taller-worktree</code></strong> continúas en la rama <strong><code>main</code></strong>, el archivo <strong><code>app.js</code></strong> permanece intacto en su versión 1.0 (puedes comprobarlo ejecutando <strong><code>type app.js</code></strong>) y el repositorio sigue completamente limpio.</p>
+</li>
+<li>
+<p><strong>Prueba de seguridad:</strong> Intenta cambiarte en esta consola a la rama <strong><code>hotfix-urgente</code></strong>:</p>
+ <pre class="salida_consola"> git switch hotfix-urgente</pre>
+<p>Git lanzará un error de protección como este:</p>
+ <pre class="salida_consola"> fatal: 'hotfix-urgente' is already checked out at 'C:/practicas/taller-hotfix'</pre>
+<p>Esto demuestra cómo Git protege la integridad de tus ramas impidiendo colisiones entre carpetas simultáneas.</p>
+</li>
+</ol>
+</div> <!-- fin ejercicio -->
+<div class="box_bg_lightgreen">
+<h4 id="paso-6-simulación-de-flujo-con-ia-agéntica-subagente-de-pruebas">Paso 6: Simulación de flujo con IA Agéntica (Subagente de Pruebas) </h4>
+<p>Simularemos cómo una herramienta de IA (como un subagente de codificación autónomo) trabajaría en segundo plano sin interrumpir al desarrollador:</p>
+<ol>
+<li>
+<p>Desde el repositorio principal <strong><code>taller-worktree</code></strong>, lanzamos un worktree para el agente de pruebas:</p>
+ <pre class="salida_consola"> git worktree add ..\agente-ia-test -b ia/generar-tests</pre>
+</li>
+<li>
+<p>El agente trabaja en su directorio aislado <strong><code>..\agente-ia-test</code></strong> generando un archivo de pruebas:</p>
+ <pre class="salida_consola"> cd ..\agente-ia-test
+ echo console.log('Suite de pruebas generada por agente de IA'); &gt; app.test.js
+ git add app.test.js
+ git commit -m "feat(ai): suite de pruebas automatizadas generada por agente"</pre>
+</li>
+<li>
+<p>El desarrollador humano, desde su consola principal de <strong>cmd</strong>, puede consultar las confirmaciones realizadas por el agente y fusionar su trabajo cuando esté listo:</p>
+ <pre class="salida_consola"> cd ..\taller-worktree
+ git log --oneline ia/generar-tests
+ git merge ia/generar-tests -m "Integrar tests generados por el agente IA"
  </pre>
 </li>
 <li>
-<p><strong>Crea el Pull Request en GitHub:</strong></p>
-<ul>
-<li>Ve a la página del repositorio en tu navegador.</li>
-<li>Verás un mensaje amarillo que dice <strong>"Your branch had recent pushes"</strong>. Haz clic en el botón verde <strong>"Compare &amp; pull request"</strong>.</li>
-<li>Se abrirá un formulario. Asegúrate de que la base sea <strong><code>main</code></strong> y la rama a comparar sea <strong><code>nombre-alumno</code></strong>.</li>
-<li>Añade un título y una descripción para tu PR.</li>
-<li>En la barra lateral derecha, busca la sección <strong>"Reviewers"</strong> y selecciona a un compañero del equipo para que revise tus cambios.</li>
-<li>Haz clic en <strong>"Create pull request"</strong>.</li>
-</ul>
+<p>Verifica con el comando <strong><code>dir</code></strong> que <strong><code>app.test.js</code></strong> ahora forma parte de la carpeta principal en <strong><code>main</code></strong>:</p>
+ <pre class="salida_consola"> dir</pre>
+</li>
+</ol>
+</div> <!-- fin ejercicio -->
+<div style="page-break-after:always;"></div>
+<div class="box_bg_lightgreen">
+<h4 id="paso-7-limpieza-y-eliminación-de-worktrees">Paso 7: Limpieza y eliminación de Worktrees </h4>
+<p>Cuando finalizamos el trabajo en una rama o el agente de IA ha terminado su tarea, es importante liberar los árboles de trabajo para mantener el espacio de trabajo organizado.</p>
+<ol>
+<li>
+<p>Regresa siempre a la carpeta principal antes de eliminar worktrees:</p>
+ <pre class="salida_consola"> cd ..\taller-worktree</pre>
 </li>
 <li>
-<p><strong>Revisar y Aprobar el Pull Request (acción del revisor):</strong></p>
-<ul>
-<li>El compañero asignado recibirá una notificación.</li>
-<li>Debe ir a la pestaña <strong>"Pull Requests"</strong> del repositorio y abrir tu PR.</li>
-<li>En la pestaña <strong>"Files changed"</strong>, puede ver los cambios que has hecho.</li>
-<li>Si todo está correcto, debe hacer clic en <strong>"Review changes"</strong>, seleccionar <strong>"Approve"</strong> y enviar la revisión.</li>
-<li>Finalmente, el revisor debe hacer clic en el botón verde <strong>"Merge pull request"</strong> y confirmar la fusión. Esto integrará tus cambios en la rama <strong><code>main</code></strong> directamente en GitHub.</li>
-</ul>
+<p>Elimina los worktrees secundarios con el comando oficial <strong><code>git worktree remove</code></strong>:</p>
+ <pre class="salida_consola"> git worktree remove ..\taller-hotfix
+ git worktree remove ..\agente-ia-test</pre>
+<div class="admonition info">
+<p class="admonition-title">¿Qué ocurre con las ramas y los commits?</p>
+<p>Eliminar el worktree solo borra la carpeta física secundaria. Las ramas (<strong><code>hotfix-urgente</code></strong> e <strong><code>ia/generar-tests</code></strong>) y todos sus commits continúan existiendo a salvo en la base de datos central de Git.</p>
+</div>
+</li>
+<li>
+<p>Si ya fusionaste el hotfix o las ramas y ya no las necesitas, puedes eliminar las ramas de forma segura:</p>
+ <pre class="salida_consola"> git branch -d ia/generar-tests</pre>
+</li>
+<li>
+<p>Comprueba que todo ha quedado limpio:</p>
+ <pre class="salida_consola"> git worktree list</pre>
+<p>Solo debe aparecer tu directorio principal original.</p>
 </li>
 </ol>
 </div> <!-- fin ejercicio -->
 <div style="page-break-after:always;"></div>
 <h2 id="anexo">Anexo </h2>
-<h3 id="a1-diagrama-del-flujo-completo">A.1 Diagrama del flujo completo </h3>
-<p><img src="./imagenes/diagrama_flujo_trabajo_multiple.png" alt="Diagrama del flujo completo" style="display:block;margin:0 auto;width:100%;max-width:700px;"></p>
-<div class="admonition warning">
-<p class="admonition-title">Regla de oro de equipo</p>
-<p>Protege la rama principal (<strong><code>main</code></strong> o <strong><code>develop</code></strong>): el código nunca entra directamente, siempre a través de una rama de tarea y un Pull Request revisado.</p>
-<ul>
-<li><strong>Mandamiento 1:</strong> Mantén tus PRs pequeños y enfocados (una tarea = una rama = un PR). Es más fácil de revisar y más rápido de integrar.</li>
-<li><strong>Mandamiento 2:</strong> Haz <strong><code>fetch</code></strong> y fusiona la rama principal en tu rama de tarea frecuentemente para resolver conflictos localmente antes de abrir el PR.</li>
-<li><strong>Mandamiento 3:</strong> Respeta la revisión. No fusiones tu propio PR sin la aprobación de un compañero (el "Revisor" del diagrama).</li>
-</ul>
+<h3 id="a1-glosario-de-comandos-de-git-worktree">A.1. Glosario de Comandos de Git Worktree </h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Comando</th>
+<th style="text-align:left">Descripción de uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>git worktree list</code></strong></td>
+<td style="text-align:left">Muestra todos los árboles de trabajo vinculados con su ruta, último commit y rama activa.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>git worktree add &lt;ruta&gt; &lt;rama&gt;</code></strong></td>
+<td style="text-align:left">Asocia una rama existente a un nuevo directorio de trabajo en la ruta indicada.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>git worktree add &lt;ruta&gt; -b &lt;nueva-rama&gt;</code></strong></td>
+<td style="text-align:left">Crea una nueva rama y la vincula inmediatamente al nuevo directorio.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>git worktree remove &lt;ruta&gt;</code></strong></td>
+<td style="text-align:left">Elimina de forma segura el árbol de trabajo y su directorio asociado (si no tiene cambios sin guardar).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>git worktree remove --force &lt;ruta&gt;</code></strong></td>
+<td style="text-align:left">Fuerza el borrado del árbol de trabajo incluso si contiene archivos sin confirmar.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>git worktree prune</code></strong></td>
+<td style="text-align:left">Limpia los registros internos de metadatos de worktrees cuyos directorios fueron borrados manualmente en Windows.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>git worktree lock &lt;ruta&gt;</code></strong></td>
+<td style="text-align:left">Bloquea un worktree para evitar que sea eliminado accidentalmente o podado por <strong><code>prune</code></strong> (útil en memorias USB o discos extraíbles).</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>git worktree unlock &lt;ruta&gt;</code></strong></td>
+<td style="text-align:left">Desbloquea un worktree bloqueado previamente.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="a2-buenas-prácticas-y-recomendaciones">A.2. Buenas Prácticas y Recomendaciones </h3>
+<ol>
+<li><strong>Usa carpetas hermanas para la organización:</strong><br>
+Se recomienda crear los worktrees en un nivel superior como carpetas hermanas (por ejemplo: <code>..\proyecto-hotfix</code> o dentro de una subcarpeta ignorada en <code>.gitignore</code> como <code>.worktrees\</code>) para evitar anidar accidentalmente repositorios dentro de repositorios.</li>
+<li><strong>No borres carpetas a mano:</strong><br>
+Utiliza siempre <strong><code>git worktree remove &lt;ruta&gt;</code></strong>. Si alguna vez borras una carpeta directamente desde el Explorador de archivos de Windows o con el comando <strong><code>rmdir /s /q</code></strong>, ejecuta inmediatamente <strong><code>git worktree prune</code></strong> en el repositorio principal para limpiar los enlaces huérfanos.</li>
+<li><strong>Cuidado con dependencias pesadas:</strong><br>
+Recuerda que cada worktree es un directorio independiente; si tu proyecto usa Node.js, Python o Java (Maven/Gradle), deberás ejecutar la restauración de paquetes en la nueva carpeta si necesitas compilar o ejecutar en ella.</li>
+<li><strong>Ideal para automatización y agentes autónomos:</strong><br>
+En entornos de integración continua (CI/CD) o herramientas con asistentes agénticos de IA, los worktrees son la solución estándar de la industria para ejecutar pruebas y validaciones en paralelo sin coste de duplicación de almacenamiento.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Resumen</p>
+<p>Los <strong>Git Worktrees</strong> transforman Git de un modelo de "una sola tarea a la vez" a una estación de trabajo <strong>multitarea en paralelo</strong>. Son el puente perfecto entre la comodidad del desarrollador humano y la potencia de los agentes autónomos de Inteligencia Artificial.</p>
 </div>
 
       </div>
