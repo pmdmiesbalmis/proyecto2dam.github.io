@@ -1,0 +1,849 @@
+<!DOCTYPE html><html><head>
+      <title>[object Object]</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      @import url(https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css);
+code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview pre[data-line]{position:relative;padding:1em 0 1em 3em!important}.markdown-preview pre[data-line]>code{position:relative;z-index:1}.markdown-preview pre[data-line] .line-numbers-rows{z-index:1}.markdown-preview pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;pointer-events:none;display:block;width:100%}.markdown-preview pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:var(--line-highlight-background,linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0)));line-height:inherit;white-space:pre}.markdown-preview pre[data-line] .line-highlight:before,.markdown-preview pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none}.markdown-preview pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-details{margin:0;padding:0;border:none}.markdown-preview .md-toc ol.md-toc-ol{margin:0;padding-left:1.6em}.markdown-preview .md-toc summary.md-toc-link-wrapper{cursor:pointer;list-style-position:outside}.markdown-preview .md-toc summary.md-toc-link-wrapper::marker{font-size:.85em}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='0']{margin-left:12px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='1']{margin-left:28px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='2']{margin-left:44px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='3']{margin-left:60px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='4']{margin-left:76px}.markdown-preview .md-toc .md-toc-link-wrapper[data-level='5']{margin-left:80px}.markdown-preview a.tag,.markdown-preview a.tag:active,.markdown-preview a.tag:link,.markdown-preview a.tag:visited,.markdown-preview span.tag:not(.token){display:inline-block;background-color:var(--vscode-badge-background,rgba(127,127,127,.18));color:var(--vscode-badge-foreground,currentColor);border-radius:2em;font-size:.85em;font-weight:500;padding:.05em .55em;line-height:1.5;white-space:nowrap;text-decoration:none;text-shadow:none;box-shadow:none;transition:background-color .12s ease,opacity .12s ease}.markdown-preview a.tag{cursor:pointer}.markdown-preview a.tag:focus,.markdown-preview a.tag:hover{background-color:var(--vscode-badge-background,rgba(127,127,127,.32));color:var(--vscode-badge-foreground,currentColor);opacity:.85;text-decoration:none;outline:0}.markdown-preview .wikilink-embed-content{border-left:3px solid var(--vscode-textBlockQuote-border,rgba(128,128,128,.3));background:var(--vscode-textBlockQuote-background,rgba(128,128,128,.05));margin:.5em 0;padding:.5em .75em;border-radius:0 3px 3px 0}.markdown-preview .wikilink-embed-content.wikilink-embed-error{border-left-color:var(--vscode-errorForeground,#cf222e);color:var(--vscode-errorForeground,#cf222e);font-style:italic;opacity:.8}.markdown-preview .wikilink-embed-content h1:first-child,.markdown-preview .wikilink-embed-content h2:first-child,.markdown-preview .wikilink-embed-content h3:first-child,.markdown-preview .wikilink-embed-content h4:first-child,.markdown-preview .wikilink-embed-content h5:first-child,.markdown-preview .wikilink-embed-content h6:first-child{margin-top:.25em}.markdown-preview .wikilink-embed-content .wikilink-embed-content{margin:.25em 0;padding:.25em .5em}.markdown-preview .block-id{display:none}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:var(--vscode-scrollbarSlider-background,rgba(150,150,150,.66));border:4px solid var(--vscode-scrollbarSlider-background,rgba(150,150,150,.66));background-clip:content-box}.scrollbar-style::-webkit-scrollbar-thumb:hover{background-color:var(--vscode-scrollbarSlider-hoverBackground,rgba(120,120,120,.66))}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:var(--vscode-scrollbarSlider-background,rgba(150,150,150,.66));border:4px solid var(--vscode-scrollbarSlider-background,rgba(150,150,150,.66));background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb:hover{background-color:var(--vscode-scrollbarSlider-hoverBackground,rgba(120,120,120,.66))}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-details{margin:0;padding:0;border:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc ol.md-toc-ol{margin:0;padding-left:1.6em}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='0']{padding-left:0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='1']{padding-left:16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='2']{padding-left:32px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='3']{padding-left:48px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='4']{padding-left:64px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper[data-level='5']{padding-left:80px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}@font-face{font-family:"Material Icons";font-style:normal;font-weight:400;src:local("Material Icons"),local("MaterialIcons-Regular"),url("data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAfIAAsAAAAADDAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7kosY21hcAAAAYAAAADTAAACjtP6ytBnbHlmAAACVAAAAxgAAAQ4zRtvlGhlYWQAAAVsAAAALwAAADYRwZsnaGhlYQAABZwAAAAcAAAAJAeKAzxobXR4AAAFuAAAABIAAAA8OGQAAGxvY2EAAAXMAAAAIAAAACAG5AfwbWF4cAAABewAAAAfAAAAIAEfAERuYW1lAAAGDAAAAVcAAAKFkAhoC3Bvc3QAAAdkAAAAYgAAAK2vz7wkeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkPsQ4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVLy4xKzzX4chhrmK4QpQmBEkBwAZygyweJzFkr0NwjAQhZ+TEP6CRUfHBEwRUWaQTICyQbpMwRCskA5RUIONxG0RnnNpKAIV4qzPku/8c353ACYAYrIjCWCuMAh2ptf0/hiL3p/gyPUWa3osqlt0L1zu9r71z8dGrJRykFoauXQd932Lj5vhG+MjxGeYI8MKETObMpslf5EyP8tg+vHun5r539PvlvXzaVhRFVQDTPEWKVQR90KhnnC5Ek67vUKN4VuFasM/ldARj43CCkCsEjpJSoVVgRyU0GVSK6wUpFFCx8lFgX0BiXpRPQB4nE2TTWjcRhTH3xttpDhxN7uxPlp3u/FK7moRPixafRijNosxSw/LUsIwNcaEHPZggo/FmEKMCKWU4kNOOftQSlhE8alnH0Ix9BqWnHooPRrTQ0+mnu2bXTu2pPdGM9LM/6c3fwECTM4gBBMYQNqxzLrZAjqYSlqu2TAHZQA0/DQJH6FtzqGDnvbt4Ggwvzw/nL8EfH8kW0fsuRqhgWXZnY7M1picaUL7Du5BHeDzMIl83dAt016wH1qmvtSMo5R6YRJHTR//FXsff/nj/tc/5K9P5d+nP22+fFK5u7v3K39SW3y+OtDKO3L85vD09PD9z5X17a2N1g4tqk01RlqX7gyoEmnsWQtVr4rtZMmukEaFBZxzefkCn11cyKMLZgshRwgTYNoLNXCBz2ja7HvZG7hDpPSNfoo5vs0knK/9hb+rNpu+8kHPgk/Ao4kK3tWtTpSEtvkA9c+wE6UaUdwieNkaHg55tBEtRiEPw1s0+FtrtTcc9two2lhMknV7PZF/cs6+uUFTmpTGbEx7sQCPSLOttHS3GRltqp7SNzVSKzl6aWnZT/CX5k6/v9N3Hh8fHBwffJVjhrC6OgH5dkIt/tPsq+d/PD5Qz7G7efzq1THFjdZVPe/N6ulQ3JnDWSE5junsFsVIiFwL/htf1S5gJ3BfOcUxfHKLnzqpFpyfZ9cX+/5WB6a+Y0pHpzkNrYNVDwMsikK+y7WuLCRg/oFHkA8VT3rDg5ZnU6ktzzINymV0m74Xd5pfIGXyFeVEQSShkzqG7TBBa2OxVRKitLXv7h3uuftXnXq7lz2tZ/WnWa9dx9dCjDhHzmuVQATlmljr9dZErUydSo2Hbi/b1vXtrOeGCk2/8s3ZlO8+ueJT8BVlw5pGw2oYccdSiHHqx0RlabHqdNR9jAETl6PreJcPBnnfpTLnOQ8C3OV8AmQGzouV1iZdeb5SSIoVc8W8/kcDtksUH5FrU6/aqBqNWcMEzxG4DAQ14qRQhi9mWU0rzepKezbjfgCwQKxVYq5ajRgpRqy45CqwkJydcEkbTkvRz8P5/2ZpDTN4nGNgZGBgAOKb6v+/xvPbfGXgZmEAgeuB2kkI+v8bFgbmKiCXg4EJJAoAPyAKhQB4nGNgZGBg1vmvwxDDwgACQJKRARXwAwAzZQHQeJxjYQCCFAYGFgbSMQAcWACdAAAAAAAAAAwALgBgAIQAmADSAQgBIgE8AVABoAHeAfwCHHicY2BkYGDgZ7BgYGMAASYg5gJCBob/YD4DAA/hAWQAeJxlkbtuwkAURMc88gApQomUJoq0TdIQzEOpUDokKCNR0BuzBiO/tF6QSJcPyHflE9Klyyekz2CuG8cr7547M3d9JQO4xjccnJ57vid2cMHqxDWc40G4Tv1JuEF+Fm6ijRfhM+oz4Ra6eBVu4wZvvMFpXLIa40PYQQefwjVc4Uu4Tv1HuEH+FW7i1mkKn6Hj3Am3sHC6wm08Ou8tpSZGe1av1PKggjSxPd8zJtSGTuinyVGa6/Uu8kxZludCmzxMEzV0B6U004k25W35fj2yNlCBSWM1paujKFWZSbfat+7G2mzc7weiu34aczzFNYGBhgfLfcV6iQP3ACkSaj349AxXSN9IT0j16JepOb01doiKbNWt1ovippz6sVYYwsXgX2rGVFIkq7Pl2PNrI6qW6eOshj0xaSq9mpNEZIWs8LZUfOouNkVXxp/d5woqebeYIf4D2J1ywQB4nG3LOw6AIBAE0B384B+PAkgEa+QwNnYmHt+EpXSal5lkSBBnoP8oCFSo0aCFRIceA0ZMmLFAYSW88rmvtMUjG3RiQ9HvpfusM6zWNmtc5H/iPewha50tOt5PS/QBx2IeSwAA") format("woff")}.admonition{box-shadow:0 2px 2px 0 rgba(0,0,0,.14),0 1px 5px 0 rgba(0,0,0,.12),0 3px 1px -2px rgba(0,0,0,.2);position:relative;margin:1.5625em 0;padding:0 1.2rem;border-left:.4rem solid rgba(68,138,255,.8);border-radius:.2rem;background-color:rgba(255,255,255,.05);overflow:auto}.admonition>p{margin-top:.8rem}.admonition>.admonition-title{margin:0 -1.2rem;padding:.8rem 1.2rem .8rem 3.6rem;border-bottom:1px solid rgba(68,138,255,.2);background-color:rgba(68,138,255,.1);font-weight:700}.admonition>.admonition-title:before{position:absolute;left:1.2rem;font-size:1.5rem;color:rgba(68,138,255,.8);content:"\E3C9"}.admonition>.admonition-title:before{font-family:Material Icons;font-style:normal;font-variant:normal;font-weight:400;line-height:2rem;text-transform:none;white-space:nowrap;speak:none;word-wrap:normal;direction:ltr}.admonition.abstract,.admonition.summary,.admonition.tldr{border-left-color:rgba(0,176,255,.8)}.admonition.abstract>.admonition-title,.admonition.summary>.admonition-title,.admonition.tldr>.admonition-title{background-color:rgba(0,176,255,.1);border-bottom-color:rgba(0,176,255,.2)}.admonition.abstract>.admonition-title:before,.admonition.summary>.admonition-title:before,.admonition.tldr>.admonition-title:before{color:#00b0ff;content:"\E8D2"}.admonition.hint,.admonition.tip{border-left-color:rgba(0,191,165,.8)}.admonition.hint>.admonition-title,.admonition.tip>.admonition-title{background-color:rgba(0,191,165,.1);border-bottom-color:rgba(0,191,165,.2)}.admonition.hint>.admonition-title:before,.admonition.tip>.admonition-title:before{color:#00bfa5;content:"\E80E"}.admonition.info,.admonition.todo{border-left-color:rgba(0,184,212,.8)}.admonition.info>.admonition-title,.admonition.todo>.admonition-title{background-color:rgba(0,184,212,.1);border-bottom-color:rgba(0,184,212,.2)}.admonition.info>.admonition-title:before,.admonition.todo>.admonition-title:before{color:#00b8d4;content:"\E88E"}.admonition.check,.admonition.done,.admonition.success{border-left-color:rgba(0,200,83,.8)}.admonition.check>.admonition-title,.admonition.done>.admonition-title,.admonition.success>.admonition-title{background-color:rgba(0,200,83,.1);border-bottom-color:rgba(0,200,83,.2)}.admonition.check>.admonition-title:before,.admonition.done>.admonition-title:before,.admonition.success>.admonition-title:before{color:#00c853;content:"\E876"}.admonition.faq,.admonition.help,.admonition.question{border-left-color:rgba(100,221,23,.8)}.admonition.faq>.admonition-title,.admonition.help>.admonition-title,.admonition.question>.admonition-title{background-color:rgba(100,221,23,.1);border-bottom-color:rgba(100,221,23,.2)}.admonition.faq>.admonition-title:before,.admonition.help>.admonition-title:before,.admonition.question>.admonition-title:before{color:#64dd17;content:"\E887"}.admonition.attention,.admonition.caution,.admonition.warning{border-left-color:rgba(255,145,0,.8)}.admonition.attention>.admonition-title,.admonition.caution>.admonition-title,.admonition.warning>.admonition-title{background-color:rgba(255,145,0,.1);border-bottom-color:rgba(255,145,0,.2)}.admonition.attention>.admonition-title:before{color:#ff9100;content:"\E417"}.admonition.caution>.admonition-title:before,.admonition.warning>.admonition-title:before{color:#ff9100;content:"\E002"}.admonition.fail,.admonition.failure,.admonition.missing{border-left-color:rgba(255,82,82,.8)}.admonition.fail>.admonition-title,.admonition.failure>.admonition-title,.admonition.missing>.admonition-title{background-color:rgba(255,82,82,.1);border-bottom-color:rgba(255,82,82,.2)}.admonition.fail>.admonition-title:before,.admonition.failure>.admonition-title:before,.admonition.missing>.admonition-title:before{color:#ff5252;content:"\E14C"}.admonition.bug,.admonition.danger,.admonition.error{border-left-color:rgba(255,23,68,.8)}.admonition.bug>.admonition-title,.admonition.danger>.admonition-title,.admonition.error>.admonition-title{background-color:rgba(255,23,68,.1);border-bottom-color:rgba(255,23,68,.2)}.admonition.danger>.admonition-title:before{color:#ff1744;content:"\E3E7"}.admonition.error>.admonition-title:before{color:#ff1744;content:"\E14C"}.admonition.bug>.admonition-title:before{color:#ff1744;content:"\E868"}.admonition.example,.admonition.snippet{border-left-color:rgba(0,184,212,.8)}.admonition.example>.admonition-title,.admonition.snippet>.admonition-title{background-color:rgba(0,184,212,.1);border-bottom-color:rgba(0,184,212,.2)}.admonition.example>.admonition-title:before,.admonition.snippet>.admonition-title:before{color:#00b8d4;content:"\E242"}.admonition.cite,.admonition.quote{border-left-color:rgba(158,158,158,.8)}.admonition.cite>.admonition-title,.admonition.quote>.admonition-title{background-color:rgba(158,158,158,.1);border-bottom-color:rgba(158,158,158,.2)}.admonition.cite>.admonition-title:before,.admonition.quote>.admonition-title:before{color:#9e9e9e;content:"\E244"}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+@font-face {
+  font-family: 'Catamaran';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/catamaran/v28/o-0bIpQoyXQa2RxT7-5B6Ryxs2E_6n1iPHjd5a7dvg.ttf) format('truetype');
+}
+@page a4landscape {
+  size: A4 landscape;
+  margin: 1cm;
+}
+@page a4portrait {
+  size: A4 portrait;
+  margin: 1cm 1cm 2.5cm 1cm;
+}
+.markdown-preview.markdown-preview .landscape {
+  page: a4landscape;
+}
+.markdown-preview.markdown-preview .portrait {
+  page: a4portrait;
+}
+.markdown-preview.markdown-preview .box_bg_lightgray {
+  background-color: #f5f5f5;
+  border: 2px solid #969696;
+  padding: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px 0 rgba(78, 120, 158, 0.1);
+}
+.markdown-preview.markdown-preview .box_bg_lightgreen {
+  background-color: #f5faf5;
+  border: 2px solid #969b96;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 7px 0 rgba(78, 120, 158, 0.1);
+}
+.markdown-preview.markdown-preview .salida_consola {
+  background-color: #000000;
+  color: aquamarine;
+  border: 3px solid slategrey;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 6px 0 slategrey;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 0.8rem;
+}
+.markdown-preview.markdown-preview .contenedor {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto 30px auto;
+}
+.markdown-preview.markdown-preview .fondo {
+  background: url(https://balmisdigigs.github.io/digitalizacion.github.io/imagenes/fondos/quote.png);
+  background-size: cover;
+  width: 75%;
+  height: 160px;
+  border-radius: 10px;
+  position: relative;
+}
+.markdown-preview.markdown-preview .cita {
+  font-family: Arial;
+  font-style: italic;
+  font-weight: 600;
+  text-align: justify;
+  line-height: 1.5rem;
+  opacity: 0.6;
+  color: white;
+  padding: 5rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  font-size: 1.3rem;
+  transform: translate(-50%, -50%);
+}
+.markdown-preview.markdown-preview .abre_comilla {
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: white;
+  padding-left: 30px;
+  position: absolute;
+  font-size: 6rem;
+  transform: translate(0%, -15%);
+}
+.markdown-preview.markdown-preview .cierra_comilla {
+  font-family: "Catamaran";
+  font-weight: 600;
+  color: white;
+  padding-right: 30px;
+  right: 0%;
+  position: absolute;
+  font-size: 6rem;
+  transform: translate(0%, 55%);
+}
+.markdown-preview.markdown-preview .autor {
+  font-family: Arial;
+  color: white;
+  margin: 0px;
+  padding-left: 30px;
+  position: absolute;
+  top: 83%;
+  font-size: 1rem;
+}
+.markdown-preview.markdown-preview .flotante {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    justify-content: center;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    flex-direction: column;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante {
+    flex-direction: row;
+  }
+}
+.markdown-preview.markdown-preview .flotante_izq {
+  margin-right: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_izq {
+    width: 100%;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_izq {
+    width: auto;
+  }
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_der {
+    width: 100%;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .flotante_der {
+    width: auto;
+  }
+}
+.markdown-preview.markdown-preview .galeria_imagenes {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (max-width: 550px) {
+  .markdown-preview.markdown-preview .galeria_imagenes {
+    flex-direction: column;
+  }
+}
+@media (min-width: 550px) {
+  .markdown-preview.markdown-preview .galeria_imagenes {
+    flex-direction: row;
+  }
+}
+
+      </style>
+      
+    </head>
+    <body for="html-export">
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="manual-práctico-instalación-y-uso-básico-de-antigravity-cli-cmd">Manual Práctico: Instalación y Uso Básico de Antigravity CLI (CMD) </h1>
+<p><strong><a href="actividad1_agy.pdf">Descargar</a></strong></p>
+<div class="md-toc">
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="0">
+  <a href="#manual-práctico-instalación-y-uso-básico-de-antigravity-cli-cmd" class="md-toc-link">Manual Práctico: Instalación y Uso Básico de Antigravity CLI (CMD)</a>
+</summary>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="1">
+  <a href="#1-introducción-y-contexto-tecnológico" class="md-toc-link">1. Introducción y Contexto Tecnológico</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#por-qué-utilizar-antigravity-en-la-terminal-de-windows-cmdexe" class="md-toc-link">¿Por qué utilizar Antigravity en la terminal de Windows (<code>cmd.exe</code>)?</a>
+</div>
+</details>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="1">
+  <a href="#2-preparación-del-entorno-en-windows-cmd" class="md-toc-link">2. Preparación del Entorno en Windows CMD</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#21-instalación-portátil-de-nodejs-v2670-vía-cmd" class="md-toc-link">2.1. Instalación Portátil de Node.js v26.7.0 vía CMD</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#22-instalación-de-python-mediante-winget-en-cmd" class="md-toc-link">2.2. Instalación de Python mediante <code>winget</code> en CMD</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#23-verificación-de-antigravity-cli-agy" class="md-toc-link">2.3. Verificación de Antigravity CLI (<code>agy</code>)</a>
+</div>
+</details>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="1">
+  <a href="#3-fundamentos-de-antigravity-cli" class="md-toc-link">3. Fundamentos de Antigravity CLI</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#31-el-workspace-y-la-raíz-de-git" class="md-toc-link">3.1. El Workspace y la Raíz de Git</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#32-cuentas-y-selección-de-modelos" class="md-toc-link">3.2. Cuentas y Selección de Modelos</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#33-ecosistema-de-habilidades-skills-y-skillssh" class="md-toc-link">3.3. Ecosistema de Habilidades: Skills y <code>skills.sh</code></a>
+</div>
+</details>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="1">
+  <a href="#4-sintaxis-de-interacción-en-el-tui" class="md-toc-link">4. Sintaxis de Interacción en el TUI</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#41-prefijo--referencia-a-archivos-y-símbolos" class="md-toc-link">4.1. Prefijo <code>@</code>: Referencia a Archivos y Símbolos</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#42-prefijo--ejecución-de-comandos-nativos-en-cmd" class="md-toc-link">4.2. Prefijo <code>!</code>: Ejecución de Comandos Nativos en CMD</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#43-atajos-de-teclado-esenciales" class="md-toc-link">4.3. Atajos de Teclado Esenciales</a>
+</div>
+</details>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="1">
+  <a href="#5-referencia-de-comandos-de-barra-slash-commands" class="md-toc-link">5. Referencia de Comandos de Barra (<em>Slash Commands</em>)</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#help" class="md-toc-link"><code>/help</code></a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#btw-by-the-way" class="md-toc-link"><code>/btw</code> (<em>By The Way</em>)</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#clear" class="md-toc-link"><code>/clear</code></a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#resume" class="md-toc-link"><code>/resume</code></a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#context" class="md-toc-link"><code>/context</code></a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#permissions-gestión-y-revocación-de-autorizaciones" class="md-toc-link"><code>/permissions</code> (Gestión y Revocación de Autorizaciones)</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#model" class="md-toc-link"><code>/model</code></a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#skills" class="md-toc-link"><code>/skills</code></a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#rewind" class="md-toc-link"><code>/rewind</code></a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#usage" class="md-toc-link"><code>/usage</code></a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#browser" class="md-toc-link"><code>/browser</code></a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#antigravity-guidebrowser" class="md-toc-link"><code>/antigravity-guide/browser</code></a>
+</div>
+</details>
+<div class="md-toc-link-wrapper" data-level="1">
+  <a href="#6-actividad-práctica-guiada-puesta-en-marcha-y-certificación-de-contexto" class="md-toc-link">6. Actividad Práctica Guiada: Puesta en Marcha y Certificación de Contexto</a>
+</div>
+<details open="" class="md-toc-details">
+<summary class="md-toc-link-wrapper" data-level="1">
+  <a href="#7-anexos-y-tablas-de-referencia" class="md-toc-link">7. Anexos y Tablas de Referencia</a>
+</summary>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#a1-glosario-de-comandos-de-barra-slash-commands" class="md-toc-link">A.1. Glosario de Comandos de Barra (<em>Slash Commands</em>)</a>
+</div>
+<div class="md-toc-link-wrapper" data-level="2">
+  <a href="#a2-buenas-prácticas-en-el-uso-de-agentes-cli" class="md-toc-link">A.2. Buenas Prácticas en el Uso de Agentes CLI</a>
+</div>
+</details>
+</details>
+</div>
+<div style="page-break-after:always;"></div>
+<h2 id="1-introducción-y-contexto-tecnológico">1. Introducción y Contexto Tecnológico </h2>
+<p>En el desarrollo de software actual, la interacción con modelos de lenguaje grande (LLMs) ha evolucionado desde interfaces gráficas basadas en chat hacia herramientas operativas en línea de comandos (<strong>CLI - <em>Command-Line Interface</em></strong>). Las herramientas CLI permiten a los agentes de Inteligencia Artificial actuar directamente sobre el sistema de archivos, inspeccionar repositorios, compilar código y ejecutar pruebas automatizadas dentro del entorno real del desarrollador.</p>
+<p><strong>Antigravity CLI (<code>agy</code>)</strong> es la herramienta de terminal oficial de la plataforma de desarrollo agéntico de Google. Ofrece una interfaz de texto enriquecida (<em>TUI - Text User Interface</em>), bajo consumo de recursos, integración nativa con repositorios Git y soporte para extensiones estandarizadas mediante el protocolo <strong>Agent Skills</strong>.</p>
+<p><img src="imagenes/actividad1_agy/diagrama_entorno_agy.png" alt="Diagrama de Arquitectura del Entorno" style="display:block;margin:0 auto;width:100%;max-width:650px;"></p>
+<h3 id="por-qué-utilizar-antigravity-en-la-terminal-de-windows-cmdexe">¿Por qué utilizar Antigravity en la terminal de Windows (<code>cmd.exe</code>)? </h3>
+<ul>
+<li><strong>Eficiencia operativa:</strong> Permite interactuar con el agente sin abandonar la terminal de desarrollo habitual de Windows.</li>
+<li><strong>Aislamiento y portabilidad:</strong> Facilita la configuración en entornos educativos o corporativos donde no siempre se dispone de privilegios de administrador para instaladores estándar.</li>
+<li><strong>Control granular:</strong> El desarrollador mantiene la supervisión total sobre las acciones del agente mediante un sistema estricto de permisos revocables.</li>
+<li><strong>Extensibilidad abierta:</strong> Permite incorporar habilidades especializadas (como <code>csharp-pro</code>) directamente desde registros comunitarios como <strong><a href="http://skills.sh">skills.sh</a></strong>.</li>
+</ul>
+<hr>
+<h2 id="2-preparación-del-entorno-en-windows-cmd">2. Preparación del Entorno en Windows CMD </h2>
+<p>Para ejecutar Antigravity CLI de forma reproducible y autónoma, configuraremos un entorno compuesto por <strong>Node.js portátil</strong>, <strong>Python</strong> y <strong>Git</strong>. Todas las instrucciones se ejecutarán exclusivamente a través del <strong>Símbolo del sistema de Windows (<code>cmd.exe</code>)</strong>.</p>
+<h3 id="21-instalación-portátil-de-nodejs-v2670-vía-cmd">2.1. Instalación Portátil de Node.js v26.7.0 vía CMD </h3>
+<p>En muchos entornos de aula o laboratorios de desarrollo es preferible evitar instaladores ejecutables <code>.msi</code> que modifiquen el registro de Windows de manera invasiva. En su lugar, utilizaremos la versión comprimida <code>.zip</code> oficial de Node.js, descargándola y desplegándola mediante herramientas nativas de la consola de Windows (<code>curl</code> y <code>tar</code>).</p>
+<pre class="salida_consola"># 1. Crear el directorio destino para herramientas portátiles
+mkdir C:\herramientas\nodejs
+cd /d C:\herramientas\nodejs
+
+# 2. Descargar el archivo comprimido oficial de Node.js v26.7.0
+curl -Lo node-v26.7.0-win-x64.zip https://nodejs.org/dist/v26.7.0/node-v26.7.0-win-x64.zip
+
+# 3. Descomprimir el contenido usando la herramienta tar integrada en Windows
+tar -xf node-v26.7.0-win-x64.zip
+
+# 4. Configurar la variable de entorno PATH temporalmente para la sesión actual
+set PATH=C:\herramientas\nodejs\node-v26.7.0-win-x64;%PATH%
+
+# 5. Configurar la variable PATH de manera permanente a nivel de usuario
+setx PATH "%PATH%;C:\herramientas\nodejs\node-v26.7.0-win-x64"
+
+# 6. Verificar la correcta instalación y versiones
+node -v
+# Salida esperada: v26.7.0
+
+npm -v
+# Salida esperada: 11.x.x o superior
+</pre>
+<div class="admonition tip">
+<p class="admonition-title">Buenas Prácticas con Variables de Entorno en CMD</p>
+<p>El comando <code>set</code> modifica las variables únicamente para la ventana actual de <code>cmd.exe</code>. Por su parte, <code>setx</code> registra la variable de forma persistente en el perfil del usuario de Windows para futuras ventanas. Recuerda que las ventanas de CMD abiertas con anterioridad no heredarán los cambios de <code>setx</code> hasta que sean reiniciadas.</p>
+</div>
+<h3 id="22-instalación-de-python-mediante-winget-en-cmd">2.2. Instalación de Python mediante <code>winget</code> en CMD </h3>
+<p>Python es un requisito habitual para la ejecución de herramientas auxiliares, scripts de scaffolding y validación de entornos agénticos. Utilizaremos el Administrador de Paquetes de Windows (<strong>Windows Package Manager / <code>winget</code></strong>) para instalarlo de forma desatendida.</p>
+<pre class="salida_consola"># 1. Buscar los paquetes oficiales de Python disponibles en el repositorio de winget
+winget search Python.Python
+
+# 2. Instalar la versión estable de Python de manera desatendida
+winget install --id Python.Python.3.12 --exact --source winget --accept-source-agreements --accept-package-agreements
+
+# 3. Tras reiniciar o refrescar la ventana de CMD, comprobar la versión de Python y pip
+python --version
+# Salida esperada: Python 3.12.x (o superior)
+
+pip --version
+# Salida esperada: pip 24.x.x desde ...
+</pre>
+<div class="admonition warning">
+<p class="admonition-title">Asegurar Python en el PATH</p>
+<p>Si al ejecutar <code>python --version</code> la consola indica que el comando no se reconoce, verifica que la ruta de instalación de Python (habitualmente <code>%LOCALAPPDATA%\Programs\Python\Python312</code> o la ruta seleccionada por winget) se encuentre incluida en la variable de entorno <code>PATH</code>.</p>
+</div>
+<h3 id="23-verificación-de-antigravity-cli-agy">2.3. Verificación de Antigravity CLI (<code>agy</code>) </h3>
+<p>Una vez que el entorno base (Node.js, npm y Python) se encuentra operativo, comprobamos la disponibilidad del binario de Antigravity CLI (<code>agy</code>):</p>
+<pre class="salida_consola"># Descargar e instalar Antigravity CLI
+curl -fsSL https://antigravity.google/cli/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd
+
+# Comprobar la presencia y ubicación del ejecutable agy
+where agy
+# Ejemplo de salida: C:\Users\alumno\AppData\Local\agy\bin\agy.exe
+
+# Consultar la versión y opciones generales
+agy --help
+</pre>
+<div style="page-break-after:always;"></div>
+<h2 id="3-fundamentos-de-antigravity-cli">3. Fundamentos de Antigravity CLI </h2>
+<p>Antes de interactuar con el agente en la práctica, es fundamental asimilar cómo estructura Antigravity su espacio de trabajo, su interfaz de comandos y su ciclo de vida de ejecución.</p>
+<p><img src="imagenes/actividad1_agy/diagrama_interfaz_agy.png" alt="Diagrama de Interfaz y Comandos" style="display:block;margin:0 auto;width:100%;max-width:650px;"></p>
+<h3 id="31-el-workspace-y-la-raíz-de-git">3.1. El Workspace y la Raíz de Git </h3>
+<p>Antigravity CLI opera siempre en el contexto de un <strong>Workspace</strong> (espacio de trabajo). Para que el agente funcione de forma coherente y segura:</p>
+<ol>
+<li><strong>Frontera de seguridad (<em>Workspace boundary</em>):</strong> El agente no tiene acceso libre a todo el disco duro; sus herramientas de inspección y edición quedan restringidas al árbol de carpetas del workspace.</li>
+<li><strong>Raíz de Git como ancla:</strong> Antigravity detecta la presencia de la carpeta oculta <code>.git</code>. Desde esa raíz busca los archivos de directrices (<code>AGENTS.md</code>, <code>GEMINI.md</code>) y las carpetas de habilidades (<code>.agents/skills/</code>).</li>
+<li><strong>Control de cambios e idempotencia:</strong> La existencia de un repositorio Git permite al usuario y al agente evaluar mediante <code>git diff</code> qué modificaciones exactas se han aplicado sobre el código antes de confirmarlas.</li>
+</ol>
+<h3 id="32-cuentas-y-selección-de-modelos">3.2. Cuentas y Selección de Modelos </h3>
+<p>El cerebro de Antigravity CLI es un modelo fundacional de IA. La CLI permite elegir qué modelo gobernará la sesión en función de la complejidad de la tarea:</p>
+<ul>
+<li><strong>Gemini 2.5 Pro:</strong> Recomendado para refactorizaciones profundas, diseño de arquitecturas de software, razonamiento lógico complejo y resolución de errores intrincados.</li>
+<li><strong>Gemini 2.8 Flash:</strong> Modelo optimizado para velocidad y bajo consumo de tokens. Ideal para búsquedas puntuales, lectura de documentación, generación de código boilerplate y tareas de edición rápida.</li>
+<li><strong>Claude 3.7 Sonnet:</strong> Modelo de razonamiento híbrido excelente para tareas asistidas de análisis de código.</li>
+</ul>
+<p>La CLI permite cambiar de modelo en cualquier momento mediante el comando <code>/model</code> o fijarlo directamente al arrancar la sesión con el parámetro <code>--model &lt;nombre_modelo&gt;</code>.</p>
+<h3 id="33-ecosistema-de-habilidades-skills-y-skillssh">3.3. Ecosistema de Habilidades: Skills y <code>skills.sh</code> </h3>
+<p>Una <strong>Skill</strong> (habilidad) es un paquete modular de instrucciones, patrones de arquitectura, listas de verificación y herramientas que enseñan al agente cómo trabajar en una tecnología concreta.</p>
+<ul>
+<li><strong>El registro <code>skills.sh</code>:</strong> Es el catálogo comunitario abierto de referencia para compartir habilidades de agentes de IA (soportado por herramientas como Antigravity, Cursor, Claude Code y OpenCode).</li>
+<li><strong>La Skill <code>csharp-pro</code>:</strong> Diseñada por expertos en .NET, instruye al agente en el uso de sintaxis moderna de C#, principios SOLID, Clean Architecture, buenas prácticas con xUnit, patrones de Minimal API en .NET 10 y optimización de memoria mediante <code>Span&lt;T&gt;</code>.</li>
+<li><strong>Divulgación Progresiva (<em>Progressive Disclosure</em>):</strong> Antigravity no satura la ventana de contexto inyectando todo el contenido de las habilidades al arrancar. Únicamente incluye su nombre y descripción corta. Cuando el agente detecta que el usuario le pide trabajar en un proyecto de C# o .NET, monta bajo demanda las directrices detalladas de <code>csharp-pro</code>.</li>
+</ul>
+<div style="page-break-after:always;"></div>
+<h2 id="4-sintaxis-de-interacción-en-el-tui">4. Sintaxis de Interacción en el TUI </h2>
+<p>Dentro de la sesión interactiva de Antigravity CLI, existen dos prefijos fundamentales para controlar el flujo de información sin consumir tokens innecesarios:</p>
+<h3 id="41-prefijo--referencia-a-archivos-y-símbolos">4.1. Prefijo <code>@</code>: Referencia a Archivos y Símbolos </h3>
+<p>Escribir el carácter <code>@</code> abre un autocompletador difuso (<em>fuzzy search</em>) en tiempo real para seleccionar archivos o carpetas del workspace:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>agy&gt; @README.md Analiza el contenido inicial y propone una descripción técnica.
+agy&gt; @src/Program.cs Explica cómo se configura la inyección de dependencias.
+agy&gt; @.agents/skills/csharp-pro/SKILL.md Revisa las directrices de pruebas unitarias.
+</code></pre><p><strong>Beneficios técnicos:</strong></p>
+<ul>
+<li><strong>Economía de tokens:</strong> En lugar de copiar y pegar manualmente el código en el prompt, el prefijo <code>@</code> crea una referencia indexada que el motor de Antigravity inyecta con precisión de líneas.</li>
+<li><strong>Trazabilidad:</strong> El agente sabe con certeza en qué archivo del disco se encuentra el código al que nos referimos.</li>
+</ul>
+<h3 id="42-prefijo--ejecución-de-comandos-nativos-en-cmd">4.2. Prefijo <code>!</code>: Ejecución de Comandos Nativos en CMD </h3>
+<p>Cuando una instrucción comienza con el signo de exclamación <code>!</code>, la CLI <strong>no envía el texto al modelo de lenguaje</strong>, sino que lo ejecuta directamente en el shell del sistema operativo (<code>cmd.exe</code>):</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>agy&gt; !dir
+agy&gt; !git status
+agy&gt; !dotnet --version
+agy&gt; !node -v
+</code></pre><p><strong>Diferencia clave con la acción del agente:</strong></p>
+<ul>
+<li>Si escribes <code>!git status</code>, la orden se ejecuta al instante en tu máquina sin coste de tokens ni latencia de red.</li>
+<li>Si le pides al agente en lenguaje natural <em>"Comprueba el estado de git"</em>, el modelo debe procesar el texto, emitir una llamada a la herramienta <code>run_command</code>, solicitar tu confirmación de permisos y leer el resultado.</li>
+</ul>
+<h3 id="43-atajos-de-teclado-esenciales">4.3. Atajos de Teclado Esenciales </h3>
+<p>La interfaz de texto de Antigravity CLI incorpora atajos de teclado clave para aumentar la productividad:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Atajo</th>
+<th style="text-align:left">Acción</th>
+<th style="text-align:left">Descripción y Utilidad</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>Shift + Tab</code></strong></td>
+<td style="text-align:left"><strong>Alternar Agente / Modo</strong></td>
+<td style="text-align:left">Cambia entre agentes activos (ej. agente principal <code>self</code> vs. subagente <code>research</code>) o conmuta entre modo de edición y modo de planificación.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>Ctrl + O</code></strong></td>
+<td style="text-align:left"><strong>Editor Multilínea / Buffer</strong></td>
+<td style="text-align:left">Abre un área de edición multilínea para redactar prompts estructurados extensos o inspeccionar el buffer completo de la transcripción.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>Tab</code></strong></td>
+<td style="text-align:left"><strong>Autocompletado</strong></td>
+<td style="text-align:left">Completa nombres de archivos tras <code>@</code>, comandos tras <code>/</code> y sugerencias contextuales.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>Ctrl + C</code></strong></td>
+<td style="text-align:left"><strong>Cancelar Ejecución</strong></td>
+<td style="text-align:left">Interrumpe inmediatamente la respuesta del modelo en curso o detiene una herramienta que tarde demasiado.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>Ctrl + D</code></strong> (x2)</td>
+<td style="text-align:left"><strong>Salir de la CLI</strong></td>
+<td style="text-align:left">Cierra la sesión interactiva de forma limpia y guarda el estado de la conversación.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>Flechas Arriba / Abajo</code></strong></td>
+<td style="text-align:left"><strong>Historial</strong></td>
+<td style="text-align:left">Navega cronológicamente por los prompts anteriores introducidos en la sesión.</td>
+</tr>
+</tbody>
+</table>
+<div style="page-break-after:always;"></div>
+<h2 id="5-referencia-de-comandos-de-barra-slash-commands">5. Referencia de Comandos de Barra (<em>Slash Commands</em>) </h2>
+<p>Los comandos de barra son instrucciones operativas directas que permiten gestionar la sesión, el contexto, la seguridad y las herramientas sin pasar por el procesamiento del LLM.</p>
+<p><img src="imagenes/actividad1_agy/diagrama_contexto_sesion.png" alt="Diagrama de Ciclo de Vida y Exportación de Contexto" style="display:block;margin:0 auto;width:100%;max-width:650px;"></p>
+<p>A continuación se detalla el catálogo de comandos requeridos para esta actividad:</p>
+<h3 id="help"><code>/help</code> </h3>
+<p>Muestra el manual de ayuda integrado en la consola, detallando la totalidad de comandos disponibles, parámetros admitidos y descripciones breves.</p>
+<h3 id="btw-by-the-way"><code>/btw</code> (<em>By The Way</em>) </h3>
+<p>Permite añadir una nota aclaratoria o contexto adicional al hilo de la conversación sin forzar al modelo a responder exhaustivamente a ella. Es muy útil para hacer correcciones sutiles al agente mientras resuelve una tarea en segundo plano.</p>
+<h3 id="clear"><code>/clear</code> </h3>
+<p>Limpia la pantalla de la terminal y reinicia el búfer visual del chat. No borra las reglas ni la memoria del proyecto, pero permite comenzar a redactar sin distracciones visuales acumuladas.</p>
+<h3 id="resume"><code>/resume</code> </h3>
+<p>Reanuda una sesión previa de conversación utilizando su identificador único (<em>conversation ID</em>). Permite retomar proyectos exactamente en el estado en que se dejaron en días anteriores.</p>
+<h3 id="context"><code>/context</code> </h3>
+<p>Muestra una radiografía completa de la <strong>ventana de contexto</strong> actual: tokens consumidos frente al límite del modelo, archivos cargados en memoria, reglas activas y habilidades montadas. Es el comando central para verificar la salud de la sesión y generar la prueba de realización.</p>
+<h3 id="permissions-gestión-y-revocación-de-autorizaciones"><code>/permissions</code> (Gestión y Revocación de Autorizaciones) </h3>
+<p>Antigravity CLI implementa un modelo de seguridad por defecto donde cada acción crítica (ejecutar un comando en la consola o sobreescribir un archivo) requiere aprobación humana. Al aprobar una acción con la opción de recordarla durante toda la sesión, el usuario delega autonomía.<br>
+El comando <code>/permissions</code> permite inspeccionar todas las autorizaciones vigentes y <strong>eliminar / revocar autorizaciones de acción concedidas previamente</strong>, forzando al agente a volver a solicitar confirmación explícita ante cualquier operación en el sistema.</p>
+<h3 id="model"><code>/model</code> </h3>
+<p>Abre un menú interactivo en tiempo real para conmutar el modelo de lenguaje de la sesión entre las opciones disponibles (Gemini 2.5 Pro, Gemini 2.5 Flash, Claude 3.7 Sonnet, etc.).</p>
+<h3 id="skills"><code>/skills</code> </h3>
+<p>Lista todas las habilidades (<em>skills</em>) descubiertas por el sistema, indicando si provienen del proyecto local (<code>.agents/skills/</code>), de la configuración global o de los módulos integrados por defecto.</p>
+<h3 id="rewind"><code>/rewind</code> </h3>
+<p>Deshace el último turno de interacción o permite rebobinar a un punto histórico previo de la conversación. Es especialmente valioso si el agente ha seguido una línea de razonamiento errónea o ha generado código equivocado, permitiendo volver atrás sin perder el contexto inicial.</p>
+<h3 id="usage"><code>/usage</code> </h3>
+<p>Proporciona estadísticas cuantitativas del consumo de tokens durante la sesión: tokens de entrada (<em>prompt</em>), tokens de salida (<em>completion</em>), tokens servidos desde la caché contextual y cómputo acumulado de peticiones.</p>
+<h3 id="browser"><code>/browser</code> </h3>
+<p>Activa el subagente y las herramientas de navegación web automatizada (<em>Puppeteer / Playwright</em> integrado). Permite al agente abrir páginas web locales o remotas, tomar capturas de pantalla, inspeccionar el DOM y verificar el funcionamiento de aplicaciones web.</p>
+<h3 id="antigravity-guidebrowser"><code>/antigravity-guide/browser</code> </h3>
+<p>Comando de espacio de nombres (<em>namespaced skill command</em>) que consulta directamente la guía técnica de referencia sobre automatización de navegadores de Antigravity (<code>https://antigravity.google/docs/ide/browser</code>), permitiendo al usuario obtener asistencia especializada sobre flujos de trabajo con el navegador.</p>
+<div style="page-break-after:always;"></div>
+<h2 id="6-actividad-práctica-guiada-puesta-en-marcha-y-certificación-de-contexto">6. Actividad Práctica Guiada: Puesta en Marcha y Certificación de Contexto </h2>
+<p>A continuación, realizaremos la práctica completa guiada. Cada paso debe completarse estrictamente en el orden indicado, utilizando la consola <code>cmd.exe</code>.</p>
+<div class="box_bg_lightgreen">
+<h4 id="paso-1-configurar-el-entorno-de-ejecución-en-cmd">Paso 1: Configurar el Entorno de Ejecución en CMD </h4>
+<p>Comenzaremos configurando las herramientas base en el símbolo del sistema de Windows (<code>cmd.exe</code>).</p>
+<ol>
+<li>
+<p>Abre una ventana de <code>cmd.exe</code> (puedes pulsar <code>Win + R</code>, escribir <code>cmd</code> y pulsar <code>Enter</code>).</p>
+</li>
+<li>
+<p>Descarga y extrae la versión portátil de Node.js v26.7.0:</p>
+ <pre class="salida_consola"> mkdir C:\herramientas\nodejs
+ cd /d C:\herramientas\nodejs
+ curl -Lo node-v26.7.0-win-x64.zip https://nodejs.org/dist/v26.7.0/node-v26.7.0-win-x64.zip
+ tar -xf node-v26.7.0-win-x64.zip
+ set PATH=C:\herramientas\nodejs\node-v26.7.0-win-x64;%PATH%
+ node -v
+ # Verificación: debe devolver v26.7.0
+ </pre>
+</li>
+<li>
+<p>Instala Python usando <code>winget</code> y verifica la instalación:</p>
+ <pre class="salida_consola"> winget install --id Python.Python.3.12 --exact --source winget --accept-source-agreements --accept-package-agreements
+ python --version
+ </pre>
+</li>
+<li>
+<p>Comprueba la disponibilidad de Antigravity CLI:</p>
+ <pre class="salida_consola"> where agy
+ agy --version
+ </pre>
+</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">Instalación de Antigravity CLI</p>
+<p>Si el comando <code>where agy</code> no localiza el binario, puedes instalar la CLI globalmente a través de npm ejecutando <code>&lt;pre class="salida_consola"&gt;npm install -g @google/antigravity-cli&lt;/pre&gt;</code> o verificando la ruta local proporcionada por el docente.</p>
+</div>
+</div> <!-- fin ejercicio -->
+<div style="page-break-after:always;"></div>
+<div class="box_bg_lightgreen">
+<h4 id="paso-2-crear-el-workspace-e-inicializar-el-repositorio-git">Paso 2: Crear el Workspace e Inicializar el Repositorio Git </h4>
+<p>Crearemos la carpeta del proyecto que actuará como workspace de Antigravity y la vincularemos a un repositorio Git local. Para enriquecer el proyecto y dar contexto a la habilidad <code>csharp-pro</code>, inicializaremos además una aplicación de consola en <strong>.NET 10</strong> (<code>net10.0</code>).</p>
+<ol>
+<li>
+<p>Crea y accede a la carpeta de trabajo:</p>
+ <pre class="salida_consola"> mkdir D:\proyectos\proyecto-agy-balmis
+ cd /d D:\proyectos\proyecto-agy-balmis
+ </pre>
+</li>
+<li>
+<p>Inicializa el repositorio Git y configura la identidad local:</p>
+ <pre class="salida_consola"> git init
+ git config user.name "Alumno Balmis"
+ git config user.email "alumno.balmis@alu.edu.gva.es"
+ </pre>
+</li>
+<li>
+<p>Crea el proyecto base en .NET 10 para los ejercicios posteriores:</p>
+ <pre class="salida_consola"> dotnet new console -n BalmisAgyApp -f net10.0
+ echo # Workspace Balmis con Antigravity CLI &gt; README.md
+ git add .
+ git commit -m "feat: inicializacion de workspace git y proyecto base .NET 10"
+ </pre>
+</li>
+<li>
+<p>Comprueba que el estado del árbol de trabajo de Git esté limpio:</p>
+ <pre class="salida_consola"> git status
+ # Salida esperada: nothing to commit, working tree clean
+ </pre>
+</li>
+</ol>
+</div> <!-- fin ejercicio -->
+<div style="page-break-after:always;"></div>
+<div class="box_bg_lightgreen">
+<h4 id="paso-3-inicializar-antigravity-cli-configurar-cuenta-y-modelo">Paso 3: Inicializar Antigravity CLI, Configurar Cuenta y Modelo </h4>
+<p>Iniciaremos la sesión de Antigravity CLI en la raíz de nuestro repositorio y seleccionaremos el modelo adecuado.</p>
+<ol>
+<li>
+<p>Desde <code>D:\proyectos\proyecto-agy-balmis</code>, arranca la CLI:</p>
+ <pre class="salida_consola"> agy
+ </pre>
+</li>
+<li>
+<p><strong>Autenticación:</strong> En el primer arranque, la CLI solicitará iniciar sesión con tu cuenta de desarrollador de Google o suministrar una clave de API (<em>API Key</em>). Sigue las indicaciones que aparecen en pantalla para completar la autenticación.</p>
+</li>
+<li>
+<p><strong>Configuración del Modelo:</strong> Dentro del prompt de <code>agy</code>, pulsa <code>/model</code>:</p>
+ <pre class="salida_consola"> agy&gt; /model
+ </pre>
+<p>Aparecerá un selector interactivo. Selecciona <strong>Gemini 2.5 Pro</strong> (o el modelo predeterminado de alto rendimiento asignado a tu cuenta).</p>
+</li>
+<li>
+<p>Comprueba la configuración activa preguntando a la CLI:</p>
+ <pre class="salida_consola"> agy&gt; ¿Qué modelo estás utilizando y cuál es la raíz del workspace actual?
+ </pre>
+</li>
+</ol>
+</div> <!-- fin ejercicio -->
+<div style="page-break-after:always;"></div>
+<div class="box_bg_lightgreen">
+<h4 id="paso-4-instalar-la-skill-csharp-pro-desde-skillssh">Paso 4: Instalar la Skill <code>csharp-pro</code> desde <code>skills.sh</code> </h4>
+<p>Añadiremos al workspace la habilidad especializada en C# y .NET proveniente del catálogo <strong><a href="http://skills.sh">skills.sh</a></strong>.</p>
+<ol>
+<li>
+<p>Puedes instalar la habilidad utilizando el gestor de paquetes de habilidades <code>npx skills</code> directamente desde la consola o integrando los archivos en la estructura <code>.agents/skills/</code>:</p>
+ <pre class="salida_consola"> # Mediante el comando npx skills
+ npx skills add https://github.com/rmyndharis/antigravity-skills --skill csharp-pro
+ </pre>
+</li>
+<li>
+<p>Verifica que la carpeta contenga el archivo fundamental de la habilidad: <code>.agents\skills\csharp-pro\SKILL.md</code>.</p>
+</li>
+<li>
+<p>Vuelve a la sesión de Antigravity CLI y consulta el estado de las habilidades con:</p>
+ <pre class="salida_consola"> agy&gt; /skills
+ </pre>
+<p><strong>Salida esperada:</strong></p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>Available Workspace Skills:
+  - csharp-pro (.agents/skills/csharp-pro/SKILL.md): C# and .NET enterprise patterns, clean code and performance guidelines.
+</code></pre>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Divulgación Progresiva en Acción</p>
+<p>Observa que <code>csharp-pro</code> está registrada pero inactiva en la ventana de contexto. Solo ocupará memoria de tokens en el momento en que formules preguntas o tareas sobre archivos <code>.cs</code> o proyectos de C#.</p>
+</div>
+</div> <!-- fin ejercicio -->
+<div style="page-break-after:always;"></div>
+<div class="box_bg_lightgreen">
+<h4 id="paso-5-experimentación-con---ctrlo-y-shifttab">Paso 5: Experimentación con <code>@</code>, <code>!</code>, <code>Ctrl+O</code> y <code>Shift+Tab</code> </h4>
+<p>Practicaremos los controles de entrada y prefijos de terminal para comprobar su funcionamiento en tiempo real.</p>
+<ol>
+<li>
+<p><strong>Uso de <code>@</code>:</strong> Pide al agente que analice el código generado en .NET 10 referenciando directamente el archivo <code>Program.cs</code>:</p>
+ <pre class="salida_consola"> agy&gt; @BalmisAgyApp/Program.cs Explica qué hace este código y qué versión de C# está utilizando.
+ </pre>
+</li>
+<li>
+<p><strong>Uso de <code>!</code>:</strong> Ejecuta una orden de compilación de .NET directamente desde el prompt sin pasar por el LLM:</p>
+ <pre class="salida_consola"> agy&gt; !dotnet build BalmisAgyApp/BalmisAgyApp.csproj
+ # Salida por consola: Compilación correcta. 0 Errores. 0 Advertencias.
+ </pre>
+</li>
+<li>
+<p><strong>Uso de <code>Ctrl+O</code>:</strong> Pulsa la combinación de teclas <code>Ctrl+O</code> para abrir el editor multilínea. Escribe una instrucción en varios párrafos y pulsa <code>Enter</code> para enviarla:</p>
+ <pre class="salida_consola"> [Modo Multilínea - Ctrl+O]
+ Revisa el archivo @README.md.
+ Añade una sección titulada 'Arquitectura del Proyecto' 
+ y documenta que utilizamos .NET 10 con Antigravity CLI.
+ </pre>
+</li>
+<li>
+<p><strong>Uso de <code>Shift+Tab</code>:</strong> Pulsa <code>Shift+Tab</code> para alternar entre el agente principal de código y el subagente de investigación (<em>research</em>) o cambiar de modo de ejecución.</p>
+</li>
+</ol>
+</div> <!-- fin ejercicio -->
+<div style="page-break-after:always;"></div>
+<div class="box_bg_lightgreen">
+<h4 id="paso-6-verificación-de-comandos-de-control-y-revocación-de-permisos">Paso 6: Verificación de Comandos de Control y Revocación de Permisos </h4>
+<p>Comprobaremos la funcionalidad de los comandos de barra requeridos para la supervisión y seguridad de la sesión.</p>
+<ol>
+<li>
+<p><strong>Consulta de ayuda y métricas:</strong></p>
+ <pre class="salida_consola"> agy&gt; /help
+ agy&gt; /usage
+ </pre>
+</li>
+<li>
+<p><strong>Revocación de Permisos con <code>/permissions</code>:</strong><br>
+Ejecuta el comando para revisar las autorizaciones automáticas concedidas al agente:</p>
+ <pre class="salida_consola"> agy&gt; /permissions
+ </pre>
+<p>Si habías marcado alguna acción para que el agente la ejecutara sin preguntar, selecciona la opción para <strong>revocar / eliminar todas las autorizaciones</strong>. A partir de este momento, cualquier modificación de archivos o ejecución de comandos volverá a pedir autorización expresa en pantalla.</p>
+</li>
+<li>
+<p><strong>Consulta de navegación y guía técnica:</strong></p>
+ <pre class="salida_consola"> agy&gt; /browser
+ agy&gt; /antigravity-guide/browser
+ </pre>
+</li>
+<li>
+<p><strong>Nota al margen con <code>/btw</code>:</strong></p>
+ <pre class="salida_consola"> agy&gt; /btw Recuerda que para la entrega debemos seguir el estándar del IES Doctor Balmis.
+ </pre>
+</li>
+</ol>
+</div> <!-- fin ejercicio -->
+<div style="page-break-after:always;"></div>
+<div class="box_bg_lightgreen">
+<h4 id="paso-7-exportación-de-la-prueba-de-realización-certificación-de-contexto">Paso 7: Exportación de la Prueba de Realización (Certificación de Contexto) </h4>
+<p>Como requisito indispensable de evaluación de esta actividad, cada estudiante debe generar y exportar una <strong>prueba de realización verificable</strong> extrayendo el estado del contexto de su sesión.</p>
+<ol>
+<li>
+<p>Dentro de la sesión de <code>agy</code>, ejecuta el comando <code>/context</code> para examinar el resumen de la ventana de contexto:</p>
+ <pre class="salida_consola"> agy&gt; /context
+ </pre>
+<p>La consola mostrará una tabla con:</p>
+<ul>
+<li>Total de tokens consumidos en la sesión.</li>
+<li>Archivos cargados mediante <code>@</code> (<code>README.md</code>, <code>Program.cs</code>).</li>
+<li>Habilidades activas en el workspace (<code>csharp-pro</code>).</li>
+<li>Identificador único de conversación (<em>Conversation ID</em>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Exportar la prueba de contexto a disco:</strong><br>
+Para exportar la prueba de realización, sal momentáneamente de la CLI interactiva (<code>Ctrl+D</code> o <code>/exit</code>) y ejecuta en <code>cmd.exe</code> una llamada que exporte el diagnóstico formal a un archivo llamado <code>prueba_realizacion_contexto.json</code>:</p>
+ <pre class="salida_consola"> # Opción 1: Exportar el volcado de la sesión mediante agy en modo print
+ agy --print "/context" &gt; prueba_realizacion_contexto.json
+
+ # Opción 2: Copiar el archivo de transcripción oficial generado por Antigravity
+ # Ubicado en: %USERPROFILE%\.gemini\antigravity-cli\brain\<tu-conversation-id>\transcript.jsonl
+ copy "%USERPROFILE%\.gemini\antigravity-cli\brain\*\transcript.jsonl" prueba_realizacion_contexto.json
+ </tu-conversation-id></pre>
+</li>
+<li>
+<p><strong>Estructura que debe acreditar la prueba exportada:</strong><br>
+Abre el archivo generado <code>prueba_realizacion_contexto.json</code> y comprueba que contenga los elementos que certifican la realización de la práctica:</p>
+<ul>
+<li>La ruta del Workspace en <code>D:\proyectos\proyecto-agy-balmis</code>.</li>
+<li>El nombre del modelo utilizado (ej. <code>Gemini 2.5 Pro</code>).</li>
+<li>La presencia de la Skill <code>csharp-pro</code>.</li>
+<li>La traza de ejecución de los comandos <code>!dotnet build</code> y las referencias con <code>@</code>.</li>
+<li>El registro de revisión de permisos con <code>/permissions</code>.</li>
+</ul>
+</li>
+<li>
+<p>Realiza un commit final en Git con la prueba de contexto incorporada:</p>
+ <pre class="salida_consola"> git add prueba_realizacion_contexto.json
+ git commit -m "docs: anadir prueba de contexto de realizacion de actividad1 agy"
+ git log --oneline -n 3
+ </pre>
+</li>
+</ol>
+</div> <!-- fin ejercicio -->
+<div style="page-break-after:always;"></div>
+<h2 id="7-anexos-y-tablas-de-referencia">7. Anexos y Tablas de Referencia </h2>
+<h3 id="a1-glosario-de-comandos-de-barra-slash-commands">A.1. Glosario de Comandos de Barra (<em>Slash Commands</em>) </h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Comando</th>
+<th style="text-align:left">Sintaxis</th>
+<th style="text-align:left">Efecto y Propósito</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong><code>/help</code></strong></td>
+<td style="text-align:left"><code>/help</code></td>
+<td style="text-align:left">Muestra la ayuda general, manual de atajos y lista de comandos disponibles.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>/btw</code></strong></td>
+<td style="text-align:left"><code>/btw &lt;mensaje&gt;</code></td>
+<td style="text-align:left">Introduce un comentario o contexto lateral al asistente sin interrumpir el hilo principal.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>/clear</code></strong></td>
+<td style="text-align:left"><code>/clear</code></td>
+<td style="text-align:left">Limpia la pantalla de la terminal y reinicia el búfer visual del chat.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>/resume</code></strong></td>
+<td style="text-align:left"><code>/resume &lt;id&gt;</code></td>
+<td style="text-align:left">Reanuda una conversación previa utilizando su identificador único.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>/context</code></strong></td>
+<td style="text-align:left"><code>/context</code></td>
+<td style="text-align:left">Diagnostica el consumo de tokens, reglas cargadas, habilidades y archivos enlazados.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>/permissions</code></strong></td>
+<td style="text-align:left"><code>/permissions</code></td>
+<td style="text-align:left">Gestiona y permite <strong>revocar/eliminar autorizaciones previas</strong> concedidas al agente.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>/model</code></strong></td>
+<td style="text-align:left"><code>/model</code></td>
+<td style="text-align:left">Despliega el menú para alternar en caliente el modelo de lenguaje de la sesión.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>/skills</code></strong></td>
+<td style="text-align:left"><code>/skills</code></td>
+<td style="text-align:left">Lista las habilidades del workspace y globales disponibles para el agente.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>/rewind</code></strong></td>
+<td style="text-align:left"><code>/rewind</code></td>
+<td style="text-align:left">Rebobina la conversación al turno anterior descartando respuestas no deseadas.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>/usage</code></strong></td>
+<td style="text-align:left"><code>/usage</code></td>
+<td style="text-align:left">Muestra estadísticas detalladas del consumo de tokens y cuotas de la sesión.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>/browser</code></strong></td>
+<td style="text-align:left"><code>/browser</code></td>
+<td style="text-align:left">Activa el subagente de navegación web para pruebas de interfaz y scraping.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><code>/antigravity-guide/browser</code></strong></td>
+<td style="text-align:left"><code>/antigravity-guide/browser</code></td>
+<td style="text-align:left">Invoca la guía técnica oficial sobre automatización de navegadores de Antigravity.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="a2-buenas-prácticas-en-el-uso-de-agentes-cli">A.2. Buenas Prácticas en el Uso de Agentes CLI </h3>
+<ol>
+<li><strong>Mantén el contexto limpio:</strong> No acumules cientos de turnos irrelevantes en una misma conversación. Si una tarea ha concluido, haz un commit en Git y utiliza <code>/clear</code> o inicia una nueva sesión.</li>
+<li><strong>Utiliza <code>@</code> en lugar de pegar código:</strong> Las referencias relativas ahorran tokens de entrada y permiten que el agente consulte el archivo directamente en disco.</li>
+<li><strong>Supervisa los permisos:</strong> No utilices <code>--dangerously-skip-permissions</code> en entornos de producción. Revisa periódicamente con <code>/permissions</code> qué autorizaciones tienes activas.</li>
+<li><strong>Respeta la divulgación progresiva:</strong> Si no necesitas una habilidad especializada, no la instales en la raíz global; sitúala únicamente en el <code>.agents/skills/</code> del proyecto correspondiente.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Resumen de la Actividad</p>
+<p>Has aprendido a configurar un entorno de desarrollo asistido por IA completamente funcional y portátil utilizando <strong>Node.js v26.7</strong>, <strong>Python</strong> y <strong>Antigravity CLI</strong> en la consola <strong>cmd.exe</strong> de Windows. Has inicializado un workspace bajo control de versiones con <strong>Git</strong>, seleccionado modelos avanzados de IA, instalado la habilidad especializada <strong><code>csharp-pro</code></strong> desde <strong><a href="http://skills.sh">skills.sh</a></strong>, dominado la sintaxis <code>@</code> y <code>!</code>, operado con los atajos <code>Ctrl+O</code> y <code>Shift+Tab</code>, gestionado la seguridad con <code>/permissions</code> y exportado la prueba fehaciente de contexto como certificación de tu trabajo.</p>
+</div>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

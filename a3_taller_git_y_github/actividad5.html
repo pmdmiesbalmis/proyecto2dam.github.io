@@ -259,7 +259,8 @@ code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-fami
 <ul>
 <li><strong>Símbolo del sistema de Windows (<code>cmd.exe</code>)</strong> (o la terminal <strong>cmd</strong> integrada en Visual Studio Code)</li>
 <li><strong>Git para Windows</strong> (versión 2.20 o superior instalada)</li>
-<li><strong>Visual Studio Code</strong> o el <strong>Bloc de notas</strong> (opcional, para inspeccionar archivos)</li>
+<li><strong>SDK de .NET</strong> (versión 8, 9 o 10 para ejecutar archivos de C#)</li>
+<li><strong>Visual Studio Code</strong> o el <strong>Bloc de notas</strong> (para editar o inspeccionar código en C#)</li>
 </ul>
 <div style="page-break-after:always;"></div>
 <h2 id="1-fundamentos-qué-es-un-git-worktree">1. Fundamentos: ¿Qué es un Git Worktree? </h2>
@@ -276,8 +277,8 @@ code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-fami
 <p>¿Qué problemas surgen con este enfoque en el desarrollo profesional?</p>
 <ol>
 <li><strong>Cambio de contexto forzado (<em>Context Switching</em>):</strong> Si estás a mitad de una tarea y tienes cambios sin confirmar (<em>uncommitted changes</em>), Git te impide cambiar de rama a menos que uses <strong><code>git stash</code></strong> (guardar en el cajón temporal) o hagas un commit provisional sucio.</li>
-<li><strong>Imposibilidad de ejecución simultánea:</strong> No puedes mantener en marcha el servidor de desarrollo (<code>npm run dev</code>, Docker o Spring Boot) de una versión mientras inspeccionas o depuras otra versión distinta.</li>
-<li><strong>Cachés y reconstrucciones pesadas:</strong> En proyectos con dependencias voluminosas (<code>node_modules\</code>, <code>build\</code>, <code>target\</code>), cambiar de rama suele invalidar las cachés de compilación, obligando a reconstruir todo el proyecto desde cero.</li>
+<li><strong>Imposibilidad de ejecución simultánea:</strong> No puedes mantener en marcha la aplicación o API (<code>dotnet run</code>, Docker o Spring Boot) de una versión mientras inspeccionas o depuras otra versión distinta.</li>
+<li><strong>Cachés y reconstrucciones pesadas:</strong> En proyectos con dependencias y compilaciones voluminosas (<code>bin\</code>, <code>obj\</code>, <code>target\</code>, <code>node_modules\</code>), cambiar de rama suele invalidar las cachés de compilación, obligando a reconstruir todo el proyecto desde cero.</li>
 <li><strong>La "solución mala" (múltiples clones):</strong> Muchos desarrolladores noveles optan por clonar el repositorio varias veces en carpetas distintas (<code>proyecto-repo1</code>, <code>proyecto-repo2</code>). Esto duplica innecesariamente gigabytes de historial en disco, consume ancho de banda y no comparte los commits locales ni los stashes entre carpetas.</li>
 </ol>
 <h3 id="12-la-solución-git-worktrees">1.2. La solución: Git Worktrees </h3>
@@ -289,17 +290,16 @@ code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-fami
 </ul>
 <pre data-role="codeBlock" data-info="" class="language-text"><code>📁 Directorio del Proyecto Principal (C:\practicas\taller-worktree)
 ├── 📁 .git\                 ← Base de datos central (commits, ramas, objetos)
-├── 📄 index.html            ← Rama: main
-└── 📄 app.js
+└── 📄 Program.cs            ← Rama: main (código C# v1.0)
 
 📁 ..\taller-hotfix          ← Directorio vinculado (Worktree secundario)
 ├── 📄 .git                  ← Archivo de enlace que apunta a la BD principal
-├── 📄 index.html            ← Rama: hotfix-urgente
-└── 📄 app.js
+└── 📄 Program.cs            ← Rama: hotfix-urgente (parche aplicado)
 
 📁 ..\agente-ia-test         ← Directorio vinculado para IA / Tests
 ├── 📄 .git                  ← Archivo de enlace que apunta a la BD principal
-└── 📄 app.test.js           ← Rama: ia/generar-tests
+├── 📄 Program.cs            ← Rama: ia/generar-tests
+└── 📄 ProgramTests.cs       ← Suite de pruebas en C# generada por IA
 </code></pre><div class="admonition info">
 <p class="admonition-title">Estructura interna de un Worktree</p>
 <p>El directorio principal contiene la carpeta habitual <strong><code>.git\</code></strong>. En cambio, en los directorios secundarios vinculados no hay una carpeta <strong><code>.git</code></strong>, sino un <strong>archivo de texto plano llamado <code>.git</code></strong> que contiene una directiva de enlace como <code>gitdir: C:/practicas/taller-worktree/.git/worktrees/taller-hotfix</code>. De este modo, Git sabe exactamente dónde acudir para consultar y registrar los cambios.</p>
@@ -408,10 +408,14 @@ Lanzas una suite de pruebas que tarda 15 minutos en un worktree en segundo plano
  git init</pre>
 </li>
 <li>
-<p>Crea un archivo principal <strong><code>app.js</code></strong> con un código de inicio y confirma el primer commit:</p>
- <pre class="salida_consola"> echo console.log('Aplicacion principal v1.0 en ejecucion'); &gt; app.js
- git add app.js
+<p>Crea un archivo principal de C# llamado <strong><code>Program.cs</code></strong> con un código de inicio y confirma el primer commit:</p>
+ <pre class="salida_consola"> echo Console.WriteLine("Aplicacion principal v1.0 en ejecucion"); &gt; Program.cs
+ git add Program.cs
  git commit -m "Commit inicial: versión base 1.0"</pre>
+<div class="admonition tip">
+<p class="admonition-title">Ejecución en C# con .NET</p>
+<p>Si dispones del SDK de .NET instalado, puedes verificar en cualquier momento la ejecución de tu archivo de C# con el comando <strong><code>dotnet run Program.cs</code></strong>.</p>
+</div>
 </li>
 <li>
 <p>Asegúrate de que la rama por defecto se llama <strong><code>main</code></strong>:</p>
@@ -489,8 +493,8 @@ Lanzas una suite de pruebas que tarda 15 minutos en un worktree en segundo plano
 <p>Comprobemos la verdadera ventaja de los worktrees: trabajar a la vez en dos ramas sin tocar <strong><code>git switch</code></strong>.</p>
 <ol>
 <li>
-<p>Estando dentro de <strong><code>..\taller-hotfix</code></strong>, añade la corrección al archivo <strong><code>app.js</code></strong> y haz un commit:</p>
- <pre class="salida_consola"> echo console.log('Parche urgente de seguridad aplicado'); &gt;&gt; app.js
+<p>Estando dentro de <strong><code>..\taller-hotfix</code></strong>, añade la corrección al archivo <strong><code>Program.cs</code></strong> y haz un commit:</p>
+ <pre class="salida_consola"> echo Console.WriteLine("Parche urgente de seguridad aplicado"); &gt;&gt; Program.cs
  git commit -am "Aplica parche urgente en hotfix"</pre>
 </li>
 <li>
@@ -499,7 +503,7 @@ Lanzas una suite de pruebas que tarda 15 minutos en un worktree en segundo plano
  git status</pre>
 </li>
 <li>
-<p>Observa que en <strong><code>taller-worktree</code></strong> continúas en la rama <strong><code>main</code></strong>, el archivo <strong><code>app.js</code></strong> permanece intacto en su versión 1.0 (puedes comprobarlo ejecutando <strong><code>type app.js</code></strong>) y el repositorio sigue completamente limpio.</p>
+<p>Observa que en <strong><code>taller-worktree</code></strong> continúas en la rama <strong><code>main</code></strong>, el archivo <strong><code>Program.cs</code></strong> permanece intacto en su versión 1.0 (puedes comprobarlo ejecutando <strong><code>type Program.cs</code></strong>) y el repositorio sigue completamente limpio.</p>
 </li>
 <li>
 <p><strong>Prueba de seguridad:</strong> Intenta cambiarte en esta consola a la rama <strong><code>hotfix-urgente</code></strong>:</p>
@@ -519,10 +523,10 @@ Lanzas una suite de pruebas que tarda 15 minutos en un worktree en segundo plano
  <pre class="salida_consola"> git worktree add ..\agente-ia-test -b ia/generar-tests</pre>
 </li>
 <li>
-<p>El agente trabaja en su directorio aislado <strong><code>..\agente-ia-test</code></strong> generando un archivo de pruebas:</p>
+<p>El agente trabaja en su directorio aislado <strong><code>..\agente-ia-test</code></strong> generando un archivo de pruebas en C#:</p>
  <pre class="salida_consola"> cd ..\agente-ia-test
- echo console.log('Suite de pruebas generada por agente de IA'); &gt; app.test.js
- git add app.test.js
+ echo Console.WriteLine("Suite de pruebas unitarias generada por agente de IA"); &gt; ProgramTests.cs
+ git add ProgramTests.cs
  git commit -m "feat(ai): suite de pruebas automatizadas generada por agente"</pre>
 </li>
 <li>
@@ -533,7 +537,7 @@ Lanzas una suite de pruebas que tarda 15 minutos en un worktree en segundo plano
  </pre>
 </li>
 <li>
-<p>Verifica con el comando <strong><code>dir</code></strong> que <strong><code>app.test.js</code></strong> ahora forma parte de la carpeta principal en <strong><code>main</code></strong>:</p>
+<p>Verifica con el comando <strong><code>dir</code></strong> que <strong><code>ProgramTests.cs</code></strong> ahora forma parte de la carpeta principal en <strong><code>main</code></strong>:</p>
  <pre class="salida_consola"> dir</pre>
 </li>
 </ol>
@@ -619,8 +623,8 @@ Lanzas una suite de pruebas que tarda 15 minutos en un worktree en segundo plano
 Se recomienda crear los worktrees en un nivel superior como carpetas hermanas (por ejemplo: <code>..\proyecto-hotfix</code> o dentro de una subcarpeta ignorada en <code>.gitignore</code> como <code>.worktrees\</code>) para evitar anidar accidentalmente repositorios dentro de repositorios.</li>
 <li><strong>No borres carpetas a mano:</strong><br>
 Utiliza siempre <strong><code>git worktree remove &lt;ruta&gt;</code></strong>. Si alguna vez borras una carpeta directamente desde el Explorador de archivos de Windows o con el comando <strong><code>rmdir /s /q</code></strong>, ejecuta inmediatamente <strong><code>git worktree prune</code></strong> en el repositorio principal para limpiar los enlaces huérfanos.</li>
-<li><strong>Cuidado con dependencias pesadas:</strong><br>
-Recuerda que cada worktree es un directorio independiente; si tu proyecto usa Node.js, Python o Java (Maven/Gradle), deberás ejecutar la restauración de paquetes en la nueva carpeta si necesitas compilar o ejecutar en ella.</li>
+<li><strong>Cuidado con dependencias pesadas y compilación:</strong><br>
+Recuerda que cada worktree es un directorio independiente; si tu proyecto usa C# / .NET, Java o Node.js, deberás ejecutar la restauración de paquetes y compilación (<code>dotnet restore</code> / <code>dotnet build</code>) en la nueva carpeta si necesitas compilar o ejecutar en ella. Además, asegúrate de ignorar carpetas de salida (<code>bin\</code> y <code>obj\</code>) en <code>.gitignore</code> para no transferir artefactos de compilación intermedios entre ramas.</li>
 <li><strong>Ideal para automatización y agentes autónomos:</strong><br>
 En entornos de integración continua (CI/CD) o herramientas con asistentes agénticos de IA, los worktrees son la solución estándar de la industria para ejecutar pruebas y validaciones en paralelo sin coste de duplicación de almacenamiento.</li>
 </ol>
